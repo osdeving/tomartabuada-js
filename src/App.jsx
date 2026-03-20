@@ -19,6 +19,7 @@ import {
 } from "./lib/training";
 
 const MOBILE_LAYOUT_QUERY = "(max-width: 920px), (pointer: coarse)";
+const APP_STATE_VERSION = 1;
 const KEYPAD_ROWS = [
   ["7", "8", "9"],
   ["4", "5", "6"],
@@ -26,23 +27,183 @@ const KEYPAD_ROWS = [
   ["clear", "0", "backspace"],
 ];
 const ALL_FACT_IDS = FACTS.map((fact) => fact.id);
+const ALL_FACT_ID_SET = new Set(ALL_FACT_IDS);
 const DEFAULT_FEEDBACK = {
   tone: "neutral",
   title: "Keypad próprio no celular.",
   detail:
     "O treino agora usa range builder por células. No mobile a resposta entra só pelo keypad, sem teclado nativo.",
 };
+const RANGE_PRESETS = [
+  {
+    id: "core-2-9",
+    label: "Quadrado 2-9",
+    detail: "Base limpa sem multiplicações por 1.",
+    factIds: DEFAULT_SELECTED_FACT_IDS,
+  },
+  {
+    id: "hard-6-9",
+    label: "6-9 sem fáceis",
+    detail: "6, 7, 8 e 9, mas corta 1, 2, 5 e os quadrados.",
+    factIds: buildPresetFactIds({
+      focusFactors: [6, 7, 8, 9],
+      blockedFactors: [1, 2, 5],
+      excludedSquares: [6, 7, 8, 9],
+    }),
+  },
+  {
+    id: "hard-4-9",
+    label: "4, 6-9 sem fáceis",
+    detail: "Inclui 4 e segue a mesma poda de 1, 2, 5 e quadrados.",
+    factIds: buildPresetFactIds({
+      focusFactors: [4, 6, 7, 8, 9],
+      blockedFactors: [1, 2, 5],
+      excludedSquares: [4, 6, 7, 8, 9],
+    }),
+  },
+  {
+    id: "focus-8",
+    label: "Foco no 8",
+    detail: "Toda conta com 8, já sem 1, 2, 5 e sem 8×8.",
+    factIds: buildPresetFactIds({
+      focusFactors: [8],
+      blockedFactors: [1, 2, 5],
+      excludedSquares: [8],
+    }),
+  },
+  {
+    id: "late-game",
+    label: "7-9 puro osso",
+    detail: "7, 8 e 9, sem moleza e sem quadrados.",
+    factIds: buildPresetFactIds({
+      focusFactors: [7, 8, 9],
+      blockedFactors: [1, 2, 5],
+      excludedSquares: [7, 8, 9],
+    }),
+  },
+];
 
-function loadProgress() {
+function buildPresetFactIds({
+  focusFactors,
+  blockedFactors = [],
+  excludedSquares = [],
+}) {
+  const focusSet = new Set(focusFactors);
+  const blockedSet = new Set(blockedFactors);
+  const squareSet = new Set(excludedSquares);
+
+  return FACTS.filter((fact) => {
+    const touchesFocus = focusSet.has(fact.a) || focusSet.has(fact.b);
+
+    if (!touchesFocus) {
+      return false;
+    }
+
+    if (blockedSet.has(fact.a) || blockedSet.has(fact.b)) {
+      return false;
+    }
+
+    if (fact.a === fact.b && squareSet.has(fact.a)) {
+      return false;
+    }
+
+    return true;
+  }).map((fact) => fact.id);
+}
+
+function normalizeQuestion(rawQuestion, selectedFactIds) {
+  if (
+    !rawQuestion ||
+    typeof rawQuestion !== "object" ||
+    !ALL_FACT_ID_SET.has(rawQuestion.id) ||
+    !selectedFactIds.includes(rawQuestion.id)
+  ) {
+    return null;
+  }
+
+  const sourceFact = FACTS.find((fact) => fact.id === rawQuestion.id);
+
+  return sourceFact
+    ? {
+        id: sourceFact.id,
+        a: sourceFact.a,
+        b: sourceFact.b,
+        answer: sourceFact.product,
+        product: sourceFact.product,
+        bandId: sourceFact.bandId,
+      }
+    : null;
+}
+
+function loadAppState() {
   if (typeof window === "undefined") {
-    return createDefaultProgress();
+    return {
+      progress: createDefaultProgress(),
+      question: null,
+      answerBuffer: "",
+      feedback: DEFAULT_FEEDBACK,
+      lastQuestionId: "",
+    };
   }
 
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? normalizeProgress(JSON.parse(raw)) : createDefaultProgress();
+
+    if (!raw) {
+      return {
+        progress: createDefaultProgress(),
+        question: null,
+        answerBuffer: "",
+        feedback: DEFAULT_FEEDBACK,
+        lastQuestionId: "",
+      };
+    }
+
+    const parsed = JSON.parse(raw);
+    const rawProgress =
+      parsed && typeof parsed === "object" && "progress" in parsed
+        ? parsed.progress
+        : parsed;
+    const progress = normalizeProgress(rawProgress);
+    const session =
+      parsed && typeof parsed === "object" && "session" in parsed
+        ? parsed.session
+        : null;
+
+    return {
+      progress,
+      question: normalizeQuestion(session?.question, progress.selectedFactIds),
+      answerBuffer:
+        typeof session?.answerBuffer === "string" &&
+        /^\d{0,3}$/.test(session.answerBuffer)
+          ? session.answerBuffer
+          : "",
+      feedback:
+        session?.feedback &&
+        typeof session.feedback === "object" &&
+        typeof session.feedback.title === "string" &&
+        typeof session.feedback.detail === "string"
+          ? {
+              tone: session.feedback.tone ?? "neutral",
+              title: session.feedback.title,
+              detail: session.feedback.detail,
+              meta:
+                typeof session.feedback.meta === "string"
+                  ? session.feedback.meta
+                  : undefined,
+            }
+          : DEFAULT_FEEDBACK,
+      lastQuestionId:
+        typeof session?.lastQuestionId === "string" ? session.lastQuestionId : "",
+    };
   } catch {
-    return createDefaultProgress();
+    return {
+      progress: createDefaultProgress(),
+      question: null,
+      answerBuffer: "",
+      feedback: DEFAULT_FEEDBACK,
+      lastQuestionId: "",
+    };
   }
 }
 
@@ -116,10 +277,17 @@ function getSelectionCellFromEvent(event) {
 }
 
 function App() {
-  const [progress, setProgress] = useState(loadProgress);
-  const [question, setQuestion] = useState(null);
-  const [answerBuffer, setAnswerBuffer] = useState("");
-  const [feedback, setFeedback] = useState(DEFAULT_FEEDBACK);
+  const initialStateRef = useRef(null);
+
+  if (!initialStateRef.current) {
+    initialStateRef.current = loadAppState();
+  }
+
+  const initialState = initialStateRef.current;
+  const [progress, setProgress] = useState(initialState.progress);
+  const [question, setQuestion] = useState(initialState.question);
+  const [answerBuffer, setAnswerBuffer] = useState(initialState.answerBuffer);
+  const [feedback, setFeedback] = useState(initialState.feedback);
   const [dragSelection, setDragSelection] = useState(null);
   const [isCompactLayout, setIsCompactLayout] = useState(() => {
     if (typeof window === "undefined") {
@@ -130,7 +298,7 @@ function App() {
   });
 
   const questionStartRef = useRef(0);
-  const lastQuestionIdRef = useRef("");
+  const lastQuestionIdRef = useRef(initialState.lastQuestionId);
   const selectedFactIdSet = new Set(progress.selectedFactIds);
 
   function issueNextQuestion(
@@ -253,6 +421,14 @@ function App() {
         detail: `Entraram todas as contas ligadas a ${selectedFactors.join(", ")}.`,
       },
     );
+  }
+
+  function applyPreset(preset) {
+    applySelectionSet(preset.factIds, {
+      tone: "neutral",
+      title: `${preset.label} aplicado.`,
+      detail: `${preset.detail} ${describeCellCount(preset.factIds.length)} no treino.`,
+    });
   }
 
   function toggleLine(factIds, label) {
@@ -434,9 +610,21 @@ function App() {
       return undefined;
     }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    window.localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({
+        version: APP_STATE_VERSION,
+        progress,
+        session: {
+          question,
+          answerBuffer,
+          feedback,
+          lastQuestionId: lastQuestionIdRef.current,
+        },
+      }),
+    );
     return undefined;
-  }, [progress]);
+  }, [answerBuffer, feedback, progress, question]);
 
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -462,6 +650,18 @@ function App() {
     }
 
     issueNextQuestion(progress, progress.selectedFactIds, "");
+  }, []);
+
+  useEffect(() => {
+    if (!question) {
+      return;
+    }
+
+    questionStartRef.current = performance.now();
+
+    if (!lastQuestionIdRef.current) {
+      lastQuestionIdRef.current = question.id;
+    }
   }, []);
 
   useEffect(() => {
@@ -535,6 +735,7 @@ function App() {
     .slice(0, 6);
   const smartSelection = getSmartFactorSelection(progress);
   const smartSelectionFactIds = getFactIdsForFactors(smartSelection);
+  const mobilePresetRows = RANGE_PRESETS.slice(0, 3);
   const recentHistory = progress.history.slice(0, 16);
   const rangePreviewFactIds = dragSelection
     ? buildFactIdsForRectangle(dragSelection.anchor, dragSelection.current)
@@ -542,7 +743,7 @@ function App() {
   const rangePreviewFactIdSet = new Set(rangePreviewFactIds);
   const allSelected = progress.selectedFactIds.length === ALL_FACT_IDS.length;
   const selectionMessage = dragSelection
-    ? dragSelection.mode === "paint"
+      ? dragSelection.mode === "paint"
       ? `Pintando ${rangePreviewFactIds.length} células`
       : `Apagando ${rangePreviewFactIds.length} células`
     : "Arraste para pintar bloco. Comece em célula ativa para apagar um bloco.";
@@ -645,26 +846,19 @@ function App() {
             </p>
 
             <div className="preset-row">
-              <button
-                className="mini-button"
-                type="button"
-                onClick={() => applySelectionSet(DEFAULT_SELECTED_FACT_IDS)}
-              >
-                Quadrado 2-9
-              </button>
+              {RANGE_PRESETS.map((preset) => (
+                <button
+                  key={preset.id}
+                  className="mini-button"
+                  type="button"
+                  onClick={() => applyPreset(preset)}
+                  title={preset.detail}
+                >
+                  {preset.label}
+                </button>
+              ))}
               <button className="mini-button" type="button" onClick={toggleAll}>
                 {allSelected ? "Limpar tudo" : "Tudo"}
-              </button>
-              <button
-                className="mini-button"
-                type="button"
-                onClick={() => applyFactorShortcut([8], {
-                  tone: "neutral",
-                  title: "Linha e coluna do 8 armadas.",
-                  detail: "A matriz puxou todas as contas que incluem 8. Agora você pode remover as fáceis com toque.",
-                })}
-              >
-                Foco no 8
               </button>
               <button
                 className="mini-button"
@@ -778,6 +972,19 @@ function App() {
               <span className="status-pill">
                 Layout {isCompactLayout ? "mobile" : "desktop"}
               </span>
+            </div>
+
+            <div className="mobile-practice-toolbar">
+              {mobilePresetRows.map((preset) => (
+                <button
+                  key={`mobile-${preset.id}`}
+                  className="mobile-preset-chip"
+                  type="button"
+                  onClick={() => applyPreset(preset)}
+                >
+                  {preset.label}
+                </button>
+              ))}
             </div>
 
             <div className="question-card">
