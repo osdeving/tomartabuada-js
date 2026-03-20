@@ -10,12 +10,15 @@ export const PRODUCT_BANDS = [
 ];
 
 export const FACTS = buildFacts();
+export const DEFAULT_SELECTED_FACT_IDS = FACTS.filter(
+  (fact) => fact.a >= 2 && fact.b >= 2,
+).map((fact) => fact.id);
 
 function buildFacts() {
   const facts = [];
 
   for (let a = 1; a <= 9; a += 1) {
-    for (let b = a; b <= 9; b += 1) {
+    for (let b = 1; b <= 9; b += 1) {
       const product = a * b;
 
       facts.push({
@@ -32,6 +35,10 @@ function buildFacts() {
 }
 
 export function getFactId(a, b) {
+  return `${a}x${b}`;
+}
+
+export function getCanonicalFactId(a, b) {
   return `${Math.min(a, b)}x${Math.max(a, b)}`;
 }
 
@@ -70,8 +77,8 @@ function createBandStats() {
 
 export function createDefaultProgress() {
   return {
-    version: 2,
-    selectedFactors: [...DEFAULT_SELECTED_FACTORS],
+    version: 3,
+    selectedFactIds: getDefaultSelectedFactIds(),
     factStats: Object.fromEntries(
       FACTS.map((fact) => [fact.id, createFactStats()]),
     ),
@@ -96,20 +103,30 @@ export function normalizeProgress(rawProgress) {
     ? rawProgress.selectedFactors
         .map((value) => Number(value))
         .filter((value) => FACTORS.includes(value))
-    : base.selectedFactors;
+    : DEFAULT_SELECTED_FACTORS;
+  const selectedFactIdSet = new Set(FACTS.map((fact) => fact.id));
+  const rawSelectedFactIds = Array.isArray(rawProgress.selectedFactIds)
+    ? rawProgress.selectedFactIds.filter((factId) => selectedFactIdSet.has(factId))
+    : [];
+  const migratedSelectedFactIds = rawSelectedFactIds.length
+    ? rawSelectedFactIds
+    : rawSelectedFactors.length
+      ? getFactIdsForFactors(rawSelectedFactors)
+      : base.selectedFactIds;
+  const migratedSelectedFactIdSet = new Set(migratedSelectedFactIds);
 
   return {
     ...base,
     ...rawProgress,
-    selectedFactors: rawSelectedFactors.length
-      ? Array.from(new Set(rawSelectedFactors)).sort((a, b) => a - b)
-      : [],
+    selectedFactIds: FACTS.filter((fact) => migratedSelectedFactIdSet.has(fact.id)).map(
+      (fact) => fact.id,
+    ),
     factStats: Object.fromEntries(
       FACTS.map((fact) => [
         fact.id,
         {
           ...createFactStats(),
-          ...(rawProgress.factStats?.[fact.id] ?? {}),
+          ...getMigratedFactStats(rawProgress, fact),
         },
       ]),
     ),
@@ -132,12 +149,22 @@ export function normalizeProgress(rawProgress) {
   };
 }
 
-export function getActiveFacts(selectedFactors) {
+export function getDefaultSelectedFactIds() {
+  return [...DEFAULT_SELECTED_FACT_IDS];
+}
+
+export function getFactIdsForFactors(selectedFactors) {
   const selectedSet = new Set(selectedFactors);
 
   return FACTS.filter(
     (fact) => selectedSet.has(fact.a) || selectedSet.has(fact.b),
-  );
+  ).map((fact) => fact.id);
+}
+
+export function getActiveFacts(selectedFactIds) {
+  const selectedSet = new Set(selectedFactIds);
+
+  return FACTS.filter((fact) => selectedSet.has(fact.id));
 }
 
 export function getAccuracy(stats) {
@@ -245,8 +272,8 @@ export function getSmartFactorSelection(progress) {
     : [6, 7, 8, 9];
 }
 
-export function pickNextQuestion(progress, selectedFactors, previousQuestionId = "") {
-  const activeFacts = getActiveFacts(selectedFactors);
+export function pickNextQuestion(progress, selectedFactIds, previousQuestionId = "") {
+  const activeFacts = getActiveFacts(selectedFactIds);
 
   if (!activeFacts.length) {
     return null;
@@ -299,12 +326,11 @@ export function pickNextQuestion(progress, selectedFactors, previousQuestionId =
   });
 
   const chosen = weightedRandom(weightedFacts);
-  const shouldSwap = chosen.fact.a !== chosen.fact.b && Math.random() > 0.5;
 
   return {
     id: chosen.fact.id,
-    a: shouldSwap ? chosen.fact.b : chosen.fact.a,
-    b: shouldSwap ? chosen.fact.a : chosen.fact.b,
+    a: chosen.fact.a,
+    b: chosen.fact.b,
     answer: chosen.fact.product,
     product: chosen.fact.product,
     bandId: chosen.fact.bandId,
@@ -491,6 +517,22 @@ function weightedRandom(items) {
   }
 
   return items.at(-1);
+}
+
+function getMigratedFactStats(rawProgress, fact) {
+  if (!rawProgress.factStats) {
+    return {};
+  }
+
+  if (rawProgress.version >= 3) {
+    return rawProgress.factStats[fact.id] ?? {};
+  }
+
+  return (
+    rawProgress.factStats[fact.id] ??
+    rawProgress.factStats[getCanonicalFactId(fact.a, fact.b)] ??
+    {}
+  );
 }
 
 function clamp(value, min, max) {

@@ -1,6 +1,8 @@
 import { Fragment, useEffect, useEffectEvent, useRef, useState } from "react";
 import {
+  DEFAULT_SELECTED_FACT_IDS,
   FACTORS,
+  FACTS,
   STORAGE_KEY,
   applyAnswer,
   createDefaultProgress,
@@ -9,7 +11,7 @@ import {
   getActiveFacts,
   getBandInsights,
   getFactId,
-  getFactorInsights,
+  getFactIdsForFactors,
   getMasteryScore,
   getSmartFactorSelection,
   normalizeProgress,
@@ -23,11 +25,12 @@ const KEYPAD_ROWS = [
   ["1", "2", "3"],
   ["clear", "0", "backspace"],
 ];
+const ALL_FACT_IDS = FACTS.map((fact) => fact.id);
 const DEFAULT_FEEDBACK = {
   tone: "neutral",
-  title: "Sem teclado nativo no celular.",
+  title: "Keypad próprio no celular.",
   detail:
-    "No mobile a resposta entra pelo keypad próprio. No desktop você pode usar teclado físico ou clicar nos botões.",
+    "O treino agora usa range builder por células. No mobile a resposta entra só pelo keypad, sem teclado nativo.",
 };
 
 function loadProgress() {
@@ -58,11 +61,66 @@ function toPercent(value) {
   return value == null ? "novo" : `${Math.round(value * 100)}%`;
 }
 
+function describeCellCount(count) {
+  return `${count} célula${count === 1 ? "" : "s"} ativa${count === 1 ? "" : "s"}`;
+}
+
+function buildFactIdsForRectangle(anchor, current) {
+  const rowStart = Math.min(anchor.row, current.row);
+  const rowEnd = Math.max(anchor.row, current.row);
+  const columnStart = Math.min(anchor.column, current.column);
+  const columnEnd = Math.max(anchor.column, current.column);
+  const factIds = [];
+
+  for (let row = rowStart; row <= rowEnd; row += 1) {
+    for (let column = columnStart; column <= columnEnd; column += 1) {
+      factIds.push(getFactId(row, column));
+    }
+  }
+
+  return factIds;
+}
+
+function buildRowFactIds(row) {
+  return FACTORS.map((column) => getFactId(row, column));
+}
+
+function buildColumnFactIds(column) {
+  return FACTORS.map((row) => getFactId(row, column));
+}
+
+function getSelectionCellFromEvent(event) {
+  if (typeof document === "undefined") {
+    return null;
+  }
+
+  const element = document.elementFromPoint(event.clientX, event.clientY);
+  const cellElement = element?.closest?.("[data-selection-cell='true']");
+
+  if (!cellElement) {
+    return null;
+  }
+
+  const row = Number(cellElement.dataset.row);
+  const column = Number(cellElement.dataset.column);
+
+  if (!row || !column) {
+    return null;
+  }
+
+  return {
+    row,
+    column,
+    id: getFactId(row, column),
+  };
+}
+
 function App() {
   const [progress, setProgress] = useState(loadProgress);
   const [question, setQuestion] = useState(null);
   const [answerBuffer, setAnswerBuffer] = useState("");
   const [feedback, setFeedback] = useState(DEFAULT_FEEDBACK);
+  const [dragSelection, setDragSelection] = useState(null);
   const [isCompactLayout, setIsCompactLayout] = useState(() => {
     if (typeof window === "undefined") {
       return false;
@@ -73,15 +131,16 @@ function App() {
 
   const questionStartRef = useRef(0);
   const lastQuestionIdRef = useRef("");
+  const selectedFactIdSet = new Set(progress.selectedFactIds);
 
   function issueNextQuestion(
     nextProgress,
-    selectedFactors = nextProgress.selectedFactors,
+    selectedFactIds = nextProgress.selectedFactIds,
     previousQuestionId = question?.id ?? lastQuestionIdRef.current,
   ) {
     const nextQuestion = pickNextQuestion(
       nextProgress,
-      selectedFactors,
+      selectedFactIds,
       previousQuestionId,
     );
 
@@ -146,26 +205,30 @@ function App() {
       ...result.feedback,
       meta: formatResponseTime(responseTimeMs),
     });
-    issueNextQuestion(result.progress, result.progress.selectedFactors, question.id);
+    issueNextQuestion(result.progress, result.progress.selectedFactIds, question.id);
   }
 
-  function applyFactorSelection(nextFactors, nextFeedback = null) {
-    const normalizedFactors = Array.from(new Set(nextFactors)).sort((a, b) => a - b);
+  function applySelectionSet(nextSelectedFactIds, nextFeedback = null) {
+    const nextSelectedFactIdSet = new Set(nextSelectedFactIds);
+    const normalizedFactIds = ALL_FACT_IDS.filter((factId) =>
+      nextSelectedFactIdSet.has(factId),
+    );
     const nextProgress = {
       ...progress,
-      selectedFactors: normalizedFactors,
+      selectedFactIds: normalizedFactIds,
     };
 
     setProgress(nextProgress);
+    setDragSelection(null);
 
-    if (!normalizedFactors.length) {
+    if (!normalizedFactIds.length) {
       setQuestion(null);
       setAnswerBuffer("");
       setFeedback(
         nextFeedback ?? {
           tone: "warning",
-          title: "Nenhuma família ativa.",
-          detail: "Escolha pelo menos uma tabuada para continuar treinando.",
+          title: "Range vazio.",
+          detail: "Pinte pelo menos uma célula para continuar treinando.",
         },
       );
       return;
@@ -174,19 +237,149 @@ function App() {
     setFeedback(
       nextFeedback ?? {
         tone: "neutral",
-        title: "Escopo atualizado.",
-        detail: `${normalizedFactors.length} famílias ativas e fila reorganizada.`,
+        title: "Range atualizado.",
+        detail: `${describeCellCount(normalizedFactIds.length)} no treino.`,
       },
     );
-    issueNextQuestion(nextProgress, normalizedFactors, question?.id ?? "");
+    issueNextQuestion(nextProgress, normalizedFactIds, question?.id ?? "");
   }
 
-  function toggleFactor(factor) {
-    const nextFactors = progress.selectedFactors.includes(factor)
-      ? progress.selectedFactors.filter((value) => value !== factor)
-      : [...progress.selectedFactors, factor];
+  function applyFactorShortcut(selectedFactors, nextFeedback = null) {
+    applySelectionSet(
+      getFactIdsForFactors(selectedFactors),
+      nextFeedback ?? {
+        tone: "neutral",
+        title: "Famílias aplicadas.",
+        detail: `Entraram todas as contas ligadas a ${selectedFactors.join(", ")}.`,
+      },
+    );
+  }
 
-    applyFactorSelection(nextFactors);
+  function toggleLine(factIds, label) {
+    const shouldSelect = factIds.some((factId) => !selectedFactIdSet.has(factId));
+    const nextSelection = new Set(progress.selectedFactIds);
+
+    factIds.forEach((factId) => {
+      if (shouldSelect) {
+        nextSelection.add(factId);
+      } else {
+        nextSelection.delete(factId);
+      }
+    });
+
+    applySelectionSet(Array.from(nextSelection), {
+      tone: "neutral",
+      title: shouldSelect ? `${label} ligada.` : `${label} desligada.`,
+      detail: `${describeCellCount(nextSelection.size)} no range atual.`,
+    });
+  }
+
+  function toggleRow(row) {
+    toggleLine(buildRowFactIds(row), `Linha ${row}`);
+  }
+
+  function toggleColumn(column) {
+    toggleLine(buildColumnFactIds(column), `Coluna ${column}`);
+  }
+
+  function toggleAll() {
+    const shouldSelectAll = progress.selectedFactIds.length !== ALL_FACT_IDS.length;
+
+    applySelectionSet(shouldSelectAll ? ALL_FACT_IDS : [], {
+      tone: "neutral",
+      title: shouldSelectAll ? "Grade inteira ligada." : "Grade inteira limpa.",
+      detail: shouldSelectAll
+        ? "Todas as 81 células entraram no treino."
+        : "Nenhuma célula ficou ativa.",
+    });
+  }
+
+  function mergeSelectionByMode(targetFactIds, mode, nextFeedback = null) {
+    const nextSelection = new Set(progress.selectedFactIds);
+
+    targetFactIds.forEach((factId) => {
+      if (mode === "paint") {
+        nextSelection.add(factId);
+      } else {
+        nextSelection.delete(factId);
+      }
+    });
+
+    applySelectionSet(Array.from(nextSelection), nextFeedback);
+  }
+
+  function startRangeDrag(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) {
+      return;
+    }
+
+    const selectionCell = getSelectionCellFromEvent(event);
+
+    if (!selectionCell) {
+      return;
+    }
+
+    event.preventDefault();
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+
+    setDragSelection({
+      pointerId: event.pointerId,
+      anchor: selectionCell,
+      current: selectionCell,
+      mode: selectedFactIdSet.has(selectionCell.id) ? "erase" : "paint",
+    });
+  }
+
+  function moveRangeDrag(event) {
+    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const selectionCell = getSelectionCellFromEvent(event);
+
+    if (!selectionCell || selectionCell.id === dragSelection.current.id) {
+      return;
+    }
+
+    setDragSelection((current) =>
+      current
+        ? {
+            ...current,
+            current: selectionCell,
+          }
+        : current,
+    );
+  }
+
+  function finishRangeDrag(event) {
+    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const selectionCell = getSelectionCellFromEvent(event) ?? dragSelection.current;
+    const targetFactIds = buildFactIdsForRectangle(
+      dragSelection.anchor,
+      selectionCell,
+    );
+    const mode = dragSelection.mode;
+
+    event.currentTarget.releasePointerCapture?.(event.pointerId);
+    setDragSelection(null);
+
+    mergeSelectionByMode(targetFactIds, mode, {
+      tone: "neutral",
+      title: mode === "paint" ? "Área pintada." : "Área apagada.",
+      detail: `${targetFactIds.length} célula${targetFactIds.length === 1 ? "" : "s"} ${mode === "paint" ? "ligada" : "removida"}${targetFactIds.length === 1 ? "" : "s"} no range.`,
+    });
+  }
+
+  function cancelRangeDrag(event) {
+    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
+      return;
+    }
+
+    event.currentTarget.releasePointerCapture?.(event.pointerId);
+    setDragSelection(null);
   }
 
   function resetProgress() {
@@ -204,7 +397,7 @@ function App() {
       title: "Histórico zerado.",
       detail: "Tudo voltou para o ponto inicial.",
     });
-    issueNextQuestion(nextProgress, nextProgress.selectedFactors, "");
+    issueNextQuestion(nextProgress, nextProgress.selectedFactIds, "");
   }
 
   const handleWindowKeyDown = useEffectEvent((event) => {
@@ -264,11 +457,11 @@ function App() {
   }, []);
 
   useEffect(() => {
-    if (question || !progress.selectedFactors.length) {
+    if (question || !progress.selectedFactIds.length) {
       return;
     }
 
-    issueNextQuestion(progress, progress.selectedFactors, "");
+    issueNextQuestion(progress, progress.selectedFactIds, "");
   }, []);
 
   useEffect(() => {
@@ -284,11 +477,7 @@ function App() {
     };
   }, []);
 
-  const activeFacts = getActiveFacts(progress.selectedFactors);
-  const factorInsights = getFactorInsights(progress);
-  const factorInsightMap = Object.fromEntries(
-    factorInsights.map((entry) => [entry.factor, entry]),
-  );
+  const activeFacts = getActiveFacts(progress.selectedFactIds);
   const bandInsights = getBandInsights(progress);
   const aggregateTotals = Object.values(progress.factStats).reduce(
     (summary, stats) => {
@@ -324,7 +513,7 @@ function App() {
 
     return !stats.attempts || stats.dueAt <= Date.now();
   }).length;
-  const attemptedHardFacts = activeFacts
+  const hardFacts = activeFacts
     .map((fact) => {
       const stats = progress.factStats[fact.id];
       const accuracy = getAccuracy(stats);
@@ -342,44 +531,46 @@ function App() {
           (stats.avgTimeMs ? Math.min(stats.avgTimeMs / 3_600, 2) : 0.4),
       };
     })
-    .sort((left, right) => right.weakness - left.weakness);
-  const hardFacts = (attemptedHardFacts.some((entry) => entry.stats.attempts > 0)
-    ? attemptedHardFacts.filter((entry) => entry.stats.attempts > 0)
-    : attemptedHardFacts
-  ).slice(0, 6);
+    .sort((left, right) => right.weakness - left.weakness)
+    .slice(0, 6);
   const smartSelection = getSmartFactorSelection(progress);
+  const smartSelectionFactIds = getFactIdsForFactors(smartSelection);
   const recentHistory = progress.history.slice(0, 16);
-  const masteryMap = Object.fromEntries(
-    FACTORS.flatMap((row) =>
-      FACTORS.map((column) => {
-        const factId = getFactId(row, column);
-        const stats = progress.factStats[factId];
+  const rangePreviewFactIds = dragSelection
+    ? buildFactIdsForRectangle(dragSelection.anchor, dragSelection.current)
+    : [];
+  const rangePreviewFactIdSet = new Set(rangePreviewFactIds);
+  const allSelected = progress.selectedFactIds.length === ALL_FACT_IDS.length;
+  const selectionMessage = dragSelection
+    ? dragSelection.mode === "paint"
+      ? `Pintando ${rangePreviewFactIds.length} células`
+      : `Apagando ${rangePreviewFactIds.length} células`
+    : "Arraste para pintar bloco. Comece em célula ativa para apagar um bloco.";
 
-        return [
-          `${row}-${column}`,
-          {
-            factId,
-            mastery: getMasteryScore(stats),
-            accuracy: getAccuracy(stats),
-            active:
-              progress.selectedFactors.includes(row) ||
-              progress.selectedFactors.includes(column),
-          },
-        ];
-      }),
-    ),
-  );
+  function getLineState(factIds) {
+    const activeCount = factIds.filter((factId) => selectedFactIdSet.has(factId)).length;
+
+    if (activeCount === factIds.length) {
+      return "is-full";
+    }
+
+    if (activeCount > 0) {
+      return "is-partial";
+    }
+
+    return "";
+  }
 
   return (
     <div className="app-shell">
       <header className="panel hero-panel">
         <div className="hero-copy">
           <p className="eyebrow">Tabuada Sprint</p>
-          <h1>Treino adaptativo pronto para desktop e mobile.</h1>
+          <h1>Treino adaptativo com range builder de verdade.</h1>
           <p className="hero-text">
-            A sessão agora roda em React, tem visual novo, relatório persistido,
-            repetição espaçada por dificuldade e keypad próprio para o celular
-            não abrir teclado nativo feio.
+            O escopo voltou para a matriz 10x10 no estilo range builder: arrasta
+            para pintar uma área, toca para podar células específicas e o motor
+            de repetição só trabalha dentro desse conjunto.
           </p>
 
           <div className="hero-actions">
@@ -387,10 +578,10 @@ function App() {
               className="ghost-button"
               type="button"
               onClick={() =>
-                applyFactorSelection(smartSelection, {
+                applyFactorShortcut(smartSelection, {
                   tone: "neutral",
                   title: "Reforço inteligente armado.",
-                  detail: `Entraram as famílias ${smartSelection.join(", ")} por desempenho.`,
+                  detail: `Entraram as famílias ${smartSelection.join(", ")}. Agora você pode podar célula por célula na matriz.`,
                 })
               }
             >
@@ -439,63 +630,140 @@ function App() {
             <div className="section-heading">
               <div>
                 <p className="eyebrow">Escopo</p>
-                <h2>Famílias para puxar</h2>
+                <h2>Range builder</h2>
               </div>
 
-              <span className="support-chip">{activeFacts.length} fatos ativos</span>
+              <span className="support-chip">
+                {describeCellCount(progress.selectedFactIds.length)}
+              </span>
             </div>
 
-            <div className="factor-grid">
-              {FACTORS.map((factor) => {
-                const insight = factorInsightMap[factor];
-                const isActive = progress.selectedFactors.includes(factor);
-
-                return (
-                  <button
-                    key={factor}
-                    className={`factor-chip ${isActive ? "is-active" : ""}`}
-                    type="button"
-                    aria-pressed={isActive}
-                    onClick={() => toggleFactor(factor)}
-                  >
-                    <span className="factor-title">× {factor}</span>
-                    <span className="factor-meta">
-                      {insight?.attempts ? toPercent(insight.accuracy) : "sem leitura"}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
+            <p className="panel-copy">
+              Cabeçalhos ligam linha ou coluna inteira. Clique numa célula para
+              alternar só ela. Arraste mouse ou dedo para pintar uma área
+              retangular, igual construção de range.
+            </p>
 
             <div className="preset-row">
               <button
                 className="mini-button"
                 type="button"
-                onClick={() => applyFactorSelection(FACTORS)}
+                onClick={() => applySelectionSet(DEFAULT_SELECTED_FACT_IDS)}
               >
-                Tudo
+                Quadrado 2-9
+              </button>
+              <button className="mini-button" type="button" onClick={toggleAll}>
+                {allSelected ? "Limpar tudo" : "Tudo"}
               </button>
               <button
                 className="mini-button"
                 type="button"
-                onClick={() => applyFactorSelection([2, 3, 4, 5])}
+                onClick={() => applyFactorShortcut([8], {
+                  tone: "neutral",
+                  title: "Linha e coluna do 8 armadas.",
+                  detail: "A matriz puxou todas as contas que incluem 8. Agora você pode remover as fáceis com toque.",
+                })}
               >
-                Base
+                Foco no 8
               </button>
               <button
                 className="mini-button"
                 type="button"
-                onClick={() => applyFactorSelection([6, 7, 8, 9])}
+                onClick={() => applySelectionSet(smartSelectionFactIds)}
               >
-                Avançado
+                Faixas fracas
               </button>
+            </div>
+
+            <div
+              className={`range-status-card ${dragSelection ? `is-${dragSelection.mode}` : ""}`}
+            >
+              <strong>{selectionMessage}</strong>
+              <span>
+                {dragSelection
+                  ? "Solta para aplicar o bloco inteiro."
+                  : "Use o range para excluir contas fáceis, tipo 8×1, sem perder o resto da linha."}
+              </span>
+            </div>
+
+            <div
+              className="range-grid"
+              onPointerDown={startRangeDrag}
+              onPointerMove={moveRangeDrag}
+              onPointerUp={finishRangeDrag}
+              onPointerCancel={cancelRangeDrag}
+            >
               <button
-                className="mini-button"
+                className={`range-axis range-corner ${allSelected ? "is-full" : progress.selectedFactIds.length ? "is-partial" : ""}`}
                 type="button"
-                onClick={() => applyFactorSelection(smartSelection)}
+                onClick={toggleAll}
+                title="Ligar ou limpar a grade inteira"
               >
-                Inteligente
+                all
               </button>
+
+              {FACTORS.map((column) => (
+                <button
+                  key={`column-${column}`}
+                  className={`range-axis ${getLineState(buildColumnFactIds(column))}`}
+                  type="button"
+                  onClick={() => toggleColumn(column)}
+                  title={`Alternar coluna ${column}`}
+                >
+                  {column}
+                </button>
+              ))}
+
+              {FACTORS.map((row) => (
+                <Fragment key={row}>
+                  <button
+                    className={`range-axis ${getLineState(buildRowFactIds(row))}`}
+                    type="button"
+                    onClick={() => toggleRow(row)}
+                    title={`Alternar linha ${row}`}
+                  >
+                    {row}
+                  </button>
+
+                  {FACTORS.map((column) => {
+                    const factId = getFactId(row, column);
+                    const stats = progress.factStats[factId];
+                    const mastery = getMasteryScore(stats);
+                    const isSelected = selectedFactIdSet.has(factId);
+                    const isPreviewed = rangePreviewFactIdSet.has(factId);
+                    const previewClass = isPreviewed
+                      ? dragSelection?.mode === "paint"
+                        ? "is-preview-paint"
+                        : "is-preview-erase"
+                      : "";
+
+                    return (
+                      <button
+                        key={factId}
+                        className={`range-cell ${isSelected ? "is-selected" : ""} ${previewClass}`}
+                        type="button"
+                        data-selection-cell="true"
+                        data-row={row}
+                        data-column={column}
+                        tabIndex={-1}
+                        aria-pressed={isSelected}
+                        title={`${row} × ${column} = ${row * column}`}
+                        style={{
+                          "--range-mastery": Math.max(
+                            0.12,
+                            Number(mastery.toFixed(2)),
+                          ),
+                        }}
+                      >
+                        <span className="range-cell-expression">
+                          {row}×{column}
+                        </span>
+                        <span className="range-cell-product">{row * column}</span>
+                      </button>
+                    );
+                  })}
+                </Fragment>
+              ))}
             </div>
           </section>
 
@@ -515,15 +783,15 @@ function App() {
             <div className="question-card">
               <p className="eyebrow">Agora</p>
               <div className="question-value">
-                {question ? `${question.a} × ${question.b}` : "Selecione uma família"}
+                {question ? `${question.a} × ${question.b}` : "Monte um range"}
               </div>
               <div className="answer-display" aria-live="polite">
                 {answerBuffer || "—"}
               </div>
               <p className="question-hint">
                 {isCompactLayout
-                  ? "Mobile usa só o keypad abaixo. Nenhum teclado do sistema sobe."
-                  : "Teclado físico funciona aqui. O keypad também aceita clique."}
+                  ? "No mobile o treino usa só o keypad. Nenhum teclado nativo sobe."
+                  : "Teclado físico funciona. O keypad também aceita clique."}
               </p>
             </div>
 
@@ -545,8 +813,8 @@ function App() {
                 <strong>{focusBand?.label ?? "1-12"}</strong>
               </article>
               <article className="micro-card">
-                <span className="metric-label">Respondidas</span>
-                <strong>{progress.totalAnswers}</strong>
+                <span className="metric-label">Células no range</span>
+                <strong>{progress.selectedFactIds.length}</strong>
               </article>
             </div>
 
@@ -620,9 +888,9 @@ function App() {
               </article>
 
               <article className="summary-card">
-                <span className="metric-label">Fatos ativos</span>
+                <span className="metric-label">Células ativas</span>
                 <strong>{activeFacts.length}</strong>
-                <span className="summary-meta">na seleção atual</span>
+                <span className="summary-meta">no range atual</span>
               </article>
 
               <article className="summary-card">
@@ -674,71 +942,29 @@ function App() {
             </div>
 
             <div className="fact-list">
-              {hardFacts.map((fact) => (
-                <article key={fact.id} className="fact-row">
-                  <div>
-                    <strong>
-                      {fact.a} × {fact.b}
-                    </strong>
-                    <span>
-                      {fact.stats.attempts
-                        ? `${toPercent(fact.accuracy)} de acerto, média ${formatResponseTime(fact.stats.avgTimeMs)}`
-                        : "Nova na fila"}
+              {hardFacts.length ? (
+                hardFacts.map((fact) => (
+                  <article key={fact.id} className="fact-row">
+                    <div>
+                      <strong>
+                        {fact.a} × {fact.b}
+                      </strong>
+                      <span>
+                        {fact.stats.attempts
+                          ? `${toPercent(fact.accuracy)} de acerto, média ${formatResponseTime(fact.stats.avgTimeMs)}`
+                          : "Nova na fila"}
+                      </span>
+                    </div>
+                    <span className="fact-chip">
+                      domínio {Math.round(fact.mastery * 100)}%
                     </span>
-                  </div>
-                  <span className="fact-chip">
-                    domínio {Math.round(fact.mastery * 100)}%
-                  </span>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel report-panel">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Mapa</p>
-                <h2>Calor de domínio</h2>
-              </div>
-            </div>
-
-            <div className="heatmap-grid" role="img" aria-label="Mapa de domínio da tabuada">
-              <div className="heatmap-label heatmap-corner">×</div>
-              {FACTORS.map((column) => (
-                <div key={`head-${column}`} className="heatmap-label">
-                  {column}
-                </div>
-              ))}
-
-              {FACTORS.map((row) => (
-                <Fragment key={row}>
-                  <div className="heatmap-label">
-                    {row}
-                  </div>
-
-                  {FACTORS.map((column) => {
-                    const cell = masteryMap[`${row}-${column}`];
-
-                    return (
-                      <div
-                        key={`${row}-${column}`}
-                        className={`heatmap-cell ${cell.active ? "is-active" : ""}`}
-                        title={`${row} × ${column} | domínio ${Math.round(
-                          cell.mastery * 100,
-                        )}%`}
-                        style={{
-                          "--heat":
-                            cell.accuracy == null
-                              ? 0.14
-                              : Math.max(0.14, Number(cell.mastery.toFixed(2))),
-                        }}
-                      >
-                        {row * column}
-                      </div>
-                      );
-                  })}
-                </Fragment>
-              ))}
+                  </article>
+                ))
+              ) : (
+                <p className="empty-state">
+                  Ainda não há células ativas suficientes para apontar risco.
+                </p>
+              )}
             </div>
           </section>
 

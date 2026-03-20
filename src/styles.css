@@ -262,12 +262,23 @@ h3 {
   gap: 24px;
 }
 
+.control-panel {
+  display: grid;
+  gap: 16px;
+}
+
 .section-heading {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 16px;
   margin-bottom: 18px;
+}
+
+.panel-copy {
+  margin: -4px 0 0;
+  color: var(--muted);
+  line-height: 1.5;
 }
 
 .support-chip,
@@ -321,6 +332,138 @@ h3 {
 .factor-meta {
   font-size: 0.84rem;
   color: var(--muted);
+}
+
+.range-status-card {
+  display: grid;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(23, 48, 71, 0.08);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.range-status-card strong {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+}
+
+.range-status-card span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.range-status-card.is-paint {
+  background: linear-gradient(135deg, rgba(126, 185, 160, 0.18), rgba(255, 255, 255, 0.88));
+}
+
+.range-status-card.is-erase {
+  background: linear-gradient(135deg, rgba(239, 108, 77, 0.16), rgba(255, 255, 255, 0.88));
+}
+
+.range-grid {
+  display: grid;
+  grid-template-columns: 48px repeat(9, minmax(0, 1fr));
+  gap: 8px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.range-axis,
+.range-cell {
+  border: 1px solid rgba(23, 48, 71, 0.08);
+  border-radius: 18px;
+  transition:
+    transform 140ms ease,
+    box-shadow 140ms ease,
+    background-color 140ms ease,
+    border-color 140ms ease,
+    opacity 140ms ease;
+}
+
+.range-axis {
+  aspect-ratio: 1;
+  min-height: 48px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.range-axis.is-full {
+  background: linear-gradient(135deg, rgba(239, 108, 77, 0.92), rgba(255, 173, 94, 0.92));
+  color: #fffdf7;
+  border-color: rgba(239, 108, 77, 0.4);
+}
+
+.range-axis.is-partial {
+  background: linear-gradient(135deg, rgba(255, 213, 168, 0.84), rgba(255, 255, 255, 0.95));
+  border-color: rgba(239, 108, 77, 0.24);
+}
+
+.range-corner {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.74rem;
+}
+
+.range-cell {
+  position: relative;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 2px;
+  aspect-ratio: 1;
+  min-height: 54px;
+  padding: 6px 4px;
+  background: color-mix(in srgb, rgba(126, 185, 160, 0.86) calc(var(--range-mastery) * 100%), rgba(255, 255, 255, 0.94));
+  color: var(--text);
+  opacity: 0.38;
+}
+
+.range-cell.is-selected {
+  opacity: 1;
+  border-color: rgba(239, 108, 77, 0.42);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.52),
+    0 10px 18px rgba(57, 73, 92, 0.08);
+}
+
+.range-cell.is-preview-paint {
+  opacity: 1;
+  border-color: rgba(239, 108, 77, 0.72);
+  background: linear-gradient(180deg, rgba(239, 108, 77, 0.28), rgba(255, 248, 234, 0.98));
+}
+
+.range-cell.is-preview-erase {
+  opacity: 0.6;
+  border-color: rgba(23, 48, 71, 0.22);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.range-axis:hover,
+.range-cell:hover,
+.range-axis:focus-visible,
+.range-cell:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 18px rgba(57, 73, 92, 0.1);
+}
+
+.range-cell-expression {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.range-cell-product {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1;
 }
 
 .arena-panel {
@@ -609,6 +752,34 @@ h3 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .range-grid {
+    grid-template-columns: 36px repeat(9, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .range-axis,
+  .range-cell {
+    border-radius: 14px;
+  }
+
+  .range-axis {
+    min-height: 36px;
+    font-size: 0.92rem;
+  }
+
+  .range-cell {
+    min-height: 36px;
+    padding: 4px 2px;
+  }
+
+  .range-cell-expression {
+    display: none;
+  }
+
+  .range-cell-product {
+    font-size: 0.9rem;
+  }
+
   .question-card {
     padding: 22px 18px;
   }
@@ -660,6 +831,26 @@ h3 {
   .micro-metrics,
   .factor-grid {
     grid-template-columns: 1fr;
+  }
+
+  .range-grid {
+    grid-template-columns: 32px repeat(9, minmax(0, 1fr));
+    gap: 4px;
+  }
+
+  .range-axis {
+    min-height: 32px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+  }
+
+  .range-cell {
+    min-height: 32px;
+    border-radius: 12px;
+  }
+
+  .range-cell-product {
+    font-size: 0.78rem;
   }
 
   .question-value {
