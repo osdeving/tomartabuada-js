@@ -449,12 +449,13 @@ export function applyAnswer(progress, question, answerValue, responseTimeMs) {
   };
 
   const band = PRODUCT_BANDS.find((entry) => entry.id === question.bandId);
-  const lead = correct ? getSuccessLead(responseTimeMs) : `${question.a} × ${question.b} = ${question.answer}`;
+  const lead = correct ? getSuccessLead(responseTimeMs) : getRetryLead(consecutiveWrong);
   const detail = correct
     ? `Volta em ${formatInterval(intervalMs)} se continuar redonda.`
-    : `Essa conta reaparece em ${formatInterval(intervalMs)}. Faixa ${band?.label ?? question.bandId} ganhou prioridade.`;
+    : `Fica na tela para outra tentativa agora e volta cedo na fila. Faixa ${band?.label ?? question.bandId} ganhou prioridade.`;
 
   return {
+    correct,
     progress: nextProgress,
     feedback: {
       tone: correct ? "success" : "danger",
@@ -497,6 +498,18 @@ function getSuccessLead(responseTimeMs) {
   }
 
   return "Certo, mas ainda dá para secar esse tempo.";
+}
+
+function getRetryLead(consecutiveWrong) {
+  if (consecutiveWrong >= 3) {
+    return "Travou. Respira e tenta de novo.";
+  }
+
+  if (consecutiveWrong === 2) {
+    return "Ainda não entrou. Mais uma.";
+  }
+
+  return "Errou. Tenta de novo.";
 }
 
 function weightedRandom(items) {

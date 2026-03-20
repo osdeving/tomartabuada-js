@@ -19,6 +19,7 @@ import {
 } from "./lib/training";
 
 const APP_STATE_VERSION = 2;
+const QUESTION_RETRY_CUE_MS = 520;
 const KEYPAD_ROWS = [
   ["7", "8", "9"],
   ["4", "5", "6"],
@@ -286,9 +287,14 @@ function App() {
   const [answerBuffer, setAnswerBuffer] = useState(initialState.answerBuffer);
   const [feedback, setFeedback] = useState(initialState.feedback);
   const [dragSelection, setDragSelection] = useState(null);
+  const [questionCue, setQuestionCue] = useState({
+    tone: "",
+    nonce: 0,
+  });
 
   const questionStartRef = useRef(0);
   const lastQuestionIdRef = useRef(initialState.lastQuestionId);
+  const questionCueTimeoutRef = useRef(null);
   const selectedFactIdSet = new Set(progress.selectedFactIds);
 
   function issueNextQuestion(
@@ -333,6 +339,50 @@ function App() {
     setAnswerBuffer((current) => current.slice(0, -1));
   }
 
+  function clearQuestionCue() {
+    if (questionCueTimeoutRef.current) {
+      clearTimeout(questionCueTimeoutRef.current);
+      questionCueTimeoutRef.current = null;
+    }
+
+    setQuestionCue((current) =>
+      current.tone
+        ? {
+            ...current,
+            tone: "",
+          }
+        : current,
+    );
+  }
+
+  function triggerQuestionCue(tone) {
+    if (questionCueTimeoutRef.current) {
+      clearTimeout(questionCueTimeoutRef.current);
+      questionCueTimeoutRef.current = null;
+    }
+
+    setQuestionCue((current) => ({
+      tone,
+      nonce: current.nonce + 1,
+    }));
+
+    if (!tone) {
+      return;
+    }
+
+    questionCueTimeoutRef.current = setTimeout(() => {
+      setQuestionCue((current) =>
+        current.tone
+          ? {
+              ...current,
+              tone: "",
+            }
+          : current,
+      );
+      questionCueTimeoutRef.current = null;
+    }, QUESTION_RETRY_CUE_MS);
+  }
+
   function submitAnswer() {
     if (!question) {
       return;
@@ -363,7 +413,17 @@ function App() {
       ...result.feedback,
       meta: formatResponseTime(responseTimeMs),
     });
-    issueNextQuestion(result.progress, result.progress.selectedFactIds, question.id);
+
+    if (result.correct) {
+      clearQuestionCue();
+      issueNextQuestion(result.progress, result.progress.selectedFactIds, question.id);
+      return;
+    }
+
+    setAnswerBuffer("");
+    questionStartRef.current = performance.now();
+    lastQuestionIdRef.current = question.id;
+    triggerQuestionCue("danger");
   }
 
   function applySelectionSet(nextSelectedFactIds, nextFeedback = null) {
@@ -648,6 +708,15 @@ function App() {
       window.removeEventListener("keydown", listener);
     };
   }, []);
+
+  useEffect(
+    () => () => {
+      if (questionCueTimeoutRef.current) {
+        clearTimeout(questionCueTimeoutRef.current);
+      }
+    },
+    [],
+  );
 
   const activeFacts = getActiveFacts(progress.selectedFactIds);
   const bandInsights = getBandInsights(progress);
@@ -942,7 +1011,14 @@ function App() {
               </span>
             </div>
 
-            <div className="question-card">
+            <div
+              key={
+                questionCue.tone
+                  ? `${question?.id ?? "question"}-${questionCue.nonce}`
+                  : question?.id ?? "question"
+              }
+              className={`question-card ${questionCue.tone ? `is-${questionCue.tone}-cue` : ""}`}
+            >
               <p className="eyebrow">Agora</p>
               <div className="question-value">
                 {question ? `${question.a} × ${question.b}` : "Monte um range"}

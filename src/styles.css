@@ -480,10 +480,29 @@ h3 {
   gap: 18px;
   padding: 28px;
   border-radius: var(--radius-xl);
+  transition:
+    border-color 150ms ease,
+    box-shadow 150ms ease,
+    background 150ms ease;
   background:
     radial-gradient(circle at top right, rgba(255, 217, 173, 0.8), transparent 34%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 248, 237, 0.94));
   border: 1px solid rgba(23, 48, 71, 0.07);
+}
+
+.question-card.is-danger-cue {
+  border-color: rgba(223, 90, 56, 0.34);
+  box-shadow: 0 22px 36px rgba(223, 90, 56, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(239, 108, 77, 0.2), transparent 38%),
+    linear-gradient(180deg, rgba(255, 246, 243, 0.96), rgba(255, 236, 230, 0.98));
+  animation: retry-shake 520ms cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+.question-card.is-danger-cue .answer-display {
+  background: rgba(239, 108, 77, 0.12);
+  border-color: rgba(223, 90, 56, 0.28);
+  color: var(--accent-strong);
 }
 
 .question-value {
@@ -494,6 +513,39 @@ h3 {
   line-height: 0.92;
   letter-spacing: -0.06em;
   color: var(--text);
+}
+
+@keyframes retry-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  18% {
+    transform: translateX(-9px);
+  }
+
+  32% {
+    transform: translateX(7px);
+  }
+
+  46% {
+    transform: translateX(-6px);
+  }
+
+  60% {
+    transform: translateX(4px);
+  }
+
+  74% {
+    transform: translateX(-2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question-card.is-danger-cue {
+    animation: none;
+  }
 }
 
 .answer-display {
