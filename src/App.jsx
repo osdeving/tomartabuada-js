@@ -18,8 +18,7 @@ import {
   pickNextQuestion,
 } from "./lib/training";
 
-const MOBILE_LAYOUT_QUERY = "(max-width: 920px), (pointer: coarse)";
-const APP_STATE_VERSION = 1;
+const APP_STATE_VERSION = 2;
 const KEYPAD_ROWS = [
   ["7", "8", "9"],
   ["4", "5", "6"],
@@ -28,12 +27,6 @@ const KEYPAD_ROWS = [
 ];
 const ALL_FACT_IDS = FACTS.map((fact) => fact.id);
 const ALL_FACT_ID_SET = new Set(ALL_FACT_IDS);
-const DEFAULT_FEEDBACK = {
-  tone: "neutral",
-  title: "Keypad próprio no celular.",
-  detail:
-    "O treino agora usa range builder por células. No mobile a resposta entra só pelo keypad, sem teclado nativo.",
-};
 const RANGE_PRESETS = [
   {
     id: "core-2-9",
@@ -141,7 +134,7 @@ function loadAppState() {
       progress: createDefaultProgress(),
       question: null,
       answerBuffer: "",
-      feedback: DEFAULT_FEEDBACK,
+      feedback: null,
       lastQuestionId: "",
     };
   }
@@ -154,7 +147,7 @@ function loadAppState() {
         progress: createDefaultProgress(),
         question: null,
         answerBuffer: "",
-        feedback: DEFAULT_FEEDBACK,
+        feedback: null,
         lastQuestionId: "",
       };
     }
@@ -165,8 +158,12 @@ function loadAppState() {
         ? parsed.progress
         : parsed;
     const progress = normalizeProgress(rawProgress);
+    const isCurrentSessionVersion =
+      parsed &&
+      typeof parsed === "object" &&
+      parsed.version === APP_STATE_VERSION;
     const session =
-      parsed && typeof parsed === "object" && "session" in parsed
+      isCurrentSessionVersion && "session" in parsed
         ? parsed.session
         : null;
 
@@ -192,7 +189,7 @@ function loadAppState() {
                   ? session.feedback.meta
                   : undefined,
             }
-          : DEFAULT_FEEDBACK,
+          : null,
       lastQuestionId:
         typeof session?.lastQuestionId === "string" ? session.lastQuestionId : "",
     };
@@ -201,7 +198,7 @@ function loadAppState() {
       progress: createDefaultProgress(),
       question: null,
       answerBuffer: "",
-      feedback: DEFAULT_FEEDBACK,
+      feedback: null,
       lastQuestionId: "",
     };
   }
@@ -289,13 +286,6 @@ function App() {
   const [answerBuffer, setAnswerBuffer] = useState(initialState.answerBuffer);
   const [feedback, setFeedback] = useState(initialState.feedback);
   const [dragSelection, setDragSelection] = useState(null);
-  const [isCompactLayout, setIsCompactLayout] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return window.matchMedia(MOBILE_LAYOUT_QUERY).matches;
-  });
 
   const questionStartRef = useRef(0);
   const lastQuestionIdRef = useRef(initialState.lastQuestionId);
@@ -627,24 +617,6 @@ function App() {
   }, [answerBuffer, feedback, progress, question]);
 
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    const media = window.matchMedia(MOBILE_LAYOUT_QUERY);
-    const sync = () => setIsCompactLayout(media.matches);
-
-    sync();
-    media.addEventListener("change", sync);
-    window.addEventListener("resize", sync);
-
-    return () => {
-      media.removeEventListener("change", sync);
-      window.removeEventListener("resize", sync);
-    };
-  }, []);
-
-  useEffect(() => {
     if (question || !progress.selectedFactIds.length) {
       return;
     }
@@ -735,7 +707,6 @@ function App() {
     .slice(0, 6);
   const smartSelection = getSmartFactorSelection(progress);
   const smartSelectionFactIds = getFactIdsForFactors(smartSelection);
-  const mobilePresetRows = RANGE_PRESETS.slice(0, 3);
   const recentHistory = progress.history.slice(0, 16);
   const rangePreviewFactIds = dragSelection
     ? buildFactIdsForRectangle(dragSelection.anchor, dragSelection.current)
@@ -743,10 +714,11 @@ function App() {
   const rangePreviewFactIdSet = new Set(rangePreviewFactIds);
   const allSelected = progress.selectedFactIds.length === ALL_FACT_IDS.length;
   const selectionMessage = dragSelection
-      ? dragSelection.mode === "paint"
+    ? dragSelection.mode === "paint"
       ? `Pintando ${rangePreviewFactIds.length} células`
       : `Apagando ${rangePreviewFactIds.length} células`
     : "Arraste para pintar bloco. Comece em célula ativa para apagar um bloco.";
+  const hasFeedback = Boolean(feedback?.title && feedback?.detail);
 
   function getLineState(factIds) {
     const activeCount = factIds.filter((factId) => selectedFactIdSet.has(factId)).length;
@@ -767,11 +739,10 @@ function App() {
       <header className="panel hero-panel">
         <div className="hero-copy">
           <p className="eyebrow">Tabuada Sprint</p>
-          <h1>Treino adaptativo com range builder de verdade.</h1>
+          <h1>Abra e já saia respondendo.</h1>
           <p className="hero-text">
-            O escopo voltou para a matriz 10x10 no estilo range builder: arrasta
-            para pintar uma área, toca para podar células específicas e o motor
-            de repetição só trabalha dentro desse conjunto.
+            Monte seu range na matriz, responda em sequência e deixe o treino
+            insistir automaticamente nas contas que ainda não encaixaram.
           </p>
 
           <div className="hero-actions">
@@ -969,22 +940,6 @@ function App() {
               <span className="status-pill">
                 Melhor streak: {progress.bestStreak}
               </span>
-              <span className="status-pill">
-                Layout {isCompactLayout ? "mobile" : "desktop"}
-              </span>
-            </div>
-
-            <div className="mobile-practice-toolbar">
-              {mobilePresetRows.map((preset) => (
-                <button
-                  key={`mobile-${preset.id}`}
-                  className="mobile-preset-chip"
-                  type="button"
-                  onClick={() => applyPreset(preset)}
-                >
-                  {preset.label}
-                </button>
-              ))}
             </div>
 
             <div className="question-card">
@@ -995,48 +950,6 @@ function App() {
               <div className="answer-display" aria-live="polite">
                 {answerBuffer || "—"}
               </div>
-              <p className="question-hint">
-                {isCompactLayout
-                  ? "No mobile o treino usa só o keypad. Nenhum teclado nativo sobe."
-                  : "Teclado físico funciona. O keypad também aceita clique."}
-              </p>
-            </div>
-
-            <div className={`feedback-card is-${feedback.tone}`}>
-              <div>
-                <strong>{feedback.title}</strong>
-                <p>{feedback.detail}</p>
-              </div>
-              <span className="feedback-meta">{feedback.meta ?? "adaptativo"}</span>
-            </div>
-
-            <div className="micro-metrics">
-              <article className="micro-card">
-                <span className="metric-label">Streak atual</span>
-                <strong>{progress.currentStreak}</strong>
-              </article>
-              <article className="micro-card">
-                <span className="metric-label">Último foco</span>
-                <strong>{focusBand?.label ?? "1-12"}</strong>
-              </article>
-              <article className="micro-card">
-                <span className="metric-label">Células no range</span>
-                <strong>{progress.selectedFactIds.length}</strong>
-              </article>
-            </div>
-
-            <div className="keypad-shell">
-              <div className="keypad-header">
-                <div>
-                  <p className="eyebrow">Keypad</p>
-                  <h3>Entrada numérica própria</h3>
-                </div>
-
-                <button className="submit-button" type="button" onClick={submitAnswer}>
-                  Enter
-                </button>
-              </div>
-
               <div className="keypad-grid">
                 {KEYPAD_ROWS.flat().map((key) => {
                   const label =
@@ -1068,6 +981,38 @@ function App() {
                   );
                 })}
               </div>
+              <button
+                className="submit-button submit-button-block"
+                type="button"
+                onClick={submitAnswer}
+              >
+                Enter
+              </button>
+            </div>
+
+            {hasFeedback ? (
+              <div className={`feedback-card is-${feedback.tone}`}>
+                <div>
+                  <strong>{feedback.title}</strong>
+                  <p>{feedback.detail}</p>
+                </div>
+                <span className="feedback-meta">{feedback.meta ?? "adaptativo"}</span>
+              </div>
+            ) : null}
+
+            <div className="micro-metrics">
+              <article className="micro-card">
+                <span className="metric-label">Streak atual</span>
+                <strong>{progress.currentStreak}</strong>
+              </article>
+              <article className="micro-card">
+                <span className="metric-label">Último foco</span>
+                <strong>{focusBand?.label ?? "1-12"}</strong>
+              </article>
+              <article className="micro-card">
+                <span className="metric-label">Células no range</span>
+                <strong>{progress.selectedFactIds.length}</strong>
+              </article>
             </div>
           </section>
         </section>

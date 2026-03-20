@@ -104,7 +104,6 @@ button {
 .question-card,
 .feedback-card,
 .micro-card,
-.keypad-shell,
 .summary-card,
 .band-row,
 .fact-row,
@@ -146,7 +145,6 @@ h3 {
 }
 
 .hero-text,
-.question-hint,
 .feedback-card p,
 .summary-meta,
 .metric-meta,
@@ -473,28 +471,13 @@ h3 {
   gap: 16px;
 }
 
-.mobile-practice-toolbar {
-  display: none;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.mobile-preset-chip {
-  border: 0;
-  padding: 10px 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.82);
-  color: var(--text);
-  font-size: 0.88rem;
-  font-weight: 700;
-  box-shadow: inset 0 0 0 1px rgba(23, 48, 71, 0.08);
-}
-
 .status-strip {
   gap: 10px;
 }
 
 .question-card {
+  display: grid;
+  gap: 18px;
   padding: 28px;
   border-radius: var(--radius-xl);
   background:
@@ -525,10 +508,6 @@ h3 {
   font-size: clamp(2.6rem, 4vw, 4rem);
   font-weight: 700;
   letter-spacing: 0.08em;
-}
-
-.question-hint {
-  margin-top: 14px;
 }
 
 .feedback-card {
@@ -585,26 +564,16 @@ h3 {
   font-size: 1.55rem;
 }
 
-.keypad-shell {
-  padding: 22px;
-  border-radius: var(--radius-xl);
-  background: linear-gradient(180deg, rgba(23, 48, 71, 0.08), rgba(255, 255, 255, 0.9));
-  border: 1px solid rgba(23, 48, 71, 0.08);
-}
-
-.keypad-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-
 .submit-button {
   padding: 14px 22px;
   background: linear-gradient(135deg, var(--accent), #ff9756);
   color: #fffdf7;
   font-weight: 700;
+  touch-action: manipulation;
+}
+
+.submit-button-block {
+  width: 100%;
 }
 
 .keypad-grid {
@@ -756,7 +725,8 @@ h3 {
 @media (max-width: 920px) {
   .app-shell {
     width: min(100%, calc(100% - 20px));
-    padding: 12px 0 calc(24px + 356px + var(--safe-bottom));
+    gap: 16px;
+    padding: 12px 0 24px;
   }
 
   .hero-panel,
@@ -790,6 +760,8 @@ h3 {
   .arena-panel {
     display: flex;
     flex-direction: column;
+    gap: 12px;
+    padding: 12px;
   }
 
   .range-grid {
@@ -821,18 +793,18 @@ h3 {
   }
 
   .question-card {
-    padding: 22px 18px;
+    gap: 12px;
+    padding: 16px;
   }
 
   .question-value {
-    font-size: clamp(3rem, 13vw, 4.5rem);
-    margin-bottom: 16px;
+    font-size: clamp(2.85rem, 13vw, 4.25rem);
+    margin: 0;
   }
 
   .feedback-card,
   .band-row,
   .fact-row,
-  .keypad-header,
   .section-heading {
     flex-direction: column;
     align-items: flex-start;
@@ -845,40 +817,19 @@ h3 {
   }
 
   .status-strip {
-    order: 4;
-  }
-
-  .mobile-practice-toolbar {
-    display: flex;
-    order: 3;
+    display: none;
   }
 
   .question-card {
     order: 1;
   }
 
-  .keypad-shell {
+  .feedback-card {
     order: 2;
   }
 
-  .feedback-card {
-    order: 5;
-  }
-
   .micro-metrics {
-    order: 6;
-  }
-
-  .keypad-shell {
-    position: fixed;
-    left: 10px;
-    right: 10px;
-    bottom: calc(8px + var(--safe-bottom));
-    z-index: 40;
-    margin-top: 0;
-    max-width: calc(100vw - 20px);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(20px);
+    order: 3;
   }
 
   .band-track {
@@ -894,7 +845,7 @@ h3 {
 @media (max-width: 640px) {
   .app-shell {
     width: min(100%, calc(100% - 16px));
-    padding-bottom: calc(20px + 340px + var(--safe-bottom));
+    padding-bottom: 20px;
   }
 
   .hero-metrics,
@@ -925,40 +876,28 @@ h3 {
   }
 
   .question-value {
-    font-size: clamp(2.7rem, 17vw, 4rem);
+    font-size: clamp(2.6rem, 17vw, 3.85rem);
   }
 
   .answer-display {
-    min-height: 68px;
-    font-size: 2.2rem;
+    min-height: 60px;
+    font-size: 1.95rem;
   }
 
   .keypad-grid {
-    gap: 8px;
+    gap: 7px;
   }
 
   .keypad-key {
-    min-height: 56px;
+    min-height: 52px;
     border-radius: 16px;
-    font-size: 1.35rem;
-  }
-
-  .keypad-shell {
-    left: 8px;
-    right: 8px;
-    bottom: calc(6px + var(--safe-bottom));
-    max-width: calc(100vw - 16px);
-    padding: 16px;
-    border-radius: 20px;
-  }
-
-  .keypad-header {
-    margin-bottom: 12px;
+    font-size: 1.22rem;
   }
 
   .submit-button {
-    width: 100%;
+    min-height: 50px;
     justify-content: center;
+    border-radius: 16px;
   }
 
   .feedback-card {
@@ -967,10 +906,5 @@ h3 {
 
   .micro-card {
     padding: 14px 16px;
-  }
-
-  .mobile-preset-chip {
-    font-size: 0.82rem;
-    padding: 9px 12px;
   }
 }
