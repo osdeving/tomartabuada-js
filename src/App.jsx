@@ -1,277 +1,213 @@
-import { Fragment, useEffect, useEffectEvent, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import katex from "katex";
 import {
-  DEFAULT_SELECTED_FACT_IDS,
-  FACTORS,
-  FACTS,
+  PRACTICE_SECTION_IDS,
+  SECTIONS,
   STORAGE_KEY,
-  applyAnswer,
-  createDefaultProgress,
-  formatResponseTime,
-  getAccuracy,
-  getActiveFacts,
-  getBandInsights,
-  getFactId,
-  getFactIdsForFactors,
-  getMasteryScore,
-  getSmartFactorSelection,
-  normalizeProgress,
-  pickNextQuestion,
-} from "./lib/training";
+  THEORY_TOPICS,
+  TRICK_LESSONS,
+  buildDefaultSelections,
+  buildInitialStats,
+  createQuestion,
+  createSectionStats,
+  getDefaultPresetId,
+  getFlashcardDeck,
+  getFlashcardDecks,
+  getPresets,
+  getSectionById,
+  getSectionPrimers,
+  gradeQuestion,
+  isPracticeSection,
+  isTabuadaHighlighted,
+} from "./lib/mathAcademy";
 
-const APP_STATE_VERSION = 2;
-const QUESTION_RETRY_CUE_MS = 520;
+const FLASHCARD_DECKS = getFlashcardDecks();
 const KEYPAD_ROWS = [
   ["7", "8", "9"],
   ["4", "5", "6"],
   ["1", "2", "3"],
   ["clear", "0", "backspace"],
 ];
-const ALL_FACT_IDS = FACTS.map((fact) => fact.id);
-const ALL_FACT_ID_SET = new Set(ALL_FACT_IDS);
-const RANGE_PRESETS = [
-  {
-    id: "core-2-9",
-    label: "Quadrado 2-9",
-    detail: "Base limpa sem multiplicações por 1.",
-    factIds: DEFAULT_SELECTED_FACT_IDS,
-  },
-  {
-    id: "hard-6-9",
-    label: "6-9 sem fáceis",
-    detail: "6, 7, 8 e 9, mas corta 1, 2, 5 e os quadrados.",
-    factIds: buildPresetFactIds({
-      focusFactors: [6, 7, 8, 9],
-      blockedFactors: [1, 2, 5],
-      excludedSquares: [6, 7, 8, 9],
-    }),
-  },
-  {
-    id: "hard-4-9",
-    label: "4, 6-9 sem fáceis",
-    detail: "Inclui 4 e segue a mesma poda de 1, 2, 5 e quadrados.",
-    factIds: buildPresetFactIds({
-      focusFactors: [4, 6, 7, 8, 9],
-      blockedFactors: [1, 2, 5],
-      excludedSquares: [4, 6, 7, 8, 9],
-    }),
-  },
-  {
-    id: "focus-8",
-    label: "Foco no 8",
-    detail: "Toda conta com 8, já sem 1, 2, 5 e sem 8×8.",
-    factIds: buildPresetFactIds({
-      focusFactors: [8],
-      blockedFactors: [1, 2, 5],
-      excludedSquares: [8],
-    }),
-  },
-  {
-    id: "late-game",
-    label: "7-9 puro osso",
-    detail: "7, 8 e 9, sem moleza e sem quadrados.",
-    factIds: buildPresetFactIds({
-      focusFactors: [7, 8, 9],
-      blockedFactors: [1, 2, 5],
-      excludedSquares: [7, 8, 9],
-    }),
-  },
-];
 
-function buildPresetFactIds({
-  focusFactors,
-  blockedFactors = [],
-  excludedSquares = [],
-}) {
-  const focusSet = new Set(focusFactors);
-  const blockedSet = new Set(blockedFactors);
-  const squareSet = new Set(excludedSquares);
+function renderMath(expression, displayMode = false) {
+  if (!expression) {
+    return "";
+  }
 
-  return FACTS.filter((fact) => {
-    const touchesFocus = focusSet.has(fact.a) || focusSet.has(fact.b);
-
-    if (!touchesFocus) {
-      return false;
-    }
-
-    if (blockedSet.has(fact.a) || blockedSet.has(fact.b)) {
-      return false;
-    }
-
-    if (fact.a === fact.b && squareSet.has(fact.a)) {
-      return false;
-    }
-
-    return true;
-  }).map((fact) => fact.id);
+  try {
+    return katex.renderToString(expression, {
+      displayMode,
+      throwOnError: false,
+      strict: "ignore",
+    });
+  } catch {
+    return expression;
+  }
 }
 
-function normalizeQuestion(rawQuestion, selectedFactIds) {
-  if (
-    !rawQuestion ||
-    typeof rawQuestion !== "object" ||
-    !ALL_FACT_ID_SET.has(rawQuestion.id) ||
-    !selectedFactIds.includes(rawQuestion.id)
-  ) {
+function MathExpression({ expression, displayMode = false, className = "" }) {
+  if (!expression) {
     return null;
   }
 
-  const sourceFact = FACTS.find((fact) => fact.id === rawQuestion.id);
+  return (
+    <span
+      className={className}
+      dangerouslySetInnerHTML={{ __html: renderMath(expression, displayMode) }}
+    />
+  );
+}
 
-  return sourceFact
-    ? {
-        id: sourceFact.id,
-        a: sourceFact.a,
-        b: sourceFact.b,
-        answer: sourceFact.product,
-        product: sourceFact.product,
-        bandId: sourceFact.bandId,
-      }
-    : null;
+function createDefaultAppState() {
+  return {
+    activeSectionId: "teoria",
+    selectedPresets: buildDefaultSelections(),
+    stats: buildInitialStats(),
+    history: [],
+    flashcards: {
+      deckId: FLASHCARD_DECKS[0].id,
+      index: 0,
+      revealed: false,
+    },
+  };
+}
+
+function normalizeSelectedPresets(rawSelectedPresets) {
+  const defaults = buildDefaultSelections();
+
+  return Object.fromEntries(
+    PRACTICE_SECTION_IDS.map((sectionId) => {
+      const presets = getPresets(sectionId);
+      const requestedPresetId = rawSelectedPresets?.[sectionId];
+      const isValid = presets.some((preset) => preset.id === requestedPresetId);
+
+      return [sectionId, isValid ? requestedPresetId : defaults[sectionId]];
+    }),
+  );
+}
+
+function normalizeStats(rawStats) {
+  return Object.fromEntries(
+    PRACTICE_SECTION_IDS.map((sectionId) => {
+      const rawSection = rawStats?.[sectionId];
+      const base = createSectionStats();
+
+      return [
+        sectionId,
+        {
+          ...base,
+          attempts: Number(rawSection?.attempts) || 0,
+          correct: Number(rawSection?.correct) || 0,
+          currentStreak: Number(rawSection?.currentStreak) || 0,
+          bestStreak: Number(rawSection?.bestStreak) || 0,
+          lastPlayedAt: Number(rawSection?.lastPlayedAt) || 0,
+        },
+      ];
+    }),
+  );
+}
+
+function clampFlashcardIndex(index, length) {
+  if (!length) {
+    return 0;
+  }
+
+  const numericIndex = Number(index) || 0;
+
+  return ((numericIndex % length) + length) % length;
 }
 
 function loadAppState() {
   if (typeof window === "undefined") {
-    return {
-      progress: createDefaultProgress(),
-      question: null,
-      answerBuffer: "",
-      feedback: null,
-      lastQuestionId: "",
-    };
+    return createDefaultAppState();
   }
 
   try {
     const raw = window.localStorage.getItem(STORAGE_KEY);
 
     if (!raw) {
-      return {
-        progress: createDefaultProgress(),
-        question: null,
-        answerBuffer: "",
-        feedback: null,
-        lastQuestionId: "",
-      };
+      return createDefaultAppState();
     }
 
     const parsed = JSON.parse(raw);
-    const rawProgress =
-      parsed && typeof parsed === "object" && "progress" in parsed
-        ? parsed.progress
-        : parsed;
-    const progress = normalizeProgress(rawProgress);
-    const isCurrentSessionVersion =
-      parsed &&
-      typeof parsed === "object" &&
-      parsed.version === APP_STATE_VERSION;
-    const session =
-      isCurrentSessionVersion && "session" in parsed
-        ? parsed.session
-        : null;
+    const defaults = createDefaultAppState();
+    const flashDeck = getFlashcardDeck(parsed?.flashcards?.deckId);
 
     return {
-      progress,
-      question: normalizeQuestion(session?.question, progress.selectedFactIds),
-      answerBuffer:
-        typeof session?.answerBuffer === "string" &&
-        /^\d{0,3}$/.test(session.answerBuffer)
-          ? session.answerBuffer
-          : "",
-      feedback:
-        session?.feedback &&
-        typeof session.feedback === "object" &&
-        typeof session.feedback.title === "string" &&
-        typeof session.feedback.detail === "string"
-          ? {
-              tone: session.feedback.tone ?? "neutral",
-              title: session.feedback.title,
-              detail: session.feedback.detail,
-              meta:
-                typeof session.feedback.meta === "string"
-                  ? session.feedback.meta
-                  : undefined,
-            }
-          : null,
-      lastQuestionId:
-        typeof session?.lastQuestionId === "string" ? session.lastQuestionId : "",
+      activeSectionId: SECTIONS.some((section) => section.id === parsed?.activeSectionId)
+        ? parsed.activeSectionId
+        : defaults.activeSectionId,
+      selectedPresets: normalizeSelectedPresets(parsed?.selectedPresets),
+      stats: normalizeStats(parsed?.stats),
+      history: Array.isArray(parsed?.history)
+        ? parsed.history.slice(0, 12).filter((item) => item && typeof item === "object")
+        : [],
+      flashcards: {
+        deckId: flashDeck.id,
+        index: clampFlashcardIndex(parsed?.flashcards?.index, flashDeck.cards.length),
+        revealed: Boolean(parsed?.flashcards?.revealed),
+      },
     };
   } catch {
-    return {
-      progress: createDefaultProgress(),
-      question: null,
-      answerBuffer: "",
-      feedback: null,
-      lastQuestionId: "",
-    };
+    return createDefaultAppState();
   }
 }
 
-function sameLocalDay(leftTimestamp, rightTimestamp) {
-  const left = new Date(leftTimestamp);
-  const right = new Date(rightTimestamp);
-
-  return (
-    left.getFullYear() === right.getFullYear() &&
-    left.getMonth() === right.getMonth() &&
-    left.getDate() === right.getDate()
-  );
-}
-
-function toPercent(value) {
+function formatAccuracy(value) {
   return value == null ? "novo" : `${Math.round(value * 100)}%`;
 }
 
-function describeCellCount(count) {
-  return `${count} célula${count === 1 ? "" : "s"} ativa${count === 1 ? "" : "s"}`;
-}
+function summarizeStats(stats) {
+  const summary = PRACTICE_SECTION_IDS.reduce(
+    (accumulator, sectionId) => {
+      const sectionStats = stats[sectionId];
 
-function buildFactIdsForRectangle(anchor, current) {
-  const rowStart = Math.min(anchor.row, current.row);
-  const rowEnd = Math.max(anchor.row, current.row);
-  const columnStart = Math.min(anchor.column, current.column);
-  const columnEnd = Math.max(anchor.column, current.column);
-  const factIds = [];
-
-  for (let row = rowStart; row <= rowEnd; row += 1) {
-    for (let column = columnStart; column <= columnEnd; column += 1) {
-      factIds.push(getFactId(row, column));
-    }
-  }
-
-  return factIds;
-}
-
-function buildRowFactIds(row) {
-  return FACTORS.map((column) => getFactId(row, column));
-}
-
-function buildColumnFactIds(column) {
-  return FACTORS.map((row) => getFactId(row, column));
-}
-
-function getSelectionCellFromEvent(event) {
-  if (typeof document === "undefined") {
-    return null;
-  }
-
-  const element = document.elementFromPoint(event.clientX, event.clientY);
-  const cellElement = element?.closest?.("[data-selection-cell='true']");
-
-  if (!cellElement) {
-    return null;
-  }
-
-  const row = Number(cellElement.dataset.row);
-  const column = Number(cellElement.dataset.column);
-
-  if (!row || !column) {
-    return null;
-  }
+      accumulator.attempts += sectionStats.attempts;
+      accumulator.correct += sectionStats.correct;
+      accumulator.bestStreak = Math.max(
+        accumulator.bestStreak,
+        sectionStats.bestStreak,
+      );
+      return accumulator;
+    },
+    { attempts: 0, correct: 0, bestStreak: 0 },
+  );
 
   return {
-    row,
-    column,
-    id: getFactId(row, column),
+    ...summary,
+    accuracy: summary.attempts ? summary.correct / summary.attempts : null,
   };
+}
+
+function findWeakestSectionId(stats) {
+  const attempted = PRACTICE_SECTION_IDS.filter(
+    (sectionId) => stats[sectionId].attempts > 0,
+  );
+
+  if (!attempted.length) {
+    return "adicao";
+  }
+
+  return attempted.sort((left, right) => {
+    const leftAccuracy = stats[left].correct / stats[left].attempts;
+    const rightAccuracy = stats[right].correct / stats[right].attempts;
+
+    if (leftAccuracy !== rightAccuracy) {
+      return leftAccuracy - rightAccuracy;
+    }
+
+    return stats[left].attempts - stats[right].attempts;
+  })[0];
+}
+
+function MetricCard({ label, value, detail, accent = false }) {
+  return (
+    <div className={`metric-card${accent ? " metric-card--accent" : ""}`}>
+      <span className="metric-label">{label}</span>
+      <strong className="metric-value">{value}</strong>
+      <span className="metric-detail">{detail}</span>
+    </div>
+  );
 }
 
 function App() {
@@ -282,952 +218,883 @@ function App() {
   }
 
   const initialState = initialStateRef.current;
-  const [progress, setProgress] = useState(initialState.progress);
-  const [question, setQuestion] = useState(initialState.question);
-  const [answerBuffer, setAnswerBuffer] = useState(initialState.answerBuffer);
-  const [feedback, setFeedback] = useState(initialState.feedback);
-  const [dragSelection, setDragSelection] = useState(null);
-  const [questionCue, setQuestionCue] = useState({
-    tone: "",
-    nonce: 0,
+  const [appState, setAppState] = useState(initialState);
+  const [answer, setAnswer] = useState("");
+  const [feedback, setFeedback] = useState(null);
+  const [showHint, setShowHint] = useState(false);
+  const [question, setQuestion] = useState(() => {
+    if (!isPracticeSection(initialState.activeSectionId)) {
+      return null;
+    }
+
+    return createQuestion(
+      initialState.activeSectionId,
+      initialState.selectedPresets[initialState.activeSectionId],
+    );
   });
 
-  const questionStartRef = useRef(0);
-  const lastQuestionIdRef = useRef(initialState.lastQuestionId);
-  const questionCueTimeoutRef = useRef(null);
-  const selectedFactIdSet = new Set(progress.selectedFactIds);
+  const activeSection = getSectionById(appState.activeSectionId);
+  const activePresetId = isPracticeSection(activeSection.id)
+    ? appState.selectedPresets[activeSection.id]
+    : "";
+  const activePreset = isPracticeSection(activeSection.id)
+    ? getPresets(activeSection.id).find((preset) => preset.id === activePresetId) ??
+      getPresets(activeSection.id)[0]
+    : null;
+  const activeStats = isPracticeSection(activeSection.id)
+    ? appState.stats[activeSection.id]
+    : null;
+  const overallStats = summarizeStats(appState.stats);
+  const weakestSection = getSectionById(findWeakestSectionId(appState.stats));
+  const flashcardDeck = getFlashcardDeck(appState.flashcards.deckId);
+  const flashcardIndex = clampFlashcardIndex(
+    appState.flashcards.index,
+    flashcardDeck.cards.length,
+  );
+  const activeFlashcard = flashcardDeck.cards[flashcardIndex] ?? null;
 
-  function issueNextQuestion(
-    nextProgress,
-    selectedFactIds = nextProgress.selectedFactIds,
-    previousQuestionId = question?.id ?? lastQuestionIdRef.current,
-  ) {
-    const nextQuestion = pickNextQuestion(
-      nextProgress,
-      selectedFactIds,
-      previousQuestionId,
-    );
-
-    setQuestion(nextQuestion);
-    setAnswerBuffer("");
-
-    if (nextQuestion) {
-      questionStartRef.current = performance.now();
-      lastQuestionIdRef.current = nextQuestion.id;
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
     }
+
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+  }, [appState]);
+
+  useEffect(() => {
+    if (!isPracticeSection(activeSection.id)) {
+      return undefined;
+    }
+
+    function handleKeyDown(event) {
+      if (event.metaKey || event.ctrlKey || event.altKey) {
+        return;
+      }
+
+      if (/^\d$/.test(event.key)) {
+        event.preventDefault();
+        appendDigit(event.key);
+        return;
+      }
+
+      if (event.key === "Backspace") {
+        event.preventDefault();
+        backspace();
+        return;
+      }
+
+      if (event.key === "Escape") {
+        event.preventDefault();
+        clearAnswer();
+        return;
+      }
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        submitCurrentAnswer();
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  });
+
+  function resetPracticeState(nextQuestion) {
+    setQuestion(nextQuestion);
+    setAnswer("");
+    setFeedback(null);
+    setShowHint(false);
+  }
+
+  function goToSection(sectionId, presetId = null) {
+    const nextPresetId =
+      presetId ?? appState.selectedPresets[sectionId] ?? getDefaultPresetId(sectionId);
+
+    setAppState((current) => ({
+      ...current,
+      activeSectionId: sectionId,
+      selectedPresets:
+        isPracticeSection(sectionId) && presetId
+          ? {
+              ...current.selectedPresets,
+              [sectionId]: nextPresetId,
+            }
+          : current.selectedPresets,
+      flashcards:
+        sectionId === "flashcards"
+          ? {
+              ...current.flashcards,
+              revealed: false,
+            }
+          : current.flashcards,
+    }));
+
+    if (isPracticeSection(sectionId)) {
+      resetPracticeState(createQuestion(sectionId, nextPresetId));
+      return;
+    }
+
+    resetPracticeState(null);
+  }
+
+  function selectPreset(sectionId, presetId) {
+    setAppState((current) => ({
+      ...current,
+      selectedPresets: {
+        ...current.selectedPresets,
+        [sectionId]: presetId,
+      },
+    }));
+
+    if (appState.activeSectionId === sectionId) {
+      resetPracticeState(createQuestion(sectionId, presetId));
+    }
+  }
+
+  function nextQuestion() {
+    if (!isPracticeSection(activeSection.id)) {
+      return;
+    }
+
+    resetPracticeState(createQuestion(activeSection.id, activePresetId));
   }
 
   function appendDigit(digit) {
+    if (feedback?.kind === "resolved") {
+      return;
+    }
+
+    setAnswer((current) => (current.length >= 4 ? current : `${current}${digit}`));
+
+    if (feedback?.kind === "warning") {
+      setFeedback(null);
+    }
+  }
+
+  function clearAnswer() {
+    setAnswer("");
+
+    if (feedback?.kind === "warning") {
+      setFeedback(null);
+    }
+  }
+
+  function backspace() {
+    if (feedback?.kind === "resolved") {
+      return;
+    }
+
+    setAnswer((current) => current.slice(0, -1));
+
+    if (feedback?.kind === "warning") {
+      setFeedback(null);
+    }
+  }
+
+  function revealAnswer() {
     if (!question) {
       return;
     }
 
-    setAnswerBuffer((current) => {
-      if (current.length >= 3) {
-        return current;
-      }
-
-      return current === "0" ? digit : `${current}${digit}`;
+    setFeedback({
+      kind: "resolved",
+      tone: "neutral",
+      title: "Confira a correção.",
+      math: question.solutionLatex,
+      detail: question.breakdown,
     });
   }
 
-  function clearBuffer() {
-    setAnswerBuffer("");
-  }
-
-  function removeDigit() {
-    setAnswerBuffer((current) => current.slice(0, -1));
-  }
-
-  function clearQuestionCue() {
-    if (questionCueTimeoutRef.current) {
-      clearTimeout(questionCueTimeoutRef.current);
-      questionCueTimeoutRef.current = null;
-    }
-
-    setQuestionCue((current) =>
-      current.tone
-        ? {
-            ...current,
-            tone: "",
-          }
-        : current,
-    );
-  }
-
-  function triggerQuestionCue(tone) {
-    if (questionCueTimeoutRef.current) {
-      clearTimeout(questionCueTimeoutRef.current);
-      questionCueTimeoutRef.current = null;
-    }
-
-    setQuestionCue((current) => ({
-      tone,
-      nonce: current.nonce + 1,
-    }));
-
-    if (!tone) {
-      return;
-    }
-
-    questionCueTimeoutRef.current = setTimeout(() => {
-      setQuestionCue((current) =>
-        current.tone
-          ? {
-              ...current,
-              tone: "",
-            }
-          : current,
-      );
-      questionCueTimeoutRef.current = null;
-    }, QUESTION_RETRY_CUE_MS);
-  }
-
-  function submitAnswer() {
+  function submitCurrentAnswer() {
     if (!question) {
       return;
     }
 
-    if (!answerBuffer.length) {
+    if (feedback?.kind === "resolved") {
+      nextQuestion();
+      return;
+    }
+
+    if (!/^\d+$/.test(answer.trim())) {
       setFeedback({
+        kind: "warning",
         tone: "warning",
-        title: "Faltou o número.",
-        detail: "Preencha a resposta no keypad antes de enviar.",
+        title: "Digite a resposta.",
+        detail: "Use o teclado do app ou o teclado físico do aparelho.",
       });
       return;
     }
 
-    const responseTimeMs = Math.max(
-      300,
-      Math.round(performance.now() - questionStartRef.current),
-    );
-    const result = applyAnswer(
-      progress,
-      question,
-      Number(answerBuffer),
-      responseTimeMs,
-    );
+    const result = gradeQuestion(question, answer.trim());
 
-    setProgress(result.progress);
     setFeedback({
+      kind: "resolved",
       ...result.feedback,
-      meta: formatResponseTime(responseTimeMs),
     });
-
-    if (result.correct) {
-      clearQuestionCue();
-      issueNextQuestion(result.progress, result.progress.selectedFactIds, question.id);
-      return;
-    }
-
-    setAnswerBuffer("");
-    questionStartRef.current = performance.now();
-    lastQuestionIdRef.current = question.id;
-    triggerQuestionCue("danger");
-  }
-
-  function applySelectionSet(nextSelectedFactIds, nextFeedback = null) {
-    const nextSelectedFactIdSet = new Set(nextSelectedFactIds);
-    const normalizedFactIds = ALL_FACT_IDS.filter((factId) =>
-      nextSelectedFactIdSet.has(factId),
-    );
-    const nextProgress = {
-      ...progress,
-      selectedFactIds: normalizedFactIds,
-    };
-
-    setProgress(nextProgress);
-    setDragSelection(null);
-
-    if (!normalizedFactIds.length) {
-      setQuestion(null);
-      setAnswerBuffer("");
-      setFeedback(
-        nextFeedback ?? {
-          tone: "warning",
-          title: "Range vazio.",
-          detail: "Pinte pelo menos uma célula para continuar treinando.",
-        },
-      );
-      return;
-    }
-
-    setFeedback(
-      nextFeedback ?? {
-        tone: "neutral",
-        title: "Range atualizado.",
-        detail: `${describeCellCount(normalizedFactIds.length)} no treino.`,
-      },
-    );
-    issueNextQuestion(nextProgress, normalizedFactIds, question?.id ?? "");
-  }
-
-  function applyFactorShortcut(selectedFactors, nextFeedback = null) {
-    applySelectionSet(
-      getFactIdsForFactors(selectedFactors),
-      nextFeedback ?? {
-        tone: "neutral",
-        title: "Famílias aplicadas.",
-        detail: `Entraram todas as contas ligadas a ${selectedFactors.join(", ")}.`,
-      },
-    );
-  }
-
-  function applyPreset(preset) {
-    applySelectionSet(preset.factIds, {
-      tone: "neutral",
-      title: `${preset.label} aplicado.`,
-      detail: `${preset.detail} ${describeCellCount(preset.factIds.length)} no treino.`,
-    });
-  }
-
-  function toggleLine(factIds, label) {
-    const shouldSelect = factIds.some((factId) => !selectedFactIdSet.has(factId));
-    const nextSelection = new Set(progress.selectedFactIds);
-
-    factIds.forEach((factId) => {
-      if (shouldSelect) {
-        nextSelection.add(factId);
-      } else {
-        nextSelection.delete(factId);
-      }
-    });
-
-    applySelectionSet(Array.from(nextSelection), {
-      tone: "neutral",
-      title: shouldSelect ? `${label} ligada.` : `${label} desligada.`,
-      detail: `${describeCellCount(nextSelection.size)} no range atual.`,
-    });
-  }
-
-  function toggleRow(row) {
-    toggleLine(buildRowFactIds(row), `Linha ${row}`);
-  }
-
-  function toggleColumn(column) {
-    toggleLine(buildColumnFactIds(column), `Coluna ${column}`);
-  }
-
-  function toggleAll() {
-    const shouldSelectAll = progress.selectedFactIds.length !== ALL_FACT_IDS.length;
-
-    applySelectionSet(shouldSelectAll ? ALL_FACT_IDS : [], {
-      tone: "neutral",
-      title: shouldSelectAll ? "Grade inteira ligada." : "Grade inteira limpa.",
-      detail: shouldSelectAll
-        ? "Todas as 81 células entraram no treino."
-        : "Nenhuma célula ficou ativa.",
-    });
-  }
-
-  function mergeSelectionByMode(targetFactIds, mode, nextFeedback = null) {
-    const nextSelection = new Set(progress.selectedFactIds);
-
-    targetFactIds.forEach((factId) => {
-      if (mode === "paint") {
-        nextSelection.add(factId);
-      } else {
-        nextSelection.delete(factId);
-      }
-    });
-
-    applySelectionSet(Array.from(nextSelection), nextFeedback);
-  }
-
-  function startRangeDrag(event) {
-    if (event.pointerType === "mouse" && event.button !== 0) {
-      return;
-    }
-
-    const selectionCell = getSelectionCellFromEvent(event);
-
-    if (!selectionCell) {
-      return;
-    }
-
-    event.preventDefault();
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-
-    setDragSelection({
-      pointerId: event.pointerId,
-      anchor: selectionCell,
-      current: selectionCell,
-      mode: selectedFactIdSet.has(selectionCell.id) ? "erase" : "paint",
-    });
-  }
-
-  function moveRangeDrag(event) {
-    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
-      return;
-    }
-
-    const selectionCell = getSelectionCellFromEvent(event);
-
-    if (!selectionCell || selectionCell.id === dragSelection.current.id) {
-      return;
-    }
-
-    setDragSelection((current) =>
-      current
-        ? {
-            ...current,
-            current: selectionCell,
-          }
-        : current,
-    );
-  }
-
-  function finishRangeDrag(event) {
-    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
-      return;
-    }
-
-    const selectionCell = getSelectionCellFromEvent(event) ?? dragSelection.current;
-    const targetFactIds = buildFactIdsForRectangle(
-      dragSelection.anchor,
-      selectionCell,
-    );
-    const mode = dragSelection.mode;
-
-    event.currentTarget.releasePointerCapture?.(event.pointerId);
-    setDragSelection(null);
-
-    mergeSelectionByMode(targetFactIds, mode, {
-      tone: "neutral",
-      title: mode === "paint" ? "Área pintada." : "Área apagada.",
-      detail: `${targetFactIds.length} célula${targetFactIds.length === 1 ? "" : "s"} ${mode === "paint" ? "ligada" : "removida"}${targetFactIds.length === 1 ? "" : "s"} no range.`,
-    });
-  }
-
-  function cancelRangeDrag(event) {
-    if (!dragSelection || dragSelection.pointerId !== event.pointerId) {
-      return;
-    }
-
-    event.currentTarget.releasePointerCapture?.(event.pointerId);
-    setDragSelection(null);
-  }
-
-  function resetProgress() {
-    if (
-      typeof window !== "undefined" &&
-      !window.confirm("Limpar histórico, relatório e prioridades adaptativas?")
-    ) {
-      return;
-    }
-
-    const nextProgress = createDefaultProgress();
-    setProgress(nextProgress);
-    setFeedback({
-      tone: "neutral",
-      title: "Histórico zerado.",
-      detail: "Tudo voltou para o ponto inicial.",
-    });
-    issueNextQuestion(nextProgress, nextProgress.selectedFactIds, "");
-  }
-
-  const handleWindowKeyDown = useEffectEvent((event) => {
-    if (event.metaKey || event.ctrlKey || event.altKey) {
-      return;
-    }
-
-    if (/^\d$/.test(event.key)) {
-      event.preventDefault();
-      appendDigit(event.key);
-      return;
-    }
-
-    if (event.key === "Backspace") {
-      event.preventDefault();
-      removeDigit();
-      return;
-    }
-
-    if (event.key === "Delete" || event.key === "Escape") {
-      event.preventDefault();
-      clearBuffer();
-      return;
-    }
-
-    if (event.key === "Enter") {
-      event.preventDefault();
-      submitAnswer();
-    }
-  });
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    window.localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({
-        version: APP_STATE_VERSION,
-        progress,
-        session: {
-          question,
-          answerBuffer,
-          feedback,
-          lastQuestionId: lastQuestionIdRef.current,
-        },
-      }),
-    );
-    return undefined;
-  }, [answerBuffer, feedback, progress, question]);
-
-  useEffect(() => {
-    if (question || !progress.selectedFactIds.length) {
-      return;
-    }
-
-    issueNextQuestion(progress, progress.selectedFactIds, "");
-  }, []);
-
-  useEffect(() => {
-    if (!question) {
-      return;
-    }
-
-    questionStartRef.current = performance.now();
-
-    if (!lastQuestionIdRef.current) {
-      lastQuestionIdRef.current = question.id;
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return undefined;
-    }
-
-    const listener = (event) => handleWindowKeyDown(event);
-    window.addEventListener("keydown", listener);
-
-    return () => {
-      window.removeEventListener("keydown", listener);
-    };
-  }, []);
-
-  useEffect(
-    () => () => {
-      if (questionCueTimeoutRef.current) {
-        clearTimeout(questionCueTimeoutRef.current);
-      }
-    },
-    [],
-  );
-
-  const activeFacts = getActiveFacts(progress.selectedFactIds);
-  const bandInsights = getBandInsights(progress);
-  const aggregateTotals = Object.values(progress.factStats).reduce(
-    (summary, stats) => {
-      summary.attempts += stats.attempts;
-      summary.correct += stats.correct;
-      return summary;
-    },
-    { attempts: 0, correct: 0 },
-  );
-  const overallAccuracy = aggregateTotals.attempts
-    ? aggregateTotals.correct / aggregateTotals.attempts
-    : null;
-  const todayHistory = progress.history.filter((item) =>
-    sameLocalDay(item.timestamp, Date.now()),
-  );
-  const todayCorrect = todayHistory.filter((item) => item.correct).length;
-  const todayAccuracy = todayHistory.length ? todayCorrect / todayHistory.length : null;
-  const todayAverageTime = todayHistory.length
-    ? Math.round(
-        todayHistory.reduce((sum, item) => sum + item.responseTimeMs, 0) /
-          todayHistory.length,
-      )
-    : 0;
-  const focusBand = [...bandInsights].sort((left, right) => {
-    if (right.focusBoost !== left.focusBoost) {
-      return right.focusBoost - left.focusBoost;
-    }
-
-    return left.min - right.min;
-  })[0];
-  const dueFactsCount = activeFacts.filter((fact) => {
-    const stats = progress.factStats[fact.id];
-
-    return !stats.attempts || stats.dueAt <= Date.now();
-  }).length;
-  const hardFacts = activeFacts
-    .map((fact) => {
-      const stats = progress.factStats[fact.id];
-      const accuracy = getAccuracy(stats);
-      const mastery = getMasteryScore(stats);
+    setAppState((current) => {
+      const previousStats = current.stats[question.sectionId] ?? createSectionStats();
+      const nextStreak = result.isCorrect ? previousStats.currentStreak + 1 : 0;
 
       return {
-        ...fact,
-        accuracy,
-        mastery,
-        stats,
-        weakness:
-          (1 - mastery) * 4 +
-          (stats.consecutiveWrong || 0) * 1.4 +
-          (accuracy == null ? 0.6 : 1 - accuracy) * 2.4 +
-          (stats.avgTimeMs ? Math.min(stats.avgTimeMs / 3_600, 2) : 0.4),
+        ...current,
+        stats: {
+          ...current.stats,
+          [question.sectionId]: {
+            ...previousStats,
+            attempts: previousStats.attempts + 1,
+            correct: previousStats.correct + (result.isCorrect ? 1 : 0),
+            currentStreak: nextStreak,
+            bestStreak: Math.max(previousStats.bestStreak, nextStreak),
+            lastPlayedAt: Date.now(),
+          },
+        },
+        history: [
+          {
+            id: `${question.id}-${Date.now()}`,
+            sectionId: question.sectionId,
+            sectionLabel: getSectionById(question.sectionId).label,
+            prompt: question.prompt,
+            promptLatex: question.promptLatex,
+            solutionLatex: question.solutionLatex,
+            answer: question.answer,
+            correct: result.isCorrect,
+          },
+          ...current.history,
+        ].slice(0, 12),
       };
-    })
-    .sort((left, right) => right.weakness - left.weakness)
-    .slice(0, 6);
-  const smartSelection = getSmartFactorSelection(progress);
-  const smartSelectionFactIds = getFactIdsForFactors(smartSelection);
-  const recentHistory = progress.history.slice(0, 16);
-  const rangePreviewFactIds = dragSelection
-    ? buildFactIdsForRectangle(dragSelection.anchor, dragSelection.current)
-    : [];
-  const rangePreviewFactIdSet = new Set(rangePreviewFactIds);
-  const allSelected = progress.selectedFactIds.length === ALL_FACT_IDS.length;
-  const selectionMessage = dragSelection
-    ? dragSelection.mode === "paint"
-      ? `Pintando ${rangePreviewFactIds.length} células`
-      : `Apagando ${rangePreviewFactIds.length} células`
-    : "Arraste para pintar bloco. Comece em célula ativa para apagar um bloco.";
-  const hasFeedback = Boolean(feedback?.title && feedback?.detail);
+    });
+  }
 
-  function getLineState(factIds) {
-    const activeCount = factIds.filter((factId) => selectedFactIdSet.has(factId)).length;
+  function submitPractice(event) {
+    event.preventDefault();
+    submitCurrentAnswer();
+  }
 
-    if (activeCount === factIds.length) {
-      return "is-full";
+  function handleKeypadPress(key) {
+    if (key === "clear") {
+      clearAnswer();
+      return;
     }
 
-    if (activeCount > 0) {
-      return "is-partial";
+    if (key === "backspace") {
+      backspace();
+      return;
     }
 
-    return "";
+    appendDigit(key);
+  }
+
+  function selectFlashcardDeck(deckId) {
+    const deck = getFlashcardDeck(deckId);
+
+    setAppState((current) => ({
+      ...current,
+      activeSectionId: "flashcards",
+      flashcards: {
+        deckId: deck.id,
+        index: 0,
+        revealed: false,
+      },
+    }));
+  }
+
+  function moveFlashcard(step) {
+    setAppState((current) => {
+      const deck = getFlashcardDeck(current.flashcards.deckId);
+
+      return {
+        ...current,
+        flashcards: {
+          ...current.flashcards,
+          index: clampFlashcardIndex(current.flashcards.index + step, deck.cards.length),
+          revealed: false,
+        },
+      };
+    });
+  }
+
+  function shuffleFlashcard() {
+    setAppState((current) => {
+      const deck = getFlashcardDeck(current.flashcards.deckId);
+
+      if (deck.cards.length <= 1) {
+        return current;
+      }
+
+      let nextIndex = current.flashcards.index;
+
+      while (nextIndex === current.flashcards.index) {
+        nextIndex = Math.floor(Math.random() * deck.cards.length);
+      }
+
+      return {
+        ...current,
+        flashcards: {
+          ...current.flashcards,
+          index: nextIndex,
+          revealed: false,
+        },
+      };
+    });
+  }
+
+  function toggleFlashcard() {
+    setAppState((current) => ({
+      ...current,
+      flashcards: {
+        ...current.flashcards,
+        revealed: !current.flashcards.revealed,
+      },
+    }));
+  }
+
+  function renderPracticeContent() {
+    const isResolved = feedback?.kind === "resolved";
+    const isWarning = feedback?.kind === "warning";
+    const primers = getSectionPrimers(activeSection.id);
+
+    return (
+      <>
+        <section className="panel control-panel">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{activeSection.kicker}</p>
+              <h2>{activeSection.label}</h2>
+              <p className="panel-copy">{activeSection.description}</p>
+            </div>
+            <div className="status-pill">
+              <strong>{activePreset?.label}</strong>
+              <span>{activePreset?.detail}</span>
+            </div>
+          </div>
+
+          <div className="preset-row">
+            {getPresets(activeSection.id).map((preset) => (
+              <button
+                key={preset.id}
+                className={`preset-chip${
+                  preset.id === activePresetId ? " preset-chip--active" : ""
+                }`}
+                type="button"
+                onClick={() => selectPreset(activeSection.id, preset.id)}
+              >
+                <strong>{preset.label}</strong>
+                <span>{preset.detail}</span>
+              </button>
+            ))}
+          </div>
+
+          {activeSection.id === "tricks" ? (
+            <div className="lesson-grid">
+              {TRICK_LESSONS.map((lesson) => (
+              <button
+                  key={lesson.id}
+                  className={`lesson-card${
+                    lesson.presetId === activePresetId ? " lesson-card--active" : ""
+                  }`}
+                  type="button"
+                  onClick={() => selectPreset("tricks", lesson.presetId)}
+                >
+                  <strong>{lesson.title}</strong>
+                  <span className="lesson-card__rule">{lesson.rule}</span>
+                  <MathExpression
+                    expression={lesson.exampleLatex}
+                    className="lesson-card__math"
+                  />
+                </button>
+              ))}
+            </div>
+          ) : null}
+        </section>
+
+        <section className="panel arena-panel">
+          <div className="arena-layout">
+            <div className="question-card">
+              <div className="question-card__topline">
+                <span className="support-chip">{activePreset?.label}</span>
+                <span className="support-chip support-chip--soft">
+                  {activePreset?.tip}
+                </span>
+              </div>
+
+              <p className="question-label">Conta da vez</p>
+              <MathExpression
+                expression={question?.promptLatex}
+                displayMode
+                className="question-math"
+              />
+
+              <div className="answer-display">
+                {answer ? (
+                  <MathExpression expression={answer} displayMode className="answer-math" />
+                ) : (
+                  <span className="answer-placeholder">...</span>
+                )}
+              </div>
+            </div>
+
+            <form className="keypad-panel" onSubmit={submitPractice}>
+              <div className="keypad-grid">
+                {KEYPAD_ROWS.flat().map((key) => (
+                  <button
+                    key={key}
+                    className={`keypad-key${
+                      key === "clear" || key === "backspace"
+                        ? " keypad-key--secondary"
+                        : ""
+                    }`}
+                    type="button"
+                    disabled={isResolved}
+                    onClick={() => handleKeypadPress(key)}
+                  >
+                    {key === "clear" ? "limpar" : key === "backspace" ? "apagar" : key}
+                  </button>
+                ))}
+              </div>
+              <button className="primary-button keypad-submit" type="submit">
+                {isResolved ? "Próxima conta" : "Conferir"}
+              </button>
+
+              <div className="action-row action-row--compact">
+                <button
+                  className="ghost-button"
+                  type="button"
+                  onClick={() => setShowHint((current) => !current)}
+                >
+                  {showHint ? "Esconder dica" : "Mostrar dica"}
+                </button>
+                <button className="ghost-button" type="button" onClick={revealAnswer}>
+                  Revelar
+                </button>
+                <button className="ghost-button" type="button" onClick={nextQuestion}>
+                  Trocar conta
+                </button>
+              </div>
+
+              {showHint && !isResolved ? (
+                <div className="hint-card">
+                  <strong>Dica</strong>
+                  <p>{question?.hint}</p>
+                </div>
+              ) : null}
+
+              {feedback ? (
+                <div className={`feedback-card feedback-card--${feedback.tone}`}>
+                  <strong>{feedback.title}</strong>
+                  {feedback.math ? (
+                    <MathExpression
+                      expression={feedback.math}
+                      displayMode
+                      className="feedback-math"
+                    />
+                  ) : null}
+                  <p>{feedback.detail}</p>
+                  {isWarning ? <span className="feedback-meta">use o teclado abaixo</span> : null}
+                </div>
+              ) : null}
+
+              <div className="micro-metrics">
+                <MetricCard
+                  label="Tentativas"
+                  value={activeStats?.attempts ?? 0}
+                  detail="nesta seção"
+                />
+                <MetricCard
+                  label="Precisão"
+                  value={formatAccuracy(
+                    activeStats?.attempts
+                      ? activeStats.correct / activeStats.attempts
+                      : null,
+                  )}
+                  detail="acumulada"
+                />
+                <MetricCard
+                  label="Streak"
+                  value={activeStats?.currentStreak ?? 0}
+                  detail={`melhor ${activeStats?.bestStreak ?? 0}`}
+                />
+              </div>
+            </form>
+          </div>
+        </section>
+
+        <section className="panel support-panel">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">Apoio</p>
+              <h2>Referências rápidas</h2>
+            </div>
+          </div>
+
+          <div className="support-grid">
+            {primers.map((primer) => (
+              <article key={primer.title} className="support-card">
+                <strong>{primer.title}</strong>
+                <p>{primer.body}</p>
+              </article>
+            ))}
+          </div>
+
+          {activeSection.id === "tabuada" ? (
+            <div className="table-card">
+              <div className="table-card__head">
+                <strong>Mapa da tabuada</strong>
+                <span>O preset atual destaca a faixa ativa.</span>
+              </div>
+              <div className="table-grid">
+                <div className="table-grid__corner">×</div>
+                {Array.from({ length: 10 }, (_, index) => index + 1).map((column) => (
+                  <div key={`head-${column}`} className="table-grid__label">
+                    {column}
+                  </div>
+                ))}
+                {Array.from({ length: 10 }, (_, rowIndex) => rowIndex + 1).map((row) => (
+                  <FragmentRow key={row} row={row} activePresetId={activePresetId} />
+                ))}
+              </div>
+            </div>
+          ) : null}
+        </section>
+      </>
+    );
+  }
+
+  function renderTheoryContent() {
+    return (
+      <section className="panel theory-panel">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Métodos</p>
+            <h2>Teoria</h2>
+            <p className="panel-copy">
+              Estratégias curtas para reduzir atrito mental antes de acelerar.
+            </p>
+          </div>
+        </div>
+
+        <div className="theory-grid">
+          {THEORY_TOPICS.map((topic) => (
+            <article key={topic.id} className="theory-card">
+              <div className="theory-card__head">
+                <strong>{topic.title}</strong>
+                <span>{topic.summary}</span>
+              </div>
+              <ol className="theory-steps">
+                {topic.steps.map((step) => (
+                  <li key={step}>{step}</li>
+                ))}
+              </ol>
+              <MathExpression
+                expression={topic.exampleLatex}
+                displayMode
+                className="theory-example"
+              />
+              {topic.exampleNote ? <p className="panel-copy">{topic.exampleNote}</p> : null}
+              <button
+                className="ghost-button"
+                type="button"
+                onClick={() => goToSection(topic.practice.sectionId, topic.practice.presetId)}
+              >
+                {topic.practice.label}
+              </button>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  function renderFlashcardsContent() {
+    return (
+      <section className="panel flashcards-panel">
+        <div className="section-heading">
+          <div>
+            <p className="eyebrow">Revisão</p>
+            <h2>Flashcards</h2>
+            <p className="panel-copy">
+              Revisão curta para manter padrões e famílias sempre quentes.
+            </p>
+          </div>
+          <div className="status-pill">
+            <strong>{flashcardDeck.label}</strong>
+            <span>{flashcardDeck.detail}</span>
+          </div>
+        </div>
+
+        <div className="deck-row">
+          {FLASHCARD_DECKS.map((deck) => (
+            <button
+              key={deck.id}
+              className={`deck-chip${
+                deck.id === flashcardDeck.id ? " deck-chip--active" : ""
+              }`}
+              type="button"
+              onClick={() => selectFlashcardDeck(deck.id)}
+            >
+              <strong>{deck.label}</strong>
+              <span>{deck.cards.length} cards</span>
+            </button>
+          ))}
+        </div>
+
+        <div className="flashcard-layout">
+          <button
+            className={`flashcard${
+              appState.flashcards.revealed ? " flashcard--revealed" : ""
+            }`}
+            type="button"
+            onClick={toggleFlashcard}
+          >
+            <span className="flashcard__eyebrow">
+              {appState.flashcards.revealed ? "verso" : "frente"}
+            </span>
+            {appState.flashcards.revealed ? (
+              activeFlashcard?.backLatex ? (
+                <MathExpression
+                  expression={activeFlashcard.backLatex}
+                  displayMode
+                  className="flashcard__math"
+                />
+              ) : (
+                <strong className="flashcard__content">{activeFlashcard?.back}</strong>
+              )
+            ) : activeFlashcard?.frontLatex ? (
+              <MathExpression
+                expression={activeFlashcard.frontLatex}
+                displayMode
+                className="flashcard__math"
+              />
+            ) : (
+              <strong className="flashcard__content">{activeFlashcard?.front}</strong>
+            )}
+            {appState.flashcards.revealed && activeFlashcard?.note ? (
+              <p className="flashcard__note">{activeFlashcard.note}</p>
+            ) : null}
+            <span className="flashcard__hint">toque para virar</span>
+          </button>
+
+          <div className="flashcard-side">
+            <div className="micro-metrics">
+              <MetricCard
+                label="Deck"
+                value={flashcardDeck.label}
+                detail={`${flashcardDeck.cards.length} cards`}
+                accent
+              />
+              <MetricCard
+                label="Posição"
+                value={`${flashcardIndex + 1}`}
+                detail={`de ${flashcardDeck.cards.length}`}
+              />
+            </div>
+
+            <div className="action-row action-row--stack">
+              <button className="primary-button" type="button" onClick={toggleFlashcard}>
+                Virar
+              </button>
+              <button className="ghost-button" type="button" onClick={() => moveFlashcard(-1)}>
+                Anterior
+              </button>
+              <button className="ghost-button" type="button" onClick={() => moveFlashcard(1)}>
+                Próxima
+              </button>
+              <button className="ghost-button" type="button" onClick={shuffleFlashcard}>
+                Embaralhar
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
     <div className="app-shell">
       <header className="panel hero-panel">
         <div className="hero-copy">
-          <p className="eyebrow">Tabuada Sprint</p>
-          <h1>Abra e já saia respondendo.</h1>
+          <p className="eyebrow">Cálculo Mental</p>
+          <h1>Cálculo Mental</h1>
           <p className="hero-text">
-            Monte seu range na matriz, responda em sequência e deixe o treino
-            insistir automaticamente nas contas que ainda não encaixaram.
+            Treino rápido de operações, padrões numéricos e revisão com foco em
+            uso confortável no celular.
           </p>
-
           <div className="hero-actions">
+            <button
+              className="primary-button"
+              type="button"
+              onClick={() => goToSection("adicao", "com-vai-um")}
+            >
+              Começar
+            </button>
             <button
               className="ghost-button"
               type="button"
-              onClick={() =>
-                applyFactorShortcut(smartSelection, {
-                  tone: "neutral",
-                  title: "Reforço inteligente armado.",
-                  detail: `Entraram as famílias ${smartSelection.join(", ")}. Agora você pode podar célula por célula na matriz.`,
-                })
-              }
+              onClick={() => goToSection("teoria")}
             >
-              Reforço inteligente
+              Ver teoria
             </button>
-            <button className="secondary-button" type="button" onClick={resetProgress}>
-              Limpar histórico
+            <button
+              className="ghost-button"
+              type="button"
+              onClick={() => goToSection("flashcards")}
+            >
+              Revisar
             </button>
           </div>
         </div>
 
         <div className="hero-metrics">
-          <article className="metric-card">
-            <span className="metric-label">Hoje</span>
-            <strong className="metric-value">{todayHistory.length}</strong>
-            <span className="metric-meta">respostas registradas</span>
-          </article>
-
-          <article className="metric-card">
-            <span className="metric-label">Precisão</span>
-            <strong className="metric-value">{toPercent(todayAccuracy)}</strong>
-            <span className="metric-meta">na sessão do dia</span>
-          </article>
-
-          <article className="metric-card">
-            <span className="metric-label">Tempo médio</span>
-            <strong className="metric-value">
-              {todayAverageTime ? formatResponseTime(todayAverageTime) : "0.0s"}
-            </strong>
-            <span className="metric-meta">para responder</span>
-          </article>
-
-          <article className="metric-card accent-card">
-            <span className="metric-label">Fila pronta</span>
-            <strong className="metric-value">{dueFactsCount}</strong>
-            <span className="metric-meta">
-              contas disponíveis para revisão agora
-            </span>
-          </article>
+          <MetricCard
+            label="Precisão"
+            value={formatAccuracy(overallStats.accuracy)}
+            detail={`${overallStats.correct} acertos`}
+            accent
+          />
+          <MetricCard
+            label="Tentativas"
+            value={overallStats.attempts}
+            detail={`${SECTIONS.length} áreas`}
+          />
+          <MetricCard
+            label="Streak"
+            value={overallStats.bestStreak}
+            detail="melhor sequência"
+          />
+          <MetricCard
+            label="Atenção"
+            value={weakestSection.label}
+            detail="seção mais frágil"
+          />
         </div>
       </header>
 
-      <main className="dashboard">
-        <section className="practice-column">
-          <section className="panel control-panel">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Escopo</p>
-                <h2>Range builder</h2>
-              </div>
-
-              <span className="support-chip">
-                {describeCellCount(progress.selectedFactIds.length)}
-              </span>
-            </div>
-
-            <p className="panel-copy">
-              Cabeçalhos ligam linha ou coluna inteira. Clique numa célula para
-              alternar só ela. Arraste mouse ou dedo para pintar uma área
-              retangular, igual construção de range.
-            </p>
-
-            <div className="preset-row">
-              {RANGE_PRESETS.map((preset) => (
-                <button
-                  key={preset.id}
-                  className="mini-button"
-                  type="button"
-                  onClick={() => applyPreset(preset)}
-                  title={preset.detail}
-                >
-                  {preset.label}
-                </button>
-              ))}
-              <button className="mini-button" type="button" onClick={toggleAll}>
-                {allSelected ? "Limpar tudo" : "Tudo"}
-              </button>
-              <button
-                className="mini-button"
-                type="button"
-                onClick={() => applySelectionSet(smartSelectionFactIds)}
-              >
-                Faixas fracas
-              </button>
-            </div>
-
-            <div
-              className={`range-status-card ${dragSelection ? `is-${dragSelection.mode}` : ""}`}
+      <section className="panel section-panel">
+        <div className="section-strip">
+          {SECTIONS.map((section) => (
+            <button
+              key={section.id}
+              className={`section-chip${
+                section.id === activeSection.id ? " section-chip--active" : ""
+              }`}
+              type="button"
+              onClick={() => goToSection(section.id)}
             >
-              <strong>{selectionMessage}</strong>
-              <span>
-                {dragSelection
-                  ? "Solta para aplicar o bloco inteiro."
-                  : "Use o range para excluir contas fáceis, tipo 8×1, sem perder o resto da linha."}
-              </span>
-            </div>
+              <strong>{section.label}</strong>
+              <span>{section.kicker}</span>
+            </button>
+          ))}
+        </div>
+      </section>
 
-            <div
-              className="range-grid"
-              onPointerDown={startRangeDrag}
-              onPointerMove={moveRangeDrag}
-              onPointerUp={finishRangeDrag}
-              onPointerCancel={cancelRangeDrag}
-            >
-              <button
-                className={`range-axis range-corner ${allSelected ? "is-full" : progress.selectedFactIds.length ? "is-partial" : ""}`}
-                type="button"
-                onClick={toggleAll}
-                title="Ligar ou limpar a grade inteira"
-              >
-                all
-              </button>
-
-              {FACTORS.map((column) => (
-                <button
-                  key={`column-${column}`}
-                  className={`range-axis ${getLineState(buildColumnFactIds(column))}`}
-                  type="button"
-                  onClick={() => toggleColumn(column)}
-                  title={`Alternar coluna ${column}`}
-                >
-                  {column}
-                </button>
-              ))}
-
-              {FACTORS.map((row) => (
-                <Fragment key={row}>
-                  <button
-                    className={`range-axis ${getLineState(buildRowFactIds(row))}`}
-                    type="button"
-                    onClick={() => toggleRow(row)}
-                    title={`Alternar linha ${row}`}
-                  >
-                    {row}
-                  </button>
-
-                  {FACTORS.map((column) => {
-                    const factId = getFactId(row, column);
-                    const stats = progress.factStats[factId];
-                    const mastery = getMasteryScore(stats);
-                    const isSelected = selectedFactIdSet.has(factId);
-                    const isPreviewed = rangePreviewFactIdSet.has(factId);
-                    const previewClass = isPreviewed
-                      ? dragSelection?.mode === "paint"
-                        ? "is-preview-paint"
-                        : "is-preview-erase"
-                      : "";
-
-                    return (
-                      <button
-                        key={factId}
-                        className={`range-cell ${isSelected ? "is-selected" : ""} ${previewClass}`}
-                        type="button"
-                        data-selection-cell="true"
-                        data-row={row}
-                        data-column={column}
-                        tabIndex={-1}
-                        aria-pressed={isSelected}
-                        title={`${row} × ${column} = ${row * column}`}
-                        style={{
-                          "--range-mastery": Math.max(
-                            0.12,
-                            Number(mastery.toFixed(2)),
-                          ),
-                        }}
-                      >
-                        <span className="range-cell-expression">
-                          {row}×{column}
-                        </span>
-                        <span className="range-cell-product">{row * column}</span>
-                      </button>
-                    );
-                  })}
-                </Fragment>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel arena-panel">
-            <div className="status-strip">
-              <span className="status-pill">
-                Faixa em foco: {focusBand?.label ?? "1-12"}
-              </span>
-              <span className="status-pill">
-                Melhor streak: {progress.bestStreak}
-              </span>
-            </div>
-
-            <div
-              key={
-                questionCue.tone
-                  ? `${question?.id ?? "question"}-${questionCue.nonce}`
-                  : question?.id ?? "question"
-              }
-              className={`question-card ${questionCue.tone ? `is-${questionCue.tone}-cue` : ""}`}
-            >
-              <p className="eyebrow">Agora</p>
-              <div className="question-value">
-                {question ? `${question.a} × ${question.b}` : "Monte um range"}
-              </div>
-              <div className="answer-display" aria-live="polite">
-                {answerBuffer || "—"}
-              </div>
-              <div className="keypad-grid">
-                {KEYPAD_ROWS.flat().map((key) => {
-                  const label =
-                    key === "backspace"
-                      ? "⌫"
-                      : key === "clear"
-                        ? "limpar"
-                        : key;
-                  const className =
-                    key === "backspace" || key === "clear"
-                      ? "keypad-key is-secondary"
-                      : "keypad-key";
-                  const handleClick =
-                    key === "backspace"
-                      ? removeDigit
-                      : key === "clear"
-                        ? clearBuffer
-                        : () => appendDigit(key);
-
-                  return (
-                    <button
-                      key={key}
-                      className={className}
-                      type="button"
-                      onClick={handleClick}
-                    >
-                      {label}
-                    </button>
-                  );
-                })}
-              </div>
-              <button
-                className="submit-button submit-button-block"
-                type="button"
-                onClick={submitAnswer}
-              >
-                Enter
-              </button>
-            </div>
-
-            {hasFeedback ? (
-              <div className={`feedback-card is-${feedback.tone}`}>
-                <div>
-                  <strong>{feedback.title}</strong>
-                  <p>{feedback.detail}</p>
-                </div>
-                <span className="feedback-meta">{feedback.meta ?? "adaptativo"}</span>
-              </div>
-            ) : null}
-
-            <div className="micro-metrics">
-              <article className="micro-card">
-                <span className="metric-label">Streak atual</span>
-                <strong>{progress.currentStreak}</strong>
-              </article>
-              <article className="micro-card">
-                <span className="metric-label">Último foco</span>
-                <strong>{focusBand?.label ?? "1-12"}</strong>
-              </article>
-              <article className="micro-card">
-                <span className="metric-label">Células no range</span>
-                <strong>{progress.selectedFactIds.length}</strong>
-              </article>
-            </div>
-          </section>
-        </section>
+      <div className="dashboard">
+        <main className="practice-column">
+          {activeSection.id === "teoria"
+            ? renderTheoryContent()
+            : activeSection.id === "flashcards"
+              ? renderFlashcardsContent()
+              : renderPracticeContent()}
+        </main>
 
         <aside className="insights-column">
           <section className="panel report-panel">
             <div className="section-heading">
               <div>
-                <p className="eyebrow">Relatório</p>
-                <h2>Panorama rápido</h2>
+                <p className="eyebrow">Progresso</p>
+                <h2>Radar</h2>
               </div>
             </div>
 
-            <div className="summary-grid">
-              <article className="summary-card">
-                <span className="metric-label">Acerto global</span>
-                <strong>{toPercent(overallAccuracy)}</strong>
-                <span className="summary-meta">no histórico salvo</span>
-              </article>
+            <div className="progress-list">
+              {PRACTICE_SECTION_IDS.map((sectionId) => {
+                const section = getSectionById(sectionId);
+                const stats = appState.stats[sectionId];
+                const accuracy = stats.attempts ? stats.correct / stats.attempts : null;
 
-              <article className="summary-card">
-                <span className="metric-label">Melhor streak</span>
-                <strong>{progress.bestStreak}</strong>
-                <span className="summary-meta">desde o último reset</span>
-              </article>
-
-              <article className="summary-card">
-                <span className="metric-label">Células ativas</span>
-                <strong>{activeFacts.length}</strong>
-                <span className="summary-meta">no range atual</span>
-              </article>
-
-              <article className="summary-card">
-                <span className="metric-label">Faixa quente</span>
-                <strong>{focusBand?.label ?? "1-12"}</strong>
-                <span className="summary-meta">onde o motor insiste mais</span>
-              </article>
-            </div>
-          </section>
-
-          <section className="panel report-panel">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Heurística</p>
-                <h2>Faixas que voltam mais</h2>
-              </div>
-            </div>
-
-            <div className="band-list">
-              {bandInsights.map((band) => (
-                <article key={band.id} className="band-row">
-                  <div className="band-copy">
-                    <strong>{band.label}</strong>
-                    <span>
-                      {band.attempts
-                        ? `${toPercent(band.accuracy)} de acerto em ${band.attempts} tentativas`
-                        : "Ainda sem histórico"}
-                    </span>
-                  </div>
-                  <div className="band-track">
-                    <span
-                      className="band-fill"
-                      style={{
-                        width: `${Math.max(12, Math.round((band.focusBoost / 1.8) * 100))}%`,
-                      }}
-                    />
-                  </div>
-                </article>
-              ))}
-            </div>
-          </section>
-
-          <section className="panel report-panel">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Risco</p>
-                <h2>Contas mais sensíveis</h2>
-              </div>
-            </div>
-
-            <div className="fact-list">
-              {hardFacts.length ? (
-                hardFacts.map((fact) => (
-                  <article key={fact.id} className="fact-row">
-                    <div>
-                      <strong>
-                        {fact.a} × {fact.b}
-                      </strong>
-                      <span>
-                        {fact.stats.attempts
-                          ? `${toPercent(fact.accuracy)} de acerto, média ${formatResponseTime(fact.stats.avgTimeMs)}`
-                          : "Nova na fila"}
-                      </span>
-                    </div>
-                    <span className="fact-chip">
-                      domínio {Math.round(fact.mastery * 100)}%
-                    </span>
-                  </article>
-                ))
-              ) : (
-                <p className="empty-state">
-                  Ainda não há células ativas suficientes para apontar risco.
-                </p>
-              )}
-            </div>
-          </section>
-
-          <section className="panel report-panel">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Últimas</p>
-                <h2>Respostas recentes</h2>
-              </div>
-            </div>
-
-            <div className="history-strip">
-              {recentHistory.length ? (
-                recentHistory.map((item) => (
-                  <article
-                    key={item.id}
-                    className={`history-pill ${item.correct ? "is-correct" : "is-wrong"}`}
+                return (
+                  <button
+                    key={sectionId}
+                    className="progress-row"
+                    type="button"
+                    onClick={() => goToSection(sectionId)}
                   >
-                    <strong>{item.label}</strong>
-                    <span>
-                      {item.correct ? "certo" : `${item.answer}`} ·{" "}
-                      {formatResponseTime(item.responseTimeMs)}
+                    <div>
+                      <strong>{section.label}</strong>
+                      <span>{stats.attempts} tentativas</span>
+                    </div>
+                    <span className="progress-row__value">
+                      {formatAccuracy(accuracy)}
                     </span>
-                  </article>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          <section className="panel report-panel">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">Sessão</p>
+                <h2>Últimas contas</h2>
+              </div>
+            </div>
+
+            <div className="history-list">
+              {appState.history.length ? (
+                appState.history.map((item) => (
+                  <div
+                    key={item.id}
+                    className={`history-pill history-pill--${
+                      item.correct ? "correct" : "wrong"
+                    }`}
+                  >
+                    <MathExpression
+                      expression={item.promptLatex}
+                      className="history-pill__math"
+                    />
+                    <span>{item.sectionLabel}</span>
+                    {item.correct ? (
+                      <MathExpression expression={`${item.answer}`} className="history-pill__answer" />
+                    ) : (
+                      <MathExpression
+                        expression={item.solutionLatex}
+                        className="history-pill__answer"
+                      />
+                    )}
+                  </div>
                 ))
               ) : (
                 <p className="empty-state">
-                  Ainda não há respostas suficientes para montar esse painel.
+                  As últimas contas aparecem aqui conforme você vai treinando.
                 </p>
               )}
             </div>
           </section>
         </aside>
-      </main>
+      </div>
     </div>
+  );
+}
+
+function FragmentRow({ row, activePresetId }) {
+  return (
+    <>
+      <div className="table-grid__label">{row}</div>
+      {Array.from({ length: 10 }, (_, columnIndex) => columnIndex + 1).map((column) => {
+        const active = isTabuadaHighlighted(activePresetId, row, column);
+
+        return (
+          <div
+            key={`${row}-${column}`}
+            className={`table-grid__cell${
+              active ? " table-grid__cell--active" : ""
+            }`}
+          >
+            {row * column}
+          </div>
+        );
+      })}
+    </>
   );
 }
 
