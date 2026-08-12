@@ -407,6 +407,10 @@ h2 {
   gap: 8px;
 }
 
+.question-card.is-shaking {
+  animation: retry-shake 320ms ease;
+}
+
 .support-chip {
   display: inline-flex;
   align-items: center;
@@ -428,7 +432,31 @@ h2 {
   letter-spacing: 0.1em;
 }
 
+.problem-terms {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: end;
+  gap: 10px;
+}
+
+.problem-term,
+.problem-operator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problem-term__math {
+  font-size: clamp(2.5rem, 16vw, 4.5rem);
+}
+
+.problem-operator__math {
+  font-size: clamp(2rem, 12vw, 3.8rem);
+}
+
 .question-math .katex-display,
+.problem-term__math .katex-display,
+.problem-operator__math .katex-display,
 .answer-math .katex-display,
 .feedback-math .katex-display,
 .flashcard__math .katex-display,
@@ -460,6 +488,29 @@ h2 {
   font-size: 2rem;
   color: rgba(24, 49, 72, 0.38);
   letter-spacing: 0.2em;
+}
+
+@keyframes retry-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(7px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(4px);
+  }
 }
 
 .hint-card,
@@ -749,6 +800,14 @@ h2 {
 
   .question-math {
     font-size: clamp(3rem, 7vw, 5.4rem);
+  }
+
+  .problem-term__math {
+    font-size: clamp(3rem, 7vw, 5.4rem);
+  }
+
+  .problem-operator__math {
+    font-size: clamp(2.6rem, 5vw, 4.4rem);
   }
 
   .table-grid {
