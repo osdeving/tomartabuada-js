@@ -1,0 +1,157 @@
+const CACHE_PREFIX = "calculo-mental";
+const SHELL_CACHE = `${CACHE_PREFIX}-shell-v1`;
+const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v1`;
+const APP_SCOPE = new URL("./", self.registration.scope);
+
+const CORE_PATHS = [
+  "./offline.html",
+  "./manifest.webmanifest",
+  "./icons/app-icon.svg",
+  "./icons/icon-192.png",
+  "./icons/icon-512.png",
+  "./icons/icon-maskable-512.png",
+  "./icons/apple-touch-icon.png",
+];
+
+const urlFromScope = (path) => new URL(path, APP_SCOPE).href;
+const canCache = (response) => response.ok || response.type === "opaque";
+
+async function putInCache(cacheName, request, response) {
+  if (!canCache(response)) return;
+  const cache = await caches.open(cacheName);
+  await cache.put(request, response);
+}
+
+async function cacheAppShell() {
+  const cache = await caches.open(SHELL_CACHE);
+  const indexUrl = urlFromScope("./index.html");
+  const indexResponse = await fetch(indexUrl, { cache: "reload" });
+
+  if (!indexResponse.ok) {
+    throw new Error(`Falha ao preparar o app shell: ${indexResponse.status}`);
+  }
+
+  const html = await indexResponse.clone().text();
+  await Promise.all([
+    cache.put(indexUrl, indexResponse.clone()),
+    cache.put(APP_SCOPE.href, indexResponse.clone()),
+    cache.addAll(CORE_PATHS.map(urlFromScope)),
+  ]);
+
+  // Vite hashes JS/CSS on every build. Reading the generated index keeps the
+  // precache independent from those filenames and from the deployment subpath.
+  const buildAssets = [...html.matchAll(/\b(?:src|href)=["']([^"'#]+)["']/gi)]
+    .map((match) => new URL(match[1], indexUrl))
+    .filter(
+      (url) =>
+        url.origin === APP_SCOPE.origin &&
+        url.pathname.startsWith(APP_SCOPE.pathname),
+    );
+
+  await Promise.allSettled(
+    [...new Set(buildAssets.map((url) => url.href))].map((assetUrl) =>
+      cache.add(assetUrl),
+    ),
+  );
+}
+
+self.addEventListener("install", (event) => {
+  event.waitUntil(cacheAppShell().then(() => self.skipWaiting()));
+});
+
+self.addEventListener("activate", (event) => {
+  event.waitUntil(
+    Promise.all([
+      caches
+        .keys()
+        .then((keys) =>
+          Promise.all(
+            keys
+              .filter(
+                (key) =>
+                  key.startsWith(`${CACHE_PREFIX}-`) &&
+                  key !== SHELL_CACHE &&
+                  key !== RUNTIME_CACHE,
+              )
+              .map((key) => caches.delete(key)),
+          ),
+        ),
+      self.clients.claim(),
+    ]),
+  );
+});
+
+async function navigationResponse(request) {
+  try {
+    const response = await fetch(request);
+    if (response.ok) {
+      const cache = await caches.open(SHELL_CACHE);
+      await Promise.all([
+        cache.put(request, response.clone()),
+        cache.put(APP_SCOPE.href, response.clone()),
+        cache.put(urlFromScope("./index.html"), response.clone()),
+      ]);
+    }
+    return response;
+  } catch {
+    return (
+      (await caches.match(request, { ignoreSearch: true })) ||
+      (await caches.match(APP_SCOPE.href, { ignoreSearch: true })) ||
+      (await caches.match(urlFromScope("./offline.html")))
+    );
+  }
+}
+
+async function staleWhileRevalidate(request) {
+  const cached = await caches.match(request, { ignoreSearch: false });
+  const network = fetch(request)
+    .then(async (response) => {
+      await putInCache(RUNTIME_CACHE, request, response.clone());
+      return response;
+    })
+    .catch(() => cached);
+
+  return cached || network;
+}
+
+async function networkFirst(request) {
+  try {
+    const response = await fetch(request);
+    await putInCache(RUNTIME_CACHE, request, response.clone());
+    return response;
+  } catch {
+    return caches.match(request, { ignoreSearch: true });
+  }
+}
+
+self.addEventListener("fetch", (event) => {
+  const { request } = event;
+  if (request.method !== "GET") return;
+
+  const url = new URL(request.url);
+  if (url.protocol !== "http:" && url.protocol !== "https:") return;
+
+  if (request.mode === "navigate") {
+    event.respondWith(navigationResponse(request));
+    return;
+  }
+
+  const cacheableDestination = ["font", "image", "script", "style", "manifest"].includes(
+    request.destination,
+  );
+
+  if (cacheableDestination) {
+    event.respondWith(staleWhileRevalidate(request));
+    return;
+  }
+
+  const isLocalJson =
+    url.origin === APP_SCOPE.origin &&
+    url.pathname.startsWith(APP_SCOPE.pathname) &&
+    url.pathname.endsWith(".json") &&
+    !url.pathname.includes("/api/");
+
+  if (isLocalJson) {
+    event.respondWith(networkFirst(request));
+  }
+});
