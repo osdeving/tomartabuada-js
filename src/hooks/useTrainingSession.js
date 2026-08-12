@@ -14,76 +14,107 @@ import {
   normalizeUserAnswer,
   serializeUserAnswer,
 } from "../lib/platform/answers";
+import {
+  MEMORIZATION_OPERATIONS,
+  selectMemorizationQuestion,
+} from "../lib/platform/basicMemorization";
 import { selectAdaptiveQuestion, THEORY_INDEX } from "../lib/platform/content";
-import { getPracticeGroup, getSessionMode } from "../lib/platform/experience";
+import { getPracticeGroup, getSessionMode, getTimeProfile } from "../lib/platform/experience";
 
-const FEEDBACK_DELAY_MS = 680;
 const STRUCTURED_ANSWER_DELAY_MS = 700;
 const TIME_TICK_MS = 80;
+const UNTYPED_ANSWER_DELAY_MS = 1_350;
+const INCOMPLETE_NUMERIC_DELAY_MS = 950;
 
 export function useTrainingSession({ config, platformState, onAttempt, onFinish }) {
   const [runtime, setRuntime] = useState(null);
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState(null);
   const [nudge, setNudge] = useState(null);
+  const [levelNotice, setLevelNotice] = useState(null);
   const [paused, setPaused] = useState(false);
   const [now, setNow] = useState(Date.now());
   const runtimeRef = useRef(runtime);
   const answerRef = useRef(answer);
   const questionStartRef = useRef(Date.now());
-  const deadlineRef = useRef(Date.now());
+  const deadlineRef = useRef(null);
   const advanceTimeoutRef = useRef(null);
   const answerSubmitTimeoutRef = useRef(null);
+  const levelNoticeTimeoutRef = useRef(null);
   const finishedRef = useRef(false);
   const gradingRef = useRef(false);
   const pausedAtRef = useRef(null);
   const recentQuestionIdsRef = useRef([]);
+  const announcedLevelNoticesRef = useRef(new Set());
 
   useEffect(() => { runtimeRef.current = runtime; }, [runtime]);
   useEffect(() => { answerRef.current = answer; }, [answer]);
 
+  const showLevelNotice = useCallback((question) => {
+    const tierId = question?.memorization?.difficultyTier;
+    const noticeId = question?.levelCue?.code ?? tierId;
+    if (!question?.levelCue || !noticeId || announcedLevelNoticesRef.current.has(noticeId)) return;
+    announcedLevelNoticesRef.current.add(noticeId);
+    setLevelNotice(question.levelCue);
+    if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
+    levelNoticeTimeoutRef.current = window.setTimeout(
+      () => setLevelNotice(null),
+      question.levelCue.durationMs ?? 1_300,
+    );
+  }, []);
+
   const begin = useCallback(async () => {
     if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
+    if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
     finishedRef.current = false;
     gradingRef.current = false;
     recentQuestionIdsRef.current = [];
+    announcedLevelNoticesRef.current = new Set();
     const adaptiveMode = config.modeId === "sobrevivencia"
       ? "survival"
       : config.modeId === "campanha"
         ? "campaign"
         : "sparring";
+    const memorizationSectionId = getMemorizationOperation(config.memorization?.operationId).sectionId;
+    const difficultyGroupId = config.practiceKind === "memorization"
+      ? memorizationSectionId
+      : config.groupId;
     const difficulty = config.campaignStage
       ? Math.max(1, Math.min(10, config.campaignStage.order))
-      : inferStartingDifficulty(platformState.attempts, config.groupId);
+      : inferStartingDifficulty(platformState.attempts, difficultyGroupId);
+    const groupIds = config.practiceKind === "memorization"
+      ? [memorizationSectionId]
+      : getPracticeGroup(config.groupId).sectionIds;
     const adaptiveSession = createPracticeSession({
       id: `session-${Date.now()}`,
       mode: adaptiveMode,
-      groupIds: getPracticeGroup(config.groupId).sectionIds,
+      groupIds,
       difficulty,
       lives: 3,
       inputMode: "custom-keypad",
     });
-    const question = await selectAdaptiveQuestion({
-      attempts: adaptiveSession.attempts,
-      baselineAttempts: platformState.attempts,
-      chapterOrder: config.campaignStage?.order ?? config.chapterOrder ?? null,
-      currentDifficulty: adaptiveSession.currentDifficulty,
-      groupId: config.groupId,
-      mode: config.modeId,
-      sectionPool: config.campaignStage?.sectionPool ?? null,
-      responseScale: config.campaignStage?.responseScale ?? 1,
-      theoryTopicIds: config.theoryTopicIds ?? null,
-      allowedSectionIds: config.sectionIds ?? null,
-      sourceChapterOrder: config.sourceChapterOrder ?? null,
-    });
+    const question = applyTimeProfile(
+      await selectQuestion({
+        adaptiveSession,
+        config,
+        platformState,
+        recentQuestionIds: [],
+      }),
+      config,
+    );
+    if (!question) throw new Error("Nenhuma conta corresponde a esta configuração.");
     const startedAt = Date.now();
 
     questionStartRef.current = startedAt;
-    deadlineRef.current = startedAt + (question?.responseWindowMs ?? 10_000);
+    deadlineRef.current = question.deadlineWindowMs == null
+      ? null
+      : startedAt + question.deadlineWindowMs;
     setNow(startedAt);
     setAnswer("");
     setFeedback(null);
     setNudge(null);
+    setLevelNotice(null);
+    showLevelNotice(question);
     setPaused(false);
     setRuntime({
       adaptiveSession,
@@ -95,7 +126,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       sessionDeadline: config.modeId === "sprint" ? startedAt + 60_000 : null,
       bestCombo: 0,
     });
-  }, [config, platformState.attempts]);
+  }, [config, platformState, showLevelNotice]);
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
@@ -112,7 +143,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       return;
     }
 
-    if (runtime.question && now >= deadlineRef.current) {
+    if (runtime.question && deadlineRef.current != null && now >= deadlineRef.current) {
       gradeAnswer(answerRef.current, true);
     }
   }, [now, runtime, paused, feedback]);
@@ -120,6 +151,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   useEffect(() => () => {
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
     if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
+    if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
   }, []);
 
   const gradeAnswer = useCallback((rawAnswer, timedOut = false) => {
@@ -148,11 +180,21 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         correct,
         timedOut,
         responseTimeMs,
-        responseWindowMs: question.responseWindowMs,
+        responseWindowMs: question.targetResponseMs ?? question.responseWindowMs,
         difficulty: question.difficulty,
         source: question.source,
         sourceId: question.sourceId,
         sourceDocumentId: question.sourceDocumentId,
+        metadata: {
+          practiceKind: config.practiceKind ?? "adaptive",
+          timeProfileId: config.timeProfileId ?? "calmo",
+          memorizationOperation: question.memorization?.operation ?? config.memorization?.operationId ?? "",
+          trainingPreset: memorizationScopeKey(config.memorization),
+          complexityBand: question.memorization?.difficultyTier ?? "",
+          memorizationDifficultyMode: config.memorization?.difficultyMode ?? "adaptive",
+          memorizationDifficultyTier: config.memorization?.difficultyTier ?? "all",
+          deadlineWindowMs: question.deadlineWindowMs ?? 0,
+        },
         answerGiven: serializedAnswer,
         expectedAnswer: question.answer,
         timestamp: answeredAt,
@@ -183,6 +225,12 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       sourceChapterOrder: question.sourceChapterOrder,
       sourceDocumentId: question.sourceDocumentId,
       page: question.page,
+      practiceKind: config.practiceKind ?? "adaptive",
+      timeProfileId: config.timeProfileId ?? "calmo",
+      targetResponseMs: question.targetResponseMs ?? question.responseWindowMs,
+      deadlineWindowMs: question.deadlineWindowMs,
+      memorizationOperation: question.memorization?.operation ?? config.memorization?.operationId ?? null,
+      complexityBand: question.memorization?.difficultyTier ?? null,
       answerGiven: serializedAnswer,
       givenAnswer: serializedAnswer,
     };
@@ -231,37 +279,41 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         return;
       }
 
-      const nextQuestion = await selectAdaptiveQuestion({
-        attempts: latest.adaptiveSession.attempts,
-        baselineAttempts: platformState.attempts,
-        chapterOrder: config.campaignStage?.order ?? config.chapterOrder ?? null,
-        currentDifficulty: latest.adaptiveSession.currentDifficulty,
-        groupId: config.groupId,
-        mode: config.modeId,
-        recentQuestionIds: recentQuestionIdsRef.current,
-        sectionPool: config.campaignStage?.sectionPool ?? null,
-        responseScale: config.campaignStage?.responseScale ?? 1,
-        theoryTopicIds: config.theoryTopicIds ?? null,
-        allowedSectionIds: config.sectionIds ?? null,
-        sourceChapterOrder: config.sourceChapterOrder ?? null,
-      });
-      if (finishedRef.current || !runtimeRef.current) return;
-      recentQuestionIdsRef.current = [
+      const nextRecentQuestionIds = [...new Set([
         question.questionId,
-        ...recentQuestionIdsRef.current.filter((id) => id !== question.questionId),
-      ].slice(0, 5);
+        ...(config.practiceKind === "memorization" && question.skillKey ? [question.skillKey] : []),
+        ...recentQuestionIdsRef.current,
+      ])].slice(0, 8);
+      recentQuestionIdsRef.current = nextRecentQuestionIds;
+      const nextQuestion = applyTimeProfile(
+        await selectQuestion({
+          adaptiveSession: latest.adaptiveSession,
+          config,
+          platformState,
+          recentQuestionIds: nextRecentQuestionIds,
+        }),
+        config,
+      );
+      if (finishedRef.current || !runtimeRef.current) return;
+      if (!nextQuestion) {
+        finalize(latest);
+        return;
+      }
       const startedAt = Date.now();
       const updated = { ...latest, question: nextQuestion };
       runtimeRef.current = updated;
       questionStartRef.current = startedAt;
-      deadlineRef.current = startedAt + (nextQuestion?.responseWindowMs ?? 10_000);
+      deadlineRef.current = nextQuestion.deadlineWindowMs == null
+        ? null
+        : startedAt + nextQuestion.deadlineWindowMs;
       setNow(startedAt);
       setRuntime(updated);
       setAnswer("");
       setFeedback(null);
+      showLevelNotice(nextQuestion);
       gradingRef.current = false;
-    }, FEEDBACK_DELAY_MS);
-  }, [config, feedback, onAttempt, paused, platformState.attempts, platformState.sessions]);
+    }, getFeedbackDelay(config));
+  }, [config, feedback, onAttempt, paused, platformState, showLevelNotice]);
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
@@ -317,7 +369,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       const selected = key.slice("choice:".length);
       answerRef.current = selected;
       setAnswer(displayAnswerInput(selected, current.question));
-      window.setTimeout(() => gradeAnswer(selected, false), 40);
+      answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(selected, false), 40);
       return;
     }
     if (key === "separator") {
@@ -351,7 +403,12 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         }
       }
     } else if (isCompleteAnswer(next, current.question)) {
-      window.setTimeout(() => gradeAnswer(next, false), 40);
+      answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(next, false), 40);
+    } else {
+      answerSubmitTimeoutRef.current = window.setTimeout(
+        () => gradeAnswer(next, false),
+        INCOMPLETE_NUMERIC_DELAY_MS,
+      );
     }
   }, [feedback, gradeAnswer, paused]);
 
@@ -370,7 +427,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     const current = runtimeRef.current;
     if (!current || !paused) return;
     const pausedDuration = Date.now() - (pausedAtRef.current ?? Date.now());
-    deadlineRef.current += pausedDuration;
+    questionStartRef.current += pausedDuration;
+    if (deadlineRef.current != null) deadlineRef.current += pausedDuration;
     const updated = {
       ...current,
       sessionDeadline: current.sessionDeadline ? current.sessionDeadline + pausedDuration : null,
@@ -380,7 +438,24 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     setRuntime(updated);
     setPaused(false);
     setNow(Date.now());
-  }, [paused]);
+    if (answerRef.current) {
+      const delay = isCompleteAnswer(answerRef.current, current.question)
+        ? 40
+        : INCOMPLETE_NUMERIC_DELAY_MS;
+      answerSubmitTimeoutRef.current = window.setTimeout(
+        () => gradeAnswer(answerRef.current, false),
+        delay,
+      );
+    }
+  }, [gradeAnswer, paused]);
+
+  useEffect(() => {
+    function pauseWhenHidden() {
+      if (document.hidden && runtimeRef.current && !paused && !finishedRef.current) pause();
+    }
+    document.addEventListener("visibilitychange", pauseWhenHidden);
+    return () => document.removeEventListener("visibilitychange", pauseWhenHidden);
+  }, [pause, paused]);
 
   const finalize = useCallback((providedRuntime = runtimeRef.current) => {
     if (!providedRuntime || finishedRef.current) return;
@@ -398,13 +473,41 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     const correct = attempts.filter((attempt) => attempt.correct && !attempt.timedOut).length;
     const accuracy = attempts.length ? correct / attempts.length : 0;
     const correctTimes = attempts.filter((attempt) => attempt.correct && attempt.responseTimeMs != null).map((attempt) => attempt.responseTimeMs);
-    const previousBest = Number(platformState.records.bestScore[`${config.modeId}:${config.groupId}`]) || 0;
+    const paceRatios = attempts
+      .filter((attempt) => attempt.correct && attempt.responseTimeMs != null && attempt.responseWindowMs)
+      .map((attempt) => attempt.responseTimeMs / attempt.responseWindowMs);
+    const averagePaceRatio = paceRatios.length
+      ? paceRatios.reduce((sum, value) => sum + value, 0) / paceRatios.length
+      : null;
+    const summaryGroupId = config.practiceKind === "memorization"
+      ? getMemorizationOperation(config.memorization?.operationId).sectionId
+      : config.groupId;
+    const memoryScope = memorizationScopeKey(config.memorization);
+    const recordKey = config.practiceKind === "memorization"
+      ? `${config.modeId}:memorization:${memoryScope}:${config.timeProfileId}`
+      : `${config.modeId}:${config.groupId}:${config.timeProfileId}`;
+    const previousBest = Number(platformState.records.bestScore[recordKey])
+      || Number(platformState.records.bestScore[`${config.modeId}:${summaryGroupId}`])
+      || 0;
     const passed = config.campaignStage ? accuracy >= config.campaignStage.targetAccuracy : true;
     const theoryRecommendation = finished.report.theoryRecommendations?.[0];
     const summary = {
       id: finished.session.id,
       modeId: config.modeId,
-      groupId: config.groupId,
+      groupId: summaryGroupId,
+      recordKey,
+      practiceKind: config.practiceKind ?? "adaptive",
+      timeProfileId: config.timeProfileId ?? "calmo",
+      memorizationOperation: config.practiceKind === "memorization" ? config.memorization?.operationId : null,
+      memorizationPresetIds: config.practiceKind === "memorization"
+        ? canonicalPresetIds(config.memorization)
+        : null,
+      memorizationDifficultyMode: config.practiceKind === "memorization"
+        ? config.memorization?.difficultyMode ?? "adaptive"
+        : null,
+      memorizationDifficultyTier: config.practiceKind === "memorization"
+        ? config.memorization?.difficultyTier ?? "all"
+        : null,
       groupIds: finished.session.groupIds,
       status: finished.session.status,
       startedAt: providedRuntime.startedAt,
@@ -421,10 +524,10 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       stars: getCampaignStars(accuracy),
       campaignStageId: config.campaignStage?.id ?? null,
       isNewRecord: finished.session.score > previousBest && previousBest > 0,
-      headline: passed ? headlineFor(accuracy, finished.session.bestCombo) : "Mais uma rodada e você passa",
+      headline: passed ? headlineFor(accuracy, finished.session.bestCombo, averagePaceRatio) : "Mais uma rodada e você passa",
       message: passed
-        ? messageFor(accuracy, finished.session.bestCombo)
-        : `Você chegou a ${Math.round(accuracy * 100)}%. Este capítulo pede ${Math.round(config.campaignStage.targetAccuracy * 100)}% para avançar.`,
+        ? messageFor(accuracy, finished.session.bestCombo, averagePaceRatio)
+        : `Você chegou a ${Math.round(accuracy * 100)}%. Esta etapa pede ${Math.round(config.campaignStage.targetAccuracy * 100)}% para avançar.`,
       insight: finished.report.fatigue?.isFatigued && config.settings.autoRestCoach
         ? {
             kind: "rest",
@@ -433,8 +536,10 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
           }
         : theoryRecommendation
         ? { kind: "theory", topicId: theoryRecommendation.topicId, title: `Reforce “${theoryRecommendation.title}”`, detail: theoryRecommendation.reason }
-        : accuracy >= 0.85
+        : accuracy >= 0.85 && averagePaceRatio != null && averagePaceRatio <= 0.78
           ? { kind: "progress", title: "Seu nível subiu", detail: "Precisão e ritmo indicam que você pode encarar contas um passo mais difíceis." }
+          : accuracy >= 0.85
+            ? { kind: "progress", title: "Precisão firme", detail: "Os acertos estão bons. Agora o treino vai repetir o que ainda demora até a resposta ficar automática." }
           : null,
     };
     onFinish(summary, config.campaignStage);
@@ -462,33 +567,41 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   }, [finalize]);
   const mode = getSessionMode(config.modeId);
   const group = getPracticeGroup(config.groupId);
+  const memorizationOperation = getMemorizationOperation(config.memorization?.operationId);
+  const timed = Boolean(runtime?.sessionDeadline || deadlineRef.current != null);
   const remainingMs = runtime
-    ? Math.max(0, Math.min(
-        deadlineRef.current - now,
-        runtime.sessionDeadline ? runtime.sessionDeadline - now : Number.POSITIVE_INFINITY,
-      ))
+    ? runtime.sessionDeadline
+      ? Math.max(0, Math.min(
+          deadlineRef.current == null ? Number.POSITIVE_INFINITY : deadlineRef.current - now,
+          runtime.sessionDeadline - now,
+        ))
+      : deadlineRef.current == null ? null : Math.max(0, deadlineRef.current - now)
     : 0;
-  const questionWindowMs = runtime?.question?.responseWindowMs ?? 1;
+  const questionWindowMs = runtime?.question?.deadlineWindowMs ?? runtime?.question?.responseWindowMs ?? 1;
   const remainingRatio = runtime
     ? runtime.sessionDeadline
       ? Math.max(0, (runtime.sessionDeadline - now) / 60_000)
-      : Math.max(0, remainingMs / questionWindowMs)
+      : remainingMs == null ? null : Math.max(0, remainingMs / questionWindowMs)
     : 0;
   const publicSession = useMemo(() => runtime ? {
     ...runtime,
     modeId: config.modeId,
     modeLabel: mode.label,
-    groupLabel: group.label,
+    groupLabel: config.practiceKind === "memorization"
+      ? `Memorizar · ${memorizationOperation.label}`
+      : group.label,
     score: runtime.adaptiveSession.score,
     combo: runtime.adaptiveSession.currentCombo,
     lives: runtime.adaptiveSession.modeState?.lives ?? 3,
-    difficultyLabel: runtime.adaptiveSession.currentDifficulty,
+    difficultyLabel: runtime.question?.memorization?.difficultyLabel ?? runtime.adaptiveSession.currentDifficulty,
+    timeProfileLabel: config.modeId === "sprint" ? "Sprint" : getTimeProfile(config.timeProfileId).shortLabel,
+    timed,
     targetCount: config.modeId === "sparring"
       ? config.questionCount
       : config.modeId === "campanha"
         ? config.campaignStage.questionCount
         : null,
-  } : null, [runtime, config, mode.label, group.label]);
+  } : null, [runtime, config, mode.label, group.label, memorizationOperation.label, timed]);
 
   return {
     active: Boolean(runtime),
@@ -497,6 +610,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     exit,
     feedback,
     handleAnswerKey,
+    levelNotice,
     nudge,
     pause,
     paused,
@@ -513,6 +627,90 @@ function inferStartingDifficulty(attempts, groupId) {
   const accuracy = relevant.filter((attempt) => attempt.correct).length / relevant.length;
   const averageLevel = relevant.reduce((sum, attempt) => sum + (Number(attempt.difficulty) || 3), 0) / relevant.length;
   return Math.max(1, Math.min(10, Math.round(averageLevel + (accuracy >= 0.88 ? 1 : accuracy < 0.6 ? -1 : 0))));
+}
+
+async function selectQuestion({ adaptiveSession, config, platformState, recentQuestionIds }) {
+  if (config.practiceKind === "memorization") {
+    const memory = config.memorization ?? {};
+    return selectMemorizationQuestion({
+      operationId: memory.operationId ?? "multiplication",
+      presetId: memory.presetId,
+      presetIds: memory.presetIds,
+      attempts: platformState.attempts,
+      sessionAttempts: adaptiveSession.attempts,
+      recentQuestionIds,
+      difficultyMode: memory.difficultyMode ?? "adaptive",
+      difficultyTier: memory.difficultyTier ?? "all",
+    });
+  }
+
+  return selectAdaptiveQuestion({
+    attempts: adaptiveSession.attempts,
+    baselineAttempts: platformState.attempts,
+    chapterOrder: config.campaignStage?.order ?? config.chapterOrder ?? null,
+    currentDifficulty: adaptiveSession.currentDifficulty,
+    groupId: config.groupId,
+    mode: config.modeId,
+    recentQuestionIds,
+    sectionPool: config.campaignStage?.sectionPool ?? null,
+    responseScale: config.campaignStage?.responseScale ?? 1,
+    theoryTopicIds: config.theoryTopicIds ?? null,
+    allowedSectionIds: config.sectionIds ?? null,
+    sourceChapterOrder: config.sourceChapterOrder ?? null,
+  });
+}
+
+function applyTimeProfile(question, config) {
+  if (!question) return null;
+  const targetResponseMs = Number(question.targetResponseMs) || Number(question.responseWindowMs) || 10_000;
+  if (config.modeId === "sprint") {
+    return {
+      ...question,
+      targetResponseMs,
+      responseWindowMs: targetResponseMs,
+      deadlineWindowMs: null,
+    };
+  }
+
+  const profile = getTimeProfile(config.timeProfileId);
+  const deadlineWindowMs = profile.deadlineScale == null
+    ? null
+    : Math.max(2_500, Math.min(45_000, Math.round(targetResponseMs * profile.deadlineScale)));
+  return {
+    ...question,
+    targetResponseMs,
+    responseWindowMs: targetResponseMs,
+    deadlineWindowMs,
+  };
+}
+
+function getFeedbackDelay(config) {
+  if (config.modeId === "sprint") return 300;
+  const profile = getTimeProfile(config.timeProfileId);
+  return Math.max(500, profile.feedbackDelayMs ?? UNTYPED_ANSWER_DELAY_MS);
+}
+
+function getMemorizationOperation(operationId) {
+  return MEMORIZATION_OPERATIONS.find((operation) => operation.id === operationId)
+    ?? MEMORIZATION_OPERATIONS[0];
+}
+
+function canonicalPresetIds(memory = {}) {
+  if ((memory?.operationId ?? "multiplication") !== "multiplication") {
+    return [String(memory?.presetId ?? "one-digit")];
+  }
+  const values = Array.isArray(memory?.presetIds) && memory.presetIds.length
+    ? memory.presetIds
+    : [memory?.presetId ?? "all"];
+  return [...new Set(values.filter(Boolean).map(String))].sort();
+}
+
+function memorizationScopeKey(memory = {}) {
+  const operationId = memory?.operationId ?? "multiplication";
+  const presets = canonicalPresetIds(memory).join("+");
+  const difficultyMode = memory?.difficultyMode ?? "adaptive";
+  const tier = difficultyMode === "fixed" ? memory?.difficultyTier ?? "all" : "adaptive";
+  return `${operationId}:${presets}:${difficultyMode}:${tier}`;
 }
 
 function providePhysicalFeedback(correct, settings) {
@@ -541,15 +739,17 @@ function correctMessage(combo) {
   return ["Boa!", "Cravou.", "Resposta limpa.", "Mandou bem."][combo % 4];
 }
 
-function headlineFor(accuracy, combo) {
-  if (accuracy >= 0.95 && combo >= 10) return "Sessão absurda";
-  if (accuracy >= 0.9) return "Precisão de respeito";
+function headlineFor(accuracy, combo, paceRatio) {
+  if (accuracy >= 0.95 && combo >= 10 && paceRatio <= 0.7) return "Sessão absurda";
+  if (accuracy >= 0.9 && paceRatio <= 0.85) return "Precisão e ritmo fortes";
+  if (accuracy >= 0.9) return "Acertou; agora vamos automatizar";
   if (accuracy >= 0.75) return "Boa construção de ritmo";
   return "Treino feito, mapa atualizado";
 }
 
-function messageFor(accuracy, combo) {
-  if (accuracy >= 0.95) return `Você fechou com ${Math.round(accuracy * 100)}% e combo ×${combo}. O próximo treino vai subir a régua.`;
+function messageFor(accuracy, combo, paceRatio) {
+  if (accuracy >= 0.95 && paceRatio <= 0.78) return `Você fechou com ${Math.round(accuracy * 100)}% e combo ×${combo}. O próximo treino pode subir a régua.`;
+  if (accuracy >= 0.9) return `Você fechou com ${Math.round(accuracy * 100)}%. As contas mais lentas continuarão aparecendo até saírem sem esforço.`;
   if (accuracy >= 0.8) return "Você sustentou um desafio saudável. O motor já separou os padrões que merecem reaparecer.";
   return "Errar aqui é dado útil: o próximo sparring vai abrir espaço para recuperar confiança antes de apertar.";
 }

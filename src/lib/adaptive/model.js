@@ -21,9 +21,10 @@ export function createAttempt(rawAttempt = {}, context = {}) {
     null,
   );
   const correct = readBoolean(rawAttempt.correct ?? rawAttempt.isCorrect);
-  const timedOut = readBoolean(rawAttempt.timedOut) || (
-    responseTimeMs != null && responseWindowMs != null && responseTimeMs > responseWindowMs
-  );
+  const hasExplicitTimeout = Object.prototype.hasOwnProperty.call(rawAttempt, "timedOut");
+  const timedOut = hasExplicitTimeout
+    ? readBoolean(rawAttempt.timedOut)
+    : responseTimeMs != null && responseWindowMs != null && responseTimeMs > responseWindowMs;
   const sectionId = cleanId(rawAttempt.sectionId ?? context.sectionId);
   const groupId = cleanId(rawAttempt.groupId ?? context.groupId ?? sectionId) || "geral";
   const skillKey = cleanId(rawAttempt.skillKey ?? rawAttempt.questionId) || "desconhecida";

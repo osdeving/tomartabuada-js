@@ -41,9 +41,18 @@ function App() {
   const [theoryChapters, setTheoryChapters] = useState([]);
   const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
   const [trainingConfig, setTrainingConfig] = useState(() => ({
+    practiceKind: initialStateRef.current.settings.practiceKind ?? "adaptive",
     modeId: initialStateRef.current.selectedModeId ?? "sparring",
     groupId: initialStateRef.current.selectedGroupId ?? "misto",
     questionCount: initialStateRef.current.settings.questionCount ?? 15,
+    timeProfileId: initialStateRef.current.settings.timeProfileId ?? "calmo",
+    memorization: {
+      operationId: initialStateRef.current.settings.memorizationOperationId ?? "multiplication",
+      presetId: initialStateRef.current.settings.memorizationPresetId ?? "all",
+      presetIds: initialStateRef.current.settings.memorizationPresetIds ?? ["all"],
+      difficultyMode: initialStateRef.current.settings.memorizationDifficultyMode ?? "adaptive",
+      difficultyTier: initialStateRef.current.settings.memorizationDifficultyTier ?? "all",
+    },
     campaignStage: null,
     theoryTopicIds: null,
     sectionIds: null,
@@ -79,7 +88,7 @@ function App() {
         if (!cancelled) setTheoryChapters(chapters);
       })
       .catch((error) => {
-        console.error("Não foi possível carregar a biblioteca de teoria.", error);
+        console.error("Não foi possível carregar as técnicas.", error);
       });
     return () => { cancelled = true; };
   }, [activeView, theoryChapters.length]);
@@ -138,6 +147,7 @@ function App() {
     if (groupId) {
       setTrainingConfig((current) => ({
         ...current,
+        practiceKind: "adaptive",
         groupId,
         campaignStage: null,
         chapterOrder: null,
@@ -164,8 +174,22 @@ function App() {
       ...current,
       selectedGroupId: patch.groupId ?? current.selectedGroupId,
       selectedModeId: patch.modeId ?? current.selectedModeId,
-      settings: patch.questionCount
-        ? { ...current.settings, questionCount: patch.questionCount }
+      settings: patch.questionCount || patch.timeProfileId || patch.practiceKind || patch.memorization
+        ? {
+            ...current.settings,
+            ...(patch.questionCount ? { questionCount: patch.questionCount } : {}),
+            ...(patch.timeProfileId ? { timeProfileId: patch.timeProfileId } : {}),
+            ...(patch.practiceKind ? { practiceKind: patch.practiceKind } : {}),
+            ...(patch.memorization ? {
+              memorizationOperationId: patch.memorization.operationId,
+              memorizationPresetId: patch.memorization.presetId,
+              memorizationPresetIds: patch.memorization.operationId === "multiplication"
+                ? patch.memorization.presetIds
+                : [],
+              memorizationDifficultyMode: patch.memorization.difficultyMode,
+              memorizationDifficultyTier: patch.memorization.difficultyTier,
+            } : {}),
+          }
         : current.settings,
     }));
   }
@@ -181,6 +205,7 @@ function App() {
 
   function startCampaignStage(stage) {
     startSession({
+      practiceKind: "adaptive",
       modeId: "campanha",
       groupId: stage.groupId,
       questionCount: stage.questionCount,
@@ -194,6 +219,7 @@ function App() {
   function practiceTheoryChapter(chapter) {
     const canonicalChapterOrder = chapter.sourceKind === "full-book" ? null : chapter.order;
     startSession({
+      practiceKind: "adaptive",
       modeId: "sparring",
       groupId: chapter.groupId,
       questionCount: 12,
@@ -230,9 +256,18 @@ function App() {
     initialStateRef.current = next;
     setPlatformState(next);
     setTrainingConfig({
+      practiceKind: "adaptive",
       modeId: "sparring",
       groupId: "misto",
       questionCount: 15,
+      timeProfileId: next.settings.timeProfileId,
+      memorization: {
+        operationId: "multiplication",
+        presetId: "all",
+        presetIds: ["all"],
+        difficultyMode: "adaptive",
+        difficultyTier: "all",
+      },
       campaignStage: null,
       theoryTopicIds: null,
       sectionIds: null,
@@ -275,6 +310,7 @@ function App() {
       <SessionArena
         answer={trainingSession.answer}
         feedback={trainingSession.feedback}
+        levelNotice={trainingSession.levelNotice}
         nudge={trainingSession.nudge}
         onAnswerKey={trainingSession.handleAnswerKey}
         onExit={trainingSession.exit}
@@ -300,6 +336,7 @@ function App() {
           dashboard={homeDashboard}
           onNavigate={navigate}
           onQuickStart={() => startSession({
+            practiceKind: "adaptive",
             modeId: "sparring",
             campaignStage: null,
             chapterOrder: null,
@@ -359,7 +396,7 @@ function adaptiveSetupMessage(state, groupId) {
   if (!relevant.length) return "Começa leve, aprende seu ritmo e mistura contas já estudadas com variações novas.";
   const accuracy = relevant.filter((attempt) => attempt.correct).length / relevant.length;
   if (accuracy < 0.62) return "Vou aliviar um pouco, reforçar padrões recorrentes e devolver confiança antes de subir.";
-  if (accuracy > 0.88) return "Seu desempenho recente está forte; espere menos tempo e contas um passo mais difíceis.";
+  if (accuracy > 0.88) return "Seu desempenho recente está forte; espere contas um passo mais difíceis, no perfil de tempo que você escolheu.";
   return "O nível atual está saudável. Vou alternar revisão, novidade e padrões já conhecidos.";
 }
 

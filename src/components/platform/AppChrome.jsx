@@ -4,7 +4,7 @@ export function AppChrome({ activeView, children, onNavigate, onOpenSettings, pr
   return (
     <div className="platform-shell">
       <header className="topbar">
-        <button className="brand" type="button" onClick={() => onNavigate("inicio")}>
+        <button className="brand" type="button" aria-label="Ir para o início" onClick={() => onNavigate("inicio")}>
           <span className="brand__mark" aria-hidden="true">Σ</span>
           <span>
             <strong>Cálculo Mental</strong>
@@ -23,7 +23,7 @@ export function AppChrome({ activeView, children, onNavigate, onOpenSettings, pr
           ))}
         </nav>
 
-        <button className="profile-button" type="button" onClick={onOpenSettings}>
+        <button className="profile-button" type="button" aria-label={`Abrir configurações de ${profile.displayName}, nível ${profile.level}`} onClick={onOpenSettings}>
           <span className="profile-button__level">N{profile.level}</span>
           <span className="profile-button__copy">
             <strong>{profile.displayName}</strong>
@@ -76,4 +76,3 @@ export function PageHeader({ eyebrow, title, description, actions }) {
     </header>
   );
 }
-

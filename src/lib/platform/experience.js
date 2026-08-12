@@ -122,6 +122,41 @@ export const THEMES = [
 
 export const QUESTION_COUNTS = [10, 15, 25, 40];
 
+export const TIME_PROFILES = [
+  {
+    id: "sem-limite",
+    label: "Sem cronômetro",
+    shortLabel: "Livre",
+    description: "O tempo é medido para adaptar o treino, mas nunca encerra a questão.",
+    deadlineScale: null,
+    feedbackDelayMs: 1_050,
+  },
+  {
+    id: "calmo",
+    label: "Calmo",
+    shortLabel: "Calmo",
+    description: "Mais espaço para pensar e construir confiança.",
+    deadlineScale: 1.75,
+    feedbackDelayMs: 1_000,
+  },
+  {
+    id: "ritmo",
+    label: "No ritmo",
+    shortLabel: "Ritmo",
+    description: "Uma pressão leve, sem transformar a conta numa corrida.",
+    deadlineScale: 1.25,
+    feedbackDelayMs: 760,
+  },
+  {
+    id: "reflexo",
+    label: "Reflexo",
+    shortLabel: "Reflexo",
+    description: "Janela curta para testar o que já deveria sair na hora.",
+    deadlineScale: 0.82,
+    feedbackDelayMs: 520,
+  },
+];
+
 export function getPracticeGroup(groupId) {
   return PRACTICE_GROUPS.find((group) => group.id === groupId) ?? PRACTICE_GROUPS[0];
 }
@@ -130,7 +165,10 @@ export function getSessionMode(modeId) {
   return SESSION_MODES.find((mode) => mode.id === modeId) ?? SESSION_MODES[0];
 }
 
+export function getTimeProfile(profileId) {
+  return TIME_PROFILES.find((profile) => profile.id === profileId) ?? TIME_PROFILES[1];
+}
+
 export function getTheme(themeId) {
   return THEMES.find((theme) => theme.id === themeId) ?? THEMES[0];
 }
-
