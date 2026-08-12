@@ -1,5 +1,9 @@
 import challengeData from "../../data/mental-math-challenges.json";
+import theoryDetails0104 from "../../data/theory-details-01-04.json";
+import theoryDetails0508 from "../../data/theory-details-05-08.json";
+import theoryDetails0912 from "../../data/theory-details-09-12.json";
 import theoryData from "../../data/mental-math-theory.json";
+import theoryTopicLessons from "../../data/theory-topic-lessons.json";
 import { getPresets } from "../academy/content";
 import { getPracticeFacts } from "../academy/facts/index";
 import { createQuestionFromFact } from "../academy/facts/shared";
@@ -11,6 +15,11 @@ const bookCandidates = challengeData.desafios
   .filter(isNumericBookChallenge)
   .map(normalizeBookChallenge);
 const generatedCatalogCache = new Map();
+const detailedTheoryByChapter = new Map(
+  [theoryDetails0104, theoryDetails0508, theoryDetails0912]
+    .flatMap((source) => source.capitulos)
+    .map((chapter) => [chapter.capituloId, chapter]),
+);
 
 export const CONTENT_METADATA = {
   source: challengeData.source,
@@ -20,7 +29,9 @@ export const CONTENT_METADATA = {
   chapterCount: theoryData.capitulos.length,
 };
 
-export const THEORY_CHAPTERS = theoryData.capitulos.map(normalizeTheoryChapter);
+export const THEORY_CHAPTERS = theoryData.capitulos.map((chapter) =>
+  normalizeTheoryChapter(chapter, detailedTheoryByChapter.get(chapter.id)),
+);
 
 export const THEORY_INDEX = THEORY_CHAPTERS.flatMap((chapter) =>
   chapter.topics.map((topic) => ({
@@ -87,6 +98,16 @@ export function getTheoryChapter(chapterId) {
 
 export function getTheoryChapterForTopic(topicId) {
   return THEORY_CHAPTERS.find((chapter) => chapter.topics.some((topic) => topic.id === topicId)) ?? null;
+}
+
+export function getTheoryTargetForTopic(topicId) {
+  const chapter = getTheoryChapterForTopic(topicId);
+  if (!chapter) return null;
+  const topic = chapter.topics.find((item) => item.id === topicId);
+  return {
+    chapterId: chapter.id,
+    lessonId: topic?.relatedLessonId ?? chapter.lessons[0]?.id ?? null,
+  };
 }
 
 function buildGeneratedCatalog(sectionPool, allowedSections) {
@@ -220,7 +241,7 @@ function materializeQuestion(challenge, plan, responseScale) {
   };
 }
 
-function normalizeTheoryChapter(chapter) {
+function normalizeTheoryChapter(chapter, detailedChapter = null) {
   const examples = chapter.secoes.flatMap((section) =>
     (section.exemplos ?? []).map((example) => ({
       id: example.id,
@@ -230,8 +251,18 @@ function normalizeTheoryChapter(chapter) {
       note: example.resolucao,
       page: example.origem?.pagina,
       tags: example.tags ?? [],
+      searchText: buildSearchIndex([
+        example.prompt,
+        example.resposta,
+        example.resolucao,
+        example.tags,
+      ]),
     })),
   );
+  const detailedLessons = detailedChapter?.dicas ?? detailedChapter?.tips ?? [];
+  const lessons = detailedLessons.length
+    ? detailedLessons.map((lesson, lessonIndex) => normalizeDetailedLesson(lesson, lessonIndex))
+    : chapter.secoes.map((section, sectionIndex) => normalizeFallbackLesson(section, sectionIndex));
   const tags = [...new Set([
     ...(chapter.padroes ?? []),
     ...chapter.secoes.flatMap((section) =>
@@ -239,6 +270,42 @@ function normalizeTheoryChapter(chapter) {
     ),
   ])];
   const sectionIds = inferSectionIds(tags);
+  const topics = chapter.secoes.map((section) => {
+    const topic = {
+      id: section.id,
+      order: section.ordem,
+      title: section.titulo,
+      summary: section.resumo,
+      steps: section.passos ?? [],
+      formulaText: section.formula ?? null,
+      formulaLatex: section.formula ? toLatex(section.formula) : null,
+      tags: [...new Set((section.exemplos ?? []).flatMap((example) => example.tags ?? []))],
+      pages: section.paginas,
+    };
+    return {
+      ...topic,
+      relatedLessonId: theoryTopicLessons.mapeamentos[section.id] ?? lessons[0]?.id ?? null,
+    };
+  });
+  const headerSearchText = buildSearchIndex([
+    chapter.titulo,
+    chapter.tituloOriginal,
+    chapter.objetivo,
+    ...(chapter.prerequisitos ?? []),
+    ...(chapter.padroes ?? []),
+  ]);
+  const topicSearchText = buildSearchIndex(chapter.secoes.flatMap((section) => [
+    section.titulo,
+    section.resumo,
+    section.formula,
+    section.passos,
+  ]));
+  const searchText = buildSearchIndex([
+    headerSearchText,
+    topicSearchText,
+    ...lessons.map((lesson) => lesson.searchText),
+    ...examples.flatMap((example) => [example.prompt, example.note, ...(example.tags ?? [])]),
+  ]);
 
   return {
     id: chapter.id,
@@ -250,28 +317,138 @@ function normalizeTheoryChapter(chapter) {
     difficultyLabel: difficultyLabel(chapter.dificuldade),
     prerequisites: chapter.prerequisitos,
     patterns: chapter.padroes,
-    topics: chapter.secoes.map((section) => ({
-      id: section.id,
-      order: section.ordem,
-      title: section.titulo,
-      summary: section.resumo,
-      steps: section.passos ?? [],
-      formulaText: section.formula ?? null,
-      formulaLatex: section.formula ? toLatex(section.formula) : null,
-      tags: [...new Set((section.exemplos ?? []).flatMap((example) => example.tags ?? []))],
-      pages: section.paginas,
-    })),
+    lessons,
+    workedExampleCount: lessons.reduce((total, lesson) => total + lesson.workedExamples.length, 0),
+    algorithmStepCount: lessons.reduce((total, lesson) => total + lesson.algorithm.steps.length, 0),
+    topics,
     examples,
     sectionIds,
     groupId: mapSectionsToGroup(sectionIds),
     pageLabel: pageLabel(chapter.paginasTeoria),
-    searchText: [
-      chapter.titulo,
-      chapter.tituloOriginal,
-      chapter.objetivo,
-      ...(chapter.padroes ?? []),
-      ...chapter.secoes.flatMap((section) => [section.titulo, section.resumo]),
-    ].join(" ").toLocaleLowerCase("pt-BR"),
+    headerSearchText,
+    topicSearchText,
+    searchText,
+  };
+}
+
+function normalizeDetailedLesson(rawLesson, lessonIndex) {
+  const rawAlgorithm = rawLesson.algoritmo ?? rawLesson.algorithm ?? {};
+  const algorithmSteps = (rawAlgorithm.passos ?? rawAlgorithm.steps ?? []).map((step, stepIndex) => ({
+    order: step.ordem ?? step.order ?? stepIndex + 1,
+    action: step.acao ?? step.action ?? `Passo ${stepIndex + 1}`,
+    detail: step.detalhe ?? step.detail ?? "",
+    expression: step.expressao ?? step.expression ?? null,
+  }));
+  const workedExamples = (rawLesson.exemplosResolvidos ?? rawLesson.workedExamples ?? []).map((example, exampleIndex) => ({
+    id: example.id ?? `${rawLesson.id}-resolved-${exampleIndex + 1}`,
+    question: example.enunciado ?? example.question ?? "",
+    answer: displayTheoryValue(example.resposta ?? example.answer),
+    steps: (example.etapas ?? example.steps ?? []).map((step) => ({
+      expression: step.expressao ?? step.expression ?? null,
+      explanation: step.explicacao ?? step.explanation ?? "",
+    })),
+    conclusion: example.conclusao ?? example.conclusion ?? "",
+    page: example.origem?.pagina ?? example.source?.page ?? null,
+  }));
+  const pages = rawLesson.origem?.paginas ?? rawLesson.source?.pages ?? rawLesson.paginas ?? rawLesson.pages ?? [];
+  const lesson = {
+    id: rawLesson.id ?? `detailed-theory-lesson-${lessonIndex + 1}`,
+    order: rawLesson.ordem ?? rawLesson.order ?? lessonIndex + 1,
+    title: rawLesson.titulo ?? rawLesson.title ?? `Dica ${lessonIndex + 1}`,
+    summary: rawLesson.resumo ?? rawLesson.summary ?? "",
+    whenToUse: rawLesson.quandoUsar ?? rawLesson.whenToUse ?? [],
+    whyItWorks: rawLesson.porQueFunciona ?? rawLesson.whyItWorks ?? "",
+    algorithm: {
+      title: rawAlgorithm.titulo ?? rawAlgorithm.title ?? "Como aplicar",
+      steps: algorithmSteps,
+    },
+    workedExamples,
+    pitfalls: rawLesson.armadilhas ?? rawLesson.pitfalls ?? [],
+    memoryCue: rawLesson.lembrete ?? rawLesson.memoryCue ?? "",
+    tags: rawLesson.tags ?? [],
+    pageLabel: pageLabel(pages),
+  };
+  return {
+    ...lesson,
+    searchText: buildSearchIndex([
+      lesson.title,
+      lesson.summary,
+      lesson.whenToUse,
+      lesson.whyItWorks,
+      lesson.algorithm.title,
+      lesson.algorithm.steps.flatMap((step) => [step.action, step.detail, step.expression]),
+      lesson.workedExamples.flatMap((example) => [
+        example.question,
+        example.answer,
+        example.conclusion,
+        example.steps.flatMap((step) => [step.expression, step.explanation]),
+      ]),
+      lesson.pitfalls,
+      lesson.memoryCue,
+      lesson.tags,
+    ]),
+  };
+}
+
+function normalizeFallbackLesson(section, sectionIndex) {
+  const rawSteps = section.passos?.length
+    ? section.passos
+    : ["Reconheça o padrão numérico.", section.resumo, "Confira se a ordem de grandeza da resposta faz sentido."];
+  const algorithmSteps = rawSteps.map((step, stepIndex) => {
+    const [possibleAction, ...detailParts] = String(step).split(":");
+    const hasNamedAction = detailParts.length > 0 && possibleAction.length < 42;
+    return {
+      order: stepIndex + 1,
+      action: hasNamedAction ? possibleAction.trim() : `Passo ${stepIndex + 1}`,
+      detail: hasNamedAction ? detailParts.join(":").trim() : String(step),
+      expression: null,
+    };
+  });
+  const workedExamples = (section.exemplos ?? []).map((example, exampleIndex) => ({
+    id: example.id ?? `${section.id}-resolved-${exampleIndex + 1}`,
+    question: example.prompt,
+    answer: String(example.resposta ?? ""),
+    steps: example.resolucao
+      ? [{ expression: null, explanation: example.resolucao }]
+      : [],
+    conclusion: "Use o mesmo encadeamento ao reconhecer outro exemplo com a mesma estrutura.",
+    page: example.origem?.pagina ?? section.paginas?.[0] ?? null,
+  }));
+  const lesson = {
+    id: section.id ?? `theory-lesson-${sectionIndex + 1}`,
+    order: section.ordem ?? sectionIndex + 1,
+    title: section.titulo ?? `Técnica ${sectionIndex + 1}`,
+    summary: section.resumo ?? "",
+    whenToUse: ["Quando a conta apresentar este mesmo padrão ou puder ser reorganizada para chegar a ele."],
+    whyItWorks: section.resumo ?? "A técnica reorganiza a conta em etapas menores e mais fáceis de manter na memória.",
+    algorithm: {
+      title: `Como aplicar ${String(section.titulo ?? "a técnica").toLocaleLowerCase("pt-BR")}`,
+      steps: algorithmSteps,
+    },
+    workedExamples,
+    pitfalls: [],
+    memoryCue: section.formula ?? "Quebre a conta, resolva a parte mais simples e recombine.",
+    tags: [...new Set((section.exemplos ?? []).flatMap((example) => example.tags ?? []))],
+    pageLabel: pageLabel(section.paginas ?? []),
+  };
+  return {
+    ...lesson,
+    searchText: buildSearchIndex([
+      lesson.title,
+      lesson.summary,
+      lesson.whenToUse,
+      lesson.whyItWorks,
+      lesson.algorithm.title,
+      lesson.algorithm.steps.flatMap((step) => [step.action, step.detail, step.expression]),
+      lesson.workedExamples.flatMap((example) => [
+        example.question,
+        example.answer,
+        example.conclusion,
+        example.steps.flatMap((step) => [step.expression, step.explanation]),
+      ]),
+      lesson.memoryCue,
+      lesson.tags,
+    ]),
   };
 }
 
@@ -391,6 +568,27 @@ function toLatex(value) {
     .replace(/\|/g, "\\mid");
 }
 
+function buildSearchIndex(values) {
+  return values
+    .flat(Infinity)
+    .filter((value) => value != null && value !== "")
+    .map(String)
+    .join(" ")
+    .toLocaleLowerCase("pt-BR")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[×·]/g, "x")
+    .replace(/[÷:]/g, "/")
+    .replace(/\s+/g, " ");
+}
+
+function displayTheoryValue(value) {
+  if (value == null) return "";
+  if (["string", "number", "boolean"].includes(typeof value)) return String(value);
+  if (Array.isArray(value)) return value.map(displayTheoryValue).filter(Boolean).join(", ");
+  return String(value.exibicao ?? value.display ?? value.valor ?? value.value ?? "");
+}
+
 function difficultyLabel(level) {
   if (level <= 2) return "Fundação";
   if (level <= 4) return "Essencial";
@@ -400,9 +598,23 @@ function difficultyLabel(level) {
 }
 
 function pageLabel(pages = []) {
-  if (!pages.length) return "";
-  if (pages.length === 1) return `p. ${pages[0]}`;
-  return `pp. ${Math.min(...pages)}–${Math.max(...pages)}`;
+  const sorted = [...new Set(pages.map(Number).filter(Number.isFinite))].sort((left, right) => left - right);
+  if (!sorted.length) return "";
+  if (sorted.length === 1) return `p. ${sorted[0]}`;
+  const ranges = [];
+  let start = sorted[0];
+  let end = sorted[0];
+  for (const page of sorted.slice(1)) {
+    if (page === end + 1) {
+      end = page;
+      continue;
+    }
+    ranges.push(start === end ? String(start) : `${start}–${end}`);
+    start = page;
+    end = page;
+  }
+  ranges.push(start === end ? String(start) : `${start}–${end}`);
+  return `pp. ${ranges.join(", ")}`;
 }
 
 function mapSectionsToGroup(sectionIds) {

@@ -1,0 +1,3189 @@
+{
+  "schemaVersion": 1,
+  "descricao": "Detalhamento localizado e parafraseado das aulas 5 a 8 de calculo-mental-dicas.pdf. A ordem acompanha a progressão do livro; as páginas são as impressas no rodapé. Além da exposição principal, foram incorporadas instruções entre blocos de exercícios e, quando esclarecem o algoritmo ou uma exceção, etapas comentadas do gabarito.",
+  "capitulos": [
+    {
+      "capituloId": "capitulo-05",
+      "capituloOrdem": 5,
+      "titulo": "A arte da estimativa",
+      "dicas": [
+        {
+          "id": "c05-detalhe-corpo-como-regua",
+          "ordem": 1,
+          "titulo": "Calibrar o corpo como régua portátil",
+          "paginas": [35],
+          "resumo": "A abertura leva a estimativa para fora das contas: vale memorizar medidas do próprio corpo, como a abertura da mão, o comprimento médio do passo e partes dos dedos que se aproximem de um ou dois centímetros ou polegadas.",
+          "quandoUsar": [
+            "Para estimar comprimentos sem régua.",
+            "Para conferir se uma dimensão informada é plausível.",
+            "Em medições cotidianas nas quais pequena margem de erro é aceitável."
+          ],
+          "porQueFunciona": "Uma referência corporal calibrada transforma uma grandeza abstrata em repetição de uma unidade sempre disponível. A precisão vem de conhecer previamente a própria referência e repetir a comparação de modo consistente.",
+          "algoritmo": {
+            "titulo": "Calibrar, repetir e ajustar",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Calibre uma referência",
+                "detalhe": "Meça uma vez, com instrumento confiável, a abertura da mão, o passo e segmentos úteis dos dedos."
+              },
+              {
+                "ordem": 2,
+                "acao": "Escolha a unidade corporal adequada",
+                "detalhe": "Use mão ou dedo para objetos pequenos e passos para distâncias maiores."
+              },
+              {
+                "ordem": 3,
+                "acao": "Conte repetições",
+                "detalhe": "Cubra mental ou fisicamente a distância com a referência escolhida."
+              },
+              {
+                "ordem": 4,
+                "acao": "Multiplique e declare a margem",
+                "detalhe": "Multiplique a contagem pela medida calibrada e trate o resultado como aproximação."
+              }
+            ]
+          },
+          "exemplosResolvidos": [],
+          "armadilhas": [
+            "Usar uma medida corporal não calibrada pode introduzir erro sistemático.",
+            "Passos mudam de tamanho conforme velocidade e terreno.",
+            "A referência fornece aproximação, não substitui medição precisa quando segurança ou tolerância técnica importam."
+          ],
+          "lembrete": "Conheça algumas medidas do próprio corpo antes de precisar estimar.",
+          "tags": ["estimativa", "medicao", "referencia-corporal", "cotidiano"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [35] }
+        },
+        {
+          "id": "c05-detalhe-arredondamento-linear",
+          "ordem": 2,
+          "titulo": "Arredondar parcelas e manter um total corrente",
+          "paginas": [35, 38, 108],
+          "resumo": "Somas e subtrações cotidianas podem ser estimadas arredondando cada termo para uma unidade compatível com a decisão. No mercado, a sugestão é aproximar cada preço ao múltiplo de 0,50 mais próximo; nos exercícios, a mesma conta é arredondada primeiro ao milhar e depois à centena para mostrar como a granularidade altera a qualidade.",
+          "quandoUsar": [
+            "Para acompanhar uma compra sem precisar dos centavos exatos.",
+            "Para obter rapidamente uma faixa antes do cálculo preciso.",
+            "Para escolher entre estimativa grosseira e refinada conforme o contexto."
+          ],
+          "porQueFunciona": "Trocar cada termo por um vizinho redondo reduz o custo da operação. Quando arredondamentos para cima e para baixo se distribuem, parte dos erros se compensa; usar unidade menor reduz a margem residual.",
+          "algoritmo": {
+            "titulo": "Escolher a resolução e acumular",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Defina a precisão necessária",
+                "detalhe": "Escolha 0,50, centena, milhar ou outra unidade coerente com a decisão."
+              },
+              {
+                "ordem": 2,
+                "acao": "Arredonde cada termo",
+                "detalhe": "Aproxime ao múltiplo escolhido mais próximo, preservando o sinal da operação."
+              },
+              {
+                "ordem": 3,
+                "acao": "Mantenha um total corrente",
+                "detalhe": "Some ou subtraia os valores redondos à medida que aparecem."
+              },
+              {
+                "ordem": 4,
+                "acao": "Refine se necessário",
+                "detalhe": "Repita com unidade menor quando a primeira estimativa for ampla demais."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-3764-4668",
+              "enunciado": "Estimar 3.764 + 4.668 ao milhar e à centena",
+              "resposta": "Aproximadamente 9.000 ao milhar ou 8.500 à centena",
+              "etapas": [
+                {
+                  "expressao": "3.764≈4.000; 4.668≈5.000",
+                  "explicacao": "O arredondamento ao milhar prioriza velocidade."
+                },
+                {
+                  "expressao": "4.000+5.000=9.000",
+                  "explicacao": "Obtém-se a leitura grosseira."
+                },
+                {
+                  "expressao": "3.764≈3.800; 4.668≈4.700",
+                  "explicacao": "À centena, os substitutos ficam mais próximos dos valores reais."
+                },
+                {
+                  "expressao": "3.800+4.700=8.500",
+                  "explicacao": "A estimativa refinada se aproxima mais da soma exata."
+                }
+              ],
+              "conclusao": "A unidade de arredondamento é uma escolha de custo versus precisão.",
+              "origem": { "pagina": 108 }
+            },
+            {
+              "id": "c05-detalhe-ex-cesta-meio-dolar",
+              "enunciado": "Estimar a cesta 5,24; 0,42; 2,79; 3,15; 0,28; 0,92; 4,39",
+              "resposta": "Aproximadamente 17,50",
+              "etapas": [
+                {
+                  "expressao": "5,24→5; 0,42→0,50; 2,79→3; 3,15→3",
+                  "explicacao": "Cada preço vai ao múltiplo de 0,50 mais próximo."
+                },
+                {
+                  "expressao": "0,28→0,50; 0,92→1; 4,39→4,50",
+                  "explicacao": "O mesmo critério é mantido para evitar viés."
+                },
+                {
+                  "expressao": "5+0,50+3+3+0,50+1+4,50=17,50",
+                  "explicacao": "Os valores arredondados formam o total mental."
+                }
+              ],
+              "conclusao": "Meio dólar oferece resolução suficiente para acompanhar uma compra sem somar todos os centavos.",
+              "origem": { "pagina": 108 }
+            }
+          ],
+          "armadilhas": [
+            "Arredondar sempre para cima deixa de ser estimativa neutra e vira limite superior.",
+            "Unidade grosseira demais pode mudar a decisão que a estimativa deveria apoiar.",
+            "Em subtração, arredondar os dois termos exige atenção ao sentido do erro."
+          ],
+          "lembrete": "Escolha primeiro quão perto você precisa chegar; só então arredonde.",
+          "tags": ["estimativa", "arredondamento", "soma", "subtracao", "compras"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [35, 38, 108] }
+        },
+        {
+          "id": "c05-detalhe-algarismos-produto",
+          "ordem": 3,
+          "titulo": "Prever a quantidade de algarismos de um produto",
+          "paginas": [35, 38, 39, 108, 109],
+          "resumo": "Se os fatores têm x e y algarismos, o produto terá x+y ou x+y-1. Os primeiros algarismos refinam a decisão: produto inicial 10 ou maior força a opção longa; 4 ou menor força a curta; entre 5 e 9, as duas continuam possíveis.",
+          "quandoUsar": [
+            "Antes de multiplicar números grandes, para prever a escala da resposta.",
+            "Para detectar erro de casa decimal ou zero a mais.",
+            "Em estimativas nas quais basta saber a ordem de grandeza."
+          ],
+          "porQueFunciona": "Um número de x algarismos está entre 10^(x-1) e 10^x. Multiplicar os limites coloca o produto entre as duas potências consecutivas que correspondem a x+y-1 ou x+y algarismos; os prefixos indicam de qual limite ele está mais próximo.",
+          "algoritmo": {
+            "titulo": "Contar casas e testar os prefixos",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Conte os algarismos",
+                "detalhe": "Chame as quantidades de x e y."
+              },
+              {
+                "ordem": 2,
+                "acao": "Anote as duas possibilidades",
+                "detalhe": "O produto terá x+y-1 ou x+y algarismos."
+              },
+              {
+                "ordem": 3,
+                "acao": "Multiplique os primeiros algarismos",
+                "detalhe": "Use esse pequeno produto como teste rápido."
+              },
+              {
+                "ordem": 4,
+                "acao": "Escolha ou preserve a ambiguidade",
+                "detalhe": "10 ou mais: opção longa; 4 ou menos: curta; 5 a 9: mantenha ambas até comparar mais dígitos."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-5d-3d-produto",
+              "enunciado": "Número de 5 algarismos × número de 3 algarismos",
+              "resposta": "7 ou 8 algarismos",
+              "etapas": [
+                {
+                  "expressao": "x=5; y=3",
+                  "explicacao": "Contam-se as casas dos fatores."
+                },
+                {
+                  "expressao": "x+y-1=7; x+y=8",
+                  "explicacao": "Essas são as únicas extensões possíveis."
+                }
+              ],
+              "conclusao": "Sem os prefixos concretos não é possível escolher entre 7 e 8.",
+              "origem": { "pagina": 35 }
+            },
+            {
+              "id": "c05-detalhe-ex-prefixos-3x7",
+              "enunciado": "3abc × 7def, ambos com 4 algarismos",
+              "resposta": "8 algarismos",
+              "etapas": [
+                {
+                  "expressao": "4+4-1=7 ou 4+4=8",
+                  "explicacao": "Primeiro surgem duas opções."
+                },
+                {
+                  "expressao": "3×7=21≥10",
+                  "explicacao": "O produto dos algarismos iniciais força a opção maior."
+                }
+              ],
+              "conclusao": "O prefixo basta para decidir que o resultado já atravessa a potência de dez seguinte.",
+              "origem": { "pagina": 109 }
+            }
+          ],
+          "armadilhas": [
+            "A faixa de 5 a 9 é deliberadamente inconclusiva; não force uma resposta única.",
+            "Zeros à esquerda não contam como algarismos do número.",
+            "A regra prevê extensão, não os dígitos exatos do produto."
+          ],
+          "lembrete": "Produto: some as extensões; a resposta usa essa soma ou uma casa a menos.",
+          "tags": ["ordem-de-grandeza", "multiplicacao", "quantidade-de-algarismos", "prefixos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [35, 38, 39, 108, 109] }
+        },
+        {
+          "id": "c05-detalhe-algarismos-quociente",
+          "ordem": 4,
+          "titulo": "Prever as casas do quociente comparando prefixos",
+          "paginas": [35, 36, 38, 39, 108, 109],
+          "resumo": "Na divisão, a quantidade de casas antes da vírgula é x-y ou x-y+1. Para escolher, compare os prefixos do dividendo e divisor como se faz no primeiro passo da divisão longa: prefixo maior produz a opção longa; prefixo menor, a curta; em empate, avance mais um algarismo.",
+          "quandoUsar": [
+            "Para posicionar mentalmente a vírgula de uma divisão aproximada.",
+            "Para verificar a ordem de grandeza de um quociente.",
+            "Em problemas de escala, como converter grandes contagens em anos ou custo por unidade."
+          ],
+          "porQueFunciona": "A diferença entre as extensões determina quantas potências de 10 certamente cabem no quociente. Comparar os primeiros prefixos decide se cabe também a potência seguinte.",
+          "algoritmo": {
+            "titulo": "Diferença de extensões e comparação progressiva",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Conte as casas",
+                "detalhe": "Se o dividendo tem x algarismos e o divisor y, prepare x-y ou x-y+1."
+              },
+              {
+                "ordem": 2,
+                "acao": "Compare os primeiros algarismos",
+                "detalhe": "Maior no dividendo indica opção longa; menor indica curta."
+              },
+              {
+                "ordem": 3,
+                "acao": "Desempate com mais casas",
+                "detalhe": "Se os primeiros algarismos coincidem, compare os prefixos de dois, três ou mais algarismos."
+              },
+              {
+                "ordem": 4,
+                "acao": "Posicione a escala",
+                "detalhe": "Use a extensão escolhida para interpretar a resposta, mesmo antes de calcular seus dígitos."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-8d-div-3d",
+              "enunciado": "Número de 8 algarismos ÷ número de 3 algarismos",
+              "resposta": "5 ou 6 algarismos antes da vírgula",
+              "etapas": [
+                {
+                  "expressao": "8-3=5",
+                  "explicacao": "Essa é a extensão curta."
+                },
+                {
+                  "expressao": "8-3+1=6",
+                  "explicacao": "Essa é a extensão longa."
+                }
+              ],
+              "conclusao": "Os prefixos concretos são necessários para escolher entre as duas.",
+              "origem": { "pagina": 35 }
+            },
+            {
+              "id": "c05-detalhe-ex-trilhao-segundos",
+              "enunciado": "1 trilhão de segundos corresponde a quantos anos, usando 32 milhões de segundos por ano?",
+              "resposta": "Cerca de 30.000 anos",
+              "etapas": [
+                {
+                  "expressao": "1.000.000.000.000 tem 13 algarismos",
+                  "explicacao": "Determina-se a escala do dividendo."
+                },
+                {
+                  "expressao": "32.000.000 tem 8 algarismos",
+                  "explicacao": "Determina-se a escala do divisor."
+                },
+                {
+                  "expressao": "13-8=5 algarismos no quociente",
+                  "explicacao": "A comparação de prefixos aponta para dezenas de milhares."
+                },
+                {
+                  "expressao": "1.000.000÷32≈31.250",
+                  "explicacao": "A simplificação confirma aproximadamente 30 mil."
+                }
+              ],
+              "conclusao": "A extensão correta evita respostas absurdas mesmo sem cálculo fino.",
+              "origem": { "pagina": 109 }
+            }
+          ],
+          "armadilhas": [
+            "A regra se refere às casas antes da vírgula.",
+            "Se os primeiros algarismos empatam, decidir sem comparar o próximo pode deslocar a resposta por uma potência de 10.",
+            "Unidades incompatíveis precisam ser convertidas antes de interpretar o quociente."
+          ],
+          "lembrete": "Quociente: subtraia as extensões e compare os prefixos para saber se entra uma casa a mais.",
+          "tags": ["ordem-de-grandeza", "divisao", "quantidade-de-algarismos", "prefixos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [35, 36, 38, 39, 108, 109] }
+        },
+        {
+          "id": "c05-detalhe-estimativa-modelagem",
+          "ordem": 5,
+          "titulo": "Modelar problemas de escala antes de buscar precisão",
+          "paginas": [39, 109, 110],
+          "resumo": "Os problemas aplicados levam a regra de algarismos para perguntas abertas: tempo acumulado, custo distribuído e grandezas públicas. O objetivo é montar a divisão correta, simplificar unidades e produzir uma resposta plausível em vez de falsa precisão.",
+          "quandoUsar": [
+            "Em comparações sociais, científicas ou financeiras com números muito grandes.",
+            "Quando os dados de entrada já são aproximados.",
+            "Para avaliar rapidamente uma afirmação antes de buscar números exatos."
+          ],
+          "porQueFunciona": "Quando as entradas têm baixa precisão, poucas casas significativas carregam quase toda a informação útil. A ordem de grandeza preserva o tamanho da conclusão e reduz operações que não melhorariam a decisão.",
+          "algoritmo": {
+            "titulo": "Unidades, operação e escala",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Defina o que a resposta mede",
+                "detalhe": "Escreva mentalmente a unidade desejada, como anos ou custo por escola."
+              },
+              {
+                "ordem": 2,
+                "acao": "Monte a razão adequada",
+                "detalhe": "Divida o total pela taxa ou quantidade de unidades."
+              },
+              {
+                "ordem": 3,
+                "acao": "Simplifique potências de 10",
+                "detalhe": "Cancele milhares, milhões ou outros fatores comuns."
+              },
+              {
+                "ordem": 4,
+                "acao": "Calcule uma ou duas casas úteis",
+                "detalhe": "Não reporte precisão maior que a dos dados de entrada."
+              },
+              {
+                "ordem": 5,
+                "acao": "Faça teste de plausibilidade",
+                "detalhe": "Confirme unidade, sinal e quantidade de algarismos."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-custo-escolas",
+              "enunciado": "Distribuir US$ 11 bilhões por cerca de 100.000 escolas",
+              "resposta": "Aproximadamente US$ 110.000 por escola",
+              "etapas": [
+                {
+                  "expressao": "11.000.000.000 ÷ 100.000",
+                  "explicacao": "A unidade procurada é custo por escola."
+                },
+                {
+                  "expressao": "11.000.000.000 ÷ 10^5 = 110.000",
+                  "explicacao": "Cinco zeros são cancelados."
+                }
+              ],
+              "conclusao": "A divisão de escala torna uma cifra nacional comparável a uma unidade local.",
+              "origem": { "pagina": 109 }
+            }
+          ],
+          "armadilhas": [
+            "Relatar muitas casas decimais não compensa dados aproximados.",
+            "Ignorar unidades pode produzir uma operação numericamente possível, mas conceitualmente errada.",
+            "Uma estimativa deve ser rotulada como tal."
+          ],
+          "lembrete": "Primeiro descubra a unidade e a escala; só depois refine os dígitos.",
+          "tags": ["estimativa", "modelagem", "fermi", "ordem-de-grandeza", "unidades"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [39, 109, 110] }
+        },
+        {
+          "id": "c05-detalhe-polya-captura-recaptura",
+          "ordem": 6,
+          "titulo": "Estimativa de Pólya por sobreposição de amostras",
+          "paginas": [39, 110],
+          "resumo": "Um exercício introduz uma técnica de captura e recaptura: quando dois revisores independentes encontram conjuntos de erros e parte deles coincide, a sobreposição permite estimar o total escondido.",
+          "quandoUsar": [
+            "Quando duas buscas aproximadamente independentes observam a mesma população oculta.",
+            "Quando são conhecidos os tamanhos das duas amostras e sua interseção.",
+            "Para uma estimativa de cobertura, não uma contagem exata."
+          ],
+          "porQueFunciona": "Se a primeira busca encontrou a fração A/N do total, espera-se que essa mesma fração apareça entre os B itens da segunda busca. Assim, interseção/B≈A/N e N≈A×B/interseção.",
+          "algoritmo": {
+            "titulo": "Multiplicar os achados e dividir pela coincidência",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Conte os dois conjuntos",
+                "detalhe": "Chame de A e B as quantidades encontradas separadamente."
+              },
+              {
+                "ordem": 2,
+                "acao": "Conte a interseção",
+                "detalhe": "Chame de C a quantidade encontrada pelos dois."
+              },
+              {
+                "ordem": 3,
+                "acao": "Aplique a razão",
+                "detalhe": "Estime o total por A×B/C.",
+                "expressao": "N≈A×B÷C"
+              },
+              {
+                "ordem": 4,
+                "acao": "Verifique a hipótese",
+                "detalhe": "Questione se as buscas foram independentes e se todos os itens tinham chance semelhante de ser encontrados."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-polya-erros",
+              "enunciado": "Um revisor encontra 40 erros, outro encontra 5, e 2 aparecem nas duas listas",
+              "resposta": "Cerca de 100 erros no documento",
+              "etapas": [
+                {
+                  "expressao": "A=40; B=5; C=2",
+                  "explicacao": "Organizam-se os dois conjuntos e a sobreposição."
+                },
+                {
+                  "expressao": "N≈40×5÷2",
+                  "explicacao": "Aplica-se a estimativa de cobertura."
+                },
+                {
+                  "expressao": "N≈100",
+                  "explicacao": "A baixa coincidência sugere que ainda há muitos erros não vistos."
+                }
+              ],
+              "conclusao": "O resultado depende da independência declarada no enunciado.",
+              "origem": { "pagina": 110 }
+            }
+          ],
+          "armadilhas": [
+            "Se os revisores procuram do mesmo jeito, a independência falha e a estimativa pode enviesar.",
+            "Interseção zero torna a fórmula indefinida e indica evidência insuficiente.",
+            "Itens muito mais fáceis de detectar que outros violam a hipótese de cobertura uniforme."
+          ],
+          "lembrete": "Duas amostras independentes: produto dos tamanhos dividido pela sobreposição.",
+          "tags": ["estimativa-de-polya", "captura-recaptura", "probabilidade", "sobreposicao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [39, 110] }
+        },
+        {
+          "id": "c05-detalhe-impostos-fracionarios",
+          "ordem": 7,
+          "titulo": "Impostos: taxa inteira mais ajuste fracionário",
+          "paginas": [36, 39, 40, 110],
+          "resumo": "Para uma taxa inteira, arredonde o preço e faça uma multiplicação direta. Para taxa quebrada, calcule uma taxa-base próxima e expresse a diferença como fração do imposto já obtido, evitando refazer todo o percentual.",
+          "quandoUsar": [
+            "Para estimar imposto ou acréscimo percentual sem calculadora.",
+            "Quando a parte decimal da taxa é uma fração simples da taxa-base.",
+            "Para conferir rapidamente um valor fiscal calculado por outro meio."
+          ],
+          "porQueFunciona": "Se T% já foi calculado e falta δ%, então o ajuste é δ/T do valor de T%. Por linearidade, uma fração da taxa corresponde à mesma fração do imposto.",
+          "algoritmo": {
+            "titulo": "Calcular a base e escalar a diferença",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Arredonde o preço com moderação",
+                "detalhe": "Preserve algarismos suficientes para a precisão desejada."
+              },
+              {
+                "ordem": 2,
+                "acao": "Escolha uma taxa inteira próxima",
+                "detalhe": "Prefira uma taxa cuja multiplicação seja fácil."
+              },
+              {
+                "ordem": 3,
+                "acao": "Calcule o imposto-base",
+                "detalhe": "Multiplique o preço aproximado por T/100."
+              },
+              {
+                "ordem": 4,
+                "acao": "Transforme a diferença em fração",
+                "detalhe": "Calcule δ/T e aplique essa fração ao imposto-base."
+              },
+              {
+                "ordem": 5,
+                "acao": "Some ou subtraia o ajuste",
+                "detalhe": "Some se a taxa-alvo é maior; subtraia se a base escolhida é maior."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-4-porcento-carro",
+              "enunciado": "Estimar 4% de US$ 23.456",
+              "resposta": "Cerca de US$ 920",
+              "etapas": [
+                {
+                  "expressao": "23.456≈23.000",
+                  "explicacao": "O preço é arredondado para facilitar a multiplicação."
+                },
+                {
+                  "expressao": "23.000×0,04=920",
+                  "explicacao": "Aplica-se a taxa inteira."
+                }
+              ],
+              "conclusao": "O livro contrasta a estimativa com cerca de US$ 938 sem arredondamento.",
+              "origem": { "pagina": 36 }
+            },
+            {
+              "id": "c05-detalhe-ex-6-25-porcento",
+              "enunciado": "Ajustar uma estimativa de 6% para 6,25% sobre US$ 31.500",
+              "resposta": "Cerca de US$ 1.980",
+              "etapas": [
+                {
+                  "expressao": "31.500×6%=1.890≈1.900",
+                  "explicacao": "Calcula-se primeiro a taxa-base."
+                },
+                {
+                  "expressao": "0,25/6=1/24",
+                  "explicacao": "O acréscimo de 0,25 ponto é um vinte e quatro avos de 6%."
+                },
+                {
+                  "expressao": "1.900÷24≈80",
+                  "explicacao": "Obtém-se o ajuste."
+                },
+                {
+                  "expressao": "1.900+80≈1.980",
+                  "explicacao": "A taxa-alvo é maior, portanto o ajuste é somado."
+                }
+              ],
+              "conclusao": "O mesmo princípio gera os ajustes 8%+1/16 para 8,5% e 9%-1/36 para 8,75%.",
+              "origem": { "pagina": 110 }
+            }
+          ],
+          "armadilhas": [
+            "Dividir pelo denominador errado confunde pontos percentuais com porcentagem relativa.",
+            "O preço arredondado e o ajuste também aproximado acumulam erro; não apresente centavos falsamente exatos.",
+            "Para base acima da taxa-alvo, a correção deve ser subtraída."
+          ],
+          "lembrete": "Calcule uma taxa fácil; a diferença é a mesma fração do imposto-base.",
+          "tags": ["porcentagem", "imposto", "ajuste-fracionario", "estimativa"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [36, 39, 40, 110] }
+        },
+        {
+          "id": "c05-detalhe-regra-70",
+          "ordem": 8,
+          "titulo": "Regra de 70 para estimar tempo de duplicação",
+          "paginas": [36, 40, 110],
+          "resumo": "Para capital com juros compostos a uma taxa anual moderada, dividir 70 pela taxa em porcentagem fornece uma aproximação do número de anos necessários para dobrar o valor.",
+          "quandoUsar": [
+            "Para uma leitura rápida de crescimento composto anual.",
+            "Para comparar taxas de poupança ou inflação.",
+            "Como teste de plausibilidade, não como cronograma financeiro contratual."
+          ],
+          "porQueFunciona": "A duplicação satisfaz aproximadamente (1+r)^t=2. Para taxas pequenas em porcentagem, a aproximação logarítmica leva a t perto de 69,3/r; arredondar para 70 torna a divisão mental simples.",
+          "algoritmo": {
+            "titulo": "Dividir 70 pela taxa percentual",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Leia a taxa como número percentual",
+                "detalhe": "Use 3 para 3%, e não 0,03."
+              },
+              {
+                "ordem": 2,
+                "acao": "Divida 70 pela taxa",
+                "detalhe": "O quociente estima os anos para duplicar.",
+                "expressao": "anos≈70÷taxa%"
+              },
+              {
+                "ordem": 3,
+                "acao": "Arredonde de forma coerente",
+                "detalhe": "Como a regra já é aproximada, não preserve casas sem utilidade."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-regra70-2",
+              "enunciado": "Quanto tempo para dobrar a 2% ao ano?",
+              "resposta": "Cerca de 35 anos",
+              "etapas": [
+                {
+                  "expressao": "70÷2=35",
+                  "explicacao": "A taxa percentual entra diretamente no denominador."
+                }
+              ],
+              "conclusao": "O resultado é um horizonte aproximado de duplicação.",
+              "origem": { "pagina": 110 }
+            }
+          ],
+          "armadilhas": [
+            "Usar 0,02 em vez de 2 produz um resultado cem vezes maior.",
+            "A regra supõe capitalização composta e taxa relativamente estável.",
+            "Taxas, impostos e aportes variáveis exigem modelo mais completo."
+          ],
+          "lembrete": "Para dobrar: 70 dividido pela taxa em porcentagem.",
+          "tags": ["regra-de-70", "juros-compostos", "duplicacao", "estimativa"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [36, 40, 110] }
+        },
+        {
+          "id": "c05-detalhe-faixa-prestacao",
+          "ordem": 9,
+          "titulo": "Prestação de empréstimo por limite inferior e superior",
+          "paginas": [36, 37, 40, 111],
+          "resumo": "A parcela sem juros fornece um limite inferior. Somar a ela todos os juros do primeiro mês fornece uma estimativa superior, pois o saldo devedor e os juros diminuem ao longo do contrato. A fórmula exata aparece no gabarito como validação, com exponenciação delegada a calculadora.",
+          "quandoUsar": [
+            "Para avaliar rapidamente se uma prestação anunciada é plausível.",
+            "Antes de usar fórmula financeira exata.",
+            "Para construir uma faixa mental de decisão em empréstimos amortizados."
+          ],
+          "porQueFunciona": "Sem juros, principal dividido pelo número de pagamentos é o mínimo médio necessário. Os juros do primeiro mês são os maiores quando o saldo só cai; somá-los integralmente a todas as parcelas superestima o custo regular e cria um teto simples.",
+          "algoritmo": {
+            "titulo": "Principal por parcela mais juros iniciais",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Conte as parcelas",
+                "detalhe": "Multiplique anos por 12 para pagamentos mensais."
+              },
+              {
+                "ordem": 2,
+                "acao": "Calcule o limite inferior",
+                "detalhe": "Divida o principal pelo número de parcelas."
+              },
+              {
+                "ordem": 3,
+                "acao": "Converta a taxa anual em mensal",
+                "detalhe": "Na aproximação do livro, divida a taxa nominal por 12."
+              },
+              {
+                "ordem": 4,
+                "acao": "Calcule os juros do primeiro mês",
+                "detalhe": "Aplique a taxa mensal ao principal inicial."
+              },
+              {
+                "ordem": 5,
+                "acao": "Forme o limite superior",
+                "detalhe": "Some os juros iniciais ao limite inferior."
+              },
+              {
+                "ordem": 6,
+                "acao": "Compare com a parcela exata",
+                "detalhe": "A resposta amortizada deve normalmente cair dentro da faixa."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-hipoteca-200k",
+              "enunciado": "US$ 200.000, 6% ao ano, 30 anos",
+              "resposta": "Estimativa superior de aproximadamente US$ 1.555 por mês",
+              "etapas": [
+                {
+                  "expressao": "30×12=360 parcelas",
+                  "explicacao": "Converte-se prazo anual em pagamentos mensais."
+                },
+                {
+                  "expressao": "200.000÷360=20.000÷36=5.000÷9≈555",
+                  "explicacao": "Esse é o componente mensal do principal sem juros."
+                },
+                {
+                  "expressao": "6%÷12=0,5% ao mês",
+                  "explicacao": "Obtém-se a taxa mensal nominal."
+                },
+                {
+                  "expressao": "200.000×0,5%=1.000",
+                  "explicacao": "Calculam-se os juros do primeiro mês."
+                },
+                {
+                  "expressao": "555+1.000=1.555",
+                  "explicacao": "A soma cria uma estimativa intencionalmente alta."
+                }
+              ],
+              "conclusao": "As parcelas seguintes pagam juros sobre saldo menor, por isso US$ 1.555 funciona como teto rápido, não valor exato.",
+              "origem": { "pagina": 37 }
+            },
+            {
+              "id": "c05-detalhe-ex-emprestimo-20k",
+              "enunciado": "US$ 20.000, 3% ao ano, 5 anos",
+              "resposta": "Faixa de US$ 333 a US$ 383; parcela exata citada de cerca de US$ 359,40",
+              "etapas": [
+                {
+                  "expressao": "20.000÷60≈333",
+                  "explicacao": "Limite inferior sem juros."
+                },
+                {
+                  "expressao": "3%÷12=0,25%; 20.000×0,25%=50",
+                  "explicacao": "Juros do primeiro mês."
+                },
+                {
+                  "expressao": "333+50=383",
+                  "explicacao": "Limite superior."
+                },
+                {
+                  "expressao": "M=P·i·(1+i)^m/((1+i)^m-1)≈359,40",
+                  "explicacao": "O gabarito usa a fórmula exata e confirma que o valor cai dentro da faixa mental."
+                }
+              ],
+              "conclusao": "A faixa mental cumpre a função de validação antes da exponenciação financeira.",
+              "origem": { "pagina": 111 }
+            }
+          ],
+          "armadilhas": [
+            "US$ 1.555 no exemplo é estimativa superior, não a parcela contratual exata.",
+            "Dividir a taxa nominal por 12 é a convenção simplificada usada no exemplo; contratos podem informar taxa efetiva diferente.",
+            "A fórmula exata exige consistência entre taxa por período e número de períodos."
+          ],
+          "lembrete": "Sem juros dá o piso; piso mais juros do primeiro mês dá um teto rápido.",
+          "tags": ["prestacao", "emprestimo", "juros", "limites", "estimativa"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [36, 37, 40, 111] }
+        },
+        {
+          "id": "c05-detalhe-raiz-dividir-media",
+          "ordem": 10,
+          "titulo": "Raiz quadrada por dividir e fazer a média",
+          "paginas": [37, 40, 111, 112],
+          "resumo": "Escolha um palpite positivo g, calcule N/g e faça a média dos dois. Como um valor fica abaixo e o outro acima da raiz quando o palpite não é exato, a média aproxima os extremos; novas iterações refinam rapidamente.",
+          "quandoUsar": [
+            "Para aproximar raiz quadrada sem calculadora.",
+            "Quando existe um quadrado perfeito próximo que fornece bom palpite inicial.",
+            "Para conferir a escala de uma resposta física ou estatística."
+          ],
+          "porQueFunciona": "Se g está abaixo de √N, então N/g fica acima, e vice-versa. A média reduz o desequilíbrio. O processo é uma forma do método babilônico/Newton e converge rapidamente perto da raiz.",
+          "algoritmo": {
+            "titulo": "Palpite, quociente e média",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha um palpite positivo",
+                "detalhe": "Use um quadrado perfeito próximo de N."
+              },
+              {
+                "ordem": 2,
+                "acao": "Divida N pelo palpite",
+                "detalhe": "Esse quociente é o parceiro do outro lado da raiz."
+              },
+              {
+                "ordem": 3,
+                "acao": "Faça a média",
+                "detalhe": "Some palpite e quociente e divida por 2.",
+                "expressao": "g_novo=(g+N/g)÷2"
+              },
+              {
+                "ordem": 4,
+                "acao": "Pare ou repita",
+                "detalhe": "Uma rodada costuma bastar para estimativa; reutilize a média para mais precisão."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-raiz40",
+              "enunciado": "Estimar √40",
+              "resposta": "Aproximadamente 6,33",
+              "etapas": [
+                {
+                  "expressao": "g=6, pois 6²=36",
+                  "explicacao": "Escolhe-se um quadrado conhecido próximo."
+                },
+                {
+                  "expressao": "40÷6=6⅔",
+                  "explicacao": "O parceiro fica acima da raiz."
+                },
+                {
+                  "expressao": "(6+6⅔)÷2=6⅓≈6,33",
+                  "explicacao": "A média aproxima os dois lados."
+                }
+              ],
+              "conclusao": "O valor real começa em 6,32, mostrando a força de uma única iteração.",
+              "origem": { "pagina": 37 }
+            },
+            {
+              "id": "c05-detalhe-ex-raiz153",
+              "enunciado": "Estimar √153",
+              "resposta": "Aproximadamente 12,375",
+              "etapas": [
+                {
+                  "expressao": "g=12",
+                  "explicacao": "12²=144 é próximo de 153."
+                },
+                {
+                  "expressao": "153÷12=12,75",
+                  "explicacao": "Calcula-se o parceiro."
+                },
+                {
+                  "expressao": "(12+12,75)÷2=12,375",
+                  "explicacao": "A média produz a aproximação."
+                }
+              ],
+              "conclusao": "O valor real começa em 12,369, novamente muito próximo após uma rodada.",
+              "origem": { "pagina": 112 }
+            }
+          ],
+          "armadilhas": [
+            "Use palpite positivo: por definição, √N representa a raiz principal não negativa.",
+            "Embora (-3)²=9, √9 é 3, não -3.",
+            "Palpite inicial muito ruim ainda converge, mas torna a divisão mental desnecessariamente difícil."
+          ],
+          "lembrete": "Palpite e N/palpite ficam em lados opostos; tire a média.",
+          "tags": ["raiz-quadrada", "dividir-e-fazer-media", "iteracao", "aproximacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [37, 40, 111, 112] }
+        },
+        {
+          "id": "c05-detalhe-progressao-exercicios",
+          "ordem": 11,
+          "titulo": "Progressão da estimativa: de arredondar a modelar",
+          "paginas": [38, 39, 40, 112],
+          "resumo": "Os exercícios não são uma lista aleatória. Começam com a mesma soma em duas resoluções, passam por compras, extensão de resultados e prefixos simbólicos, aplicam escala a situações reais, refinam percentuais e empréstimos, terminam com raízes e uma curiosidade sobre soma de cubos.",
+          "quandoUsar": [
+            "Para montar uma trilha que aumente a abstração aos poucos.",
+            "Para distinguir treino de técnica de treino de modelagem.",
+            "Para revisar uma estimativa primeiro pela escala e depois por método mais refinado."
+          ],
+          "porQueFunciona": "Cada bloco mantém a habilidade anterior e acrescenta uma decisão: resolução, ordem de grandeza, interpretação de unidade, ajuste percentual ou iteração. Isso permite atribuir o erro à etapa certa.",
+          "algoritmo": {
+            "titulo": "Escada didática em seis blocos",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Compare arredondamentos",
+                "detalhe": "Resolva ao milhar e à centena."
+              },
+              {
+                "ordem": 2,
+                "acao": "Acumule valores cotidianos",
+                "detalhe": "Arredonde preços ao meio dólar."
+              },
+              {
+                "ordem": 3,
+                "acao": "Preveja extensões",
+                "detalhe": "Comece apenas com contagem de algarismos e depois acrescente prefixos."
+              },
+              {
+                "ordem": 4,
+                "acao": "Modele situações abertas",
+                "detalhe": "Traduza texto em razão e unidade."
+              },
+              {
+                "ordem": 5,
+                "acao": "Ajuste porcentagens e construa faixas",
+                "detalhe": "Passe de imposto simples a empréstimos."
+              },
+              {
+                "ordem": 6,
+                "acao": "Finalize com iteração e reconhecimento",
+                "detalhe": "Aproxime raízes e explore o padrão 153, 370, 371 como curiosidade, sem tratá-lo como nova regra de estimativa."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c05-detalhe-ex-cubos-371",
+              "enunciado": "Depois de 153 e 370, encontrar outro número de três algarismos igual à soma dos cubos de seus dígitos",
+              "resposta": "371",
+              "etapas": [
+                {
+                  "expressao": "370=3³+7³+0³",
+                  "explicacao": "O exercício fornece a segunda ocorrência."
+                },
+                {
+                  "expressao": "3³+7³+1³=27+343+1=371",
+                  "explicacao": "Trocar o zero por 1 aumenta tanto o número quanto a soma dos cubos em uma unidade."
+                }
+              ],
+              "conclusao": "É um fecho de reconhecimento de padrão, não um algoritmo geral de estimativa.",
+              "origem": { "pagina": 112 }
+            }
+          ],
+          "armadilhas": [
+            "Tratar todos os blocos como exercícios equivalentes apaga a progressão de abstração.",
+            "O desafio dos cubos é uma curiosidade final e não deve ser confundido com o método de raízes.",
+            "Problemas de modelagem exigem explicar a unidade e as hipóteses, não apenas dar um número."
+          ],
+          "lembrete": "Primeiro arredonde, depois estime a escala, então modele e só no fim refine.",
+          "tags": ["progressao-didatica", "estimativa", "modelagem", "reconhecimento-de-padroes"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [38, 39, 40, 112] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-06",
+      "capituloOrdem": 6,
+      "titulo": "Cálculo mental e papel",
+      "dicas": [
+        {
+          "id": "c06-detalhe-adicao-papel",
+          "ordem": 1,
+          "titulo": "Adição no papel: direita para esquerda, total falado e conferência reversa",
+          "paginas": [41, 44, 112],
+          "resumo": "Ao voltar ao papel, a aula recomenda a direção escolar da direita para a esquerda, verbalizando o total corrente. A soma é conferida repetindo a coluna na ordem oposta, de baixo para cima. O controle financeiro pessoal aparece como contexto para ganhar intimidade com números.",
+          "quandoUsar": [
+            "Em colunas com muitas parcelas.",
+            "Quando os transportes precisam ficar registrados.",
+            "Para conferir uma soma sem simplesmente repetir a mesma sequência de movimentos."
+          ],
+          "porQueFunciona": "Começar nas menores casas permite transportar para as casas ainda não processadas. Somar de baixo para cima muda a ordem e reduz a chance de repetir exatamente um salto ou omissão da primeira execução.",
+          "algoritmo": {
+            "titulo": "Somar, falar e inverter",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Alinhe as casas",
+                "detalhe": "Unidades, dezenas e casas decimais devem ocupar as mesmas colunas."
+              },
+              {
+                "ordem": 2,
+                "acao": "Comece à direita",
+                "detalhe": "Some a menor ordem e registre unidade e transporte."
+              },
+              {
+                "ordem": 3,
+                "acao": "Diga o total corrente",
+                "detalhe": "Verbalizar cada subtotal ajuda a não perder o transporte."
+              },
+              {
+                "ordem": 4,
+                "acao": "Avance coluna a coluna",
+                "detalhe": "Inclua o transporte antes de registrar a nova casa."
+              },
+              {
+                "ordem": 5,
+                "acao": "Refaça de baixo para cima",
+                "detalhe": "Use a ordem inversa como primeira conferência."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-coluna-1",
+              "enunciado": "Somar 594, 12, 511, 199, 3.982, 291 e 1.697",
+              "resposta": "7.286",
+              "etapas": [
+                {
+                  "expressao": "4+2+1+9+2+1+7=26",
+                  "explicacao": "Unidades: escreve-se 6 e transporta-se 2."
+                },
+                {
+                  "expressao": "2+9+1+1+9+8+9+9=48",
+                  "explicacao": "Dezenas, já incluindo o transporte: escreve-se 8 e transporta-se 4."
+                },
+                {
+                  "expressao": "4+5+5+1+9+2+6=32",
+                  "explicacao": "Centenas: escreve-se 2 e transporta-se 3."
+                },
+                {
+                  "expressao": "3+3+1=7",
+                  "explicacao": "Milhares fecham 7.286."
+                },
+                {
+                  "expressao": "refazer da última parcela para a primeira",
+                  "explicacao": "A ordem reversa deve reproduzir o mesmo total."
+                }
+              ],
+              "conclusao": "A atividade combina execução no papel, conferência por ordem inversa e, depois, prova dos nove.",
+              "origem": { "pagina": 112 }
+            }
+          ],
+          "armadilhas": [
+            "Refazer na mesma ordem pode repetir a mesma omissão.",
+            "Decimais desalinhados invalidam o cálculo mesmo que cada coluna seja somada corretamente.",
+            "Falar o total ajuda, mas não substitui registrar transportes em contas extensas."
+          ],
+          "lembrete": "No papel, some da direita; para conferir, volte de baixo para cima.",
+          "tags": ["adicao", "papel", "conferencia", "total-corrente"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [41, 44, 112] }
+        },
+        {
+          "id": "c06-detalhe-subtracao-monetaria",
+          "ordem": 2,
+          "titulo": "Subtração monetária com complementos em centavos e dólares",
+          "paginas": [41, 44, 112, 113],
+          "resumo": "A conta monetária é dividida em centavos e parte inteira. Quando os centavos do subtraendo são maiores, calcula-se a diferença invertida e toma-se seu complemento para 100; o empréstimo aumenta em uma unidade a parte inteira que será subtraída. Depois, uma subtração difícil pode ser arredondada para cima e compensada.",
+          "quandoUsar": [
+            "Em saldos, trocos e controle financeiro com duas casas decimais.",
+            "Quando os centavos exigem empréstimo.",
+            "Quando a parte inteira do subtraendo fica perto de uma centena redonda."
+          ],
+          "porQueFunciona": "Emprestar uma unidade monetária fornece 100 centavos. O complemento representa exatamente os centavos restantes, e aumentar o subtraendo inteiro registra a unidade emprestada. Arredondar esse inteiro e devolver a diferença é a mesma compensação usada mentalmente.",
+          "algoritmo": {
+            "titulo": "Centavos primeiro, inteiro compensado depois",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Compare os centavos",
+                "detalhe": "Se os centavos de cima bastam, subtraia diretamente."
+              },
+              {
+                "ordem": 2,
+                "acao": "Use complemento quando faltar",
+                "detalhe": "Calcule a diferença invertida e complete-a até 100 centavos."
+              },
+              {
+                "ordem": 3,
+                "acao": "Registre o empréstimo",
+                "detalhe": "Some 1 à parte inteira do valor subtraído."
+              },
+              {
+                "ordem": 4,
+                "acao": "Arredonde a parte inteira",
+                "detalhe": "Subtraia uma centena ou dezena conveniente e devolva o excesso."
+              },
+              {
+                "ordem": 5,
+                "acao": "Confira por adição",
+                "detalhe": "Resultado mais valor retirado deve reconstruir o saldo inicial."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-1235-79-menos-271-82",
+              "enunciado": "US$ 1.235,79 - US$ 271,82",
+              "resposta": "US$ 963,97",
+              "etapas": [
+                {
+                  "expressao": "82-79=3; complemento de 3 para 100=97",
+                  "explicacao": "Como 79 não tira 82, empresta-se um dólar e ficam 97 centavos."
+                },
+                {
+                  "expressao": "271+1=272",
+                  "explicacao": "O empréstimo aumenta a parte inteira a subtrair."
+                },
+                {
+                  "expressao": "1.235-300=935",
+                  "explicacao": "272 é arredondado para 300."
+                },
+                {
+                  "expressao": "300-272=28; 935+28=963",
+                  "explicacao": "Devolve-se o excesso da subtração."
+                },
+                {
+                  "expressao": "963,97+271,82=1.235,79",
+                  "explicacao": "A operação inversa confere a resposta."
+                }
+              ],
+              "conclusao": "Complemento resolve os centavos e compensação resolve a parte inteira sem uma cadeia longa de empréstimos.",
+              "origem": { "pagina": 41 }
+            }
+          ],
+          "armadilhas": [
+            "Depois de emprestar para os centavos, esquecer de aumentar o inteiro subtraído em 1 desloca o resultado em um dólar.",
+            "O complemento de centavos é para 100, não para 10.",
+            "A conferência por soma deve usar o valor original completo, inclusive centavos."
+          ],
+          "lembrete": "Faltaram centavos: complete até 100 e acrescente 1 ao inteiro que será retirado.",
+          "tags": ["subtracao", "complementos", "dinheiro", "compensacao", "papel"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [41, 44, 112, 113] }
+        },
+        {
+          "id": "c06-detalhe-criss-cross",
+          "ordem": 3,
+          "titulo": "Multiplicação criss-cross por diagonais posicionais",
+          "paginas": [41, 43, 44, 113],
+          "resumo": "O método organiza a distributiva em diagonais da direita para a esquerda. Em dois por dois algarismos, multiplica-se primeiro unidades, depois somam-se os dois produtos cruzados, e por fim multiplicam-se as dezenas, sempre incorporando transportes. O mesmo princípio se estende a três ou mais algarismos. O glossário observa que a técnica já aparecia no Liber Abaci, de Leonardo de Pisa, em 1202.",
+          "quandoUsar": [
+            "Para multiplicação escrita compacta.",
+            "Quando se quer registrar apenas a resposta e reter os parciais mentalmente.",
+            "Como estrutura geral para produtos com mais de dois algarismos."
+          ],
+          "porQueFunciona": "Cada diagonal reúne termos com o mesmo valor posicional na expansão distributiva. Em (10a+b)(10c+d), bd ocupa unidades; ad+bc ocupa dezenas; ac ocupa centenas, com transportes conectando as colunas.",
+          "algoritmo": {
+            "titulo": "Direita, cruzamento, esquerda",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Multiplique as unidades",
+                "detalhe": "Escreva a unidade do produto e transporte as dezenas."
+              },
+              {
+                "ordem": 2,
+                "acao": "Faça o cruzamento",
+                "detalhe": "Some dezena do primeiro×unidade do segundo e unidade do primeiro×dezena do segundo; inclua o transporte."
+              },
+              {
+                "ordem": 3,
+                "acao": "Registre a casa central",
+                "detalhe": "Escreva a unidade da soma cruzada e transporte o restante."
+              },
+              {
+                "ordem": 4,
+                "acao": "Multiplique as dezenas",
+                "detalhe": "Some o transporte e escreva o bloco restante."
+              },
+              {
+                "ordem": 5,
+                "acao": "Para mais dígitos, percorra diagonais",
+                "detalhe": "Some todos os produtos cujos índices formam a mesma casa posicional."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-23x58-criss-cross",
+              "enunciado": "23 × 58",
+              "resposta": "1.334",
+              "etapas": [
+                {
+                  "expressao": "3×8=24",
+                  "explicacao": "Escreve-se 4 nas unidades e transporta-se 2."
+                },
+                {
+                  "expressao": "2×8+3×5+2=16+15+2=33",
+                  "explicacao": "A diagonal cruzada, mais o transporte, gera 33; escreve-se 3 e transporta-se 3."
+                },
+                {
+                  "expressao": "2×5+3=13",
+                  "explicacao": "A diagonal da esquerda recebe o transporte final."
+                },
+                {
+                  "expressao": "13|3|4=1.334",
+                  "explicacao": "As casas registradas da direita para a esquerda formam a resposta."
+                }
+              ],
+              "conclusao": "A conta é a distributiva (20+3)(50+8), reorganizada para escrever uma casa por vez.",
+              "origem": { "pagina": 41 }
+            }
+          ],
+          "armadilhas": [
+            "O corpo da aula explica a decomposição, mas não desenha todos os transportes; eles continuam obrigatórios.",
+            "Esquecer um dos dois produtos cruzados elimina uma parcela inteira da distributiva.",
+            "A proposta compacta exige memória; em aprendizado, anotar parciais pode ser mais seguro antes de retirar esse apoio."
+          ],
+          "lembrete": "Unidades, cruzados, dezenas; cada diagonal alimenta uma casa.",
+          "tags": ["multiplicacao", "criss-cross", "distributiva", "papel", "transportes"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [41, 43, 44, 113] }
+        },
+        {
+          "id": "c06-detalhe-prova-dos-nove",
+          "ordem": 4,
+          "titulo": "Prova dos nove como checksum de uma operação",
+          "paginas": [41, 42, 43, 44, 112, 113],
+          "resumo": "Reduza cada número somando seus algarismos repetidamente. A operação feita com essas reduções deve ser compatível com a redução da resposta. Divergência garante que há erro; concordância apenas indica compatibilidade, porque erros múltiplos de 9 podem passar pelo teste.",
+          "quandoUsar": [
+            "Para conferir multiplicação, adição ou subtração.",
+            "Com números decimais, ignorando a posição da vírgula apenas para o teste modular.",
+            "Para eliminar alternativas incompatíveis em uma prova sem calculadora."
+          ],
+          "porQueFunciona": "Como 10 deixa resto 1 na divisão por 9, cada potência de 10 também deixa resto 1. Assim, um número e a soma de seus algarismos têm o mesmo resto módulo 9; as operações preservam essa congruência.",
+          "algoritmo": {
+            "titulo": "Reduzir entradas, operar e comparar",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Reduza cada entrada",
+                "detalhe": "Some algarismos até obter um dígito; trate redução 9 como classe de resto 0."
+              },
+              {
+                "ordem": 2,
+                "acao": "Repita a operação nas reduções",
+                "detalhe": "Some, subtraia ou multiplique os pequenos valores."
+              },
+              {
+                "ordem": 3,
+                "acao": "Reduza o resultado pequeno",
+                "detalhe": "Volte a uma classe de um dígito."
+              },
+              {
+                "ordem": 4,
+                "acao": "Reduza a resposta original",
+                "detalhe": "Aplique a mesma soma de algarismos."
+              },
+              {
+                "ordem": 5,
+                "acao": "Compare com interpretação correta",
+                "detalhe": "Se divergir, há erro; se coincidir, ainda é preciso outra verificação para certeza."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-checar-314x159",
+              "enunciado": "Conferir 314 × 159 = 49.926",
+              "resposta": "Compatível: os dois lados reduzem a 3",
+              "etapas": [
+                {
+                  "expressao": "314→3+1+4=8",
+                  "explicacao": "Redução do primeiro fator."
+                },
+                {
+                  "expressao": "159→1+5+9=15→6",
+                  "explicacao": "Redução do segundo fator."
+                },
+                {
+                  "expressao": "8×6=48→12→3",
+                  "explicacao": "Produto das reduções."
+                },
+                {
+                  "expressao": "49.926→4+9+9+2+6=30→3",
+                  "explicacao": "Redução da resposta proposta."
+                }
+              ],
+              "conclusao": "A igualdade passa no teste, mas isso não prova sozinha que 49.926 está correto.",
+              "origem": { "pagina": 42 }
+            },
+            {
+              "id": "c06-detalhe-ex-checar-67mais83",
+              "enunciado": "Conferir 67 + 83 = 150",
+              "resposta": "Compatível: 6 nos dois lados",
+              "etapas": [
+                {
+                  "expressao": "67→13→4; 83→11→2",
+                  "explicacao": "Reduzem-se as parcelas."
+                },
+                {
+                  "expressao": "4+2=6",
+                  "explicacao": "Soma modular esperada."
+                },
+                {
+                  "expressao": "150→1+5+0=6",
+                  "explicacao": "A resposta coincide."
+                }
+              ],
+              "conclusao": "A mesma prova se aplica à adição, não apenas à multiplicação.",
+              "origem": { "pagina": 43 }
+            }
+          ],
+          "armadilhas": [
+            "Passar na prova dos nove não garante acerto.",
+            "Uma redução igual a 9 representa resto 0 na divisão por 9.",
+            "Em subtração, uma diferença modular negativa precisa ser ajustada somando 9.",
+            "Troca de algarismos preserva a soma e pode escapar completamente ao teste."
+          ],
+          "lembrete": "Se não bateu, está errado; se bateu, ainda pode estar errado.",
+          "tags": ["prova-dos-nove", "soma-dos-algarismos", "modulo-9", "verificacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [41, 42, 43, 44, 112, 113] }
+        },
+        {
+          "id": "c06-detalhe-restos-e-digito-borrado",
+          "ordem": 5,
+          "titulo": "Usar módulo 9 para restos e algarismos ausentes",
+          "paginas": [42, 44, 45, 113, 114],
+          "resumo": "A interpretação modular da soma dos algarismos permite responder pelo resto de uma divisão por 9 sem calcular o quociente e reconstruir um algarismo apagado quando a operação original fornece a classe modular esperada.",
+          "quandoUsar": [
+            "Para encontrar apenas o resto de divisão por 9.",
+            "Para descobrir um único algarismo ausente em um resultado, quando a operação determina sua classe módulo 9.",
+            "Para criar uma verificação adicional de dados digitados."
+          ],
+          "porQueFunciona": "Número e soma dos algarismos têm o mesmo resto módulo 9. Um algarismo desconhecido participa linearmente dessa soma, então sua classe pode ser isolada; como o algarismo está entre 0 e 9, geralmente resta uma escolha contextual.",
+          "algoritmo": {
+            "titulo": "Resolver a classe modular",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Reduza os dados conhecidos",
+                "detalhe": "Calcule a classe módulo 9 das entradas ou dos algarismos visíveis."
+              },
+              {
+                "ordem": 2,
+                "acao": "Determine a classe esperada",
+                "detalhe": "Aplique a operação às reduções das entradas."
+              },
+              {
+                "ordem": 3,
+                "acao": "Isole o resto ou dígito",
+                "detalhe": "Para resto, a classe já é a resposta; para lacuna, encontre o algarismo que completa a classe."
+              },
+              {
+                "ordem": 4,
+                "acao": "Normalize 9 para zero",
+                "detalhe": "Se a soma reduz a 9, o resto da divisão por 9 é 0."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-resto-12345678",
+              "enunciado": "Resto de 12.345.678 ÷ 9",
+              "resposta": "0",
+              "etapas": [
+                {
+                  "expressao": "1+2+3+4+5+6+7+8=36",
+                  "explicacao": "Soma-se o número por seus algarismos."
+                },
+                {
+                  "expressao": "36→3+6=9",
+                  "explicacao": "A redução chega à classe de 9."
+                },
+                {
+                  "expressao": "9 mod 9=0",
+                  "explicacao": "Por isso o número é múltiplo de 9."
+                }
+              ],
+              "conclusao": "Na leitura modular, redução 9 significa resto zero.",
+              "origem": { "pagina": 113 }
+            },
+            {
+              "id": "c06-detalhe-ex-digito-borrado",
+              "enunciado": "Em 1.234 × 567.890 = 700.7#6.260, descobrir #",
+              "resposta": "7",
+              "etapas": [
+                {
+                  "expressao": "1.234→1; 567.890→8",
+                  "explicacao": "Reduzem-se os fatores."
+                },
+                {
+                  "expressao": "1×8→8",
+                  "explicacao": "Essa é a classe esperada do produto."
+                },
+                {
+                  "expressao": "7+0+0+7+6+2+6+0=28→1",
+                  "explicacao": "Os algarismos visíveis reduzem a 1."
+                },
+                {
+                  "expressao": "1+#→8 mod 9",
+                  "explicacao": "O algarismo que completa a classe é 7."
+                }
+              ],
+              "conclusao": "A restrição de um único algarismo torna a classe modular suficiente para reconstruir a lacuna.",
+              "origem": { "pagina": 114 }
+            }
+          ],
+          "armadilhas": [
+            "Resto 9 não existe na divisão por 9; a classe 9 deve ser lida como zero.",
+            "Mais de um algarismo ausente geralmente deixa várias soluções.",
+            "O método detecta a classe, não a posição de uma eventual troca de dígitos."
+          ],
+          "lembrete": "Soma dos dígitos dá o resto por 9; uma lacuna completa a classe que falta.",
+          "tags": ["modulo-9", "resto", "digito-ausente", "prova-dos-nove"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [42, 44, 45, 113, 114] }
+        },
+        {
+          "id": "c06-detalhe-divisao-vedica-9",
+          "ordem": 6,
+          "titulo": "Divisão védica por 9 por somas prefixais",
+          "paginas": [42, 45, 114, 115],
+          "resumo": "A exposição relaciona dividir por 9 a multiplicar por 0,111..., lembrando o atalho de ×11, mas deixa a mecânica para os diagramas do gabarito. Neles, o quociente provisório é formado por somas prefixais; valores acima de 9 são transportados e o resto provisório é normalizado por múltiplos de 9.",
+          "quandoUsar": [
+            "Para divisão escrita por 9.",
+            "Como ponte conceitual entre soma de algarismos e divisão védica geral.",
+            "Para praticar transportes antes dos divisores de dois algarismos da aula 8."
+          ],
+          "porQueFunciona": "Como 9=10-1, a divisão sintética com correção +1 acumula cada algarismo no prefixo seguinte. A identidade N=9Q+R continua válida mesmo quando os coeficientes provisórios ultrapassam 9; transportes apenas normalizam sua escrita decimal.",
+          "algoritmo": {
+            "titulo": "Acumular prefixos e normalizar",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Copie o primeiro algarismo",
+                "detalhe": "Ele inicia o quociente provisório."
+              },
+              {
+                "ordem": 2,
+                "acao": "Some ao próximo algarismo",
+                "detalhe": "Cada coeficiente provisório é o dígito seguinte mais o coeficiente anterior."
+              },
+              {
+                "ordem": 3,
+                "acao": "Pare antes do último algarismo",
+                "detalhe": "Os coeficientes acumulados até ali formam o quociente provisório."
+              },
+              {
+                "ordem": 4,
+                "acao": "Forme o resto provisório",
+                "detalhe": "Some o último algarismo ao último coeficiente."
+              },
+              {
+                "ordem": 5,
+                "acao": "Normalize transportes",
+                "detalhe": "Converta coeficientes maiores que 9 para a escrita decimal da direita para a esquerda."
+              },
+              {
+                "ordem": 6,
+                "acao": "Normalize o resto",
+                "detalhe": "Para cada grupo de 9 no resto, acrescente 1 ao quociente e mantenha resto entre 0 e 8."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-3210-div9",
+              "enunciado": "3.210 ÷ 9",
+              "resposta": "356, resto 6",
+              "etapas": [
+                {
+                  "expressao": "q₁=3",
+                  "explicacao": "Copia-se o primeiro algarismo."
+                },
+                {
+                  "expressao": "q₂=3+2=5",
+                  "explicacao": "Primeira soma prefixal."
+                },
+                {
+                  "expressao": "q₃=5+1=6",
+                  "explicacao": "Segunda soma prefixal."
+                },
+                {
+                  "expressao": "R=6+0=6",
+                  "explicacao": "O último algarismo completa o resto."
+                }
+              ],
+              "conclusao": "Como 6<9, não há normalização final adicional.",
+              "origem": { "pagina": 114 }
+            },
+            {
+              "id": "c06-detalhe-ex-20529-div9",
+              "enunciado": "20.529 ÷ 9",
+              "resposta": "2.281, resto 0",
+              "etapas": [
+                {
+                  "expressao": "quociente provisório 2.279",
+                  "explicacao": "As somas prefixais geram 2, 2, 7 e 9."
+                },
+                {
+                  "expressao": "resto provisório 9+9=18",
+                  "explicacao": "O resto contém dois divisores completos."
+                },
+                {
+                  "expressao": "2.279+2=2.281; 18 mod 9=0",
+                  "explicacao": "Dois grupos de 9 migram do resto para o quociente."
+                }
+              ],
+              "conclusao": "A resposta normalizada é exata, com resto zero.",
+              "origem": { "pagina": 114 }
+            }
+          ],
+          "armadilhas": [
+            "O corpo da aula nomeia a técnica, mas os passos operacionais precisam ser reconstruídos dos diagramas do gabarito.",
+            "Coeficientes prefixais podem superar 9 e exigem transporte posicional.",
+            "Resto provisório igual ou maior que 9 precisa aumentar o quociente."
+          ],
+          "lembrete": "Por 9: acumule os dígitos, transforme os transportes e reduza o resto.",
+          "tags": ["divisao-vedica", "divisor-9", "somas-prefixais", "transportes"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [42, 45, 114, 115] }
+        },
+        {
+          "id": "c06-detalhe-numeros-proximos",
+          "ordem": 7,
+          "titulo": "Números próximos no papel: base, soma cruzada e produto dos desvios",
+          "paginas": [42, 43, 45, 115],
+          "resumo": "Escreva os fatores como z+a e z+b, onde z é uma base fácil. Some uma distância ao fator oposto, multiplique o resultado por z e acrescente ab. O método cobre fatores acima da base, abaixo dela, em lados opostos e bases que não são potências de 10.",
+          "quandoUsar": [
+            "Quando os fatores estão perto da mesma base redonda.",
+            "Quando desvios pequenos são mais fáceis que o produto original.",
+            "No papel primeiro; a aula anuncia que o método será levado ao cálculo mental na aula seguinte."
+          ],
+          "porQueFunciona": "A identidade (z+a)(z+b)=z(z+a+b)+ab agrupa o quadrado da base e os termos cruzados no produto por z, deixando apenas o produto pequeno dos desvios.",
+          "algoritmo": {
+            "titulo": "Aplicar a identidade completa",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha z",
+                "detalhe": "Use 10, 20, 100, 300, 1.000 ou outra base próxima e fácil de multiplicar."
+              },
+              {
+                "ordem": 2,
+                "acao": "Anote os desvios com sinal",
+                "detalhe": "Acima da base é positivo; abaixo é negativo."
+              },
+              {
+                "ordem": 3,
+                "acao": "Faça a soma cruzada",
+                "detalhe": "x+b e y+a devem coincidir em z+a+b."
+              },
+              {
+                "ordem": 4,
+                "acao": "Multiplique pela base",
+                "detalhe": "Calcule z(z+a+b)."
+              },
+              {
+                "ordem": 5,
+                "acao": "Some ab algebricamente",
+                "detalhe": "Se os desvios têm sinais opostos, ab é negativo."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-107x111",
+              "enunciado": "107 × 111",
+              "resposta": "11.877",
+              "etapas": [
+                {
+                  "expressao": "z=100; a=7; b=11",
+                  "explicacao": "Os dois fatores estão acima de 100."
+                },
+                {
+                  "expressao": "107+11=111+7=118",
+                  "explicacao": "A soma cruzada fornece z+a+b."
+                },
+                {
+                  "expressao": "118×100=11.800",
+                  "explicacao": "Forma-se o bloco principal."
+                },
+                {
+                  "expressao": "7×11=77",
+                  "explicacao": "Produto dos desvios."
+                },
+                {
+                  "expressao": "11.800+77=11.877",
+                  "explicacao": "A identidade é concluída."
+                }
+              ],
+              "conclusao": "Com base 100 e correção positiva de duas casas, a escrita visual 118|77 funciona.",
+              "origem": { "pagina": 42 }
+            },
+            {
+              "id": "c06-detalhe-ex-108x95",
+              "enunciado": "108 × 95",
+              "resposta": "10.260",
+              "etapas": [
+                {
+                  "expressao": "z=100; a=8; b=-5",
+                  "explicacao": "Os fatores estão em lados opostos da base."
+                },
+                {
+                  "expressao": "108-5=95+8=103",
+                  "explicacao": "A soma cruzada é 103."
+                },
+                {
+                  "expressao": "103×100=10.300",
+                  "explicacao": "Parte principal."
+                },
+                {
+                  "expressao": "8×(-5)=-40",
+                  "explicacao": "A correção deve ser subtraída."
+                },
+                {
+                  "expressao": "10.300-40=10.260",
+                  "explicacao": "Aplica-se a identidade sem concatenar blocos."
+                }
+              ],
+              "conclusao": "Sinais mistos mostram por que a fórmula algébrica é mais segura que uma regra de anexar dígitos.",
+              "origem": { "pagina": 115 }
+            },
+            {
+              "id": "c06-detalhe-ex-304x311",
+              "enunciado": "304 × 311",
+              "resposta": "94.544",
+              "etapas": [
+                {
+                  "expressao": "z=300; a=4; b=11",
+                  "explicacao": "A base comum não precisa ser potência de 10."
+                },
+                {
+                  "expressao": "304+11=315",
+                  "explicacao": "Soma cruzada."
+                },
+                {
+                  "expressao": "315×300=94.500",
+                  "explicacao": "Produto principal com a base real."
+                },
+                {
+                  "expressao": "4×11=44; 94.500+44=94.544",
+                  "explicacao": "Correção final."
+                }
+              ],
+              "conclusao": "Com base 300, é obrigatório multiplicar; não existe concatenação simples.",
+              "origem": { "pagina": 115 }
+            }
+          ],
+          "armadilhas": [
+            "Só concatene visualmente quando a base é potência de 10 e o bloco ab cabe, com sinal positivo, na largura correta.",
+            "Ambos abaixo da base geram produto de desvios positivo; lados opostos geram negativo.",
+            "Base 300 ou outra não potência de 10 exige executar z(z+a+b) literalmente."
+          ],
+          "lembrete": "Use a fórmula: base vezes soma cruzada mais produto assinado dos desvios.",
+          "tags": ["numeros-proximos", "multiplicacao", "base-comum", "distancias-assinadas"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [42, 43, 45, 115] }
+        },
+        {
+          "id": "c06-detalhe-progressao-verificar",
+          "ordem": 8,
+          "titulo": "Progressão dos exercícios: executar e verificar por outro caminho",
+          "paginas": [44, 45, 113],
+          "resumo": "Cada bloco combina uma técnica de execução com uma verificação: somas em ordem reversa e por noves; subtrações por complemento, soma inversa e noves; criss-cross conferido por noves; depois restos, dígito borrado, divisão por 9 e números próximos. O aluno não pratica só velocidade, mas diagnóstico de erro.",
+          "quandoUsar": [
+            "Para montar treino no papel com retorno imediato sobre erros.",
+            "Para separar técnica principal de técnica de conferência.",
+            "Para preparar a transição da fórmula escrita de números próximos ao uso mental da aula 7."
+          ],
+          "porQueFunciona": "Verificações independentes falham de modos diferentes. A progressão acrescenta uma camada por vez e evita que familiaridade com um único procedimento seja confundida com certeza.",
+          "algoritmo": {
+            "titulo": "Executar, inverter e aplicar checksum",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Resolva pelo método pedido",
+                "detalhe": "Use coluna, complemento, criss-cross, divisão védica ou números próximos conforme o bloco."
+              },
+              {
+                "ordem": 2,
+                "acao": "Faça uma conferência estrutural",
+                "detalhe": "Inverta a ordem da soma ou transforme subtração em adição."
+              },
+              {
+                "ordem": 3,
+                "acao": "Aplique a prova dos nove",
+                "detalhe": "Use-a como filtro adicional, lembrando que aprovação não prova acerto."
+              },
+              {
+                "ordem": 4,
+                "acao": "Classifique a divergência",
+                "detalhe": "Se só o checksum falha, revise transporte ou dígito; se a inversa falha, refaça a operação principal."
+              },
+              {
+                "ordem": 5,
+                "acao": "Retire apoios gradualmente",
+                "detalhe": "Depois de estabilizar no papel, leve números próximos ao cálculo mental na aula seguinte."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c06-detalhe-ex-subtracao-dupla-checagem",
+              "enunciado": "Conferir 1.776,65 - 78,95 = 1.697,70",
+              "resposta": "Confirmado por soma inversa e módulo 9",
+              "etapas": [
+                {
+                  "expressao": "1.697,70+78,95=1.776,65",
+                  "explicacao": "A operação inversa reconstrói o valor inicial."
+                },
+                {
+                  "expressao": "1.776,65→5; 78,95→2; 5-2→3",
+                  "explicacao": "Reduções modulares das entradas."
+                },
+                {
+                  "expressao": "1.697,70→3",
+                  "explicacao": "A resposta também reduz a 3."
+                }
+              ],
+              "conclusao": "Duas verificações com estruturas diferentes dão evidência melhor que repetir mecanicamente a subtração.",
+              "origem": { "pagina": 113 }
+            }
+          ],
+          "armadilhas": [
+            "Usar apenas prova dos nove pode deixar passar respostas erradas.",
+            "Repetir exatamente o mesmo procedimento tende a repetir o mesmo erro.",
+            "A divisão védica por 9 é cobrada antes de o corpo da aula explicar seus passos em detalhe; o gabarito precisa ser usado como apoio didático."
+          ],
+          "lembrete": "Faça por um método e confira por outro que possa falhar de maneira diferente.",
+          "tags": ["progressao-didatica", "verificacao", "papel", "prova-dos-nove"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [44, 45, 113] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-07",
+      "capituloOrdem": 7,
+      "titulo": "Multiplicação intermediária",
+      "dicas": [
+        {
+          "id": "c07-detalhe-metodo-adicao",
+          "ordem": 1,
+          "titulo": "Método da adição: arredonde para baixo e devolva o pedaço",
+          "paginas": [46, 49, 50, 117],
+          "resumo": "A primeira estratégia para produtos de dois por dois algarismos é universal, mas fica especialmente leve quando um fator termina em 1, 2, 3 ou 4. Esse fator é decomposto em uma dezena fácil mais uma sobra pequena.",
+          "quandoUsar": [
+            "Quando um fator está poucos pontos acima de 10, 20, 30 ou outra dezena conveniente.",
+            "Quando nenhum dos métodos mais especializados oferece um caminho claramente menor.",
+            "Quando os produtos do outro fator pela dezena e pela pequena sobra já são automáticos."
+          ],
+          "porQueFunciona": "É a propriedade distributiva: multiplicar por uma soma equivale a multiplicar por cada parcela e juntar os produtos. A dezena redonda reduz a parte principal a um produto por um algarismo seguido de ajuste de casa.",
+          "algoritmo": {
+            "titulo": "Arredondar para baixo, multiplicar e recompor",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha o fator mais decomponível",
+                "detalhe": "Prefira o que está logo acima de uma dezena ou centena fácil."
+              },
+              {
+                "ordem": 2,
+                "acao": "Separe base e sobra",
+                "detalhe": "Escreva mentalmente o fator como base redonda mais uma sobra pequena.",
+                "expressao": "a = B + d"
+              },
+              {
+                "ordem": 3,
+                "acao": "Calcule o produto principal",
+                "detalhe": "Multiplique o outro fator pela base redonda.",
+                "expressao": "B × b"
+              },
+              {
+                "ordem": 4,
+                "acao": "Calcule e some a correção",
+                "detalhe": "Multiplique pela sobra e some ao produto principal.",
+                "expressao": "a × b = B × b + d × b"
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-41x17",
+              "enunciado": "41 × 17",
+              "resposta": "697",
+              "etapas": [
+                {
+                  "expressao": "41 = 40 + 1",
+                  "explicacao": "O 41 termina em 1 e fica a uma unidade de 40."
+                },
+                {
+                  "expressao": "40 × 17 = 680",
+                  "explicacao": "O bloco redondo concentra quase todo o produto."
+                },
+                {
+                  "expressao": "1 × 17 = 17",
+                  "explicacao": "A sobra que foi retirada precisa voltar."
+                },
+                {
+                  "expressao": "680 + 17 = 697",
+                  "explicacao": "A recomposição fecha o resultado."
+                }
+              ],
+              "conclusao": "Final pequeno favorece o arredondamento para baixo e uma única adição.",
+              "origem": { "pagina": 46 }
+            },
+            {
+              "id": "c07-detalhe-ex-52x68",
+              "enunciado": "52 × 68",
+              "resposta": "3.536",
+              "etapas": [
+                {
+                  "expressao": "52 = 50 + 2",
+                  "explicacao": "O fator é reduzido a uma base fácil e uma sobra curta."
+                },
+                {
+                  "expressao": "50 × 68 = 3.400",
+                  "explicacao": "Multiplicar por 50 pode ser visto como multiplicar por 5 e acrescentar uma dezena."
+                },
+                {
+                  "expressao": "2 × 68 = 136",
+                  "explicacao": "Calcula-se a correção."
+                },
+                {
+                  "expressao": "3.400 + 136 = 3.536",
+                  "explicacao": "Somam-se os dois produtos distribuídos."
+                }
+              ],
+              "conclusao": "O bloco de exercícios aumenta a sobra de 1 para 4 para consolidar o mesmo esquema.",
+              "origem": { "pagina": 117 }
+            }
+          ],
+          "armadilhas": [
+            "Arredondar o fator menos conveniente pode criar um produto parcial mais pesado do que o original.",
+            "A correção é somada, não subtraída, porque a base escolhida ficou abaixo do fator real.",
+            "O método sempre funciona, mas isso não significa que seja sempre o caminho de menor carga mental."
+          ],
+          "lembrete": "Final pequeno: desça para a dezena, multiplique e devolva a sobra.",
+          "tags": ["multiplicacao", "metodo-da-adicao", "distributiva", "arredondamento"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [46, 49, 50, 117] }
+        },
+        {
+          "id": "c07-detalhe-metodo-subtracao",
+          "ordem": 2,
+          "titulo": "Método da subtração: arredonde para cima e retire o excesso",
+          "paginas": [46, 48, 50, 117],
+          "resumo": "Quando um fator termina em 7, 8 ou 9, ou está muito perto de 100, costuma ser mais curto elevá-lo a uma base fácil e depois subtrair o que foi acrescentado.",
+          "quandoUsar": [
+            "Quando um fator termina em 7, 8 ou 9.",
+            "Quando um fator está a poucas unidades de 50, 100 ou outra base de multiplicação imediata.",
+            "Quando a correção pelo excesso é menor que a sobra que surgiria ao arredondar para baixo."
+          ],
+          "porQueFunciona": "Também é distributividade, agora sobre uma diferença. Trocar o fator por uma base maior superestima o produto; subtrair o excesso multiplicado pelo outro fator restaura exatamente o valor original.",
+          "algoritmo": {
+            "titulo": "Arredondar para cima e compensar",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha uma base acima",
+                "detalhe": "Procure a dezena ou centena imediatamente superior que simplifique muito o produto."
+              },
+              {
+                "ordem": 2,
+                "acao": "Meça o excesso",
+                "detalhe": "Registre quantas unidades foram acrescentadas ao fator.",
+                "expressao": "a = B - d"
+              },
+              {
+                "ordem": 3,
+                "acao": "Multiplique pela base",
+                "detalhe": "Calcule o produto fácil com B.",
+                "expressao": "B × b"
+              },
+              {
+                "ordem": 4,
+                "acao": "Retire a compensação",
+                "detalhe": "Subtraia o outro fator multiplicado pelo excesso.",
+                "expressao": "a × b = B × b - d × b"
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-53x89",
+              "enunciado": "53 × 89",
+              "resposta": "4.717",
+              "etapas": [
+                {
+                  "expressao": "89 = 90 - 1",
+                  "explicacao": "O final 9 está a uma unidade da dezena seguinte."
+                },
+                {
+                  "expressao": "53 × 90 = 4.770",
+                  "explicacao": "Calcula-se primeiro o produto redondo."
+                },
+                {
+                  "expressao": "4.770 - 53 = 4.717",
+                  "explicacao": "Retira-se uma cópia de 53, correspondente ao excesso de 1."
+                }
+              ],
+              "conclusao": "Um final 9 transforma o ajuste em apenas uma subtração do outro fator.",
+              "origem": { "pagina": 46 }
+            },
+            {
+              "id": "c07-detalhe-ex-97x22-subtracao",
+              "enunciado": "97 × 22",
+              "resposta": "2.134",
+              "etapas": [
+                {
+                  "expressao": "97 = 100 - 3",
+                  "explicacao": "A proximidade de 100 cria um produto principal imediato."
+                },
+                {
+                  "expressao": "100 × 22 = 2.200",
+                  "explicacao": "Multiplicar por 100 apenas desloca as casas."
+                },
+                {
+                  "expressao": "3 × 22 = 66",
+                  "explicacao": "Esse é o excesso introduzido."
+                },
+                {
+                  "expressao": "2.200 - 66 = 2.134",
+                  "explicacao": "A compensação devolve o produto exato."
+                }
+              ],
+              "conclusao": "Números próximos de 100 são candidatos fortes ao método da subtração.",
+              "origem": { "pagina": 46 }
+            }
+          ],
+          "armadilhas": [
+            "Subtrair apenas o excesso d é insuficiente; é preciso subtrair d vezes o outro fator.",
+            "Se a correção ficar maior e mais difícil que o produto original, compare com fatoração ou adição.",
+            "Ao usar 100 como base, mantenha alinhadas centenas e unidades durante a compensação."
+          ],
+          "lembrete": "Final grande: suba para a dezena ou centena e tire o excesso multiplicado.",
+          "tags": ["multiplicacao", "metodo-da-subtracao", "distributiva", "compensacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [46, 48, 50, 117] }
+        },
+        {
+          "id": "c07-detalhe-fatoracao",
+          "ordem": 3,
+          "titulo": "Fatoração: quebrar um fator e usar cada parcial imediatamente",
+          "paginas": [46, 50, 118],
+          "resumo": "Fatorar um dos números substitui uma multiplicação de dois algarismos por uma sequência de produtos menores. O texto destaca que essa estratégia costuma aliviar a memória de trabalho, porque cada resultado parcial é usado logo na etapa seguinte.",
+          "quandoUsar": [
+            "Quando um fator se decompõe em fatores pequenos, como 12 = 6 × 2, 28 = 7 × 4 ou 56 = 8 × 7.",
+            "Quando a decomposição aciona um atalho já dominado, como multiplicar por 11.",
+            "Quando guardar e somar dois produtos parciais seria mais pesado que encadear multiplicações.",
+            "Em expressões com decimais, inclusive fórmulas de conversão de temperatura, quando um coeficiente admite fatoração conveniente."
+          ],
+          "porQueFunciona": "Pela associatividade, a × (m × n) pode ser calculado como (a × m) × n. O produto não muda; muda apenas a ordem em que a informação é processada.",
+          "algoritmo": {
+            "titulo": "Decompor, ordenar e encadear",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Fatore um dos números",
+                "detalhe": "Procure uma decomposição em fatores de um algarismo ou em 11 e outro fator curto.",
+                "expressao": "b = m × n"
+              },
+              {
+                "ordem": 2,
+                "acao": "Compare as ordens possíveis",
+                "detalhe": "Antecipe qual primeiro produto termina em número redondo ou reconhecível."
+              },
+              {
+                "ordem": 3,
+                "acao": "Faça o primeiro produto",
+                "detalhe": "Use imediatamente o resultado, sem manter dois parciais separados."
+              },
+              {
+                "ordem": 4,
+                "acao": "Aplique o fator restante",
+                "detalhe": "Complete a cadeia associativa.",
+                "expressao": "a × b = (a × m) × n"
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-97x22-fatoracao",
+              "enunciado": "97 × 22",
+              "resposta": "2.134",
+              "etapas": [
+                {
+                  "expressao": "22 = 11 × 2",
+                  "explicacao": "A decomposição reaproveita o atalho de multiplicação por 11."
+                },
+                {
+                  "expressao": "97 × 11 = 1.067",
+                  "explicacao": "Aplica-se primeiro o fato especial."
+                },
+                {
+                  "expressao": "1.067 × 2 = 2.134",
+                  "explicacao": "O parcial é usado imediatamente e dobrado."
+                }
+              ],
+              "conclusao": "O mesmo produto que admitia compensação também pode ser reduzido a ×11 e ×2.",
+              "origem": { "pagina": 46 }
+            },
+            {
+              "id": "c07-detalhe-ex-75x56",
+              "enunciado": "75 × 56",
+              "resposta": "4.200",
+              "etapas": [
+                {
+                  "expressao": "56 = 8 × 7",
+                  "explicacao": "O fator 56 oferece dois fatores pequenos."
+                },
+                {
+                  "expressao": "75 × 8 = 600",
+                  "explicacao": "Começar por 8 produz uma centena redonda."
+                },
+                {
+                  "expressao": "600 × 7 = 4.200",
+                  "explicacao": "O segundo produto fica quase mecânico."
+                }
+              ],
+              "conclusao": "A ordem escolhida cria um parcial redondo e minimiza o esforço restante.",
+              "origem": { "pagina": 118 }
+            }
+          ],
+          "armadilhas": [
+            "Nem toda fatoração ajuda; decompor em fatores que geram um parcial irregular pode aumentar o trabalho.",
+            "Não troque a ordem sem verificar se o primeiro produto realmente fica mais simples.",
+            "A técnica pressupõe fluência nos produtos por um algarismo trabalhados anteriormente."
+          ],
+          "lembrete": "Fatore para produzir um parcial fácil e use-o na hora.",
+          "tags": ["multiplicacao", "fatoracao", "associatividade", "memoria-de-trabalho"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [46, 50, 118] }
+        },
+        {
+          "id": "c07-detalhe-menor-resistencia",
+          "ordem": 4,
+          "titulo": "Matemática da menor resistência: escolher a ordem mais leve",
+          "paginas": [46, 48, 51, 118, 119],
+          "resumo": "Quando há várias fatorações ou vários métodos possíveis, a tarefa não é seguir uma regra fixa, mas comparar rapidamente os caminhos e escolher o que produz parciais mais fáceis. A prática mista do fim da aula existe justamente para desenvolver essa leitura.",
+          "quandoUsar": [
+            "Sempre que um produto admite duas ou mais decomposições plausíveis.",
+            "Quando a primeira etapa de uma ordem produz número redondo, múltiplo conhecido ou atalho especial.",
+            "Na fase final de treino, depois que cada método isolado já foi praticado."
+          ],
+          "porQueFunciona": "A associatividade e a distributividade permitem rotas equivalentes. Como o custo mental depende dos parciais, e não só do tamanho dos números originais, escolher a rota certa reduz memória e quantidade de operações.",
+          "algoritmo": {
+            "titulo": "Pré-visualizar antes de calcular",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Liste mentalmente duas rotas",
+                "detalhe": "Considere fatoração, arredondamento para cima ou para baixo e números próximos."
+              },
+              {
+                "ordem": 2,
+                "acao": "Antecipe o primeiro parcial",
+                "detalhe": "Não calcule tudo; veja apenas qual rota produz o parcial mais redondo ou conhecido."
+              },
+              {
+                "ordem": 3,
+                "acao": "Escolha a rota curta",
+                "detalhe": "Prefira menos retenção de informação e uma correção menor."
+              },
+              {
+                "ordem": 4,
+                "acao": "Use outra rota como verificação",
+                "detalhe": "Em treino sem pressão, resolver de novo por outro método fortalece flexibilidade e confere o resultado."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-43x28",
+              "enunciado": "43 × 28",
+              "resposta": "1.204",
+              "etapas": [
+                {
+                  "expressao": "28 = 7 × 4",
+                  "explicacao": "Há duas ordens possíveis para os fatores 7 e 4."
+                },
+                {
+                  "expressao": "43 × 7 = 301",
+                  "explicacao": "Essa ordem produz um parcial fácil de quadruplicar."
+                },
+                {
+                  "expressao": "301 × 4 = 1.204",
+                  "explicacao": "O fechamento exige apenas dobrar duas vezes."
+                },
+                {
+                  "expressao": "43 × 4 = 172; 172 × 7",
+                  "explicacao": "A rota alternativa termina num produto por 7 mais pesado; por isso é descartada antes de ser completada."
+                }
+              ],
+              "conclusao": "A melhor ordem não é uma preferência abstrata: é a que cria o parcial mais amigável.",
+              "origem": { "pagina": 48 }
+            },
+            {
+              "id": "c07-detalhe-ex-14x23-multiplos-caminhos",
+              "enunciado": "14 × 23 por caminhos diferentes",
+              "resposta": "322",
+              "etapas": [
+                {
+                  "expressao": "23 × 7 × 2 = 161 × 2 = 322",
+                  "explicacao": "A fatoração 14 = 7 × 2 funciona bem."
+                },
+                {
+                  "expressao": "23 × 2 × 7 = 46 × 7 = 322",
+                  "explicacao": "A ordem invertida também é viável, embora o fechamento seja diferente."
+                },
+                {
+                  "expressao": "14 × (20 + 3) = 280 + 42 = 322",
+                  "explicacao": "O método da adição fornece uma terceira verificação."
+                }
+              ],
+              "conclusao": "O bloco misto ensina a reconhecer equivalência e custo, não a decorar uma única rota.",
+              "origem": { "pagina": 118 }
+            }
+          ],
+          "armadilhas": [
+            "Tentar completar todas as rotas antes de escolher derrota o objetivo; basta antever o primeiro parcial.",
+            "O método mais elegante no papel pode não ser o mais leve para uma pessoa específica.",
+            "A menor resistência depende da fluência individual e pode mudar com a prática."
+          ],
+          "lembrete": "Olhe os dois caminhos; fique com o que produz o parcial mais fácil.",
+          "tags": ["menor-resistencia", "estrategia", "fatoracao", "flexibilidade"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [46, 48, 51, 118, 119] }
+        },
+        {
+          "id": "c07-detalhe-quadrados-base-dez",
+          "ordem": 5,
+          "titulo": "Quadrados: mover uma cópia até a dezena e compensar com d²",
+          "paginas": [47, 48, 49, 116, 117],
+          "resumo": "Para elevar um número de dois algarismos ao quadrado, uma cópia desce até um múltiplo de 10 e a outra sobe a mesma distância. Multiplica-se o par simplificado e acrescenta-se o quadrado da distância. Finais 5 e números próximos de 100 são particularmente favoráveis.",
+          "quandoUsar": [
+            "Quando os dois fatores são iguais.",
+            "Quando o número está perto de um múltiplo de 10.",
+            "Especialmente para números terminados em 5 ou próximos de 100."
+          ],
+          "porQueFunciona": "Os fatores simétricos são (n-d) e (n+d), cujo produto é n²-d². Portanto n²=(n-d)(n+d)+d². O deslocamento cria um fator redondo sem perder a exatidão.",
+          "algoritmo": {
+            "titulo": "Deslocamento simétrico",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha a dezena mais próxima",
+                "detalhe": "Defina a distância d entre o número e esse múltiplo de 10."
+              },
+              {
+                "ordem": 2,
+                "acao": "Desloque as duas cópias em sentidos opostos",
+                "detalhe": "Uma vira n-d e a outra n+d; uma delas deve ficar redonda.",
+                "expressao": "n² → (n-d)(n+d)"
+              },
+              {
+                "ordem": 3,
+                "acao": "Multiplique o par simplificado",
+                "detalhe": "A presença do múltiplo de 10 torna este o produto principal."
+              },
+              {
+                "ordem": 4,
+                "acao": "Some o quadrado da distância",
+                "detalhe": "Recupere o termo retirado pela diferença de quadrados.",
+                "expressao": "n² = (n-d)(n+d) + d²"
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-13-quadrado",
+              "enunciado": "13²",
+              "resposta": "169",
+              "etapas": [
+                {
+                  "expressao": "13 - 3 = 10; 13 + 3 = 16",
+                  "explicacao": "As duas cópias se afastam simetricamente até uma delas virar 10."
+                },
+                {
+                  "expressao": "10 × 16 = 160",
+                  "explicacao": "Calcula-se o produto simplificado."
+                },
+                {
+                  "expressao": "3² = 9",
+                  "explicacao": "A distância também precisa ser elevada ao quadrado."
+                },
+                {
+                  "expressao": "160 + 9 = 169",
+                  "explicacao": "A compensação fecha o quadrado."
+                }
+              ],
+              "conclusao": "O quadrado vira um produto por 10 mais uma correção de um algarismo.",
+              "origem": { "pagina": 47 }
+            },
+            {
+              "id": "c07-detalhe-ex-99-quadrado",
+              "enunciado": "99²",
+              "resposta": "9.801",
+              "etapas": [
+                {
+                  "expressao": "99 + 1 = 100; 99 - 1 = 98",
+                  "explicacao": "A centena é a base mais conveniente."
+                },
+                {
+                  "expressao": "100 × 98 = 9.800",
+                  "explicacao": "O produto principal fica imediato."
+                },
+                {
+                  "expressao": "9.800 + 1² = 9.801",
+                  "explicacao": "Soma-se o quadrado da distância."
+                }
+              ],
+              "conclusao": "Quanto mais perto de 100, menor é a correção.",
+              "origem": { "pagina": 117 }
+            }
+          ],
+          "armadilhas": [
+            "A distância é aplicada em sentidos opostos; mover as duas cópias para o mesmo lado altera o produto.",
+            "É preciso somar d², não apenas d.",
+            "A dezena mais próxima costuma minimizar d, mas outra base pode ser melhor se produzir um produto principal mais familiar."
+          ],
+          "lembrete": "Uma cópia sobe, a outra desce; multiplique e some o quadrado do passo.",
+          "tags": ["quadrados", "diferenca-de-quadrados", "numeros-proximos", "base-redonda"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [47, 48, 49, 116, 117] }
+        },
+        {
+          "id": "c07-detalhe-numeros-proximos",
+          "ordem": 6,
+          "titulo": "Método dos números próximos com distâncias assinadas",
+          "paginas": [47, 50, 51, 118],
+          "resumo": "Escolha uma base redonda próxima dos dois fatores. Cruze uma distância com o fator oposto para formar o multiplicador da base e depois acrescente o produto das distâncias. Distâncias abaixo da base são negativas, o que cobre também fatores em lados opostos.",
+          "quandoUsar": [
+            "Quando os fatores são próximos entre si e de uma base redonda comum.",
+            "Quando ambos estão acima ou abaixo de uma dezena ou centena.",
+            "Quando um está acima e outro abaixo, desde que as distâncias ainda sejam pequenas."
+          ],
+          "porQueFunciona": "Se os fatores são B+a e B+b, então (B+a)(B+b)=B(B+a+b)+ab. A soma cruzada forma a parte multiplicada pela base, e ab corrige a interação entre as duas distâncias.",
+          "algoritmo": {
+            "titulo": "Base comum, cruzamento e correção",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha a base B",
+                "detalhe": "Use uma dezena ou centena próxima dos dois fatores."
+              },
+              {
+                "ordem": 2,
+                "acao": "Registre as distâncias com sinal",
+                "detalhe": "Acima da base é positivo; abaixo é negativo.",
+                "expressao": "x=B+a; y=B+b"
+              },
+              {
+                "ordem": 3,
+                "acao": "Faça a soma cruzada",
+                "detalhe": "Some a distância de um fator ao outro fator; os dois cruzamentos dão o mesmo valor.",
+                "expressao": "x+b = y+a = B+a+b"
+              },
+              {
+                "ordem": 4,
+                "acao": "Multiplique pela base",
+                "detalhe": "Calcule B(B+a+b)."
+              },
+              {
+                "ordem": 5,
+                "acao": "Acrescente o produto das distâncias",
+                "detalhe": "Respeite o sinal: distâncias em lados opostos produzem correção negativa.",
+                "expressao": "xy=B(B+a+b)+ab"
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-26x23",
+              "enunciado": "26 × 23",
+              "resposta": "598",
+              "etapas": [
+                {
+                  "expressao": "B=20; a=6; b=3",
+                  "explicacao": "Os dois fatores estão pouco acima de 20."
+                },
+                {
+                  "expressao": "26 + 3 = 23 + 6 = 29",
+                  "explicacao": "A soma cruzada produz o mesmo 29 pelos dois lados."
+                },
+                {
+                  "expressao": "20 × 29 = 580",
+                  "explicacao": "Forma-se a parte principal."
+                },
+                {
+                  "expressao": "6 × 3 = 18",
+                  "explicacao": "Calcula-se a interação das distâncias."
+                },
+                {
+                  "expressao": "580 + 18 = 598",
+                  "explicacao": "As duas partes são reunidas."
+                }
+              ],
+              "conclusao": "A proximidade da base transforma o produto em uma multiplicação por 20 e uma correção curta.",
+              "origem": { "pagina": 47 }
+            },
+            {
+              "id": "c07-detalhe-ex-67x73",
+              "enunciado": "67 × 73",
+              "resposta": "4.891",
+              "etapas": [
+                {
+                  "expressao": "B=70; a=-3; b=3",
+                  "explicacao": "Os fatores estão em lados opostos da base."
+                },
+                {
+                  "expressao": "67 + 3 = 73 - 3 = 70",
+                  "explicacao": "A soma cruzada volta à própria base."
+                },
+                {
+                  "expressao": "70 × 70 = 4.900",
+                  "explicacao": "Calcula-se o bloco principal."
+                },
+                {
+                  "expressao": "(-3) × 3 = -9",
+                  "explicacao": "Como as distâncias têm sinais opostos, a correção é subtraída."
+                },
+                {
+                  "expressao": "4.900 - 9 = 4.891",
+                  "explicacao": "O sinal evita somar 9 indevidamente."
+                }
+              ],
+              "conclusao": "O método continua válido quando a base fica entre os fatores.",
+              "origem": { "pagina": 118 }
+            }
+          ],
+          "armadilhas": [
+            "Distâncias abaixo da base devem ser negativas.",
+            "A parte principal é base vezes soma cruzada; não basta concatenar números.",
+            "Se ab tiver sinal negativo, a correção é uma subtração.",
+            "Uma base mal escolhida pode deixar as distâncias grandes e eliminar a vantagem."
+          ],
+          "lembrete": "Base comum, soma cruzada, produto da base e correção das distâncias.",
+          "tags": ["multiplicacao", "numeros-proximos", "base-comum", "distancias-assinadas"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [47, 50, 51, 118] }
+        },
+        {
+          "id": "c07-detalhe-dobrar-e-dividir",
+          "ordem": 7,
+          "titulo": "Dobrar um fator e reduzir o outro à metade para aproximá-los",
+          "paginas": [47],
+          "resumo": "Quando os fatores originais não estão próximos, conservar o produto enquanto um é dobrado e o outro dividido por 2 pode criar um novo par adequado ao método dos números próximos.",
+          "quandoUsar": [
+            "Quando um dos fatores é par.",
+            "Quando dobrar o menor e dividir o maior aproxima os dois números.",
+            "Quando o novo par fica perto de uma base redonda comum."
+          ],
+          "porQueFunciona": "Multiplicar um fator por 2 e o outro por 1/2 mantém o produto: (2a)(b/2)=ab. A transformação muda apenas a forma do problema.",
+          "algoritmo": {
+            "titulo": "Reescalonar antes de usar números próximos",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Verifique a paridade",
+                "detalhe": "Confirme que um fator pode ser dividido por 2 sem criar uma fração inconveniente."
+              },
+              {
+                "ordem": 2,
+                "acao": "Dobre o fator menor",
+                "detalhe": "Aproxime-o do outro fator."
+              },
+              {
+                "ordem": 3,
+                "acao": "Reduza o fator par à metade",
+                "detalhe": "A compensação preserva o produto.",
+                "expressao": "a × b = (2a) × (b/2)"
+              },
+              {
+                "ordem": 4,
+                "acao": "Aplique o método dos próximos",
+                "detalhe": "Escolha uma base para o novo par e conclua com soma cruzada e produto das distâncias."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-17x76",
+              "enunciado": "17 × 76",
+              "resposta": "1.292",
+              "etapas": [
+                {
+                  "expressao": "17 × 76 = 34 × 38",
+                  "explicacao": "Dobra-se 17 e divide-se 76 por 2; o produto permanece igual e os fatores ficam próximos."
+                },
+                {
+                  "expressao": "B=40; a=-6; b=-2",
+                  "explicacao": "O novo par está logo abaixo de 40."
+                },
+                {
+                  "expressao": "40 × 32 = 1.280",
+                  "explicacao": "A soma cruzada é 34-2=38-6=32."
+                },
+                {
+                  "expressao": "(-6) × (-2) = 12",
+                  "explicacao": "As duas distâncias negativas geram correção positiva."
+                },
+                {
+                  "expressao": "1.280 + 12 = 1.292",
+                  "explicacao": "Conclui-se o produto equivalente."
+                }
+              ],
+              "conclusao": "A reescala não resolve sozinha; ela fabrica a estrutura adequada para outro atalho.",
+              "origem": { "pagina": 47 }
+            }
+          ],
+          "armadilhas": [
+            "Dobrar os dois fatores quadruplica o produto; um deve subir enquanto o outro desce proporcionalmente.",
+            "Dividir um fator ímpar por 2 pode introduzir decimal e perder a vantagem.",
+            "Só vale transformar se o novo par realmente ficar mais próximo ou mais redondo."
+          ],
+          "lembrete": "Dobre de um lado, corte pela metade do outro e conserve o produto.",
+          "tags": ["reescalonamento", "dobrar-e-dividir", "numeros-proximos", "invariancia"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [47] }
+        },
+        {
+          "id": "c07-detalhe-escolha-e-progressao",
+          "ordem": 8,
+          "titulo": "Mapa de escolha e sequência didática dos exercícios",
+          "paginas": [47, 48, 49, 50, 51, 119],
+          "resumo": "A aula fecha com uma árvore de decisão e uma prática em camadas. Primeiro vêm quadrados, depois blocos que obrigam adição, subtração, fatoração e números próximos; só no último bloco o aluno deve resolver cada produto por mais de um método.",
+          "quandoUsar": [
+            "Antes de iniciar um produto de dois algarismos, para decidir o método.",
+            "Ao organizar treino progressivo sem misturar técnicas cedo demais.",
+            "Ao revisar uma resposta por uma segunda estratégia independente."
+          ],
+          "porQueFunciona": "O treino bloqueado estabiliza cada algoritmo; a prática mista seguinte ensina a reconhecer a estrutura do problema. A seleção por propriedades dos fatores reduz tentativas aleatórias.",
+          "algoritmo": {
+            "titulo": "Árvore de decisão em cinco perguntas",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Os fatores são iguais?",
+                "detalhe": "Use o método dos quadrados."
+              },
+              {
+                "ordem": 2,
+                "acao": "Eles estão próximos?",
+                "detalhe": "Use uma base comum e o método dos números próximos."
+              },
+              {
+                "ordem": 3,
+                "acao": "Um fator se decompõe bem?",
+                "detalhe": "Use fatoração e escolha a ordem de menor resistência."
+              },
+              {
+                "ordem": 4,
+                "acao": "Há proximidade de 100 ou final 7, 8 ou 9?",
+                "detalhe": "Tente o método da subtração."
+              },
+              {
+                "ordem": 5,
+                "acao": "Há final 1, 2, 3 ou 4, ou nenhum padrão melhor?",
+                "detalhe": "Use o método da adição como rota geral."
+              },
+              {
+                "ordem": 6,
+                "acao": "Na prática, retire as muletas aos poucos",
+                "detalhe": "Treine cada família separada e encerre pedindo mais de um método para o mesmo produto."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c07-detalhe-ex-35x97-escolha",
+              "enunciado": "35 × 97 por duas rotas",
+              "resposta": "3.395",
+              "etapas": [
+                {
+                  "expressao": "35 × (100 - 3) = 3.500 - 105 = 3.395",
+                  "explicacao": "A proximidade de 97 com 100 sugere subtração."
+                },
+                {
+                  "expressao": "35 × 97 = 97 × 7 × 5 = 679 × 5 = 3.395",
+                  "explicacao": "Como 35=7×5, a fatoração oferece verificação independente."
+                }
+              ],
+              "conclusao": "A prática final mede tanto o cálculo quanto a capacidade de reconhecer rotas equivalentes.",
+              "origem": { "pagina": 119 }
+            }
+          ],
+          "armadilhas": [
+            "Usar sempre o método favorito impede desenvolver reconhecimento estrutural.",
+            "Misturar todos os métodos antes de dominar cada um pode transformar escolha em adivinhação.",
+            "Os produtos auxiliares de dois ou três algarismos por um algarismo dependem da fluência construída em aulas anteriores."
+          ],
+          "lembrete": "Iguais: quadrado; próximos: base comum; fatoráveis: fatores; final alto: subtraia; final baixo: some.",
+          "tags": ["selecao-de-estrategia", "progressao-didatica", "pratica-mista", "verificacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [47, 48, 49, 50, 51, 119] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-08",
+      "capituloOrdem": 8,
+      "titulo": "A velocidade da divisão védica",
+      "dicas": [
+        {
+          "id": "c08-detalhe-escolher-divisao-curta",
+          "ordem": 1,
+          "titulo": "Quando preferir divisão curta",
+          "paginas": [52, 54, 55, 119, 120, 121, 122],
+          "resumo": "A aula começa comparando métodos no papel. A divisão curta é indicada para divisores de um algarismo e continua muito rápida entre 11 e 19 quando o aluno recupera sem esforço esses múltiplos por um algarismo. Para divisores a partir de 21, a técnica védica costuma ganhar vantagem.",
+          "quandoUsar": [
+            "Com divisor de um algarismo.",
+            "Com divisor entre 11 e 19, se seus múltiplos por um algarismo forem fluidos.",
+            "Como alternativa quando a correção védica gera muitos transportes."
+          ],
+          "porQueFunciona": "A divisão curta registra apenas quociente e restos locais. Quando os múltiplos do divisor são conhecidos, ela elimina a escrita das subtrações completas da divisão longa.",
+          "algoritmo": {
+            "titulo": "Quociente e resto em fluxo",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Comece pelo menor prefixo divisível",
+                "detalhe": "Leia dígitos da esquerda até formar um número pelo menos igual ao divisor."
+              },
+              {
+                "ordem": 2,
+                "acao": "Registre um dígito do quociente",
+                "detalhe": "Use o maior múltiplo do divisor que não ultrapassa o prefixo."
+              },
+              {
+                "ordem": 3,
+                "acao": "Leve o resto ao próximo dígito",
+                "detalhe": "Anexe o próximo algarismo do dividendo ao resto e repita."
+              },
+              {
+                "ordem": 4,
+                "acao": "Finalize com resto menor que o divisor",
+                "detalhe": "Se desejar decimal, acrescente zeros e continue o mesmo fluxo."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-123456-div-7",
+              "enunciado": "123.456 ÷ 7",
+              "resposta": "17.636, resto 4",
+              "etapas": [
+                {
+                  "expressao": "12 ÷ 7 = 1, resto 5",
+                  "explicacao": "O primeiro prefixo útil é 12."
+                },
+                {
+                  "expressao": "53 ÷ 7 = 7, resto 4",
+                  "explicacao": "O resto 5 é combinado com o próximo dígito, 3."
+                },
+                {
+                  "expressao": "44 ÷ 7 = 6, resto 2",
+                  "explicacao": "O processo continua sem escrever a subtração completa."
+                },
+                {
+                  "expressao": "25 ÷ 7 = 3, resto 4",
+                  "explicacao": "Anexa-se o dígito 5 ao resto anterior."
+                },
+                {
+                  "expressao": "46 ÷ 7 = 6, resto 4",
+                  "explicacao": "O último passo fecha quociente e resto."
+                }
+              ],
+              "conclusao": "O resultado é obtido da esquerda para a direita mantendo apenas um resto de cada vez.",
+              "origem": { "pagina": 119 }
+            }
+          ],
+          "armadilhas": [
+            "Com 11 a 19, desconhecer rapidamente os múltiplos pode tornar a divisão curta mais lenta que a alternativa védica.",
+            "O resto de cada etapa deve permanecer menor que o divisor.",
+            "Divisão curta não significa estimativa: cada dígito ainda exige o múltiplo correto."
+          ],
+          "lembrete": "Divisor pequeno: quociente, resto, abaixe o próximo dígito.",
+          "tags": ["divisao-curta", "papel", "quociente", "resto"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [52, 54, 55, 119, 120, 121, 122] }
+        },
+        {
+          "id": "c08-detalhe-base-e-correcao",
+          "ordem": 2,
+          "titulo": "Escolher uma dezena-base e entender a compensação",
+          "paginas": [52, 53],
+          "resumo": "A divisão védica substitui o divisor real por uma dezena próxima. Retira-se o zero dessa base para obter o divisor operacional; a diferença assinada entre base e divisor vira o multiplicador que corrige cada etapa com o dígito anterior do quociente.",
+          "quandoUsar": [
+            "Com divisores de dois algarismos próximos de uma dezena.",
+            "Quando dividir pelo algarismo das dezenas é bem mais simples que trabalhar com o divisor completo.",
+            "Para compreender por que os dígitos já encontrados participam das etapas seguintes."
+          ],
+          "porQueFunciona": "Se D=B-m, retirar q cópias de B retira q×m a mais do que retirar q cópias de D; por isso q×m precisa voltar ao parcial seguinte. Se D=B+k, usar B retira de menos e a correção equivalente é negativa.",
+          "algoritmo": {
+            "titulo": "Preparar divisor operacional e multiplicador",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Escolha a dezena redonda B",
+                "detalhe": "Para finais 5 a 9, normalmente suba à próxima dezena; para finais 1 a 4, desça à anterior."
+              },
+              {
+                "ordem": 2,
+                "acao": "Remova o zero",
+                "detalhe": "Divida B por 10 para obter o divisor operacional h.",
+                "expressao": "h = B ÷ 10"
+              },
+              {
+                "ordem": 3,
+                "acao": "Calcule a diferença assinada",
+                "detalhe": "Ela determina quanto do quociente anterior entra na correção.",
+                "expressao": "m = B - D"
+              },
+              {
+                "ordem": 4,
+                "acao": "Use m em todas as etapas seguintes",
+                "detalhe": "m positivo é somado; m negativo é subtraído."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-intuicao-246810-div-79",
+              "enunciado": "Por que corrigir 246.810 ÷ 79 com +1",
+              "resposta": "Use base 80, divisor operacional 8 e multiplicador +1",
+              "etapas": [
+                {
+                  "expressao": "79 = 80 - 1",
+                  "explicacao": "A base conveniente excede o divisor real em uma unidade."
+                },
+                {
+                  "expressao": "3 × 80 = 240",
+                  "explicacao": "A primeira estimativa retira três grupos de 80 de 246."
+                },
+                {
+                  "expressao": "3 × 79 = 237",
+                  "explicacao": "O correto seria retirar três grupos de 79."
+                },
+                {
+                  "expressao": "240 - 237 = 3",
+                  "explicacao": "Como foram retiradas três unidades a mais, somam-se 3 antes do passo seguinte."
+                },
+                {
+                  "expressao": "246.810 ÷ 79 = 3.124, resto 14",
+                  "explicacao": "A mesma compensação +1 por dígito do quociente é repetida até o fim."
+                }
+              ],
+              "conclusao": "A correção não é um truque arbitrário; ela devolve exatamente a diferença entre múltiplos da base e do divisor real.",
+              "origem": { "pagina": 53 }
+            }
+          ],
+          "armadilhas": [
+            "O divisor operacional é a dezena-base sem o zero, não o divisor original sem a unidade.",
+            "O sinal de m muda quando a base fica abaixo do divisor.",
+            "A correção é m vezes o quociente anterior, não apenas m."
+          ],
+          "lembrete": "Arredonde o divisor; a diferença assinada volta multiplicada pelo quociente anterior.",
+          "tags": ["divisao-vedica", "base-redonda", "compensacao", "intuicao-algebrica"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [52, 53] }
+        },
+        {
+          "id": "c08-detalhe-recorrencia-final-9",
+          "ordem": 3,
+          "titulo": "Divisão védica com divisor terminado em 9",
+          "paginas": [52, 53, 55, 122, 123],
+          "resumo": "No caso mais simples, o divisor sobe uma unidade até a dezena seguinte, portanto cada novo parcial recebe uma cópia do quociente anterior. O último parcial não gera outro dígito: ele é o resto, que precisa ser menor que o divisor real.",
+          "quandoUsar": [
+            "Com divisores como 29, 39, 59, 69, 79, 89 ou 99.",
+            "Como primeira família para aprender a recorrência védica.",
+            "Quando a divisão pelo algarismo da dezena seguinte é rápida."
+          ],
+          "porQueFunciona": "Todo divisor terminado em 9 é B-1. Cada dígito q calculado com a base representa q unidades retiradas em excesso; adicionar q ao próximo parcial compensa exatamente essa diferença.",
+          "algoritmo": {
+            "titulo": "Recorrência com multiplicador +1",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Prepare h e m",
+                "detalhe": "Suba o divisor à dezena seguinte, retire o zero e use m=+1."
+              },
+              {
+                "ordem": 2,
+                "acao": "Forme o primeiro prefixo",
+                "detalhe": "Pegue dígitos da esquerda até que o prefixo comporte ao menos uma divisão por h."
+              },
+              {
+                "ordem": 3,
+                "acao": "Produza quociente e resto locais",
+                "detalhe": "Divida o prefixo por h e registre q e r."
+              },
+              {
+                "ordem": 4,
+                "acao": "Monte o próximo parcial corrigido",
+                "detalhe": "Anexe o próximo dígito a r e some o q anterior.",
+                "expressao": "p = 10r + dígito + q_anterior"
+              },
+              {
+                "ordem": 5,
+                "acao": "Repita até o penúltimo passo",
+                "detalhe": "Cada novo q participa imediatamente do próximo parcial."
+              },
+              {
+                "ordem": 6,
+                "acao": "Feche o resto",
+                "detalhe": "No último dígito, faça a mesma correção sem dividir novamente; normalize se o resto alcançar o divisor real."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-13571-div-39",
+              "enunciado": "13.571 ÷ 39",
+              "resposta": "347, resto 38",
+              "etapas": [
+                {
+                  "expressao": "B=40; h=4; m=+1",
+                  "explicacao": "Dividir por 40 é reduzir a divisão a 4 e ajustar a posição decimal."
+                },
+                {
+                  "expressao": "13 ÷ 4 = 3, resto 1",
+                  "explicacao": "Surge o primeiro dígito do quociente."
+                },
+                {
+                  "expressao": "15 + 3 = 18; 18 ÷ 4 = 4, resto 2",
+                  "explicacao": "O 3 anterior compensa a diferença entre 39 e 40."
+                },
+                {
+                  "expressao": "27 + 4 = 31; 31 ÷ 4 = 7, resto 3",
+                  "explicacao": "A recorrência produz o terceiro dígito."
+                },
+                {
+                  "expressao": "31 + 7 = 38",
+                  "explicacao": "O último parcial corrigido é o resto."
+                }
+              ],
+              "conclusao": "O quociente é 347 e 38<39, portanto a forma quociente-resto já está normalizada.",
+              "origem": { "pagina": 52 }
+            },
+            {
+              "id": "c08-detalhe-ex-123456-div-69",
+              "enunciado": "123.456 ÷ 69",
+              "resposta": "1.789, resto 15",
+              "etapas": [
+                {
+                  "expressao": "B=70; h=7; m=+1",
+                  "explicacao": "O divisor termina em 9."
+                },
+                {
+                  "expressao": "12 ÷ 7 = 1, resto 5",
+                  "explicacao": "Primeiro dígito do quociente."
+                },
+                {
+                  "expressao": "53 + 1 = 54; 54 ÷ 7 = 7, resto 5",
+                  "explicacao": "Primeira correção recorrente."
+                },
+                {
+                  "expressao": "54 + 7 = 61; 61 ÷ 7 = 8, resto 5",
+                  "explicacao": "Segunda correção."
+                },
+                {
+                  "expressao": "55 + 8 = 63; 63 ÷ 7 = 9, resto 0",
+                  "explicacao": "Terceira correção gera o último dígito do quociente."
+                },
+                {
+                  "expressao": "06 + 9 = 15",
+                  "explicacao": "O último agrupamento corrigido torna-se o resto."
+                }
+              ],
+              "conclusao": "O exemplo do gabarito explicita todas as etapas que a exposição inicial descreve em prosa.",
+              "origem": { "pagina": 122 }
+            }
+          ],
+          "armadilhas": [
+            "O quociente anterior entra antes da próxima divisão, não depois.",
+            "A última correção produz o resto, não mais um dígito do quociente.",
+            "Um resto igual ou maior que o divisor exige transportar unidades para o quociente."
+          ],
+          "lembrete": "Final 9: divida pela dezena sem zero e some uma vez o quociente anterior.",
+          "tags": ["divisao-vedica", "final-9", "recorrencia", "quociente-resto"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [52, 53, 55, 122, 123] }
+        },
+        {
+          "id": "c08-detalhe-transportes-e-normalizacao",
+          "ordem": 4,
+          "titulo": "Transportes no quociente e normalização do resto",
+          "paginas": [53, 55, 123, 124],
+          "resumo": "Uma etapa pode produzir q=10 ou mais. A dezena é transportada para a coluna anterior, mas o valor completo de q continua sendo usado na correção seguinte. Da mesma forma, um resto final maior que o divisor deve ser convertido em unidades adicionais do quociente.",
+          "quandoUsar": [
+            "Sempre que uma divisão local produz 10 ou mais.",
+            "Quando o resto corrigido final não está no intervalo de 0 a D-1.",
+            "Nos exercícios finais do bloco de divisores terminados em 9, preparados especificamente para introduzir transportes."
+          ],
+          "porQueFunciona": "Os valores locais são coeficientes posicionais. Transportar uma dezena para a coluna anterior preserva o número representado; converter D unidades do resto em uma unidade do quociente preserva a identidade dividendo=D×quociente+resto.",
+          "algoritmo": {
+            "titulo": "Normalizar sem perder a correção",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Mantenha o q local completo",
+                "detalhe": "Se a etapa produz 10, 12 ou 15, use esse valor inteiro na próxima correção."
+              },
+              {
+                "ordem": 2,
+                "acao": "Transporte visualmente a dezena",
+                "detalhe": "Some a parte das dezenas à coluna anterior e deixe a unidade na coluna atual."
+              },
+              {
+                "ordem": 3,
+                "acao": "Calcule o resto final bruto",
+                "detalhe": "Aplique a correção com o q completo, não só com seu algarismo da unidade."
+              },
+              {
+                "ordem": 4,
+                "acao": "Normalize quociente e resto",
+                "detalhe": "Se R≥D, acrescente floor(R/D) ao quociente e substitua R por R mod D. Se R<0, diminua o quociente e some D ao resto."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-1475-div-29",
+              "enunciado": "1.475 ÷ 29",
+              "resposta": "50, resto 25",
+              "etapas": [
+                {
+                  "expressao": "B=30; h=3; m=+1",
+                  "explicacao": "Prepara-se a família terminada em 9."
+                },
+                {
+                  "expressao": "14 ÷ 3 = 4, resto 2",
+                  "explicacao": "Primeiro q é 4."
+                },
+                {
+                  "expressao": "27 + 4 = 31; 31 ÷ 3 = 10, resto 1",
+                  "explicacao": "A etapa produz q=10; transporta-se 1 para a coluna anterior."
+                },
+                {
+                  "expressao": "15 + 10 = 25",
+                  "explicacao": "Na correção final usa-se 10 inteiro, e não apenas o zero visível na unidade."
+                },
+                {
+                  "expressao": "quociente 4|10 → 50",
+                  "explicacao": "O transporte converte a representação provisória em 50."
+                }
+              ],
+              "conclusao": "Descartar a dezena de q na correção final produziria um resto incorreto.",
+              "origem": { "pagina": 53 }
+            },
+            {
+              "id": "c08-detalhe-ex-23985-div-29",
+              "enunciado": "23.985 ÷ 29",
+              "resposta": "827, resto 2",
+              "etapas": [
+                {
+                  "expressao": "23 ÷ 3 = 7, resto 2",
+                  "explicacao": "Inicia-se com base 30."
+                },
+                {
+                  "expressao": "29 + 7 = 36; 36 ÷ 3 = 12, resto 0",
+                  "explicacao": "A segunda etapa exige transporte."
+                },
+                {
+                  "expressao": "08 + 12 = 20; 20 ÷ 3 = 6, resto 2",
+                  "explicacao": "O valor completo 12 corrige o parcial."
+                },
+                {
+                  "expressao": "25 + 6 = 31",
+                  "explicacao": "O resto bruto ultrapassa 29."
+                },
+                {
+                  "expressao": "826, resto 31 → 827, resto 2",
+                  "explicacao": "Retira-se um divisor do resto e soma-se 1 ao quociente."
+                }
+              ],
+              "conclusao": "A forma final sempre exige 0≤resto<divisor.",
+              "origem": { "pagina": 123 }
+            }
+          ],
+          "armadilhas": [
+            "Usar apenas o último algarismo de um q local maior que 9 quebra a recorrência.",
+            "Transportar a dezena e também usar o q já transportado de forma duplicada conta a correção duas vezes.",
+            "Aceitar resto maior que o divisor deixa o resultado matematicamente não normalizado."
+          ],
+          "lembrete": "Transporte para escrever; use o valor completo para corrigir.",
+          "tags": ["divisao-vedica", "transporte", "normalizacao", "resto"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [53, 55, 123, 124] }
+        },
+        {
+          "id": "c08-detalhe-multiplicadores-positivos",
+          "ordem": 5,
+          "titulo": "Finais 8, 7, 6 e 5: correções positivas de +2 a +5",
+          "paginas": [53, 56, 124, 125, 126],
+          "resumo": "Se o divisor sobe 2, 3, 4 ou 5 unidades até a dezena seguinte, cada novo parcial soma respectivamente 2, 3, 4 ou 5 vezes o quociente anterior. A mecânica é a mesma do final 9, mas as correções crescem e podem provocar mais transportes.",
+          "quandoUsar": [
+            "Final 8: multiplicador +2.",
+            "Final 7: multiplicador +3.",
+            "Final 6: multiplicador +4.",
+            "Final 5: multiplicador +5, desde que os transportes permaneçam administráveis."
+          ],
+          "porQueFunciona": "Para D=B-m com m entre 2 e 5, cada q calculado pela base remove q×m unidades a mais. Somar m×q ao parcial seguinte recompõe a retirada correta pelo divisor real.",
+          "algoritmo": {
+            "titulo": "Recorrência com multiplicador positivo",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Suba à dezena seguinte",
+                "detalhe": "Defina h removendo o zero e m pela distância até essa dezena."
+              },
+              {
+                "ordem": 2,
+                "acao": "Faça a primeira divisão por h",
+                "detalhe": "Registre q e resto local."
+              },
+              {
+                "ordem": 3,
+                "acao": "Corrija o próximo parcial",
+                "detalhe": "Some m vezes o q anterior antes de dividir novamente.",
+                "expressao": "p = 10r + dígito + m×q_anterior"
+              },
+              {
+                "ordem": 4,
+                "acao": "Repita e transporte quando necessário",
+                "detalhe": "Quanto maior m em relação a h, maior a chance de q local superar 9."
+              },
+              {
+                "ordem": 5,
+                "acao": "Normalize o resto final",
+                "detalhe": "A última correção deve resultar em resto menor que D."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-123456-div-78",
+              "enunciado": "123.456 ÷ 78",
+              "resposta": "1.582, resto 60",
+              "etapas": [
+                {
+                  "expressao": "B=80; h=8; m=+2",
+                  "explicacao": "78 está duas unidades abaixo de 80."
+                },
+                {
+                  "expressao": "12 ÷ 8 = 1, resto 4",
+                  "explicacao": "Primeiro q."
+                },
+                {
+                  "expressao": "43 + 2×1 = 45; 45 ÷ 8 = 5, resto 5",
+                  "explicacao": "A correção é o dobro do q anterior."
+                },
+                {
+                  "expressao": "54 + 2×5 = 64; 64 ÷ 8 = 8, resto 0",
+                  "explicacao": "A recorrência produz o terceiro dígito."
+                },
+                {
+                  "expressao": "05 + 2×8 = 21; 21 ÷ 8 = 2, resto 5",
+                  "explicacao": "Obtém-se o quarto dígito."
+                },
+                {
+                  "expressao": "56 + 2×2 = 60",
+                  "explicacao": "O último parcial corrigido é o resto."
+                }
+              ],
+              "conclusao": "O multiplicador +2 é aplicado a cada q, inclusive na formação do resto.",
+              "origem": { "pagina": 53 }
+            },
+            {
+              "id": "c08-detalhe-ex-611725-div-78",
+              "enunciado": "611.725 ÷ 78",
+              "resposta": "7.842, resto 49",
+              "etapas": [
+                {
+                  "expressao": "61 ÷ 8 = 7, resto 5",
+                  "explicacao": "Primeiro passo com h=8."
+                },
+                {
+                  "expressao": "51 + 14 = 65; 65 ÷ 8 = 8, resto 1",
+                  "explicacao": "14 é 2×7."
+                },
+                {
+                  "expressao": "17 + 16 = 33; 33 ÷ 8 = 4, resto 1",
+                  "explicacao": "16 é 2×8."
+                },
+                {
+                  "expressao": "12 + 8 = 20; 20 ÷ 8 = 2, resto 4",
+                  "explicacao": "8 é 2×4."
+                },
+                {
+                  "expressao": "45 + 4 = 49",
+                  "explicacao": "4 é 2×2 e completa o resto."
+                }
+              ],
+              "conclusao": "O gabarito expõe o multiplicador +2 como uma coluna recorrente de compensações.",
+              "origem": { "pagina": 124 }
+            }
+          ],
+          "armadilhas": [
+            "Somar apenas m, em vez de m×q, produz erro crescente.",
+            "Quando m é maior que h, podem surgir transportes grandes; a divisão curta pode ser preferível.",
+            "O final 5 admite também transformação por duplicação, apresentada depois como alternativa."
+          ],
+          "lembrete": "Final 8, 7, 6, 5: some 2, 3, 4, 5 vezes o quociente anterior.",
+          "tags": ["divisao-vedica", "multiplicador-positivo", "finais-5-a-8", "compensacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [53, 56, 124, 125, 126] }
+        },
+        {
+          "id": "c08-detalhe-multiplicadores-negativos",
+          "ordem": 6,
+          "titulo": "Finais 1, 2, 3 e 4: correções negativas e empréstimo",
+          "paginas": [53, 57, 127, 128],
+          "resumo": "Para divisores pouco acima de uma dezena, desce-se à dezena anterior. A correção passa a ser -1, -2, -3 ou -4 vezes o quociente anterior. Se um parcial corrigido fica negativo ou pequeno demais, reduz-se o quociente anterior e devolve-se uma unidade do divisor operacional ao resto local.",
+          "quandoUsar": [
+            "Final 1: multiplicador -1.",
+            "Final 2: multiplicador -2.",
+            "Final 3: multiplicador -3.",
+            "Final 4: multiplicador -4.",
+            "Quando a dezena anterior gera divisor operacional simples e os empréstimos são controláveis."
+          ],
+          "porQueFunciona": "Agora D=B+k. Dividir como se fosse B retira menos do que deveria; por isso k×q precisa ser subtraído do próximo parcial. Reduzir um q anterior em 1 e somar h ao resto é um empréstimo posicional que preserva o valor representado.",
+          "algoritmo": {
+            "titulo": "Recorrência com multiplicador negativo",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Desça à dezena anterior",
+                "detalhe": "Obtenha h retirando o zero e m como B-D, portanto negativo."
+              },
+              {
+                "ordem": 2,
+                "acao": "Calcule o primeiro q por h",
+                "detalhe": "Registre também o resto local."
+              },
+              {
+                "ordem": 3,
+                "acao": "Subtraia a correção",
+                "detalhe": "No próximo parcial, some m×q; como m é negativo, isso equivale a subtrair.",
+                "expressao": "p = 10r + dígito + m×q_anterior"
+              },
+              {
+                "ordem": 4,
+                "acao": "Corrija parcial negativo",
+                "detalhe": "Diminua em 1 o q anterior e acrescente h ao resto local antes de continuar."
+              },
+              {
+                "ordem": 5,
+                "acao": "Normalize o resto final negativo",
+                "detalhe": "Diminua o quociente total em 1 e some o divisor original D ao resto."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-113989-div-21",
+              "enunciado": "113.989 ÷ 21",
+              "resposta": "5.428, resto 1",
+              "etapas": [
+                {
+                  "expressao": "B=20; h=2; m=-1",
+                  "explicacao": "21 está uma unidade acima de 20."
+                },
+                {
+                  "expressao": "11 ÷ 2 = 5, resto 1",
+                  "explicacao": "Primeiro q."
+                },
+                {
+                  "expressao": "13 - 5 = 8; 8 ÷ 2 = 4, resto 0",
+                  "explicacao": "Subtrai-se uma vez o q anterior."
+                },
+                {
+                  "expressao": "09 - 4 = 5; 5 ÷ 2 = 2, resto 1",
+                  "explicacao": "A correção negativa continua."
+                },
+                {
+                  "expressao": "18 - 2 = 16; 16 ÷ 2 = 8, resto 0",
+                  "explicacao": "Obtém-se o último dígito do quociente."
+                },
+                {
+                  "expressao": "09 - 8 = 1",
+                  "explicacao": "A última correção produz o resto."
+                }
+              ],
+              "conclusao": "Com final 1, cada novo parcial subtrai exatamente o q anterior.",
+              "origem": { "pagina": 127 }
+            },
+            {
+              "id": "c08-detalhe-ex-338280-div-51",
+              "enunciado": "338.280 ÷ 51",
+              "resposta": "6.632, resto 48",
+              "etapas": [
+                {
+                  "expressao": "B=50; h=5; m=-1",
+                  "explicacao": "A família usa correção -1."
+                },
+                {
+                  "expressao": "quociente provisório 6.633, resto -3",
+                  "explicacao": "A última subtração ultrapassa o parcial e gera resto negativo."
+                },
+                {
+                  "expressao": "6.633 - 1 = 6.632",
+                  "explicacao": "Empresta-se uma unidade do quociente."
+                },
+                {
+                  "expressao": "-3 + 51 = 48",
+                  "explicacao": "Uma unidade do quociente vale um divisor inteiro no resto."
+                }
+              ],
+              "conclusao": "Resto negativo é normalizado reduzindo o quociente e somando o divisor original.",
+              "origem": { "pagina": 127 }
+            }
+          ],
+          "armadilhas": [
+            "O sinal é negativo porque a base escolhida ficou abaixo do divisor real.",
+            "Somar a correção dos finais 1 a 4 inverte a compensação.",
+            "No empréstimo intermediário soma-se o divisor operacional h ao resto local; na normalização final soma-se o divisor original D.",
+            "Um resto final negativo nunca deve ser apresentado sem normalização."
+          ],
+          "lembrete": "Final 1, 2, 3, 4: subtraia 1, 2, 3, 4 vezes o quociente anterior.",
+          "tags": ["divisao-vedica", "multiplicador-negativo", "emprestimo", "finais-1-a-4"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [53, 57, 127, 128] }
+        },
+        {
+          "id": "c08-detalhe-dobrar-divisores-final-5",
+          "ordem": 7,
+          "titulo": "Alternativa para final 5: dobrar dividendo e divisor",
+          "paginas": [56, 126],
+          "resumo": "Depois do bloco de multiplicadores positivos, o livro pede que dois casos terminados em 5 sejam refeitos dobrando ambos os números. O divisor passa a terminar em zero e pode ser reduzido a uma divisão curta menor.",
+          "quandoUsar": [
+            "Com divisor terminado em 5.",
+            "Quando o multiplicador védico +5 gera transportes grandes.",
+            "Quando dobrar permite cancelar um zero e chegar a divisor de um algarismo ou entre 11 e 19."
+          ],
+          "porQueFunciona": "Multiplicar dividendo e divisor pelo mesmo número não altera o quociente. Ao transformar 85 em 170, por exemplo, é possível cancelar um fator 10 e trabalhar com 17.",
+          "algoritmo": {
+            "titulo": "Transformar final 5 em divisão curta",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Dobre os dois termos",
+                "detalhe": "Multiplique dividendo e divisor por 2.",
+                "expressao": "N÷D = (2N)÷(2D)"
+              },
+              {
+                "ordem": 2,
+                "acao": "Cancele um fator 10 quando possível",
+                "detalhe": "Se o novo divisor termina em zero, desloque a vírgula nos dois termos ou interprete a divisão equivalente."
+              },
+              {
+                "ordem": 3,
+                "acao": "Use divisão curta",
+                "detalhe": "Divida pelo novo divisor reduzido."
+              },
+              {
+                "ordem": 4,
+                "acao": "Traduza o resto",
+                "detalhe": "Se apresentar quociente-resto no problema original, converta a fração residual de volta ao divisor original."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-103985-div-85-dobro",
+              "enunciado": "103.985 ÷ 85 por transformação",
+              "resposta": "1.223, resto 30",
+              "etapas": [
+                {
+                  "expressao": "103.985 ÷ 85 = 207.970 ÷ 170",
+                  "explicacao": "Dobram-se os dois números sem alterar o quociente."
+                },
+                {
+                  "expressao": "207.970 ÷ 170 = 20.797 ÷ 17",
+                  "explicacao": "Cancela-se o fator 10 comum."
+                },
+                {
+                  "expressao": "20.797 ÷ 17 = 1.223, resto 6",
+                  "explicacao": "A divisão curta trabalha com 17."
+                },
+                {
+                  "expressao": "6/17 = 30/85",
+                  "explicacao": "O resto 6 da forma transformada corresponde a resto 30 no divisor original."
+                }
+              ],
+              "conclusao": "O método alternativo evita a recorrência +5 e seus transportes.",
+              "origem": { "pagina": 126 }
+            }
+          ],
+          "armadilhas": [
+            "Dobrar apenas o divisor altera o quociente.",
+            "O resto da divisão transformada não pode ser copiado diretamente para o problema original.",
+            "Se a transformação não reduz o divisor a um fato conhecido, a vantagem pode desaparecer."
+          ],
+          "lembrete": "Final 5 pesado: dobre os dois, elimine o zero e tente divisão curta.",
+          "tags": ["divisao", "final-5", "reescalonamento", "divisao-curta"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [56, 126] }
+        },
+        {
+          "id": "c08-detalhe-progressao-e-limites",
+          "ordem": 8,
+          "titulo": "Progressão de treino e limites práticos do método védico",
+          "paginas": [54, 55, 56, 57, 125, 126],
+          "resumo": "A prática começa pela divisão curta de um algarismo, compara curta e védica no divisor 9, passa por 11 a 19, introduz final 9 com transportes, amplia para multiplicadores positivos e encerra com multiplicadores negativos. Um comentário do gabarito alerta que correções grandes diante de divisor operacional pequeno podem tornar a técnica pior que a divisão curta. O glossário contextualiza a matemática védica como uma coleção de atalhos aritméticos e algébricos popularizada no século XX por Bharati Krishna Tirthaji.",
+          "quandoUsar": [
+            "Para estruturar a aprendizagem da técnica em ordem de carga crescente.",
+            "Para decidir quando abandonar um atalho que está gerando transportes excessivos.",
+            "Para comparar o mesmo problema por duas formas e desenvolver escolha estratégica."
+          ],
+          "porQueFunciona": "A sequência isola uma dificuldade de cada vez: fluxo de resto, recorrência +1, transporte, multiplicadores maiores e sinal negativo. A comparação posterior evita transformar a técnica védica em regra rígida.",
+          "algoritmo": {
+            "titulo": "Escada de domínio e regra de saída",
+            "passos": [
+              {
+                "ordem": 1,
+                "acao": "Domine a divisão curta",
+                "detalhe": "Comece por um algarismo e depois 11 a 19."
+              },
+              {
+                "ordem": 2,
+                "acao": "Compare no divisor 9",
+                "detalhe": "Resolva os mesmos tipos pela forma curta e pela recorrência védica."
+              },
+              {
+                "ordem": 3,
+                "acao": "Pratique +1 e transportes",
+                "detalhe": "Use divisores terminados em 9; deixe os casos com transporte para o fim do bloco."
+              },
+              {
+                "ordem": 4,
+                "acao": "Aumente o multiplicador",
+                "detalhe": "Passe pelos finais 8, 7, 6 e 5, com correções +2 a +5."
+              },
+              {
+                "ordem": 5,
+                "acao": "Introduza correções negativas",
+                "detalhe": "Só então use finais 1 a 4 e pratique empréstimos."
+              },
+              {
+                "ordem": 6,
+                "acao": "Aplique a regra de saída",
+                "detalhe": "Se m for grande em comparação com h e os transportes se acumularem, volte à divisão curta ou transforme o problema."
+              }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c08-detalhe-ex-804148-div-26-limite",
+              "enunciado": "804.148 ÷ 26 como caso de muitos transportes",
+              "resposta": "30.928, resto 20",
+              "etapas": [
+                {
+                  "expressao": "B=30; h=3; m=+4",
+                  "explicacao": "O multiplicador de correção é maior que o divisor operacional."
+                },
+                {
+                  "expressao": "q locais provisórios: 2, 9, 16, 28, 42",
+                  "explicacao": "As correções +4×q criam valores cada vez maiores e vários transportes."
+                },
+                {
+                  "expressao": "resto bruto 176",
+                  "explicacao": "A representação provisória ainda precisa de forte normalização."
+                },
+                {
+                  "expressao": "30.922, resto 176 → 30.928, resto 20",
+                  "explicacao": "Seis divisores saem do resto e entram no quociente."
+                }
+              ],
+              "conclusao": "O próprio gabarito observa que esse perfil pode ser resolvido com menos atrito por divisão curta.",
+              "origem": { "pagina": 126 }
+            }
+          ],
+          "armadilhas": [
+            "Velocidade védica vem com prática; aplicar o método complexo cedo demais aumenta erros.",
+            "Nem todo divisor de dois algarismos favorece a técnica na mesma intensidade.",
+            "Transportes repetidos são um sinal para comparar outra rota, não uma obrigação de perseverar no atalho.",
+            "A ordem dos blocos é parte da instrução: multiplicadores negativos são deliberadamente deixados por último."
+          ],
+          "lembrete": "Aprenda +1, domine transportes, amplie os multiplicadores e abandone o atalho quando ele deixar de ser curto.",
+          "tags": ["progressao-didatica", "divisao-vedica", "escolha-de-metodo", "transportes"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [54, 55, 56, 57, 125, 126] }
+        }
+      ]
+    }
+  ]
+}

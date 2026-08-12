@@ -11,7 +11,7 @@ import { SessionSummary } from "./components/session/SessionSummary";
 import { GameSection } from "./game/GameSection";
 import { useTrainingSession } from "./hooks/useTrainingSession";
 import { buildHomeDashboard, buildReportsDashboard } from "./lib/platform/insights";
-import { getTheoryChapterForTopic, THEORY_CHAPTERS } from "./lib/platform/content";
+import { getTheoryTargetForTopic, THEORY_CHAPTERS } from "./lib/platform/content";
 import { getPracticeGroup } from "./lib/platform/experience";
 import {
   appendAttempt,
@@ -36,6 +36,7 @@ function App() {
   const [summary, setSummary] = useState(null);
   const [arcadeOpen, setArcadeOpen] = useState(false);
   const [theoryChapterId, setTheoryChapterId] = useState(null);
+  const [theoryLessonId, setTheoryLessonId] = useState(null);
   const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
   const [trainingConfig, setTrainingConfig] = useState(() => ({
     modeId: initialStateRef.current.selectedModeId ?? "sparring",
@@ -198,8 +199,9 @@ function App() {
         summary={summary}
         onRetry={() => startSession()}
         onReviewTheory={(topicId) => {
-          const chapter = getTheoryChapterForTopic(topicId);
-          setTheoryChapterId(chapter?.id ?? null);
+          const target = getTheoryTargetForTopic(topicId);
+          setTheoryChapterId(target?.chapterId ?? null);
+          setTheoryLessonId(target?.lessonId ?? null);
           setSummary(null);
           navigate("teoria");
         }}
@@ -257,6 +259,7 @@ function App() {
         <TheoryLibrary
           chapters={THEORY_CHAPTERS}
           initialChapterId={theoryChapterId}
+          initialLessonId={theoryLessonId}
           onPractice={practiceTheoryChapter}
         />
       ) : (
