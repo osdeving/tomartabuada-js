@@ -1,0 +1,6481 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "id": "calculo-mental-use-esse",
+    "titulo": "Secrets of Mental Math",
+    "autores": [
+      "Arthur Benjamin",
+      "Michael Shermer"
+    ],
+    "edicao": "Three Rivers Press, 2006",
+    "idiomaOriginal": "en",
+    "idiomaDosDados": "pt-BR",
+    "paginationNote": "Página PDF geralmente = impressa + 26; PDF 83 é duplicata indevida da impressa 216 e a impressa 58 está ausente."
+  },
+  "statistics": {
+    "total": 153,
+    "playable": 153,
+    "byChapter": {
+      "4": {
+        "total": 99,
+        "playable": 99
+      },
+      "5": {
+        "total": 38,
+        "playable": 38
+      },
+      "6": {
+        "total": 16,
+        "playable": 16
+      }
+    }
+  },
+  "challenges": [
+    {
+      "id": "somm-c04-divisao-um-digito-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 318 ÷ 9; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 35,
+        "remainder": 3,
+        "divisor": 9,
+        "display": "35, resto 3"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "9×35=315",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "318−315=3",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "318=9×35+3",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-um-digito-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 726 ÷ 5; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 145,
+        "remainder": 1,
+        "divisor": 5,
+        "display": "145, resto 1"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5×145=725",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "726−725=1",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "726=5×145+1",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-um-digito-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 428 ÷ 7; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 61,
+        "remainder": 1,
+        "divisor": 7,
+        "display": "61, resto 1"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "7×61=427",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "428−427=1",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "428=7×61+1",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-um-digito-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 289 ÷ 8; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 36,
+        "remainder": 1,
+        "divisor": 8,
+        "display": "36, resto 1"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8×36=288",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "289−288=1",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "289=8×36+1",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-um-digito-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 1.328 ÷ 3; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 442,
+        "remainder": 2,
+        "divisor": 3,
+        "display": "442, resto 2"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3×442=1.326",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "1.328−1.326=2",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "1.328=3×442+2",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-um-digito-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-um-digito",
+      "exerciseSetTitle": "Divisão por um dígito",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 2.782 ÷ 4; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 695,
+        "remainder": 2,
+        "divisor": 4,
+        "display": "695, resto 2"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-basica",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "um-digito",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4×695=2.780",
+          "explanation": "Retire o maior múltiplo inteiro do divisor."
+        },
+        {
+          "expression": "2.782−2.780=2",
+          "explanation": "O valor restante é menor que o divisor."
+        },
+        {
+          "expression": "2.782=4×695+2",
+          "explanation": "Confira pela operação inversa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 84,
+        "promptPdfPage": 110,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 738 ÷ 17; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 43,
+        "remainder": 7,
+        "divisor": 17,
+        "display": "43, resto 7"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "17×40=680",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "738−680=58",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "738=17×43+7",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 591 ÷ 24; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 24,
+        "remainder": 15,
+        "divisor": 24,
+        "display": "24, resto 15"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "24×20=480",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "591−480=111",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "591=24×24+15",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 321 ÷ 79; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 4,
+        "remainder": 5,
+        "divisor": 79,
+        "display": "4, resto 5"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "79×0=0",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "321−0=321",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "321=79×4+5",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 4.268 ÷ 28; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 152,
+        "remainder": 12,
+        "divisor": 28,
+        "display": "152, resto 12"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "28×150=4.200",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "4.268−4.200=68",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "4.268=28×152+12",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 7.214 ÷ 11; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 655,
+        "remainder": 9,
+        "divisor": 11,
+        "display": "655, resto 9"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "11×650=7.150",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "7.214−7.150=64",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "7.214=11×655+9",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisao-dois-digitos-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisao-dois-digitos",
+      "exerciseSetTitle": "Divisão por dois dígitos",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 3.074 ÷ 18; informe quociente e resto.",
+      "answer": {
+        "type": "quotient-remainder",
+        "quotient": 170,
+        "remainder": 14,
+        "divisor": 18,
+        "display": "170, resto 14"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-divisao-dois-digitos",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisao",
+        "dois-digitos",
+        "quociente-resto"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "18×170=3.060",
+          "explanation": "Fixe primeiro a parcela de dezenas do quociente."
+        },
+        {
+          "expression": "3.074−3.060=14",
+          "explanation": "Reduza a uma divisão menor."
+        },
+        {
+          "expression": "3.074=18×170+14",
+          "explanation": "Complete as unidades e confira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 93,
+        "promptPdfPage": 119,
+        "answerPrintedPage": 249,
+        "answerPdfPage": 275,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 1,
+      "prompt": "Converta 2/5 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.4,
+        "tolerance": 0.001,
+        "display": "0,40"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/5=2/5",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "2÷5=0,40",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 2,
+      "prompt": "Converta 4/7 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.5714285714285714,
+        "tolerance": 0.001,
+        "display": "0,571428…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4/7=4/7",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "4÷7=0,571428…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 3,
+      "prompt": "Converta 3/8 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.375,
+        "tolerance": 0.001,
+        "display": "0,375"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3/8=3/8",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "3÷8=0,375",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 4,
+      "prompt": "Converta 9/12 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.75,
+        "tolerance": 0.001,
+        "display": "0,75"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "9/12=3/4",
+          "explanation": "Cancele o fator comum 3."
+        },
+        {
+          "expression": "3÷4=0,75",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 5,
+      "prompt": "Converta 5/12 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.4166666666666667,
+        "tolerance": 0.001,
+        "display": "0,4166…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5/12=5/12",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "5÷12=0,4166…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 6,
+      "prompt": "Converta 6/11 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.5454545454545454,
+        "tolerance": 0.001,
+        "display": "0,5454…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "6/11=6/11",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "6÷11=0,5454…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-07",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 7,
+      "prompt": "Converta 14/24 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.5833333333333334,
+        "tolerance": 0.001,
+        "display": "0,5833…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "14/24=7/12",
+          "explanation": "Cancele o fator comum 2."
+        },
+        {
+          "expression": "7÷12=0,5833…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-08",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 8,
+      "prompt": "Converta 13/27 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.48148148148148145,
+        "tolerance": 0.001,
+        "display": "0,481481…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "13/27=13/27",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "13÷27=0,481481…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-09",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 9,
+      "prompt": "Converta 18/48 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.375,
+        "tolerance": 0.001,
+        "display": "0,375"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "18/48=3/8",
+          "explanation": "Cancele o fator comum 6."
+        },
+        {
+          "expression": "3÷8=0,375",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-10",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 10,
+      "prompt": "Converta 10/14 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.7142857142857143,
+        "tolerance": 0.001,
+        "display": "0,714285…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "10/14=5/7",
+          "explanation": "Cancele o fator comum 2."
+        },
+        {
+          "expression": "5÷7=0,714285…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-11",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 11,
+      "prompt": "Converta 6/32 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.1875,
+        "tolerance": 0.001,
+        "display": "0,1875"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "6/32=3/16",
+          "explanation": "Cancele o fator comum 2."
+        },
+        {
+          "expression": "3÷16=0,1875",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-decimalizacao-12",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-decimalizacao",
+      "exerciseSetTitle": "Decimalização",
+      "exerciseNumber": 12,
+      "prompt": "Converta 19/45 em decimal, simplificando primeiro quando isso ajudar.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 0.4222222222222222,
+        "tolerance": 0.001,
+        "display": "0,4222…"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [
+        "c04-divisao-basica"
+      ],
+      "tags": [
+        "fracoes",
+        "decimalizacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "19/45=19/45",
+          "explanation": "A fração já está reduzida."
+        },
+        {
+          "expression": "19÷45=0,4222…",
+          "explanation": "Converta a fração reduzida; reconheça o período quando houver."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 98,
+        "promptPdfPage": 124,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 1,
+      "prompt": "53.428 é divisível por 2?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-2"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=8",
+          "explanation": "É par."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 2,
+      "prompt": "293 é divisível por 2?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-2"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=3",
+          "explanation": "É ímpar."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 3,
+      "prompt": "7.241 é divisível por 2?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-2"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=1",
+          "explanation": "É ímpar."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 4,
+      "prompt": "9.846 é divisível por 2?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-2"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=6",
+          "explanation": "É par."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 5,
+      "prompt": "3.932 é divisível por 4?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-4"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos dois algarismos=32",
+          "explanation": "32 é múltiplo de 4."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 6,
+      "prompt": "67.348 é divisível por 4?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-4"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos dois algarismos=48",
+          "explanation": "48 é múltiplo de 4."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-07",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 7,
+      "prompt": "358 é divisível por 4?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-4"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos dois algarismos=58",
+          "explanation": "58 não é múltiplo de 4."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-08",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 8,
+      "prompt": "57.929 é divisível por 4?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-4"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos dois algarismos=29",
+          "explanation": "29 não é múltiplo de 4."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-09",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 9,
+      "prompt": "59.366 é divisível por 8?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-8"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos três algarismos=366",
+          "explanation": "366 não é múltiplo de 8."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-10",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 10,
+      "prompt": "73.488 é divisível por 8?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-8"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos três algarismos=488",
+          "explanation": "488 é múltiplo de 8."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-11",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 11,
+      "prompt": "248 é divisível por 8?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-8"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos três algarismos=248",
+          "explanation": "248 é múltiplo de 8."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-12",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 12,
+      "prompt": "6.111 é divisível por 8?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-8"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "últimos três algarismos=111",
+          "explanation": "111 não é múltiplo de 8."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-13",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 13,
+      "prompt": "83.671 é divisível por 3?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-3"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=25",
+          "explanation": "25 não é múltiplo de 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-14",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 14,
+      "prompt": "94.737 é divisível por 3?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-3"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=30",
+          "explanation": "30 é múltiplo de 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-15",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 15,
+      "prompt": "7.359 é divisível por 3?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-3"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=24",
+          "explanation": "24 é múltiplo de 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-16",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 16,
+      "prompt": "3.267.486 é divisível por 3?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-3"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=36",
+          "explanation": "36 é múltiplo de 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-17",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 17,
+      "prompt": "5.334 é divisível por 6?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-6"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "par=sim; soma dos algarismos=15",
+          "explanation": "Passa simultaneamente nos testes de 2 e 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-18",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 18,
+      "prompt": "67.386 é divisível por 6?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-6"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "par=sim; soma dos algarismos=30",
+          "explanation": "Passa simultaneamente nos testes de 2 e 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-19",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 19,
+      "prompt": "248 é divisível por 6?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-6"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "par=sim; soma dos algarismos=14",
+          "explanation": "Falha em pelo menos um dos testes de 2 e 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-20",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 20,
+      "prompt": "5.991 é divisível por 6?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-6"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "par=não; soma dos algarismos=24",
+          "explanation": "Falha em pelo menos um dos testes de 2 e 3."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-21",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 21,
+      "prompt": "1.234 é divisível por 9?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-9"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=10",
+          "explanation": "10 não é múltiplo de 9."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-22",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 22,
+      "prompt": "8.469 é divisível por 9?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-9"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=27",
+          "explanation": "27 é múltiplo de 9."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 250,
+        "answerPdfPage": 276,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-23",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 23,
+      "prompt": "4.425.575 é divisível por 9?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-9"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=32",
+          "explanation": "32 não é múltiplo de 9."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-24",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 24,
+      "prompt": "314.159.265 é divisível por 9?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-9"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma dos algarismos=36",
+          "explanation": "36 é múltiplo de 9."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-25",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 25,
+      "prompt": "47.830 é divisível por 5?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-5"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=0",
+          "explanation": "Termina em 0 ou 5."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-26",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 26,
+      "prompt": "43.762 é divisível por 5?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-5"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=2",
+          "explanation": "Não termina em 0 nem 5."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-27",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 27,
+      "prompt": "56.785 é divisível por 5?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-5"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=5",
+          "explanation": "Termina em 0 ou 5."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-28",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 28,
+      "prompt": "37.210 é divisível por 5?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-5"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "último algarismo=0",
+          "explanation": "Termina em 0 ou 5."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 101,
+        "promptPdfPage": 127,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-29",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 29,
+      "prompt": "53.867 é divisível por 11?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-11"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma alternada=11",
+          "explanation": "O resultado é 0 ou múltiplo de 11."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-30",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 30,
+      "prompt": "4.969 é divisível por 11?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-11"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma alternada=8",
+          "explanation": "O resultado não é múltiplo de 11."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-31",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 31,
+      "prompt": "3.828 é divisível por 11?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-11"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma alternada=11",
+          "explanation": "O resultado é 0 ou múltiplo de 11."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-32",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 32,
+      "prompt": "941.369 é divisível por 11?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-11"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "soma alternada=0",
+          "explanation": "O resultado é 0 ou múltiplo de 11."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-33",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 33,
+      "prompt": "5.784 é divisível por 7?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-7"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5.784−7=5.777→577",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "577−7=570→57",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "57 não é múltiplo de 7",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-34",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 34,
+      "prompt": "7.336 é divisível por 7?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-7"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "7.336+14=7.350→735",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "735−35=700→7",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "7 é múltiplo de 7",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-35",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 35,
+      "prompt": "875 é divisível por 7?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-7"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "875−35=840→84",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "84−14=70→7",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "7 é múltiplo de 7",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-36",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 36,
+      "prompt": "1.183 é divisível por 7?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-7"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1.183+7=1.190→119",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "119+21=140→14",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "14 é múltiplo de 7",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-37",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 37,
+      "prompt": "694 é divisível por 17?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-17"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "694−34=660→66",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "66 não é múltiplo de 17",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-38",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 38,
+      "prompt": "629 é divisível por 17?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-17"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "629+51=680→68",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "68=17×4",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-39",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 39,
+      "prompt": "8.273 é divisível por 17?",
+      "answer": {
+        "type": "boolean",
+        "value": false,
+        "display": "Não"
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-17"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8.273+17=8.290→829",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "829+51=880→88",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "88 não é múltiplo de 17",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-divisibilidade-40",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-divisibilidade",
+      "exerciseSetTitle": "Testes de divisibilidade",
+      "exerciseNumber": 40,
+      "prompt": "13.855 é divisível por 17?",
+      "answer": {
+        "type": "boolean",
+        "value": true,
+        "display": "Sim"
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "divisibilidade",
+        "fatores",
+        "divisor-17"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "13.855+85=13.940→1.394",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "1.394−34=1.360→136",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "136+34=170→17",
+          "explanation": "Crie e elimine um zero usando múltiplo do divisor."
+        },
+        {
+          "expression": "17 é múltiplo de 17",
+          "explanation": "Conclua o teste."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 251,
+        "answerPdfPage": 277,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-multiplicar-fracoes-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-multiplicar-fracoes",
+      "exerciseSetTitle": "Multiplicação de frações",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 3/5 × 2/7.",
+      "answer": {
+        "type": "rational",
+        "numerator": 6,
+        "denominator": 35,
+        "display": "6/35"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "multiplicacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "(3×2)/(5×7)=6/35",
+          "explanation": "Multiplique numeradores e denominadores."
+        },
+        {
+          "expression": "6/35=6/35",
+          "explanation": "Simplifique o resultado."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-multiplicar-fracoes-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-multiplicar-fracoes",
+      "exerciseSetTitle": "Multiplicação de frações",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 4/9 × 11/7.",
+      "answer": {
+        "type": "rational",
+        "numerator": 44,
+        "denominator": 63,
+        "display": "44/63"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "multiplicacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "(4×11)/(9×7)=44/63",
+          "explanation": "Multiplique numeradores e denominadores."
+        },
+        {
+          "expression": "44/63=44/63",
+          "explanation": "Simplifique o resultado."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-multiplicar-fracoes-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-multiplicar-fracoes",
+      "exerciseSetTitle": "Multiplicação de frações",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 6/7 × 3/4.",
+      "answer": {
+        "type": "rational",
+        "numerator": 9,
+        "denominator": 14,
+        "display": "9/14"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "multiplicacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "(6×3)/(7×4)=18/28",
+          "explanation": "Multiplique numeradores e denominadores."
+        },
+        {
+          "expression": "18/28=9/14",
+          "explanation": "Simplifique o resultado."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-multiplicar-fracoes-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-multiplicar-fracoes",
+      "exerciseSetTitle": "Multiplicação de frações",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 9/10 × 7/8.",
+      "answer": {
+        "type": "rational",
+        "numerator": 63,
+        "denominator": 80,
+        "display": "63/80"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "multiplicacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "(9×7)/(10×8)=63/80",
+          "explanation": "Multiplique numeradores e denominadores."
+        },
+        {
+          "expression": "63/80=63/80",
+          "explanation": "Simplifique o resultado."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 102,
+        "promptPdfPage": 128,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-dividir-fracoes-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-dividir-fracoes",
+      "exerciseSetTitle": "Divisão de frações",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 2/5 ÷ 1/2.",
+      "answer": {
+        "type": "rational",
+        "numerator": 4,
+        "denominator": 5,
+        "display": "4/5"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "divisao",
+        "reciproco"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/5÷1/2=2/5×2/1",
+          "explanation": "Inverta a segunda fração."
+        },
+        {
+          "expression": "4/5=4/5",
+          "explanation": "Multiplique e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 103,
+        "promptPdfPage": 129,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-dividir-fracoes-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-dividir-fracoes",
+      "exerciseSetTitle": "Divisão de frações",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 1/3 ÷ 6/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 5,
+        "denominator": 18,
+        "display": "5/18"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "divisao",
+        "reciproco"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1/3÷6/5=1/3×5/6",
+          "explanation": "Inverta a segunda fração."
+        },
+        {
+          "expression": "5/18=5/18",
+          "explanation": "Multiplique e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 103,
+        "promptPdfPage": 129,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-dividir-fracoes-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-dividir-fracoes",
+      "exerciseSetTitle": "Divisão de frações",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 2/5 ÷ 3/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 2,
+        "denominator": 3,
+        "display": "2/3"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "divisao",
+        "reciproco"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/5÷3/5=2/5×5/3",
+          "explanation": "Inverta a segunda fração."
+        },
+        {
+          "expression": "10/15=2/3",
+          "explanation": "Multiplique e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 103,
+        "promptPdfPage": 129,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 1,
+      "prompt": "Escreva 1/3 como fração de denominador 12.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 4,
+        "denominator": 12,
+        "display": "4/12"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1/3=4/12",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 2,
+      "prompt": "Escreva 5/6 como fração de denominador 12.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 10,
+        "denominator": 12,
+        "display": "10/12"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5/6=10/12",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 3,
+      "prompt": "Escreva 3/4 como fração de denominador 12.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 9,
+        "denominator": 12,
+        "display": "9/12"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3/4=9/12",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 4,
+      "prompt": "Escreva 5/2 como fração de denominador 12.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 30,
+        "denominator": 12,
+        "display": "30/12"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5/2=30/12",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 5,
+      "prompt": "Simplifique 8/10.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 4,
+        "denominator": 5,
+        "display": "4/5"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8/10=4/5",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 6,
+      "prompt": "Simplifique 6/15.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 2,
+        "denominator": 5,
+        "display": "2/5"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "6/15=2/5",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-07",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 7,
+      "prompt": "Simplifique 24/36.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 2,
+        "denominator": 3,
+        "display": "2/3"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "24/36=2/3",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-simplificar-fracoes-08",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-simplificar-fracoes",
+      "exerciseSetTitle": "Frações equivalentes e simplificação",
+      "exerciseNumber": 8,
+      "prompt": "Simplifique 20/36.",
+      "answer": {
+        "type": "rational",
+        "form": "exact",
+        "numerator": 5,
+        "denominator": 9,
+        "display": "5/9"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "equivalencia",
+        "simplificacao"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "20/36=5/9",
+          "explanation": "Aplique o mesmo fator ao numerador e ao denominador."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 104,
+        "promptPdfPage": 130,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-iguais-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-iguais",
+      "exerciseSetTitle": "Adição de frações com denominadores iguais",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 2/9 + 5/9.",
+      "answer": {
+        "type": "rational",
+        "numerator": 7,
+        "denominator": 9,
+        "display": "7/9"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-igual"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/9+5/9=7/9",
+          "explanation": "Mantenha o denominador comum e some os numeradores."
+        },
+        {
+          "expression": "7/9=7/9",
+          "explanation": "Simplifique quando possível."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 105,
+        "promptPdfPage": 131,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-iguais-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-iguais",
+      "exerciseSetTitle": "Adição de frações com denominadores iguais",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 5/12 + 4/12.",
+      "answer": {
+        "type": "rational",
+        "numerator": 3,
+        "denominator": 4,
+        "display": "3/4"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-igual"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5/12+4/12=9/12",
+          "explanation": "Mantenha o denominador comum e some os numeradores."
+        },
+        {
+          "expression": "9/12=3/4",
+          "explanation": "Simplifique quando possível."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 105,
+        "promptPdfPage": 131,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-iguais-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-iguais",
+      "exerciseSetTitle": "Adição de frações com denominadores iguais",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 5/18 + 6/18.",
+      "answer": {
+        "type": "rational",
+        "numerator": 11,
+        "denominator": 18,
+        "display": "11/18"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-igual"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5/18+6/18=11/18",
+          "explanation": "Mantenha o denominador comum e some os numeradores."
+        },
+        {
+          "expression": "11/18=11/18",
+          "explanation": "Simplifique quando possível."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 105,
+        "promptPdfPage": 131,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-iguais-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-iguais",
+      "exerciseSetTitle": "Adição de frações com denominadores iguais",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 3/10 + 3/10.",
+      "answer": {
+        "type": "rational",
+        "numerator": 3,
+        "denominator": 5,
+        "display": "3/5"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-igual"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3/10+3/10=6/10",
+          "explanation": "Mantenha o denominador comum e some os numeradores."
+        },
+        {
+          "expression": "6/10=3/5",
+          "explanation": "Simplifique quando possível."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 105,
+        "promptPdfPage": 131,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 1/5 + 1/10.",
+      "answer": {
+        "type": "rational",
+        "numerator": 3,
+        "denominator": 10,
+        "display": "3/10"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1/5=10/50; 1/10=5/50",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "10/50+5/50=15/50=3/10",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 1/6 + 5/18.",
+      "answer": {
+        "type": "rational",
+        "numerator": 4,
+        "denominator": 9,
+        "display": "4/9"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1/6=18/108; 5/18=30/108",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "18/108+30/108=48/108=4/9",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 1/3 + 1/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 8,
+        "denominator": 15,
+        "display": "8/15"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1/3=5/15; 1/5=3/15",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "5/15+3/15=8/15=8/15",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 2/7 + 5/21.",
+      "answer": {
+        "type": "rational",
+        "numerator": 11,
+        "denominator": 21,
+        "display": "11/21"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/7=42/147; 5/21=35/147",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "42/147+35/147=77/147=11/21",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 2/3 + 3/4.",
+      "answer": {
+        "type": "rational",
+        "numerator": 17,
+        "denominator": 12,
+        "display": "17/12"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/3=8/12; 3/4=9/12",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "8/12+9/12=17/12=17/12",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 3/7 + 3/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 36,
+        "denominator": 35,
+        "display": "36/35"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3/7=15/35; 3/5=21/35",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "15/35+21/35=36/35=36/35",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-somar-fracoes-diferentes-07",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-somar-fracoes-diferentes",
+      "exerciseSetTitle": "Adição de frações com denominadores diferentes",
+      "exerciseNumber": 7,
+      "prompt": "Calcule 2/11 + 5/9.",
+      "answer": {
+        "type": "rational",
+        "numerator": 73,
+        "denominator": 99,
+        "display": "73/99"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "adicao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2/11=18/99; 5/9=55/99",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "18/99+55/99=73/99=73/99",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 106,
+        "promptPdfPage": 132,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-01",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 8/11 − 3/11.",
+      "answer": {
+        "type": "rational",
+        "numerator": 5,
+        "denominator": 11,
+        "display": "5/11"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8/11=88/121; 3/11=33/121",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "88/121−33/121=55/121=5/11",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-02",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 12/7 − 8/7.",
+      "answer": {
+        "type": "rational",
+        "numerator": 4,
+        "denominator": 7,
+        "display": "4/7"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "12/7=84/49; 8/7=56/49",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "84/49−56/49=28/49=4/7",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-03",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 13/18 − 5/18.",
+      "answer": {
+        "type": "rational",
+        "numerator": 4,
+        "denominator": 9,
+        "display": "4/9"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "13/18=234/324; 5/18=90/324",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "234/324−90/324=144/324=4/9",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-04",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 4/5 − 1/15.",
+      "answer": {
+        "type": "rational",
+        "numerator": 11,
+        "denominator": 15,
+        "display": "11/15"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4/5=60/75; 1/15=5/75",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "60/75−5/75=55/75=11/15",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-05",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 9/10 − 3/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 3,
+        "denominator": 10,
+        "display": "3/10"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "9/10=45/50; 3/5=30/50",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "45/50−30/50=15/50=3/10",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-06",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 3/4 − 2/3.",
+      "answer": {
+        "type": "rational",
+        "numerator": 1,
+        "denominator": 12,
+        "display": "1/12"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3/4=9/12; 2/3=8/12",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "9/12−8/12=1/12=1/12",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 252,
+        "answerPdfPage": 278,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-07",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 7,
+      "prompt": "Calcule 7/8 − 1/16.",
+      "answer": {
+        "type": "rational",
+        "numerator": 13,
+        "denominator": 16,
+        "display": "13/16"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "7/8=112/128; 1/16=8/128",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "112/128−8/128=104/128=13/16",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-08",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 8,
+      "prompt": "Calcule 4/7 − 2/5.",
+      "answer": {
+        "type": "rational",
+        "numerator": 6,
+        "denominator": 35,
+        "display": "6/35"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4/7=20/35; 2/5=14/35",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "20/35−14/35=6/35=6/35",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c04-subtrair-fracoes-09",
+      "sourceChapterOrder": 4,
+      "exerciseSetId": "somm-c04-subtrair-fracoes",
+      "exerciseSetTitle": "Subtração de frações",
+      "exerciseNumber": 9,
+      "prompt": "Calcule 8/9 − 1/2.",
+      "answer": {
+        "type": "rational",
+        "numerator": 7,
+        "denominator": 18,
+        "display": "7/18"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "divisao",
+      "theoryTopicId": "c04-fracoes",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "fracoes",
+        "subtracao",
+        "denominador-comum"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8/9=16/18; 1/2=9/18",
+          "explanation": "Converta para um denominador comum."
+        },
+        {
+          "expression": "16/18−9/18=7/18=7/18",
+          "explanation": "Opere os numeradores e simplifique."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 107,
+        "promptPdfPage": 133,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-adicao-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-adicao",
+      "exerciseSetTitle": "Estimativa de adição",
+      "exerciseNumber": 1,
+      "prompt": "Estime 1.479 + 1.105 por arredondamento.",
+      "answer": {
+        "type": "relative-range",
+        "min": 2506.48,
+        "max": 2661.52,
+        "target": 2584,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 2.580; exato 2.584."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "adicao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "1.480+1.100=2.580",
+          "explanation": "Arredonde para uma casa que mantenha a soma útil."
+        },
+        {
+          "expression": "valor exato=2.584",
+          "explanation": "Use o exato apenas para medir o erro da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 128,
+        "promptPdfPage": 154,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-adicao-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-adicao",
+      "exerciseSetTitle": "Estimativa de adição",
+      "exerciseNumber": 2,
+      "prompt": "Estime 57.293 + 37.421 por arredondamento.",
+      "answer": {
+        "type": "relative-range",
+        "min": 91872.58,
+        "max": 97555.42,
+        "target": 94714,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 94.700; exato 94.714."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "adicao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "57.300+37.400=94.700",
+          "explanation": "Arredonde para uma casa que mantenha a soma útil."
+        },
+        {
+          "expression": "valor exato=94.714",
+          "explanation": "Use o exato apenas para medir o erro da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 128,
+        "promptPdfPage": 154,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-adicao-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-adicao",
+      "exerciseSetTitle": "Estimativa de adição",
+      "exerciseNumber": 3,
+      "prompt": "Estime 312.025 + 79.419 por arredondamento.",
+      "answer": {
+        "type": "relative-range",
+        "min": 379700.68,
+        "max": 403187.32,
+        "target": 391444,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 391.000; exato 391.444."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "adicao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "312.000+79.000=391.000",
+          "explanation": "Arredonde para uma casa que mantenha a soma útil."
+        },
+        {
+          "expression": "valor exato=391.444",
+          "explanation": "Use o exato apenas para medir o erro da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 128,
+        "promptPdfPage": 154,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-adicao-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-adicao",
+      "exerciseSetTitle": "Estimativa de adição",
+      "exerciseNumber": 4,
+      "prompt": "Estime 8.971.011 + 4.016.367 por arredondamento.",
+      "answer": {
+        "type": "relative-range",
+        "min": 12597756.66,
+        "max": 13376999.34,
+        "target": 12987378,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 12.990.000; exato 12.987.378."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "adicao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8,97 milhões+4,02 milhões=12,99 milhões",
+          "explanation": "Arredonde para uma casa que mantenha a soma útil."
+        },
+        {
+          "expression": "valor exato=12.987.378",
+          "explanation": "Use o exato apenas para medir o erro da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 128,
+        "promptPdfPage": 154,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-adicao-05",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-adicao",
+      "exerciseSetTitle": "Estimativa de adição",
+      "exerciseNumber": 5,
+      "prompt": "Estime o total de R$2,67, R$1,95, R$7,35, R$9,21, R$0,49, R$11,21, R$0,12, R$6,14, R$8,31 arredondando cada preço para R$0,50.",
+      "answer": {
+        "type": "relative-range",
+        "min": 46.06,
+        "max": 47.94,
+        "target": 47,
+        "tolerancePercent": 2,
+        "display": "Estimativa R$47,00; total exato R$47,35."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "adicao",
+        "compras",
+        "arredondamento-50-centavos"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "2,50+2,00+7,50+9,00+0,50+11,00+0,00+6,00+8,50",
+          "explanation": "Arredonde cada item para o múltiplo de cinquenta centavos mais próximo."
+        },
+        {
+          "expression": "total estimado=47,00; total exato=47,35",
+          "explanation": "Some os valores arredondados e compare."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 128,
+        "promptPdfPage": 154,
+        "answerPrintedPage": 253,
+        "answerPdfPage": 279,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-subtracao-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-subtracao",
+      "exerciseSetTitle": "Estimativa de subtração",
+      "exerciseNumber": 1,
+      "prompt": "Estime 4.926 − 1.659 arredondando pelo segundo ou terceiro algarismo.",
+      "answer": {
+        "type": "relative-range",
+        "min": 3168.99,
+        "max": 3365.01,
+        "target": 3267,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 3.200; exato 3.267."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "subtracao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4.900−1.700=3.200",
+          "explanation": "Arredonde os dois termos na mesma resolução."
+        },
+        {
+          "expression": "valor exato=3.267",
+          "explanation": "Compare o erro relativo."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-subtracao-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-subtracao",
+      "exerciseSetTitle": "Estimativa de subtração",
+      "exerciseNumber": 2,
+      "prompt": "Estime 67.221 − 9.874 arredondando pelo segundo ou terceiro algarismo.",
+      "answer": {
+        "type": "relative-range",
+        "min": 55626.59,
+        "max": 59067.41,
+        "target": 57347,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 57.300; exato 57.347."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "subtracao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "67.200−9.900=57.300",
+          "explanation": "Arredonde os dois termos na mesma resolução."
+        },
+        {
+          "expression": "valor exato=57.347",
+          "explanation": "Compare o erro relativo."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-subtracao-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-subtracao",
+      "exerciseSetTitle": "Estimativa de subtração",
+      "exerciseNumber": 3,
+      "prompt": "Estime 526.978 − 42.009 arredondando pelo segundo ou terceiro algarismo.",
+      "answer": {
+        "type": "relative-range",
+        "min": 470419.93,
+        "max": 499518.07,
+        "target": 484969,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 485.000; exato 484.969."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "subtracao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "527.000−42.000=485.000",
+          "explanation": "Arredonde os dois termos na mesma resolução."
+        },
+        {
+          "expression": "valor exato=484.969",
+          "explanation": "Compare o erro relativo."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-subtracao-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-subtracao",
+      "exerciseSetTitle": "Estimativa de subtração",
+      "exerciseNumber": 4,
+      "prompt": "Estime 8.349.241 − 6.103.839 arredondando pelo segundo ou terceiro algarismo.",
+      "answer": {
+        "type": "relative-range",
+        "min": 2178039.94,
+        "max": 2312764.06,
+        "target": 2245402,
+        "tolerancePercent": 3,
+        "display": "Uma boa estimativa é 2.250.000; exato 2.245.402."
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "subtracao",
+        "arredondamento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8,35 milhões−6,10 milhões=2,25 milhões",
+          "explanation": "Arredonde os dois termos na mesma resolução."
+        },
+        {
+          "expression": "valor exato=2.245.402",
+          "explanation": "Compare o erro relativo."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-divisao-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-divisao",
+      "exerciseSetTitle": "Estimativa de divisão",
+      "exerciseNumber": 1,
+      "prompt": "Estime 4.379 ÷ 7 ajustando os números.",
+      "answer": {
+        "type": "relative-range",
+        "min": 588.03714285714,
+        "max": 663.10571428571,
+        "target": 625.5714285714286,
+        "tolerancePercent": 6,
+        "display": "Boa estimativa: 630; quociente exato aproximado 625,571428571429."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "divisao",
+        "ordem-de-grandeza"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4.400÷7≈630",
+          "explanation": "Arredonde para uma razão simples, preservando a escala."
+        },
+        {
+          "expression": "4.379÷7≈625,571428571429",
+          "explanation": "Use o valor calculado independentemente para medir o erro."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-divisao-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-divisao",
+      "exerciseSetTitle": "Estimativa de divisão",
+      "exerciseNumber": 2,
+      "prompt": "Estime 23.958 ÷ 5 ajustando os números.",
+      "answer": {
+        "type": "relative-range",
+        "min": 4504.104,
+        "max": 5079.096,
+        "target": 4791.6,
+        "tolerancePercent": 6,
+        "display": "Boa estimativa: 4.800; quociente exato aproximado 4.791,6."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "divisao",
+        "ordem-de-grandeza"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "24.000÷5=4.800",
+          "explanation": "Arredonde para uma razão simples, preservando a escala."
+        },
+        {
+          "expression": "23.958÷5≈4.791,6",
+          "explanation": "Use o valor calculado independentemente para medir o erro."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-divisao-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-divisao",
+      "exerciseSetTitle": "Estimativa de divisão",
+      "exerciseNumber": 3,
+      "prompt": "Estime 549.213 ÷ 13 ajustando os números.",
+      "answer": {
+        "type": "relative-range",
+        "min": 39712.324615385,
+        "max": 44781.983076923,
+        "target": 42247.153846153844,
+        "tolerancePercent": 6,
+        "display": "Boa estimativa: 42.000; quociente exato aproximado 42.247,153846153844."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "divisao",
+        "ordem-de-grandeza"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "550.000÷13≈42.000",
+          "explanation": "Arredonde para uma razão simples, preservando a escala."
+        },
+        {
+          "expression": "549.213÷13≈42.247,153846153844",
+          "explanation": "Use o valor calculado independentemente para medir o erro."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-divisao-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-divisao",
+      "exerciseSetTitle": "Estimativa de divisão",
+      "exerciseNumber": 4,
+      "prompt": "Estime 5.102.357 ÷ 289 ajustando os números.",
+      "answer": {
+        "type": "relative-range",
+        "min": 16595.9016609,
+        "max": 18714.527404844,
+        "target": 17655.21453287197,
+        "tolerancePercent": 6,
+        "display": "Boa estimativa: 17.000; quociente exato aproximado 17.655,21453287197."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "divisao",
+        "ordem-de-grandeza"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5.100.000÷300≈17.000",
+          "explanation": "Arredonde para uma razão simples, preservando a escala."
+        },
+        {
+          "expression": "5.102.357÷289≈17.655,21453287197",
+          "explanation": "Use o valor calculado independentemente para medir o erro."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-divisao-05",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-divisao",
+      "exerciseSetTitle": "Estimativa de divisão",
+      "exerciseNumber": 5,
+      "prompt": "Estime 8.329.483 ÷ 203.637 ajustando os números.",
+      "answer": {
+        "type": "relative-range",
+        "min": 38.449368336795,
+        "max": 43.357798337237,
+        "target": 40.90358333701636,
+        "tolerancePercent": 6,
+        "display": "Boa estimativa: 40; quociente exato aproximado 40,903583337016."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "divisao",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "estimativa",
+        "divisao",
+        "ordem-de-grandeza"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "8.000.000÷200.000=40",
+          "explanation": "Arredonde para uma razão simples, preservando a escala."
+        },
+        {
+          "expression": "8.329.483÷203.637≈40,903583337016",
+          "explanation": "Use o valor calculado independentemente para medir o erro."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 254,
+        "answerPdfPage": 280,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 1,
+      "prompt": "Estime 98 × 27 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 2381.4,
+        "max": 2910.6,
+        "target": 2646,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 2.500; exato 2.646."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "100×25=2.500",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=2.646",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 2,
+      "prompt": "Estime 76 × 42 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 2872.8,
+        "max": 3511.2,
+        "target": 3192,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 3.120; exato 3.192."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "78×40=3.120",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=3.192",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 3,
+      "prompt": "Estime 88 × 88 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 6969.6,
+        "max": 8518.4,
+        "target": 7744,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 7.740; exato 7.744."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "90×86=7.740",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=7.744",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 4,
+      "prompt": "Estime 539 × 17 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 8246.7,
+        "max": 10079.3,
+        "target": 9163,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 9.180; exato 9.163."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "540×17=9.180",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=9.163",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-05",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 5,
+      "prompt": "Estime 312 × 98 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 27518.4,
+        "max": 33633.6,
+        "target": 30576,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 31.000; exato 30.576."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "310×100=31.000",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=30.576",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-06",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 6,
+      "prompt": "Estime 639 × 107 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 61535.7,
+        "max": 75210.3,
+        "target": 68373,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 64.600; exato 68.373."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "646×100=64.600",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=68.373",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-07",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 7,
+      "prompt": "Estime 428 × 313 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 120567.6,
+        "max": 147360.4,
+        "target": 133964,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 133.300; exato 133.964."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "430×310=133.300",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=133.964",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-08",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 8,
+      "prompt": "Estime 51.276 × 489 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 22566567.6,
+        "max": 27581360.4,
+        "target": 25073964,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 24.990.000; exato 25.073.964."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "51.000×490=24.990.000",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=25.073.964",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-09",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 9,
+      "prompt": "Estime 104.972 × 11.201 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 1058212234.8,
+        "max": 1293370509.2,
+        "target": 1175791372,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 1.155.000.000; exato 1.175.791.372."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "105.000×11.000=1.155.000.000",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=1.175.791.372",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-multiplicacao-10",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-multiplicacao",
+      "exerciseSetTitle": "Estimativa de multiplicação",
+      "exerciseNumber": 10,
+      "prompt": "Estime 5.462.741 × 203.413 ajustando os fatores.",
+      "answer": {
+        "type": "relative-range",
+        "min": 1000073281529.7,
+        "max": 1222311788536.3,
+        "target": 1111192535033,
+        "tolerancePercent": 10,
+        "display": "Uma estimativa do gabarito é 1.100.000.000.000; exato 1.111.192.535.033."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-ordem-grandeza",
+      "relatedTheoryTopicIds": [
+        "c07-numeros-proximos"
+      ],
+      "tags": [
+        "estimativa",
+        "multiplicacao",
+        "ajustes"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "5.500.000×200.000=1.100.000.000.000",
+          "explanation": "Escolha fatores redondos ou ajustes opostos."
+        },
+        {
+          "expression": "produto exato=1.111.192.535.033",
+          "explanation": "Calcule independentemente para avaliar a qualidade da estimativa."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 129,
+        "promptPdfPage": 155,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-raiz-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-raiz",
+      "exerciseSetTitle": "Estimativa de raiz quadrada",
+      "exerciseNumber": 1,
+      "prompt": "Estime √17 pelo método de dividir e fazer a média.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 4.123105625617661,
+        "tolerance": 0.1,
+        "display": "Estimativa do gabarito 4,1; raiz 4,12."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c05-raiz",
+      "relatedTheoryTopicIds": [
+        "c05-ordem-grandeza"
+      ],
+      "tags": [
+        "estimativa",
+        "raiz-quadrada",
+        "dividir-e-media"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "4 e 4,2; média≈4,1",
+          "explanation": "Escolha um palpite, divida o radicando por ele e tire a média."
+        },
+        {
+          "expression": "√17≈4,123105625618",
+          "explanation": "Valor independente para aferir a aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-raiz-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-raiz",
+      "exerciseSetTitle": "Estimativa de raiz quadrada",
+      "exerciseNumber": 2,
+      "prompt": "Estime √35 pelo método de dividir e fazer a média.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 5.916079783099616,
+        "tolerance": 0.11832159566199232,
+        "display": "Estimativa do gabarito 5,9; raiz 5,92."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c05-raiz",
+      "relatedTheoryTopicIds": [
+        "c05-ordem-grandeza"
+      ],
+      "tags": [
+        "estimativa",
+        "raiz-quadrada",
+        "dividir-e-media"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "6 e 35/6≈5,8; média≈5,9",
+          "explanation": "Escolha um palpite, divida o radicando por ele e tire a média."
+        },
+        {
+          "expression": "√35≈5,9160797831",
+          "explanation": "Valor independente para aferir a aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-raiz-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-raiz",
+      "exerciseSetTitle": "Estimativa de raiz quadrada",
+      "exerciseNumber": 3,
+      "prompt": "Estime √163 pelo método de dividir e fazer a média.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 12.767145334803704,
+        "tolerance": 0.25534290669607407,
+        "display": "Estimativa do gabarito 13,15; raiz 12,77."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c05-raiz",
+      "relatedTheoryTopicIds": [
+        "c05-ordem-grandeza"
+      ],
+      "tags": [
+        "estimativa",
+        "raiz-quadrada",
+        "dividir-e-media"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "10 e 16,3; média≈13,15",
+          "explanation": "Escolha um palpite, divida o radicando por ele e tire a média."
+        },
+        {
+          "expression": "√163≈12,767145334804",
+          "explanation": "Valor independente para aferir a aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-raiz-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-raiz",
+      "exerciseSetTitle": "Estimativa de raiz quadrada",
+      "exerciseNumber": 4,
+      "prompt": "Estime √4.279 pelo método de dividir e fazer a média.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 65.41406576570516,
+        "tolerance": 1.3082813153141033,
+        "display": "Estimativa do gabarito 65,5; raiz 65,41."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c05-raiz",
+      "relatedTheoryTopicIds": [
+        "c05-ordem-grandeza"
+      ],
+      "tags": [
+        "estimativa",
+        "raiz-quadrada",
+        "dividir-e-media"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "60 e 4279/60≈71; média≈65,5",
+          "explanation": "Escolha um palpite, divida o radicando por ele e tire a média."
+        },
+        {
+          "expression": "√4.279≈65,414065765705",
+          "explanation": "Valor independente para aferir a aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-estimativa-raiz-05",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-estimativa-raiz",
+      "exerciseSetTitle": "Estimativa de raiz quadrada",
+      "exerciseNumber": 5,
+      "prompt": "Estime √8.039 pelo método de dividir e fazer a média.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 89.66047066572872,
+        "tolerance": 1.7932094133145746,
+        "display": "Estimativa do gabarito 89,5; raiz 89,66."
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c05-raiz",
+      "relatedTheoryTopicIds": [
+        "c05-ordem-grandeza"
+      ],
+      "tags": [
+        "estimativa",
+        "raiz-quadrada",
+        "dividir-e-media"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "90 e 8039/90≈89; média≈89,5",
+          "explanation": "Escolha um palpite, divida o radicando por ele e tire a média."
+        },
+        {
+          "expression": "√8.039≈89,660470665729",
+          "explanation": "Valor independente para aferir a aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 255,
+        "answerPdfPage": 281,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-01",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 15% de R$88.",
+      "answer": {
+        "type": "exact-number",
+        "value": 13.2,
+        "display": "R$13,20"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "percentuais",
+        "quinze-por-cento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "10%=8,80; 5%=4,40; total=13,20",
+          "explanation": "Some dez por cento com sua metade."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-02",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 15% de R$53.",
+      "answer": {
+        "type": "exact-number",
+        "value": 7.95,
+        "display": "R$7,95"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "percentuais",
+        "quinze-por-cento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "10%=5,30; 5%=2,65; total=7,95",
+          "explanation": "Some dez por cento com sua metade."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-03",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 25% de R$74.",
+      "answer": {
+        "type": "exact-number",
+        "value": 18.5,
+        "display": "R$18,50"
+      },
+      "playable": true,
+      "difficulty": 3,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "percentuais",
+        "vinte-cinco-por-cento"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "74÷2÷2=18,50",
+          "explanation": "Vinte e cinco por cento é um quarto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-04",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 4,
+      "prompt": "Em quantos anos uma taxa anual de 10% dobra o capital pela regra de 70?",
+      "answer": {
+        "type": "exact-number",
+        "value": 7,
+        "display": "7 anos"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "juros",
+        "regra-de-70"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "70÷10=7",
+          "explanation": "Aplique a regra de setenta."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-05",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 5,
+      "prompt": "Em quantos anos uma taxa anual de 6% dobra o capital pela regra de 70?",
+      "answer": {
+        "type": "exact-number",
+        "value": 12,
+        "display": "cerca de 12 anos"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "juros",
+        "regra-de-70"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "70÷6≈11,67→12",
+          "explanation": "Arredonde a estimativa para anos inteiros."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-06",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 6,
+      "prompt": "Em quantos anos uma taxa anual de 7% triplica o capital pela regra de 110?",
+      "answer": {
+        "type": "exact-number",
+        "value": 16,
+        "display": "cerca de 16 anos"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "juros",
+        "regra-de-110"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "110÷7≈15,71→16",
+          "explanation": "Aplique a regra de cento e dez."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-07",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 7,
+      "prompt": "Em quantos anos uma taxa anual de 7% quadruplica o capital usando a regra de 70?",
+      "answer": {
+        "type": "exact-number",
+        "value": 20,
+        "display": "cerca de 20 anos"
+      },
+      "playable": true,
+      "difficulty": 5,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-percentuais",
+      "relatedTheoryTopicIds": [],
+      "tags": [
+        "aplicacao",
+        "juros",
+        "regra-de-70"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "70÷7=10; duas duplicações=20",
+          "explanation": "Quadruplicar equivale a dobrar duas vezes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-08",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 8,
+      "prompt": "Estime a prestação mensal de R$100.000 a 9% ao ano por 10 anos.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 1266.76,
+        "tolerance": 15,
+        "display": "aproximadamente R$1.267"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-prestacao",
+      "relatedTheoryTopicIds": [
+        "c05-percentuais"
+      ],
+      "tags": [
+        "aplicacao",
+        "prestacao",
+        "emprestimo"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "i=0,09/12=0,0075; N=120",
+          "explanation": "Converta taxa e prazo."
+        },
+        {
+          "expression": "M=100.000·i·(1+i)^N/((1+i)^N−1)≈1.266,76",
+          "explanation": "Aplique a fórmula coerente; o gabarito arredonda para 1.267."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c05-matematica-cotidiana-09",
+      "sourceChapterOrder": 5,
+      "exerciseSetId": "somm-c05-matematica-cotidiana",
+      "exerciseSetTitle": "Matemática cotidiana",
+      "exerciseNumber": 9,
+      "prompt": "Estime a prestação mensal de R$30.000 a 5% ao ano por 4 anos.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 690.88,
+        "tolerance": 10,
+        "display": "aproximadamente R$691; o gabarito estima R$693"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c05-prestacao",
+      "relatedTheoryTopicIds": [
+        "c05-percentuais"
+      ],
+      "tags": [
+        "aplicacao",
+        "prestacao",
+        "emprestimo",
+        "errata"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "i=0,05/12; N=48",
+          "explanation": "Quatro anos correspondem a quarenta e oito meses."
+        },
+        {
+          "expression": "M=30.000·i·(1+i)^48/((1+i)^48−1)≈690,88",
+          "explanation": "Cálculo independente consistente; o valor 693 do gabarito é uma aproximação."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 130,
+        "promptPdfPage": 156,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-colunas-01",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-colunas",
+      "exerciseSetTitle": "Colunas de números",
+      "exerciseNumber": 1,
+      "prompt": "Some a coluna 672, 1.367, 107, 7.845, 358, 210 e 916.",
+      "answer": {
+        "type": "exact-number",
+        "value": 11475,
+        "display": "11.475"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "adicao",
+        "colunas",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "672+1.367+107+7.845+358+210+916=11.475",
+          "explanation": "Some da direita para a esquerda e confira de baixo para cima."
+        },
+        {
+          "expression": "checksum das parcelas=checksum de 11.475",
+          "explanation": "Faça também a prova dos nove."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 149,
+        "promptPdfPage": 175,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-colunas-02",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-colunas",
+      "exerciseSetTitle": "Colunas de números",
+      "exerciseNumber": 2,
+      "prompt": "Some a coluna monetária R$21,56; R$19,38; R$211,02; R$9,16; R$26,17; R$1,43.",
+      "answer": {
+        "type": "exact-number",
+        "value": 288.72,
+        "display": "R$288,72"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "adicao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "adicao",
+        "colunas",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "21,56+19,38+211,02+9,16+26,17+1,43=288,72",
+          "explanation": "Some da direita para a esquerda e confira de baixo para cima."
+        },
+        {
+          "expression": "checksum das parcelas=checksum de 288,72",
+          "explanation": "Faça também a prova dos nove."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 149,
+        "promptPdfPage": 175,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-subtracao-papel-01",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-subtracao-papel",
+      "exerciseSetTitle": "Subtração no papel",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 75.423 − 46.298 e confira por soma e prova dos nove.",
+      "answer": {
+        "type": "exact-number",
+        "value": 29125,
+        "display": "29.125"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "subtracao",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "75.423−46.298=29.125",
+          "explanation": "Subtraia em coluna da direita para a esquerda."
+        },
+        {
+          "expression": "29.125+46.298=75.423",
+          "explanation": "Confira pela operação inversa."
+        },
+        {
+          "expression": "checksum(75.423)−checksum(46.298)≡checksum(29.125) mod 9",
+          "explanation": "Confira modularmente."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-subtracao-papel-02",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-subtracao-papel",
+      "exerciseSetTitle": "Subtração no papel",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 876.452 − 593.876 e confira por soma e prova dos nove.",
+      "answer": {
+        "type": "exact-number",
+        "value": 282576,
+        "display": "282.576"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "subtracao",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "876.452−593.876=282.576",
+          "explanation": "Subtraia em coluna da direita para a esquerda."
+        },
+        {
+          "expression": "282.576+593.876=876.452",
+          "explanation": "Confira pela operação inversa."
+        },
+        {
+          "expression": "checksum(876.452)−checksum(593.876)≡checksum(282.576) mod 9",
+          "explanation": "Confira modularmente."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-subtracao-papel-03",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-subtracao-papel",
+      "exerciseSetTitle": "Subtração no papel",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 3.249.202 − 2.903.445 e confira por soma e prova dos nove.",
+      "answer": {
+        "type": "exact-number",
+        "value": 345757,
+        "display": "345.757"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "subtracao",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3.249.202−2.903.445=345.757",
+          "explanation": "Subtraia em coluna da direita para a esquerda."
+        },
+        {
+          "expression": "345.757+2.903.445=3.249.202",
+          "explanation": "Confira pela operação inversa."
+        },
+        {
+          "expression": "checksum(3.249.202)−checksum(2.903.445)≡checksum(345.757) mod 9",
+          "explanation": "Confira modularmente."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-subtracao-papel-04",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-subtracao-papel",
+      "exerciseSetTitle": "Subtração no papel",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 45.394.358 − 36.472.659 e confira por soma e prova dos nove.",
+      "answer": {
+        "type": "exact-number",
+        "value": 8921699,
+        "display": "8.921.699"
+      },
+      "playable": true,
+      "difficulty": 4,
+      "sectionId": "subtracao",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "subtracao",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "45.394.358−36.472.659=8.921.699",
+          "explanation": "Subtraia em coluna da direita para a esquerda."
+        },
+        {
+          "expression": "8.921.699+36.472.659=45.394.358",
+          "explanation": "Confira pela operação inversa."
+        },
+        {
+          "expression": "checksum(45.394.358)−checksum(36.472.659)≡checksum(8.921.699) mod 9",
+          "explanation": "Confira modularmente."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 256,
+        "answerPdfPage": 282,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-raiz-papel-01",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-raiz-papel",
+      "exerciseSetTitle": "Raiz quadrada no papel",
+      "exerciseNumber": 1,
+      "prompt": "Extraia √15 pelo método de dobrar a raiz parcial e baixar pares, até duas casas decimais.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 3.872983346207417,
+        "tolerance": 0.01,
+        "display": "3,87 no gabarito; valor arredondado 3,87"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c05-raiz"
+      ],
+      "tags": [
+        "papel",
+        "raiz-quadrada",
+        "pares-de-algarismos"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "Agrupe o radicando em pares a partir da vírgula.",
+          "explanation": "Cada par baixado produz uma casa da raiz."
+        },
+        {
+          "expression": "√15≈3,872983346207",
+          "explanation": "Dobre a raiz parcial e escolha, a cada etapa, o maior dígito cujo produto cabe no resto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-raiz-papel-02",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-raiz-papel",
+      "exerciseSetTitle": "Raiz quadrada no papel",
+      "exerciseNumber": 2,
+      "prompt": "Extraia √502 pelo método de dobrar a raiz parcial e baixar pares, até duas casas decimais.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 22.40535650240808,
+        "tolerance": 0.01,
+        "display": "22,40 no gabarito; valor arredondado 22,41"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c05-raiz"
+      ],
+      "tags": [
+        "papel",
+        "raiz-quadrada",
+        "pares-de-algarismos"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "Agrupe o radicando em pares a partir da vírgula.",
+          "explanation": "Cada par baixado produz uma casa da raiz."
+        },
+        {
+          "expression": "√502≈22,405356502408",
+          "explanation": "Dobre a raiz parcial e escolha, a cada etapa, o maior dígito cujo produto cabe no resto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-raiz-papel-03",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-raiz-papel",
+      "exerciseSetTitle": "Raiz quadrada no papel",
+      "exerciseNumber": 3,
+      "prompt": "Extraia √439,2 pelo método de dobrar a raiz parcial e baixar pares, até duas casas decimais.",
+      "answer": {
+        "type": "decimal-tolerance",
+        "value": 20.957099035887577,
+        "tolerance": 0.01,
+        "display": "20,95 no gabarito; valor arredondado 20,96"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c05-raiz"
+      ],
+      "tags": [
+        "papel",
+        "raiz-quadrada",
+        "pares-de-algarismos"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "Agrupe o radicando em pares a partir da vírgula.",
+          "explanation": "Cada par baixado produz uma casa da raiz."
+        },
+        {
+          "expression": "√439,2≈20,957099035888",
+          "explanation": "Dobre a raiz parcial e escolha, a cada etapa, o maior dígito cujo produto cabe no resto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-raiz-papel-04",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-raiz-papel",
+      "exerciseSetTitle": "Raiz quadrada no papel",
+      "exerciseNumber": 4,
+      "prompt": "Extraia √361 pelo método de dobrar a raiz parcial e baixar pares.",
+      "answer": {
+        "type": "exact-number",
+        "value": 19,
+        "display": "19"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c06-papel",
+      "relatedTheoryTopicIds": [
+        "c05-raiz"
+      ],
+      "tags": [
+        "papel",
+        "raiz-quadrada",
+        "pares-de-algarismos"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "3|61: 1² cabe em 3; resto 2 e baixa 61",
+          "explanation": "A raiz começa por um."
+        },
+        {
+          "expression": "29×9=261",
+          "explanation": "O próximo dígito é nove e o resto zera."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-01",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 54 × 37 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 1998,
+        "display": "1.998"
+      },
+      "playable": true,
+      "difficulty": 6,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 54×37",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "54×37=1.998",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(54)×checksum(37)≡checksum(1.998) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-02",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 273 × 217 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 59241,
+        "display": "59.241"
+      },
+      "playable": true,
+      "difficulty": 7,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 273×217",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "273×217=59.241",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(273)×checksum(217)≡checksum(59.241) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-03",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 725 × 609 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 441525,
+        "display": "441.525"
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 725×609",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "725×609=441.525",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(725)×checksum(609)≡checksum(441.525) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-04",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 3.309 × 2.868 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 9490212,
+        "display": "9.490.212"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 3.309×2.868",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "3.309×2.868=9.490.212",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(3.309)×checksum(2.868)≡checksum(9.490.212) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-05",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 52.819 × 47.820 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 2525804580,
+        "display": "2.525.804.580"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 52.819×47.820",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "52.819×47.820=2.525.804.580",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(52.819)×checksum(47.820)≡checksum(2.525.804.580) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c06-multiplicacao-papel-06",
+      "sourceChapterOrder": 6,
+      "exerciseSetId": "somm-c06-multiplicacao-papel",
+      "exerciseSetTitle": "Multiplicação criss-cross no papel",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 3.923.759 × 2.674.093 pelo criss-cross e confira por noves.",
+      "answer": {
+        "type": "exact-number",
+        "value": 10492496475587,
+        "display": "10.492.496.475.587"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tricks",
+      "theoryTopicId": "c06-criss-cross",
+      "relatedTheoryTopicIds": [
+        "c06-prova-nove"
+      ],
+      "tags": [
+        "papel",
+        "multiplicacao",
+        "criss-cross",
+        "prova-dos-nove"
+      ],
+      "solutionSteps": [
+        {
+          "expression": "diagonais da direita para a esquerda em 3.923.759×2.674.093",
+          "explanation": "Some produtos de algarismos da mesma casa e propague os transportes."
+        },
+        {
+          "expression": "3.923.759×2.674.093=10.492.496.475.587",
+          "explanation": "Escreva uma casa por diagonal; na última, escreva todo o transporte."
+        },
+        {
+          "expression": "checksum(3.923.759)×checksum(2.674.093)≡checksum(10.492.496.475.587) mod 9",
+          "explanation": "Confira o produto."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 150,
+        "promptPdfPage": 176,
+        "answerPrintedPage": 257,
+        "answerPdfPage": 283,
+        "recoveredFromAnswerKey": false
+      }
+    }
+  ]
+}

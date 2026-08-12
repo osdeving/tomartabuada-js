@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CampaignJourney } from "./components/platform/CampaignJourney";
 import { AppChrome } from "./components/platform/AppChrome";
 import { HomeDashboard } from "./components/platform/HomeDashboard";
@@ -8,10 +8,9 @@ import { TheoryLibrary } from "./components/platform/TheoryLibrary";
 import { TrainingHub } from "./components/platform/TrainingHub";
 import { SessionArena } from "./components/session/SessionArena";
 import { SessionSummary } from "./components/session/SessionSummary";
-import { GameSection } from "./game/GameSection";
 import { useTrainingSession } from "./hooks/useTrainingSession";
 import { buildHomeDashboard, buildReportsDashboard } from "./lib/platform/insights";
-import { getTheoryTargetForTopic, THEORY_CHAPTERS } from "./lib/platform/content";
+import { getTheoryTargetForTopic, loadTheoryChapters, preloadPracticeContent } from "./lib/platform/content";
 import { getPracticeGroup } from "./lib/platform/experience";
 import {
   appendAttempt,
@@ -26,6 +25,8 @@ import {
   updatePlatformSettings,
 } from "./lib/platform/store";
 
+const LazyGameSection = lazy(() => import("./game/GameSection").then((module) => ({ default: module.GameSection })));
+
 function App() {
   const initialStateRef = useRef(null);
   if (!initialStateRef.current) initialStateRef.current = loadPlatformState();
@@ -37,12 +38,16 @@ function App() {
   const [arcadeOpen, setArcadeOpen] = useState(false);
   const [theoryChapterId, setTheoryChapterId] = useState(null);
   const [theoryLessonId, setTheoryLessonId] = useState(null);
+  const [theoryChapters, setTheoryChapters] = useState([]);
   const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
   const [trainingConfig, setTrainingConfig] = useState(() => ({
     modeId: initialStateRef.current.selectedModeId ?? "sparring",
     groupId: initialStateRef.current.selectedGroupId ?? "misto",
     questionCount: initialStateRef.current.settings.questionCount ?? 15,
     campaignStage: null,
+    theoryTopicIds: null,
+    sectionIds: null,
+    sourceChapterOrder: null,
     settings: initialStateRef.current.settings,
   }));
   const [shouldBeginSession, setShouldBeginSession] = useState(false);
@@ -65,6 +70,26 @@ function App() {
     window.addEventListener("beforeinstallprompt", captureInstallPrompt);
     return () => window.removeEventListener("beforeinstallprompt", captureInstallPrompt);
   }, []);
+
+  useEffect(() => {
+    if (activeView !== "teoria" || theoryChapters.length) return undefined;
+    let cancelled = false;
+    loadTheoryChapters()
+      .then((chapters) => {
+        if (!cancelled) setTheoryChapters(chapters);
+      })
+      .catch((error) => {
+        console.error("Não foi possível carregar a biblioteca de teoria.", error);
+      });
+    return () => { cancelled = true; };
+  }, [activeView, theoryChapters.length]);
+
+  useEffect(() => {
+    if (!["treinar", "campanha"].includes(activeView)) return;
+    preloadPracticeContent().catch((error) => {
+      console.error("Não foi possível pré-carregar os exercícios.", error);
+    });
+  }, [activeView]);
 
   const handleAttempt = useCallback((attempt) => {
     setPlatformState((current) => appendAttempt(current, attempt));
@@ -93,7 +118,9 @@ function App() {
 
   useEffect(() => {
     if (!shouldBeginSession) return;
-    trainingSession.begin();
+    void trainingSession.begin().catch((error) => {
+      console.error("Não foi possível iniciar a sessão.", error);
+    });
     setSummary(null);
     setShouldBeginSession(false);
   }, [shouldBeginSession, trainingSession.begin]);
@@ -109,14 +136,30 @@ function App() {
 
   function navigate(viewId, groupId = null) {
     if (groupId) {
-      setTrainingConfig((current) => ({ ...current, groupId, campaignStage: null }));
+      setTrainingConfig((current) => ({
+        ...current,
+        groupId,
+        campaignStage: null,
+        chapterOrder: null,
+        theoryTopicIds: null,
+        sectionIds: null,
+        sourceChapterOrder: null,
+      }));
     }
     setActiveView(viewId);
     window.scrollTo({ top: 0, behavior: platformState.settings.reducedMotion ? "auto" : "smooth" });
   }
 
   function updateTrainingConfig(patch) {
-    setTrainingConfig((current) => ({ ...current, ...patch, campaignStage: null, chapterOrder: null }));
+    setTrainingConfig((current) => ({
+      ...current,
+      ...patch,
+      campaignStage: null,
+      chapterOrder: null,
+      theoryTopicIds: null,
+      sectionIds: null,
+      sourceChapterOrder: null,
+    }));
     setPlatformState((current) => ({
       ...current,
       selectedGroupId: patch.groupId ?? current.selectedGroupId,
@@ -142,16 +185,23 @@ function App() {
       groupId: stage.groupId,
       questionCount: stage.questionCount,
       campaignStage: stage,
+      theoryTopicIds: null,
+      sectionIds: null,
+      sourceChapterOrder: null,
     });
   }
 
   function practiceTheoryChapter(chapter) {
+    const canonicalChapterOrder = chapter.sourceKind === "full-book" ? null : chapter.order;
     startSession({
       modeId: "sparring",
       groupId: chapter.groupId,
       questionCount: 12,
       campaignStage: null,
-      chapterOrder: chapter.order,
+      chapterOrder: canonicalChapterOrder,
+      theoryTopicIds: chapter.theoryTopicIds ?? chapter.topics?.map((topic) => topic.id) ?? null,
+      sectionIds: chapter.sourceKind === "full-book" ? chapter.sectionIds : null,
+      sourceChapterOrder: chapter.sourceKind === "full-book" ? chapter.sourceOrder : null,
     });
   }
 
@@ -184,13 +234,20 @@ function App() {
       groupId: "misto",
       questionCount: 15,
       campaignStage: null,
+      theoryTopicIds: null,
+      sectionIds: null,
+      sourceChapterOrder: null,
       settings: next.settings,
     });
     setSettingsOpen(false);
   }
 
   if (arcadeOpen) {
-    return <GameSection onExit={() => setArcadeOpen(false)} />;
+    return (
+      <Suspense fallback={<main className="summary-screen"><p>Preparando o arcade…</p></main>}>
+        <LazyGameSection onExit={() => setArcadeOpen(false)} />
+      </Suspense>
+    );
   }
 
   if (summary) {
@@ -198,8 +255,8 @@ function App() {
       <SessionSummary
         summary={summary}
         onRetry={() => startSession()}
-        onReviewTheory={(topicId) => {
-          const target = getTheoryTargetForTopic(topicId);
+        onReviewTheory={async (topicId) => {
+          const target = await getTheoryTargetForTopic(topicId);
           setTheoryChapterId(target?.chapterId ?? null);
           setTheoryLessonId(target?.lessonId ?? null);
           setSummary(null);
@@ -242,7 +299,14 @@ function App() {
         <HomeDashboard
           dashboard={homeDashboard}
           onNavigate={navigate}
-          onQuickStart={() => startSession({ modeId: "sparring", campaignStage: null, chapterOrder: null })}
+          onQuickStart={() => startSession({
+            modeId: "sparring",
+            campaignStage: null,
+            chapterOrder: null,
+            theoryTopicIds: null,
+            sectionIds: null,
+            sourceChapterOrder: null,
+          })}
           selectedGroupId={trainingConfig.groupId}
         />
       ) : activeView === "treinar" ? (
@@ -250,14 +314,19 @@ function App() {
           config={trainingConfig}
           onChange={updateTrainingConfig}
           onOpenArcade={() => setArcadeOpen(true)}
-          onStart={() => startSession({ chapterOrder: null })}
+          onStart={() => startSession({
+            chapterOrder: null,
+            theoryTopicIds: null,
+            sectionIds: null,
+            sourceChapterOrder: null,
+          })}
           preview={trainingPreview}
         />
       ) : activeView === "campanha" ? (
         <CampaignJourney campaign={platformState.campaign} onStartStage={startCampaignStage} />
       ) : activeView === "teoria" ? (
         <TheoryLibrary
-          chapters={THEORY_CHAPTERS}
+          chapters={theoryChapters}
           initialChapterId={theoryChapterId}
           initialLessonId={theoryLessonId}
           onPractice={practiceTheoryChapter}

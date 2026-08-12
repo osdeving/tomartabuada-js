@@ -7,10 +7,18 @@ import {
   resumePracticeSession,
 } from "../lib/adaptive";
 import { getCampaignStars } from "../lib/platform/campaign";
+import {
+  answersMatch,
+  displayAnswerInput,
+  isCompleteAnswer,
+  normalizeUserAnswer,
+  serializeUserAnswer,
+} from "../lib/platform/answers";
 import { selectAdaptiveQuestion, THEORY_INDEX } from "../lib/platform/content";
 import { getPracticeGroup, getSessionMode } from "../lib/platform/experience";
 
 const FEEDBACK_DELAY_MS = 680;
+const STRUCTURED_ANSWER_DELAY_MS = 700;
 const TIME_TICK_MS = 80;
 
 export function useTrainingSession({ config, platformState, onAttempt, onFinish }) {
@@ -25,6 +33,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const questionStartRef = useRef(Date.now());
   const deadlineRef = useRef(Date.now());
   const advanceTimeoutRef = useRef(null);
+  const answerSubmitTimeoutRef = useRef(null);
   const finishedRef = useRef(false);
   const gradingRef = useRef(false);
   const pausedAtRef = useRef(null);
@@ -33,7 +42,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   useEffect(() => { runtimeRef.current = runtime; }, [runtime]);
   useEffect(() => { answerRef.current = answer; }, [answer]);
 
-  const begin = useCallback(() => {
+  const begin = useCallback(async () => {
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     finishedRef.current = false;
     gradingRef.current = false;
     recentQuestionIdsRef.current = [];
@@ -53,7 +63,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       lives: 3,
       inputMode: "custom-keypad",
     });
-    const question = selectAdaptiveQuestion({
+    const question = await selectAdaptiveQuestion({
       attempts: adaptiveSession.attempts,
       baselineAttempts: platformState.attempts,
       chapterOrder: config.campaignStage?.order ?? config.chapterOrder ?? null,
@@ -62,6 +72,9 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       mode: config.modeId,
       sectionPool: config.campaignStage?.sectionPool ?? null,
       responseScale: config.campaignStage?.responseScale ?? 1,
+      theoryTopicIds: config.theoryTopicIds ?? null,
+      allowedSectionIds: config.sectionIds ?? null,
+      sourceChapterOrder: config.sourceChapterOrder ?? null,
     });
     const startedAt = Date.now();
 
@@ -106,16 +119,19 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
 
   useEffect(() => () => {
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
   }, []);
 
   const gradeAnswer = useCallback((rawAnswer, timedOut = false) => {
     const current = runtimeRef.current;
     if (!current?.question || feedback || paused || finishedRef.current || gradingRef.current) return;
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     gradingRef.current = true;
 
     const question = current.question;
-    const normalized = normalizeUserAnswer(rawAnswer);
-    const correct = !timedOut && normalized != null && answersMatch(normalized, question.answer);
+    const normalized = normalizeUserAnswer(rawAnswer, question);
+    const serializedAnswer = serializeUserAnswer(normalized);
+    const correct = !timedOut && normalized != null && answersMatch(normalized, question);
     const answeredAt = Date.now();
     const responseTimeMs = Math.max(1, answeredAt - questionStartRef.current);
     const result = recordSessionAttempt(
@@ -136,7 +152,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         difficulty: question.difficulty,
         source: question.source,
         sourceId: question.sourceId,
-        answerGiven: normalized,
+        sourceDocumentId: question.sourceDocumentId,
+        answerGiven: serializedAnswer,
         expectedAnswer: question.answer,
         timestamp: answeredAt,
       },
@@ -163,7 +180,11 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       combo: result.event.combo,
       scoreDelta: result.event.scoreDelta,
       chapter: question.chapter,
+      sourceChapterOrder: question.sourceChapterOrder,
+      sourceDocumentId: question.sourceDocumentId,
       page: question.page,
+      answerGiven: serializedAnswer,
+      givenAnswer: serializedAnswer,
     };
 
     onAttempt(attempt);
@@ -195,7 +216,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     runtimeRef.current = nextRuntime;
     setRuntime(nextRuntime);
 
-    advanceTimeoutRef.current = window.setTimeout(() => {
+    advanceTimeoutRef.current = window.setTimeout(async () => {
       const latest = runtimeRef.current;
       if (!latest || finishedRef.current) return;
 
@@ -210,7 +231,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         return;
       }
 
-      const nextQuestion = selectAdaptiveQuestion({
+      const nextQuestion = await selectAdaptiveQuestion({
         attempts: latest.adaptiveSession.attempts,
         baselineAttempts: platformState.attempts,
         chapterOrder: config.campaignStage?.order ?? config.chapterOrder ?? null,
@@ -220,7 +241,11 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         recentQuestionIds: recentQuestionIdsRef.current,
         sectionPool: config.campaignStage?.sectionPool ?? null,
         responseScale: config.campaignStage?.responseScale ?? 1,
+        theoryTopicIds: config.theoryTopicIds ?? null,
+        allowedSectionIds: config.sectionIds ?? null,
+        sourceChapterOrder: config.sourceChapterOrder ?? null,
       });
+      if (finishedRef.current || !runtimeRef.current) return;
       recentQuestionIdsRef.current = [
         question.questionId,
         ...recentQuestionIdsRef.current.filter((id) => id !== question.questionId),
@@ -243,12 +268,22 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
 
     function handleKeyDown(event) {
       if (event.metaKey || event.ctrlKey || event.altKey || event.repeat) return;
-      if (/^\d$/.test(event.key)) {
+      const numberedChoice = /^\d$/.test(event.key)
+        ? runtime.question?.choices?.[Number(event.key) - 1]
+        : null;
+      if (numberedChoice) {
+        event.preventDefault();
+        handleAnswerKey(`choice:${numberedChoice.value}`);
+      } else if (/^\d$/.test(event.key) && !runtime.question?.choices?.length) {
         event.preventDefault();
         handleAnswerKey(event.key);
       } else if (event.key === "." || event.key === ",") {
         event.preventDefault();
         handleAnswerKey(".");
+      } else if ((event.key === "/" && runtime.question?.answerType === "rational")
+        || (/^r$/i.test(event.key) && runtime.question?.answerType === "quotient-remainder")) {
+        event.preventDefault();
+        handleAnswerKey("separator");
       } else if (event.key === "Backspace") {
         event.preventDefault();
         handleAnswerKey("backspace");
@@ -265,6 +300,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const handleAnswerKey = useCallback((key) => {
     const current = runtimeRef.current;
     if (!current?.question || feedback || paused) return;
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
 
     if (key === "clear") {
       setAnswer("");
@@ -277,14 +313,44 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       setAnswer(next);
       return;
     }
+    if (key.startsWith("choice:")) {
+      const selected = key.slice("choice:".length);
+      answerRef.current = selected;
+      setAnswer(displayAnswerInput(selected, current.question));
+      window.setTimeout(() => gradeAnswer(selected, false), 40);
+      return;
+    }
+    if (key === "separator") {
+      const separator = current.question.answerType === "rational" ? "/" : "|";
+      if (!answerRef.current || answerRef.current.includes(separator)) return;
+      const next = `${answerRef.current}${separator}`;
+      answerRef.current = next;
+      setAnswer(displayAnswerInput(next, current.question));
+      return;
+    }
     if (key === "." && (!current.question.acceptsDecimal || answerRef.current.includes("."))) return;
 
-    const maxLength = String(current.question.answerDisplay ?? current.question.answer).replace(/[^0-9]/g, "").length;
-    const next = `${answerRef.current}${key}`.slice(0, Math.max(1, maxLength + (current.question.acceptsDecimal ? 1 : 0)));
+    const structuredAnswer = ["rational", "quotient-remainder"].includes(current.question.answerType);
+    const expectedInput = String(current.question.answerInput ?? current.question.answerDisplay ?? current.question.answer);
+    const maxLength = structuredAnswer ? 16 : expectedInput.length;
+    const next = `${answerRef.current}${key}`.slice(0, Math.max(1, maxLength));
     answerRef.current = next;
-    setAnswer(next);
+    setAnswer(displayAnswerInput(next, current.question));
 
-    if (isCompleteAnswer(next, current.question)) {
+    if (structuredAnswer) {
+      const separator = current.question.answerType === "rational" ? "/" : "|";
+      if (next.includes(separator) && !next.endsWith(separator)) {
+        const normalized = normalizeUserAnswer(next, current.question);
+        if (normalized != null && answersMatch(normalized, current.question)) {
+          answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(next, false), 40);
+        } else {
+          answerSubmitTimeoutRef.current = window.setTimeout(
+            () => gradeAnswer(next, false),
+            STRUCTURED_ANSWER_DELAY_MS,
+          );
+        }
+      }
+    } else if (isCompleteAnswer(next, current.question)) {
       window.setTimeout(() => gradeAnswer(next, false), 40);
     }
   }, [feedback, gradeAnswer, paused]);
@@ -292,6 +358,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const pause = useCallback(() => {
     const current = runtimeRef.current;
     if (!current || paused) return;
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     pausedAtRef.current = Date.now();
     const updated = { ...current, adaptiveSession: pausePracticeSession(current.adaptiveSession) };
     runtimeRef.current = updated;
@@ -319,6 +386,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     if (!providedRuntime || finishedRef.current) return;
     finishedRef.current = true;
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
+    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
 
     const endedAt = Date.now();
     const finished = finishPracticeSession(providedRuntime.adaptiveSession, {
@@ -381,6 +449,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     if (!current) return;
     if (!current.adaptiveSession.attempts.length) {
       if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
+      if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
       runtimeRef.current = null;
       finishedRef.current = true;
       gradingRef.current = false;
@@ -436,25 +505,6 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     resume,
     session: publicSession,
   };
-}
-
-function normalizeUserAnswer(value) {
-  const normalized = String(value).trim().replace(",", ".");
-  if (!normalized || normalized === ".") return null;
-  const numeric = Number(normalized);
-  return Number.isFinite(numeric) ? numeric : null;
-}
-
-function answersMatch(given, expected) {
-  return Math.abs(Number(given) - Number(expected)) < 0.000001;
-}
-
-function isCompleteAnswer(value, question) {
-  if (!value) return false;
-  const expected = String(question.answerDisplay ?? question.answer).replace(",", ".");
-  if (question.acceptsDecimal) return value === expected;
-  const digits = expected.replace(/[^0-9]/g, "").length;
-  return value.replace(/[^0-9]/g, "").length >= digits;
 }
 
 function inferStartingDifficulty(attempts, groupId) {

@@ -1,0 +1,5221 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "id": "calculo-mental-use-esse",
+    "titulo": "Secrets of Mental Math",
+    "autores": [
+      "Arthur Benjamin",
+      "Michael Shermer"
+    ],
+    "edicao": "Three Rivers Press, 2006",
+    "idiomaOriginal": "en",
+    "idiomaDosDados": "pt-BR",
+    "paginationNote": "Página PDF geralmente = impressa + 26; PDF 83 é duplicata indevida da impressa 216 e a impressa 58 está ausente."
+  },
+  "statistics": {
+    "total": 83,
+    "playable": 83,
+    "byChapter": {
+      "8": 73,
+      "9": 10
+    }
+  },
+  "challenges": [
+    {
+      "id": "somm-c08-quadrados-quatro-01",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 1.234².",
+      "answer": {
+        "type": "exact-number",
+        "value": 1522756,
+        "display": "1.522.756"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "1.234² = 1.000 × 1.468 + 234²",
+          "explanation": "Balanceie 1.234 no milhar mais próximo, afastando 234 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "1.000 × 1.468 = 1.468.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "234² = 54.756",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "1.468.000 + 54.756 = 1.522.756",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-quatro-02",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 8.639².",
+      "answer": {
+        "type": "exact-number",
+        "value": 74632321,
+        "display": "74.632.321"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "8.639² = 8.278 × 9.000 + 361²",
+          "explanation": "Balanceie 8.639 no milhar mais próximo, afastando 361 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "8.278 × 9.000 = 74.502.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "361² = 130.321",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "74.502.000 + 130.321 = 74.632.321",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-quatro-03",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 5.312².",
+      "answer": {
+        "type": "exact-number",
+        "value": 28217344,
+        "display": "28.217.344"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "5.312² = 5.000 × 5.624 + 312²",
+          "explanation": "Balanceie 5.312 no milhar mais próximo, afastando 312 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "5.000 × 5.624 = 28.120.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "312² = 97.344",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "28.120.000 + 97.344 = 28.217.344",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-quatro-04",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 9.863².",
+      "answer": {
+        "type": "exact-number",
+        "value": 97278769,
+        "display": "97.278.769"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "9.863² = 9.726 × 10.000 + 137²",
+          "explanation": "Balanceie 9.863 no milhar mais próximo, afastando 137 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "9.726 × 10.000 = 97.260.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "137² = 18.769",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "97.260.000 + 18.769 = 97.278.769",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-quatro-05",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 3.618².",
+      "answer": {
+        "type": "exact-number",
+        "value": 13089924,
+        "display": "13.089.924"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "3.618² = 3.236 × 4.000 + 382²",
+          "explanation": "Balanceie 3.618 no milhar mais próximo, afastando 382 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "3.236 × 4.000 = 12.944.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "382² = 145.924",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "12.944.000 + 145.924 = 13.089.924",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-quatro-06",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-quatro-digitos",
+      "exerciseSetTitle": "Quadrados de quatro dígitos",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 2.971².",
+      "answer": {
+        "type": "exact-number",
+        "value": 8826841,
+        "display": "8.826.841"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-quadrados-tres",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "quatro-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "2.971² = 2.942 × 3.000 + 29²",
+          "explanation": "Balanceie 2.971 no milhar mais próximo, afastando 29 para cada lado."
+        },
+        {
+          "order": 2,
+          "expression": "2.942 × 3.000 = 8.826.000",
+          "explanation": "Calcule o produto com um fator redondo."
+        },
+        {
+          "order": 3,
+          "expression": "29² = 841",
+          "explanation": "Calcule a correção positiva."
+        },
+        {
+          "order": 4,
+          "expression": "8.826.000 + 841 = 8.826.841",
+          "explanation": "Some produto principal e correção."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 169,
+        "promptPdfPage": 195,
+        "answerPrintedPage": 258,
+        "answerPdfPage": 284,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-01",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 858 × 15 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 12870,
+        "display": "12.870"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "15 = 20 − 5",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "858 × 20 = 17.160",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "858 × 5 = 4.290",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "17.160 − 4.290 = 12.870",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-02",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 796 × 19 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 15124,
+        "display": "15.124"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "19 = 20 − 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "796 × 20 = 15.920",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "796 × 1 = 796",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "15.920 − 796 = 15.124",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-03",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 148 × 62 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 9176,
+        "display": "9.176"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "62 = 60 + 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "148 × 60 = 8.880",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "148 × 2 = 296",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "8.880 + 296 = 9.176",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-04",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 773 × 42 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 32466,
+        "display": "32.466"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "42 = 40 + 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "773 × 40 = 30.920",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "773 × 2 = 1.546",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "30.920 + 1.546 = 32.466",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-05",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 906 × 46 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 41676,
+        "display": "41.676"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "46 = 50 − 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "906 × 50 = 45.300",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "906 × 4 = 3.624",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "45.300 − 3.624 = 41.676",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-06",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 952 × 26 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 24752,
+        "display": "24.752"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "26 = 30 − 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "952 × 30 = 28.560",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "952 × 4 = 3.808",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "28.560 − 3.808 = 24.752",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-07",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 7,
+      "prompt": "Calcule 411 × 93 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 38223,
+        "display": "38.223"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "93 = 90 + 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "411 × 90 = 36.990",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "411 × 3 = 1.233",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "36.990 + 1.233 = 38.223",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-08",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 8,
+      "prompt": "Calcule 967 × 51 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 49317,
+        "display": "49.317"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "51 = 50 + 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "967 × 50 = 48.350",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "967 × 1 = 967",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "48.350 + 967 = 49.317",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-09",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 9,
+      "prompt": "Calcule 484 × 75 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 36300,
+        "display": "36.300"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "75 = 80 − 5",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "484 × 80 = 38.720",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "484 × 5 = 2.420",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "38.720 − 2.420 = 36.300",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 259,
+        "answerPdfPage": 285,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-10",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 10,
+      "prompt": "Calcule 126 × 87 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 10962,
+        "display": "10.962"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "87 = 90 − 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "126 × 90 = 11.340",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "126 × 3 = 378",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "11.340 − 378 = 10.962",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-11",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 11,
+      "prompt": "Calcule 157 × 33 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 5181,
+        "display": "5.181"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "33 = 30 + 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "157 × 30 = 4.710",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "157 × 3 = 471",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "4.710 + 471 = 5.181",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-12",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 12,
+      "prompt": "Calcule 616 × 37 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 22792,
+        "display": "22.792"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "37 = 40 − 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "616 × 40 = 24.640",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "616 × 3 = 1.848",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "24.640 − 1.848 = 22.792",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-13",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 13,
+      "prompt": "Calcule 841 × 72 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 60552,
+        "display": "60.552"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "72 = 70 + 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "841 × 70 = 58.870",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "841 × 2 = 1.682",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "58.870 + 1.682 = 60.552",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-14",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 14,
+      "prompt": "Calcule 361 × 41 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 14801,
+        "display": "14.801"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "41 = 40 + 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "361 × 40 = 14.440",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "361 × 1 = 361",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "14.440 + 361 = 14.801",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-15",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 15,
+      "prompt": "Calcule 218 × 68 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 14824,
+        "display": "14.824"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "68 = 70 − 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "218 × 70 = 15.260",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "218 × 2 = 436",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "15.260 − 436 = 14.824",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-16",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 16,
+      "prompt": "Calcule 538 × 53 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 28514,
+        "display": "28.514"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "53 = 50 + 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "538 × 50 = 26.900",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "538 × 3 = 1.614",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "26.900 + 1.614 = 28.514",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-17",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 17,
+      "prompt": "Calcule 817 × 61 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 49837,
+        "display": "49.837"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "61 = 60 + 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "817 × 60 = 49.020",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "817 × 1 = 817",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "49.020 + 817 = 49.837",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-18",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 18,
+      "prompt": "Calcule 668 × 63 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 42084,
+        "display": "42.084"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "63 = 60 + 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "668 × 60 = 40.080",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "668 × 3 = 2.004",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "40.080 + 2.004 = 42.084",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-19",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 19,
+      "prompt": "Calcule 499 × 25 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 12475,
+        "display": "12.475"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "25 = 30 − 5",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "499 × 30 = 14.970",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "499 × 5 = 2.495",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "14.970 − 2.495 = 12.475",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-20",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 20,
+      "prompt": "Calcule 144 × 56 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 8064,
+        "display": "8.064"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "56 = 60 − 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "144 × 60 = 8.640",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "144 × 4 = 576",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "8.640 − 576 = 8.064",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 260,
+        "answerPdfPage": 286,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-21",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 21,
+      "prompt": "Calcule 281 × 44 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 12364,
+        "display": "12.364"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "44 = 40 + 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "281 × 40 = 11.240",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "281 × 4 = 1.124",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "11.240 + 1.124 = 12.364",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-22",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 22,
+      "prompt": "Calcule 988 × 22 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 21736,
+        "display": "21.736"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "22 = 20 + 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "988 × 20 = 19.760",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "988 × 2 = 1.976",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "19.760 + 1.976 = 21.736",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-23",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 23,
+      "prompt": "Calcule 383 × 49 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 18767,
+        "display": "18.767"
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "49 = 50 − 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "383 × 50 = 19.150",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "383 × 1 = 383",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "19.150 − 383 = 18.767",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-24",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 24,
+      "prompt": "Calcule 589 × 87 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 51243,
+        "display": "51.243"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "87 = 90 − 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "589 × 90 = 53.010",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "589 × 3 = 1.767",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "53.010 − 1.767 = 51.243",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-25",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 25,
+      "prompt": "Calcule 286 × 64 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 18304,
+        "display": "18.304"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "64 = 60 + 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "286 × 60 = 17.160",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "286 × 4 = 1.144",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "17.160 + 1.144 = 18.304",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-26",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 26,
+      "prompt": "Calcule 853 × 32 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 27296,
+        "display": "27.296"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "32 = 30 + 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "853 × 30 = 25.590",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "853 × 2 = 1.706",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "25.590 + 1.706 = 27.296",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-27",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 27,
+      "prompt": "Calcule 878 × 24 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 21072,
+        "display": "21.072"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "24 = 20 + 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "878 × 20 = 17.560",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "878 × 4 = 3.512",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "17.560 + 3.512 = 21.072",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-28",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 28,
+      "prompt": "Calcule 423 × 65 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 27495,
+        "display": "27.495"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "65 = 70 − 5",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "423 × 70 = 29.610",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "423 × 5 = 2.115",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "29.610 − 2.115 = 27.495",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-29",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 29,
+      "prompt": "Calcule 154 × 19 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 2926,
+        "display": "2.926"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "19 = 20 − 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "154 × 20 = 3.080",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "154 × 1 = 154",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "3.080 − 154 = 2.926",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-30",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 30,
+      "prompt": "Calcule 834 × 34 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 28356,
+        "display": "28.356"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "34 = 30 + 4",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "834 × 30 = 25.020",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "834 × 4 = 3.336",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "25.020 + 3.336 = 28.356",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-31",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 31,
+      "prompt": "Calcule 545 × 27 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 14715,
+        "display": "14.715"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "27 = 30 − 3",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "545 × 30 = 16.350",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "545 × 3 = 1.635",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "16.350 − 1.635 = 14.715",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 261,
+        "answerPdfPage": 287,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-32",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 32,
+      "prompt": "Calcule 653 × 69 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 45057,
+        "display": "45.057"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "69 = 70 − 1",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "653 × 70 = 45.710",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "653 × 1 = 653",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "45.710 − 653 = 45.057",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 262,
+        "answerPdfPage": 288,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-33",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 33,
+      "prompt": "Calcule 216 × 78 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 16848,
+        "display": "16.848"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "78 = 80 − 2",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "216 × 80 = 17.280",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "216 × 2 = 432",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "17.280 − 432 = 16.848",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 262,
+        "answerPdfPage": 288,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-dois-34",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-dois",
+      "exerciseSetTitle": "Multiplicação 3×2 por fatoração, adição ou subtração",
+      "exerciseNumber": 34,
+      "prompt": "Calcule 822 × 95 usando a estratégia de menor esforço.",
+      "answer": {
+        "type": "exact-number",
+        "value": 78090,
+        "display": "78.090"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c11-tres-por-dois",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-adicao-subtracao",
+        "c07-escolha",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x2",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "95 = 100 − 5",
+          "explanation": "Uma decomposição distributiva independente fornece uma rota de conferência."
+        },
+        {
+          "order": 2,
+          "expression": "822 × 100 = 82.200",
+          "explanation": "Calcule o produto pela dezena redonda."
+        },
+        {
+          "order": 3,
+          "expression": "822 × 5 = 4.110",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "82.200 − 4.110 = 78.090",
+          "explanation": "Aplique a correção e confira a ordem de grandeza."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 176,
+        "promptPdfPage": 202,
+        "answerPrintedPage": 262,
+        "answerPdfPage": 288,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-01",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 45.795².",
+      "answer": {
+        "type": "exact-number",
+        "value": 2097182025,
+        "display": "2.097.182.025"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "45.795 = 45.000 + 795",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 45 × 795 × 1.000 = 71.550.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "45² × 1.000.000 = 2.025.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "795² = 632.025",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "2.025.000.000 + 71.550.000 + 632.025 = 2.097.182.025",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 262,
+        "answerPdfPage": 288,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-02",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 21.231².",
+      "answer": {
+        "type": "exact-number",
+        "value": 450755361,
+        "display": "450.755.361"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "21.231 = 21.000 + 231",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 21 × 231 × 1.000 = 9.702.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "21² × 1.000.000 = 441.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "231² = 53.361",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "441.000.000 + 9.702.000 + 53.361 = 450.755.361",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 262,
+        "answerPdfPage": 288,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-03",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 58.324².",
+      "answer": {
+        "type": "exact-number",
+        "value": 3401688976,
+        "display": "3.401.688.976"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "58.324 = 58.000 + 324",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 58 × 324 × 1.000 = 37.584.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "58² × 1.000.000 = 3.364.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "324² = 104.976",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "3.364.000.000 + 37.584.000 + 104.976 = 3.401.688.976",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 263,
+        "answerPdfPage": 289,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-04",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 62.457².",
+      "answer": {
+        "type": "exact-number",
+        "value": 3900876849,
+        "display": "3.900.876.849"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "62.457 = 62.000 + 457",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 62 × 457 × 1.000 = 56.668.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "62² × 1.000.000 = 3.844.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "457² = 208.849",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "3.844.000.000 + 56.668.000 + 208.849 = 3.900.876.849",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 263,
+        "answerPdfPage": 289,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-05",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 89.854².",
+      "answer": {
+        "type": "exact-number",
+        "value": 8073741316,
+        "display": "8.073.741.316"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "89.854 = 89.000 + 854",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 89 × 854 × 1.000 = 152.012.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "89² × 1.000.000 = 7.921.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "854² = 729.316",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "7.921.000.000 + 152.012.000 + 729.316 = 8.073.741.316",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 264,
+        "answerPdfPage": 290,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-quadrados-cinco-06",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-quadrados-cinco-digitos",
+      "exerciseSetTitle": "Quadrados de cinco dígitos",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 76.934².",
+      "answer": {
+        "type": "exact-number",
+        "value": 5918840356,
+        "display": "5.918.840.356"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "quadrado",
+      "theoryTopicId": "c11-quadrados-quatro",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-simplificacao"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "quadrado",
+        "cinco-digitos",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "76.934 = 76.000 + 934",
+          "explanation": "Separe o número em milhares e uma cauda de três algarismos."
+        },
+        {
+          "order": 2,
+          "expression": "2 × 76 × 934 × 1.000 = 141.968.000",
+          "explanation": "Resolva primeiro o termo cruzado 3×2."
+        },
+        {
+          "order": 3,
+          "expression": "76² × 1.000.000 = 5.776.000.000",
+          "explanation": "Calcule o quadrado do bloco alto em milhões."
+        },
+        {
+          "order": 4,
+          "expression": "934² = 872.356",
+          "explanation": "Calcule o quadrado da cauda."
+        },
+        {
+          "order": 5,
+          "expression": "5.776.000.000 + 141.968.000 + 872.356 = 5.918.840.356",
+          "explanation": "Combine os três blocos, acompanhando os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 180,
+        "promptPdfPage": 206,
+        "answerPrintedPage": 264,
+        "answerPdfPage": 290,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-01",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 644 × 286 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 184184,
+        "display": "184.184"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "286 = 300 − 14",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "644 × 300 = 193.200",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "644 × 14 = 9.016",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "193.200 − 9.016 = 184.184",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-02",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 596 × 167 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 99532,
+        "display": "99.532"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "167 = 200 − 33",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "596 × 200 = 119.200",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "596 × 33 = 19.668",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "119.200 − 19.668 = 99.532",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-03",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 853 × 325 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 277225,
+        "display": "277.225"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "325 = 300 + 25",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "853 × 300 = 255.900",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "853 × 25 = 21.325",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "255.900 + 21.325 = 277.225",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-04",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 343 × 226 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 77518,
+        "display": "77.518"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "226 = 200 + 26",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "343 × 200 = 68.600",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "343 × 26 = 8.918",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "68.600 + 8.918 = 77.518",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-05",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 5,
+      "prompt": "Calcule 809 × 527 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 426343,
+        "display": "426.343"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "527 = 500 + 27",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "809 × 500 = 404.500",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "809 × 27 = 21.843",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "404.500 + 21.843 = 426.343",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-06",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 6,
+      "prompt": "Calcule 942 × 879 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 828018,
+        "display": "828.018"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "879 = 900 − 21",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "942 × 900 = 847.800",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "942 × 21 = 19.782",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "847.800 − 19.782 = 828.018",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 265,
+        "answerPdfPage": 291,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-07",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 7,
+      "prompt": "Calcule 692 × 644 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 445648,
+        "display": "445.648"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "644 = 600 + 44",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "692 × 600 = 415.200",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "692 × 44 = 30.448",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "415.200 + 30.448 = 445.648",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-08",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 8,
+      "prompt": "Calcule 446 × 176 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 78496,
+        "display": "78.496"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "176 = 200 − 24",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "446 × 200 = 89.200",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "446 × 24 = 10.704",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "89.200 − 10.704 = 78.496",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-09",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 9,
+      "prompt": "Calcule 658 × 468 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 307944,
+        "display": "307.944"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "468 = 500 − 32",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "658 × 500 = 329.000",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "658 × 32 = 21.056",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "329.000 − 21.056 = 307.944",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-10",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 10,
+      "prompt": "Calcule 273 × 138 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 37674,
+        "display": "37.674"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "138 = 100 + 38",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "273 × 100 = 27.300",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "273 × 38 = 10.374",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "27.300 + 10.374 = 37.674",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 192,
+        "promptPdfPage": 218,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-11",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 11,
+      "prompt": "Calcule 824 × 206 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 169744,
+        "display": "169.744"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "206 = 200 + 6",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "824 × 200 = 164.800",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "824 × 6 = 4.944",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "164.800 + 4.944 = 169.744",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-12",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 12,
+      "prompt": "Calcule 642 × 249 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 159858,
+        "display": "159.858"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "249 = 200 + 49",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "642 × 200 = 128.400",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "642 × 49 = 31.458",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "128.400 + 31.458 = 159.858",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 266,
+        "answerPdfPage": 292,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-13",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 13,
+      "prompt": "Calcule 783 × 589 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 461187,
+        "display": "461.187"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "589 = 600 − 11",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "783 × 600 = 469.800",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "783 × 11 = 8.613",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "469.800 − 8.613 = 461.187",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-14",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 14,
+      "prompt": "Calcule 871 × 926 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 806546,
+        "display": "806.546"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "926 = 900 + 26",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "871 × 900 = 783.900",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "871 × 26 = 22.646",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "783.900 + 22.646 = 806.546",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-15",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 15,
+      "prompt": "Calcule 341 × 715 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 243815,
+        "display": "243.815"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "715 = 700 + 15",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "341 × 700 = 238.700",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "341 × 15 = 5.115",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "238.700 + 5.115 = 243.815",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-16",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 16,
+      "prompt": "Calcule 417 × 298 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 124266,
+        "display": "124.266"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "298 = 300 − 2",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "417 × 300 = 125.100",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "417 × 2 = 834",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "125.100 − 834 = 124.266",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-17",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 17,
+      "prompt": "Calcule 557 × 756 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 421092,
+        "display": "421.092"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "756 = 800 − 44",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "557 × 800 = 445.600",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "557 × 44 = 24.508",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "445.600 − 24.508 = 421.092",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-18",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 18,
+      "prompt": "Calcule 976 × 878 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 856928,
+        "display": "856.928"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "878 = 900 − 22",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "976 × 900 = 878.400",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "976 × 22 = 21.472",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "878.400 − 21.472 = 856.928",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 267,
+        "answerPdfPage": 293,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-19",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 19,
+      "prompt": "Calcule 765 × 350 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 267750,
+        "display": "267.750"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "350 = 400 − 50",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "765 × 400 = 306.000",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "765 × 50 = 38.250",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "306.000 − 38.250 = 267.750",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 268,
+        "answerPdfPage": 294,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-20",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 20,
+      "prompt": "Calcule 154 × 423 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 65142,
+        "display": "65.142"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "423 = 400 + 23",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "154 × 400 = 61.600",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "154 × 23 = 3.542",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "61.600 + 3.542 = 65.142",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 268,
+        "answerPdfPage": 294,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-21",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 21,
+      "prompt": "Calcule 545 × 834 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 454530,
+        "display": "454.530"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "834 = 800 + 34",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "545 × 800 = 436.000",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "545 × 34 = 18.530",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "436.000 + 18.530 = 454.530",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 268,
+        "answerPdfPage": 294,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-22",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 22,
+      "prompt": "Calcule 216 × 653 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 141048,
+        "display": "141.048"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "653 = 700 − 47",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "216 × 700 = 151.200",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "216 × 47 = 10.152",
+          "explanation": "Calcule a correção a subtrair."
+        },
+        {
+          "order": 4,
+          "expression": "151.200 − 10.152 = 141.048",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 268,
+        "answerPdfPage": 294,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-tres-por-tres-23",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-tres-por-tres",
+      "exerciseSetTitle": "Multiplicação 3×3",
+      "exerciseNumber": 23,
+      "prompt": "Calcule 393 × 822 escolhendo uma simplificação conveniente.",
+      "answer": {
+        "type": "exact-number",
+        "value": 323046,
+        "display": "323.046"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c07-fatoracao",
+        "c07-numeros-proximos",
+        "c07-adicao-subtracao",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "3x3",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "822 = 800 + 22",
+          "explanation": "Decomponha pelo múltiplo de 100 mais próximo para validar independentemente."
+        },
+        {
+          "order": 2,
+          "expression": "393 × 800 = 314.400",
+          "explanation": "Calcule o bloco de centenas."
+        },
+        {
+          "order": 3,
+          "expression": "393 × 22 = 8.646",
+          "explanation": "Calcule a correção a somar."
+        },
+        {
+          "order": 4,
+          "expression": "314.400 + 8.646 = 323.046",
+          "explanation": "Aplique a correção; o valor coincide com o gabarito."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 193,
+        "promptPdfPage": 219,
+        "answerPrintedPage": 268,
+        "answerPdfPage": 294,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-cinco-por-cinco-01",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-cinco-por-cinco",
+      "exerciseSetTitle": "Multiplicação 5×5",
+      "exerciseNumber": 1,
+      "prompt": "Calcule 65.154 × 19.423.",
+      "answer": {
+        "type": "exact-number",
+        "value": 1265486142,
+        "display": "1.265.486.142"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "5x5",
+        "desafio-avancado",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "65.154 = 65.000 + 154; 19.423 = 19.000 + 423",
+          "explanation": "Separe cada fator em bloco de milhares e cauda."
+        },
+        {
+          "order": 2,
+          "expression": "65 × 19 × 1.000.000 = 1.235.000.000",
+          "explanation": "Calcule o produto dos blocos altos em milhões."
+        },
+        {
+          "order": 3,
+          "expression": "(65 × 423 + 19 × 154) × 1.000 = 30.421.000",
+          "explanation": "Some os dois produtos cruzados e escale para milhares."
+        },
+        {
+          "order": 4,
+          "expression": "154 × 423 = 65.142",
+          "explanation": "Calcule o produto das caudas."
+        },
+        {
+          "order": 5,
+          "expression": "1.235.000.000 + 30.421.000 + 65.142 = 1.265.486.142",
+          "explanation": "Combine os blocos e os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 198,
+        "promptPdfPage": 224,
+        "answerPrintedPage": 269,
+        "answerPdfPage": 295,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-cinco-por-cinco-02",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-cinco-por-cinco",
+      "exerciseSetTitle": "Multiplicação 5×5",
+      "exerciseNumber": 2,
+      "prompt": "Calcule 34.545 × 27.834.",
+      "answer": {
+        "type": "exact-number",
+        "value": 961525530,
+        "display": "961.525.530"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "5x5",
+        "desafio-avancado",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "34.545 = 34.000 + 545; 27.834 = 27.000 + 834",
+          "explanation": "Separe cada fator em bloco de milhares e cauda."
+        },
+        {
+          "order": 2,
+          "expression": "34 × 27 × 1.000.000 = 918.000.000",
+          "explanation": "Calcule o produto dos blocos altos em milhões."
+        },
+        {
+          "order": 3,
+          "expression": "(34 × 834 + 27 × 545) × 1.000 = 43.071.000",
+          "explanation": "Some os dois produtos cruzados e escale para milhares."
+        },
+        {
+          "order": 4,
+          "expression": "545 × 834 = 454.530",
+          "explanation": "Calcule o produto das caudas."
+        },
+        {
+          "order": 5,
+          "expression": "918.000.000 + 43.071.000 + 454.530 = 961.525.530",
+          "explanation": "Combine os blocos e os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 198,
+        "promptPdfPage": 224,
+        "answerPrintedPage": 269,
+        "answerPdfPage": 295,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-cinco-por-cinco-03",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-cinco-por-cinco",
+      "exerciseSetTitle": "Multiplicação 5×5",
+      "exerciseNumber": 3,
+      "prompt": "Calcule 69.216 × 78.653.",
+      "answer": {
+        "type": "exact-number",
+        "value": 5444046048,
+        "display": "5.444.046.048"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "5x5",
+        "desafio-avancado",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "69.216 = 69.000 + 216; 78.653 = 78.000 + 653",
+          "explanation": "Separe cada fator em bloco de milhares e cauda."
+        },
+        {
+          "order": 2,
+          "expression": "69 × 78 × 1.000.000 = 5.382.000.000",
+          "explanation": "Calcule o produto dos blocos altos em milhões."
+        },
+        {
+          "order": 3,
+          "expression": "(69 × 653 + 78 × 216) × 1.000 = 61.905.000",
+          "explanation": "Some os dois produtos cruzados e escale para milhares."
+        },
+        {
+          "order": 4,
+          "expression": "216 × 653 = 141.048",
+          "explanation": "Calcule o produto das caudas."
+        },
+        {
+          "order": 5,
+          "expression": "5.382.000.000 + 61.905.000 + 141.048 = 5.444.046.048",
+          "explanation": "Combine os blocos e os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 198,
+        "promptPdfPage": 224,
+        "answerPrintedPage": 269,
+        "answerPdfPage": 295,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c08-cinco-por-cinco-04",
+      "sourceChapterOrder": 8,
+      "exerciseSetId": "c08-cinco-por-cinco",
+      "exerciseSetTitle": "Multiplicação 5×5",
+      "exerciseNumber": 4,
+      "prompt": "Calcule 95.393 × 81.822.",
+      "answer": {
+        "type": "exact-number",
+        "value": 7805246046,
+        "display": "7.805.246.046"
+      },
+      "playable": true,
+      "difficulty": 10,
+      "sectionId": "tabuada",
+      "theoryTopicId": "c12-simplificacao",
+      "relatedTheoryTopicIds": [
+        "c11-tres-por-dois",
+        "c09-ganchos",
+        "c12-escolha"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-08",
+        "multiplicacao",
+        "5x5",
+        "desafio-avancado",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "95.393 = 95.000 + 393; 81.822 = 81.000 + 822",
+          "explanation": "Separe cada fator em bloco de milhares e cauda."
+        },
+        {
+          "order": 2,
+          "expression": "95 × 81 × 1.000.000 = 7.695.000.000",
+          "explanation": "Calcule o produto dos blocos altos em milhões."
+        },
+        {
+          "order": 3,
+          "expression": "(95 × 822 + 81 × 393) × 1.000 = 109.923.000",
+          "explanation": "Some os dois produtos cruzados e escale para milhares."
+        },
+        {
+          "order": 4,
+          "expression": "393 × 822 = 323.046",
+          "explanation": "Calcule o produto das caudas."
+        },
+        {
+          "order": 5,
+          "expression": "7.695.000.000 + 109.923.000 + 323.046 = 7.805.246.046",
+          "explanation": "Combine os blocos e os transportes."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 198,
+        "promptPdfPage": 224,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-01",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 1,
+      "prompt": "Determine o dia da semana de 19 de janeiro de 2007.",
+      "answer": {
+        "type": "enum",
+        "value": "sexta-feira",
+        "display": "Sexta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 7,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 6",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 1",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "6 + 19 + 1 = 26",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "26 mod 7 = 5",
+          "explanation": "O resto corresponde a sexta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-02",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 2,
+      "prompt": "Determine o dia da semana de 14 de fevereiro de 2012.",
+      "answer": {
+        "type": "enum",
+        "value": "terça-feira",
+        "display": "Terça-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 7,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 1",
+          "explanation": "Fevereiro de ano bissexto usa código 1."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 1",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "1 + 14 + 1 = 16",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "16 mod 7 = 2",
+          "explanation": "O resto corresponde a terça-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-03",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 3,
+      "prompt": "Determine o dia da semana de 20 de junho de 1993.",
+      "answer": {
+        "type": "enum",
+        "value": "domingo",
+        "display": "Domingo",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 3",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 5",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "3 + 20 + 5 = 28",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "28 mod 7 = 0",
+          "explanation": "O resto corresponde a domingo."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-04",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 4,
+      "prompt": "Determine o dia da semana de 1º de setembro de 1983.",
+      "answer": {
+        "type": "enum",
+        "value": "quinta-feira",
+        "display": "Quinta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 4",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 6",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "4 + 1 + 6 = 11",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "11 mod 7 = 4",
+          "explanation": "O resto corresponde a quinta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-05",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 5,
+      "prompt": "Determine o dia da semana de 8 de setembro de 1954.",
+      "answer": {
+        "type": "enum",
+        "value": "quarta-feira",
+        "display": "Quarta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 8,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 4",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 5",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "4 + 8 + 5 = 17",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "17 mod 7 = 3",
+          "explanation": "O resto corresponde a quarta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-06",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 6,
+      "prompt": "Determine o dia da semana de 19 de novembro de 1863.",
+      "answer": {
+        "type": "enum",
+        "value": "quinta-feira",
+        "display": "Quinta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 2",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 4",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "2 + 19 + 4 = 25",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "25 mod 7 = 4",
+          "explanation": "O resto corresponde a quinta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-07",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 7,
+      "prompt": "Determine o dia da semana de 4 de julho de 1776.",
+      "answer": {
+        "type": "enum",
+        "value": "quinta-feira",
+        "display": "Quinta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 5",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 2",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "5 + 4 + 2 = 11",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "11 mod 7 = 4",
+          "explanation": "O resto corresponde a quinta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-08",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 8,
+      "prompt": "Determine o dia da semana de 22 de fevereiro de 2222.",
+      "answer": {
+        "type": "enum",
+        "value": "sexta-feira",
+        "display": "Sexta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 2",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 2",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "2 + 22 + 2 = 26",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "26 mod 7 = 5",
+          "explanation": "O resto corresponde a sexta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-09",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 9,
+      "prompt": "Determine o dia da semana de 31 de junho de 2468.",
+      "answer": {
+        "type": "enum",
+        "value": "data-invalida",
+        "display": "Data inválida — junho tem 30 dias",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "validacao-de-data",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "Junho tem 30 dias",
+          "explanation": "Valide a data antes de calcular códigos."
+        },
+        {
+          "order": 2,
+          "expression": "31 > 30",
+          "explanation": "O dia informado não existe no mês."
+        },
+        {
+          "order": 3,
+          "expression": "resultado: data inválida",
+          "explanation": "Não atribua dia da semana a uma data inexistente."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    },
+    {
+      "id": "somm-c09-calendario-10",
+      "sourceChapterOrder": 9,
+      "exerciseSetId": "c09-dia-para-qualquer-data",
+      "exerciseSetTitle": "Um dia para qualquer data",
+      "exerciseNumber": 10,
+      "prompt": "Determine o dia da semana de 1º de janeiro de 2358.",
+      "answer": {
+        "type": "enum",
+        "value": "quarta-feira",
+        "display": "Quarta-feira",
+        "options": [
+          "domingo",
+          "segunda-feira",
+          "terça-feira",
+          "quarta-feira",
+          "quinta-feira",
+          "sexta-feira",
+          "sábado",
+          "data-invalida"
+        ]
+      },
+      "playable": true,
+      "difficulty": 9,
+      "sectionId": "tricks",
+      "theoryTopicId": "c10-mes-data",
+      "relatedTheoryTopicIds": [
+        "c10-codigo-ano",
+        "c10-bissextos-regra28",
+        "c10-seculos"
+      ],
+      "tags": [
+        "livro",
+        "capitulo-09",
+        "calendario",
+        "dia-da-semana",
+        "modulo-7",
+        "exercicio-do-livro",
+        "solucao-verificada"
+      ],
+      "solutionSteps": [
+        {
+          "order": 1,
+          "expression": "código do mês = 6",
+          "explanation": "Use o código mensal do livro."
+        },
+        {
+          "order": 2,
+          "expression": "código do ano = 3",
+          "explanation": "O código já inclui o deslocamento do século quando necessário."
+        },
+        {
+          "order": 3,
+          "expression": "6 + 1 + 3 = 10",
+          "explanation": "Some mês, dia e ano."
+        },
+        {
+          "order": 4,
+          "expression": "10 mod 7 = 3",
+          "explanation": "O resto corresponde a quarta-feira."
+        }
+      ],
+      "source": {
+        "documentId": "calculo-mental-use-esse",
+        "promptPrintedPage": 221,
+        "promptPdfPage": 247,
+        "answerPrintedPage": 270,
+        "answerPdfPage": 296,
+        "recoveredFromAnswerKey": false
+      }
+    }
+  ]
+}

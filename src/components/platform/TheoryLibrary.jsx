@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MathExpression } from "../MathExpression";
+import { WorkedCalculation } from "../theory/WorkedCalculation";
 import { PageHeader } from "./AppChrome";
 
 function normalizeSearch(value) {
@@ -61,6 +62,7 @@ function WorkedExample({ example, index }) {
         <strong>{example.question}</strong>
         {example.answer ? <span>Resposta: {example.answer}</span> : null}
       </div>
+      {example.visual ? <WorkedCalculation visual={example.visual} /> : null}
       {example.steps?.length ? (
         <ol className="worked-example__steps">
           {example.steps.map((step, stepIndex) => (
@@ -76,6 +78,31 @@ function WorkedExample({ example, index }) {
       ) : null}
       {example.conclusion ? <p className="worked-example__conclusion">{example.conclusion}</p> : null}
     </article>
+  );
+}
+
+function ChapterProgression({ chapters, active, onSelect }) {
+  if (active.sourceKind !== "full-book") return null;
+  const mainChapters = chapters.filter((chapter) => chapter.sourceKind === "full-book");
+  const activeIndex = mainChapters.findIndex((chapter) => chapter.id === active.id);
+  const previous = mainChapters[activeIndex - 1] ?? null;
+  const next = mainChapters[activeIndex + 1] ?? null;
+
+  return (
+    <nav className="theory-progression" aria-label="Progressão do livro completo">
+      {previous ? (
+        <button type="button" onClick={() => onSelect(previous.id)}>
+          <small>← Anterior · L{previous.sourceOrder}</small>
+          <strong>{previous.title}</strong>
+        </button>
+      ) : <span />}
+      {next ? (
+        <button type="button" onClick={() => onSelect(next.id)}>
+          <small>Próximo · L{next.sourceOrder} →</small>
+          <strong>{next.title}</strong>
+        </button>
+      ) : null}
+    </nav>
   );
 }
 
@@ -162,7 +189,7 @@ function TheoryLesson({ lesson, index, expandForSearch }) {
         </div>
 
         <footer className="theory-lesson__source">
-          Fonte: calculo-mental-dicas.pdf{lesson.pageLabel ? ` · ${lesson.pageLabel}` : ""}
+          Fonte: {lesson.sourceLabel ?? "material didático"}{lesson.pageLabel ? ` · ${lesson.pageLabel}` : ""}
         </footer>
       </div>
     </details>
@@ -224,11 +251,12 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
         <PageHeader
           eyebrow="Biblioteca"
           title="Aprenda o raciocínio, não só a resposta"
-          description="Cada dica do material virou uma aula curta: quando usar, por que funciona, algoritmo mental e exemplos resolvidos passo a passo."
+          description="O livro completo virou uma trilha prática: explicação, conta armada, algoritmo mental e exemplos que avançam um passo por vez."
           actions={<TheorySearch query={query} onChange={(event) => setQuery(event.target.value)} />}
         />
         <div className="surface empty-library">
-          <strong>{chapters.length ? "Nenhuma dica corresponde à busca." : "O conteúdo teórico ainda está sendo carregado."}</strong>
+          <strong>{chapters.length ? "Nenhuma dica corresponde à busca." : "Abrindo o livro completo…"}</strong>
+          {!chapters.length ? <span className="library-loader" aria-hidden="true" /> : null}
           {chapters.length ? <button className="text-button" type="button" onClick={() => setQuery("")}>Limpar busca</button> : null}
         </div>
       </div>
@@ -240,29 +268,35 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
       <PageHeader
         eyebrow="Biblioteca"
         title="Aprenda o raciocínio, não só a resposta"
-        description="Cada dica do material virou uma aula curta: quando usar, por que funciona, algoritmo mental e exemplos resolvidos passo a passo."
+        description="O livro completo virou uma trilha prática: explicação, conta armada, algoritmo mental e exemplos que avançam um passo por vez."
         actions={<TheorySearch query={query} onChange={(event) => setQuery(event.target.value)} />}
       />
 
       <div className="theory-layout">
         <aside className="surface chapter-index" aria-label="Capítulos">
           <div className="chapter-index__heading">
-            <div><p className="eyebrow">Progressão</p><strong>12 capítulos</strong></div>
-            <span>{chapters.reduce((total, chapter) => total + chapter.lessons.length, 0)} dicas</span>
+            <div><p className="eyebrow">Progressão</p><strong>{chapters.filter((chapter) => chapter.sourceKind === "full-book").length} capítulos do livro</strong></div>
+            <span>{chapters.reduce((total, chapter) => total + chapter.lessons.length, 0)} aulas</span>
           </div>
           <div className="chapter-index__list">
-            {filtered.map((chapter) => (
-              <button
-                aria-current={chapter.id === active.id ? "page" : undefined}
-                key={chapter.id}
-                className={chapter.id === active.id ? "is-active" : ""}
-                type="button"
-                onClick={() => selectChapter(chapter.id)}
-              >
-                <span>{String(chapter.order).padStart(2, "0")}</span>
-                <strong>{chapter.title}</strong>
-                <small>{chapter.lessons.length} dicas · {chapter.difficultyLabel}</small>
-              </button>
+            {filtered.map((chapter, chapterIndex) => (
+              <div className="chapter-index__entry" key={chapter.id}>
+                {chapterIndex === 0 || filtered[chapterIndex - 1]?.sourceKind !== chapter.sourceKind ? (
+                  <p className="chapter-index__source-label">
+                    {chapter.sourceKind === "full-book" ? "Trilha principal · livro completo" : "Técnicas complementares · guia do curso"}
+                  </p>
+                ) : null}
+                <button
+                  aria-current={chapter.id === active.id ? "page" : undefined}
+                  className={chapter.id === active.id ? "is-active" : ""}
+                  type="button"
+                  onClick={() => selectChapter(chapter.id)}
+                >
+                  <span>{chapter.sourceKind === "full-book" ? `L${chapter.sourceOrder}` : `C${String(chapter.order).padStart(2, "0")}`}</span>
+                  <strong>{chapter.title}</strong>
+                  <small>{chapter.lessons.length} aulas · {chapter.sourceKind === "full-book" ? "Livro completo" : "Complemento"}</small>
+                </button>
+              </div>
             ))}
           </div>
           {!filtered.length ? <p className="empty-report">Nenhum capítulo corresponde à busca.</p> : null}
@@ -271,7 +305,9 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
         <article className="surface theory-reader" ref={readerRef}>
           <header className="theory-reader__header">
             <div>
-              <span className="chapter-pill">Capítulo {String(active.order).padStart(2, "0")} · {active.difficultyLabel}</span>
+              <span className="chapter-pill">
+                {active.sourceKind === "full-book" ? `Livro · capítulo ${active.sourceOrder}` : `Complemento · capítulo ${String(active.order).padStart(2, "0")}`} · {active.difficultyLabel}
+              </span>
               <h2 tabIndex="-1">{active.title}</h2>
               <p>{active.summary}</p>
               <div className="theory-reader__stats" aria-label="Conteúdo do capítulo">
@@ -345,9 +381,10 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
           </div>
 
           <footer className="theory-reader__footer">
-            <span>Fonte: <strong>calculo-mental-dicas.pdf</strong>{active.pageLabel ? ` · ${active.pageLabel}` : ""}</span>
+            <span>Fonte: <strong>{active.sourceLabel ?? "Course Guidebook, 2011"}</strong>{active.pageLabel ? ` · ${active.pageLabel}` : ""}</span>
             <button className="button button--primary" type="button" onClick={() => onPractice(active)}>Reconhecer no treino →</button>
           </footer>
+          <ChapterProgression active={active} chapters={chapters} onSelect={selectChapter} />
         </article>
       </div>
     </div>

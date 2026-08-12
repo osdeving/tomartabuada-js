@@ -1,10 +1,11 @@
 const CACHE_PREFIX = "calculo-mental";
-const SHELL_CACHE = `${CACHE_PREFIX}-shell-v1`;
-const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v1`;
+const SHELL_CACHE = `${CACHE_PREFIX}-shell-v2`;
+const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v2`;
 const APP_SCOPE = new URL("./", self.registration.scope);
 
 const CORE_PATHS = [
   "./offline.html",
+  "./asset-manifest.json",
   "./manifest.webmanifest",
   "./icons/app-icon.svg",
   "./icons/icon-192.png",
@@ -32,6 +33,9 @@ async function cacheAppShell() {
   }
 
   const html = await indexResponse.clone().text();
+  const manifestUrl = urlFromScope("./asset-manifest.json");
+  const manifestResponse = await fetch(manifestUrl, { cache: "reload" });
+  const manifest = manifestResponse.ok ? await manifestResponse.clone().json() : {};
   await Promise.all([
     cache.put(indexUrl, indexResponse.clone()),
     cache.put(APP_SCOPE.href, indexResponse.clone()),
@@ -48,8 +52,13 @@ async function cacheAppShell() {
         url.pathname.startsWith(APP_SCOPE.pathname),
     );
 
+  const manifestAssets = Object.values(manifest)
+    .flatMap((entry) => [entry.file, ...(entry.css ?? []), ...(entry.assets ?? [])])
+    .filter(Boolean)
+    .map((path) => new URL(path, indexUrl));
+
   await Promise.allSettled(
-    [...new Set(buildAssets.map((url) => url.href))].map((assetUrl) =>
+    [...new Set([...buildAssets, ...manifestAssets].map((url) => url.href))].map((assetUrl) =>
       cache.add(assetUrl),
     ),
   );

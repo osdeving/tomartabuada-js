@@ -3,4 +3,5 @@ dist
 /.playwright-cli/
 /output/playwright/
 /calculo-mental-dicas.pdf
+/calculo-mental-use-esse.pdf
 /*:Zone.Identifier
