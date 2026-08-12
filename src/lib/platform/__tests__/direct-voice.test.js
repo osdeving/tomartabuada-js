@@ -19,6 +19,7 @@ const CONTENT_FILES = [
 const NON_DISPLAY_BRANCHES = new Set([
   "contrato",
   "id",
+  "capituloId",
   "origem",
   "originalTitle",
   "source",
@@ -27,7 +28,7 @@ const NON_DISPLAY_BRANCHES = new Set([
   "tituloOriginal",
 ]);
 
-const EDITORIAL_ATTRIBUTION = /\b(?:o livro|no livro|do livro|pelo livro|segundo o livro|de acordo com|com base (?:em|no|na)|o autor|pelo autor|do autor|o texto (?:apresenta|destaca|explica|mostra|observa|recomenda)|a exposição|o glossário|gabarito|(?:no|do|pelo) original|original inglês|página (?:impressa|ausente|\d)|PDF)\b/i;
+const EDITORIAL_ATTRIBUTION = /\b(?:cap[ií]tulos?|livros?|de acordo com|com base (?:em|no|na)|o autor|pelo autor|do autor|o texto (?:apresenta|destaca|explica|mostra|observa|recomenda)|a exposição|o glossário|gabarito|(?:no|do|pelo) original|original inglês|página (?:impressa|ausente|\d)|PDF)\b/i;
 
 function readJson(relativePath) {
   return JSON.parse(readFileSync(new URL(relativePath, import.meta.url), "utf8"));

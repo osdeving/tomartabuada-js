@@ -183,7 +183,7 @@ export function buildTheoryIndex(rawChapters) {
         chapter.summary ?? chapter.resumo ?? chapter.objetivo,
         "Conteúdo teórico e exemplos para reconhecer o método durante o treino.",
       );
-      const title = textValue(chapter.title ?? chapter.titulo, `Capítulo ${order}`);
+      const title = textValue(chapter.title ?? chapter.titulo, `Etapa ${order}`);
       const searchText = normalizeSearchText([
         title,
         chapter.tituloOriginal,

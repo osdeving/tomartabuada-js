@@ -527,7 +527,7 @@ function normalizeBookChallenge(item) {
     acceptsDecimal: !Number.isInteger(answer),
     tolerance: 0.000001,
     hint: item.instrucao,
-    breakdown: `${item.instrucao} Exercício ${item.exercicio} do capítulo ${item.capituloOrdem}.`,
+    breakdown: `${item.instrucao} Exercício guiado ${item.exercicio}.`,
   };
 }
 

@@ -4,6 +4,13 @@ import {
 } from "../../lib/platform/campaign";
 import { PageHeader } from "./AppChrome";
 
+function campaignTier(order) {
+  if (order <= 3) return "Fundamentos";
+  if (order <= 6) return "Fluência";
+  if (order <= 9) return "Estratégia";
+  return "Maestria";
+}
+
 export function CampaignJourney({ campaign, onStartStage }) {
   const completed = CAMPAIGN_STAGES.filter((stage) => campaign[stage.id]?.completed).length;
 
@@ -12,8 +19,8 @@ export function CampaignJourney({ campaign, onStartStage }) {
       <PageHeader
         eyebrow="Jornada guiada"
         title="Do aquecimento à maestria"
-        description="A sequência começa leve: cada capítulo adiciona uma camada e reduz um pouco a margem de tempo."
-        actions={<span className="campaign-progress"><strong>{completed}</strong> / {CAMPAIGN_STAGES.length} capítulos</span>}
+        description="A sequência começa leve: cada etapa adiciona uma camada e reduz um pouco a margem de tempo."
+        actions={<span className="campaign-progress"><strong>{completed}</strong> / {CAMPAIGN_STAGES.length} etapas</span>}
       />
 
       <section className="campaign-map">
@@ -33,7 +40,7 @@ export function CampaignJourney({ campaign, onStartStage }) {
               </div>
               <div className="surface campaign-stage__card">
                 <div className="campaign-stage__content">
-                  <span className="campaign-stage__chapter">Capítulo {String(stage.order).padStart(2, "0")}</span>
+                  <span className="campaign-stage__chapter">{campaignTier(stage.order)}</span>
                   <h2>{stage.title}</h2>
                   <p>{stage.subtitle}</p>
                   <div className="campaign-stage__meta">

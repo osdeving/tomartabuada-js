@@ -8,6 +8,7 @@ const STRUCTURED_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "separator
 export function SessionArena({
   answer,
   feedback,
+  levelNotice,
   nudge,
   onAnswerKey,
   onExit,
@@ -60,9 +61,19 @@ export function SessionArena({
         <button className="session-icon-button" type="button" onClick={onPause} aria-label="Pausar sessão">Ⅱ</button>
       </header>
 
-      <div className="session-progress" aria-label={`${Math.ceil(remainingMs / 1000)} segundos restantes`}>
-        <i style={{ transform: `scaleX(${Math.max(0, Math.min(1, remainingRatio))})` }} />
-      </div>
+      {session.timed ? (
+        <div
+          className="session-progress"
+          role="progressbar"
+          aria-label="Tempo restante"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow={Math.round(Math.max(0, Math.min(1, remainingRatio ?? 0)) * 100)}
+          aria-valuetext={`${Math.ceil((remainingMs ?? 0) / 1000)} segundos restantes`}
+        >
+          <i style={{ transform: `scaleX(${Math.max(0, Math.min(1, remainingRatio ?? 0))})` }} />
+        </div>
+      ) : <div className="session-progress session-progress--untimed" aria-hidden="true" />}
 
       <section className="session-hud" aria-label="Placar da sessão">
         <HudItem label="Questão" value={session.targetCount ? `${session.answered + 1}/${session.targetCount}` : session.answered + 1} />
@@ -77,15 +88,16 @@ export function SessionArena({
 
       <section className="session-stage">
         <div className="question-source-row">
-          <span className="difficulty-chip">Nível {session.difficultyLabel}</span>
-          {question?.source === "book" ? (
-            <span className="book-chip">
-              {question.sourceChapterOrder != null || question.chapter != null
-                ? `Capítulo ${question.sourceChapterOrder ?? question.chapter}`
-                : "Prática guiada"}
+          {levelNotice ? (
+            <span className="level-notice" role="status" aria-live={levelNotice.politeness ?? "polite"}>
+              <small>novo padrão</small>
+              <strong>{levelNotice.label}</strong>
             </span>
-          ) : null}
-          <span className="timer-label">{Math.max(0, remainingMs / 1000).toFixed(1)}s</span>
+          ) : (
+            <span className="difficulty-chip">{typeof session.difficultyLabel === "number" ? `Nível ${session.difficultyLabel}` : session.difficultyLabel}</span>
+          )}
+          {question?.source === "book" ? <span className="book-chip">Exercício guiado</span> : null}
+          <span className="timer-label">{session.timed ? `${Math.max(0, (remainingMs ?? 0) / 1000).toFixed(1)}s` : "tempo livre"}</span>
         </div>
 
         <div className="session-question" key={question?.id} aria-live="polite" aria-atomic="true">

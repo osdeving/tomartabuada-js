@@ -176,6 +176,26 @@ test("resposta fora do tempo quebra combo e custa vida na sobrevivência", () =>
   assert.equal(result.session.modeState.correctInRun, 0);
 });
 
+test("modo sem cronômetro mede lentidão sem transformar a resposta correta em timeout", () => {
+  const session = createPracticeSession({ id: "untimed-test", startedAt: NOW });
+  const result = recordSessionAttempt(
+    session,
+    attempt(1, {
+      correct: true,
+      timedOut: false,
+      responseTimeMs: 18_000,
+      responseWindowMs: 8_000,
+      timestamp: NOW + 18_000,
+    }),
+    { now: NOW + 18_000 },
+  );
+
+  assert.equal(result.event.attempt.correct, true);
+  assert.equal(result.event.attempt.timedOut, false);
+  assert.equal(result.session.currentCombo, 1);
+  assert.ok(result.event.attempt.paceRatio > 2);
+});
+
 test("elogia combo e avisa quando o recorde anterior é superado", () => {
   const previous = {
     id: "previous",
@@ -205,7 +225,7 @@ test("elogia combo e avisa quando o recorde anterior é superado", () => {
   );
 });
 
-test("campanha avança e conclui capítulos descritos em JSON", () => {
+test("campanha avança e conclui etapas descritas em JSON", () => {
   const campaign = {
     id: "mini",
     title: "Mini campanha",

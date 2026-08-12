@@ -20,6 +20,13 @@ export function createPlatformState(now = Date.now()) {
       haptics: true,
       reducedMotion: false,
       questionCount: 15,
+      timeProfileId: "calmo",
+      practiceKind: "adaptive",
+      memorizationOperationId: "multiplication",
+      memorizationPresetId: "all",
+      memorizationPresetIds: ["all"],
+      memorizationDifficultyMode: "adaptive",
+      memorizationDifficultyTier: "all",
       dailyGoal: 20,
       autoRestCoach: true,
     },
@@ -135,7 +142,7 @@ export function appendAttempt(state, attempt) {
 }
 
 export function completeSession(state, summary) {
-  const recordKey = `${summary.modeId}:${summary.groupId}`;
+  const recordKey = summary.recordKey ?? `${summary.modeId}:${summary.groupId}`;
   const previousBest = Number(state.records.bestScore[recordKey]) || 0;
   const xpEarned = calculateSessionXp(summary);
   const nextXp = state.profile.xp + xpEarned;

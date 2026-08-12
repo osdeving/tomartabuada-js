@@ -821,6 +821,202 @@ p {
   gap: 12px;
 }
 
+.section-copy {
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+}
+
+.practice-kind-grid,
+.memory-operation-grid,
+.memory-preset-grid,
+.memory-level-grid,
+.time-profile-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.practice-kind-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 16px;
+  align-items: center;
+  min-height: 134px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: left;
+  background: var(--surface-soft);
+}
+
+.practice-kind-card.is-selected,
+.memory-operation.is-selected,
+.memory-preset.is-selected,
+.memory-level-grid button.is-selected,
+.time-profile-grid button.is-selected {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+.practice-kind-card__icon,
+.memory-operation > span:first-child {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  border-radius: 15px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.practice-kind-card small,
+.memory-operation small,
+.memory-preset small,
+.memory-level-grid small,
+.time-profile-grid small {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.45;
+}
+
+.practice-kind-card > span:nth-child(2) > small {
+  margin-bottom: 5px;
+  color: var(--accent-strong);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.practice-kind-card strong {
+  font-size: 1.08rem;
+}
+
+.practice-kind-card p {
+  margin-top: 6px;
+  color: var(--muted-strong);
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+.practice-kind-card > i {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--line-strong);
+  border-radius: 50%;
+}
+
+.practice-kind-card.is-selected > i {
+  border: 5px solid var(--accent-strong);
+}
+
+.memory-operation,
+.memory-preset,
+.memory-level-grid button,
+.time-profile-grid button {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  text-align: left;
+  background: var(--surface-soft);
+}
+
+.memory-operation {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 12px;
+  align-items: center;
+  padding: 17px;
+}
+
+.memory-operation > span:first-child {
+  grid-row: 1 / span 2;
+}
+
+.memory-operation small {
+  grid-column: 2;
+}
+
+.memory-preset {
+  position: relative;
+  display: grid;
+  gap: 5px;
+  min-height: 105px;
+  padding: 17px 44px 17px 17px;
+}
+
+.memory-preset__check {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  font-weight: 900;
+}
+
+.memory-levels {
+  display: grid;
+  gap: 15px;
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.memory-levels > div:first-child > strong {
+  display: block;
+  margin-top: 4px;
+}
+
+.memory-level-grid button,
+.time-profile-grid button {
+  display: grid;
+  gap: 5px;
+  min-height: 92px;
+  padding: 15px;
+}
+
+.time-profile-grid button {
+  grid-template-columns: auto 1fr;
+  align-content: center;
+}
+
+.time-profile-grid button > span {
+  grid-row: 1 / span 2;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-weight: 900;
+}
+
+.time-profile-grid button small {
+  grid-column: 2;
+}
+
+.launch-time-chip {
+  display: inline-flex;
+  margin-top: 12px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--accent-strong);
+  background: var(--accent-soft);
+  font-size: 0.7rem;
+  font-weight: 800;
+}
+
 .step-number {
   display: grid;
   width: 34px;
@@ -3128,6 +3324,35 @@ kbd {
   width: 100%;
 }
 
+.session-progress--untimed {
+  opacity: 0.2;
+}
+
+.level-notice {
+  display: inline-flex;
+  gap: 5px;
+  align-items: center;
+  padding: 5px 8px;
+  border: 1px solid color-mix(in srgb, var(--cyan) 35%, var(--line));
+  border-radius: 12px;
+  pointer-events: none;
+  background: color-mix(in srgb, var(--surface-solid) 92%, transparent);
+  box-shadow: var(--shadow-soft);
+  animation: level-notice-in 180ms ease both;
+}
+
+.level-notice small {
+  color: var(--cyan);
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.level-notice strong {
+  font-size: 0.64rem;
+}
+
 .typing-hint {
   color: var(--muted);
   font-size: 0.7rem;
@@ -3454,6 +3679,7 @@ kbd {
 @keyframes drawer-in { from { transform: translateX(100%); } }
 @keyframes question-in { from { opacity: 0; transform: translateY(9px) scale(0.98); } }
 @keyframes feedback-in { from { opacity: 0; transform: scale(0.96); } }
+@keyframes level-notice-in { from { opacity: 0; transform: translateY(-5px) scale(0.98); } }
 @keyframes pulse-number { 50% { transform: scale(1.15); } }
 @keyframes session-flash { 50% { box-shadow: inset 0 0 160px var(--session-flash); } }
 
@@ -3558,6 +3784,17 @@ kbd {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .practice-kind-grid,
+  .memory-preset-grid,
+  .memory-level-grid,
+  .time-profile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .memory-operation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .group-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -3636,6 +3873,10 @@ kbd {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .time-profile-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
   .launch-card {
     grid-template-columns: 1fr auto;
     align-items: center;
@@ -3690,6 +3931,17 @@ kbd {
 
   .summary-metrics {
     grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 760px) and (max-width: 899px) {
+  .brand > span:last-child,
+  .profile-button__copy {
+    display: none;
+  }
+
+  .page-header h1 {
+    font-size: clamp(2.8rem, 7.5vw, 3.65rem);
   }
 }
 

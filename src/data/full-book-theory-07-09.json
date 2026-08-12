@@ -16,7 +16,7 @@
     {
       "id": "livro-capitulo-07",
       "order": 7,
-      "title": "Um capítulo memorável: memorizando números",
+      "title": "Memória em ação: memorizando números",
       "originalTitle": "A Memorable Chapter: Memorizing Numbers",
       "difficulty": 9,
       "printedPages": [151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162],
@@ -1071,7 +1071,7 @@
           "pitfalls": [
             "Separar num ponto que produz uma cauda mais difícil do que o necessário.",
             "Perder os zeros do bloco alto ao recombinar.",
-            "Começar o capítulo avançado sem fluência suficiente nos blocos elementares."
+            "Avançar sem fluência suficiente nos blocos elementares."
           ],
           "memoryCue": "Quatro por um é dois por um, duas vezes.",
           "tags": [

@@ -128,7 +128,7 @@
   "descricao": "Banco integral com 598 exercícios numerados. Itens discursivos e compostos permanecem no banco com jogavel=false; os demais trazem resposta estruturada para treino.",
   "observacoes": [
     "Títulos, instruções e enunciados contextuais estão em português; números, métodos e respostas permanecem inalterados.",
-    "O Sistema Maior do capítulo 9 depende dos sons do inglês; por isso as palavras de exercício e os exemplos de resposta permanecem em inglês, com instruções em português.",
+    "O Sistema Maior depende dos sons do inglês; por isso as palavras de exercício e os exemplos de resposta permanecem em inglês, com instruções em português.",
     "A numeração interna preserva a rastreabilidade editorial dos dados."
   ],
   "estatisticas": {
@@ -1059,7 +1059,7 @@
       {
         "id": "revisao",
         "titulo": "Revisão integrada",
-        "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+        "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
         "inicio": 1,
         "fim": 16,
         "tags": [
@@ -17828,7 +17828,7 @@
       "exercicio": 1,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Um item custa US$ 36,78. Quanto é o troco de US$ 100?",
       "resposta": {
         "tipo": "numero",
@@ -17857,7 +17857,7 @@
       "exercicio": 2,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "1618 − 789",
       "resposta": {
         "tipo": "numero",
@@ -17886,7 +17886,7 @@
       "exercicio": 3,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "13 × 18",
       "resposta": {
         "tipo": "numero",
@@ -17915,7 +17915,7 @@
       "exercicio": 4,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "65 × 65",
       "resposta": {
         "tipo": "numero",
@@ -17944,7 +17944,7 @@
       "exercicio": 5,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "997 × 996",
       "resposta": {
         "tipo": "numero",
@@ -17973,7 +17973,7 @@
       "exercicio": 6,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "72.534 é múltiplo de 11?",
       "resposta": {
         "tipo": "texto",
@@ -18002,7 +18002,7 @@
       "exercicio": 7,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Qual é o resto de 72.534 por 9?",
       "resposta": {
         "tipo": "numero",
@@ -18031,7 +18031,7 @@
       "exercicio": 8,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Calcule 23/7 com seis casas decimais.",
       "resposta": {
         "tipo": "numero",
@@ -18060,7 +18060,7 @@
       "exercicio": 9,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Quantos algarismos tem o produto de um número de 5 algarismos iniciado por 5 e um de 6 algarismos iniciado por 6?",
       "resposta": {
         "tipo": "numero",
@@ -18089,7 +18089,7 @@
       "exercicio": 10,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Estime √70.",
       "resposta": {
         "tipo": "numero",
@@ -18118,7 +18118,7 @@
       "exercicio": 11,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "509 × 325",
       "resposta": {
         "tipo": "numero",
@@ -18147,7 +18147,7 @@
       "exercicio": 12,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "21,401 ÷ 9",
       "resposta": {
         "tipo": "quociente-resto",
@@ -18177,7 +18177,7 @@
       "exercicio": 13,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "34,567 ÷ 89",
       "resposta": {
         "tipo": "quociente-resto",
@@ -18207,7 +18207,7 @@
       "exercicio": 14,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Crie mnemônicos: alumínio é o elemento 13, cobre é o 29 e chumbo é o 82.",
       "resposta": {
         "tipo": "mnemônico-aberto",
@@ -18239,7 +18239,7 @@
       "exercicio": 15,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "Que dia da semana foi 17 de março de 2000?",
       "resposta": {
         "tipo": "texto",
@@ -18268,7 +18268,7 @@
       "exercicio": 16,
       "grupoId": "revisao",
       "grupoTitulo": "Revisão integrada",
-      "instrucao": "Escolha o método de menor resistência aprendido nos capítulos anteriores.",
+      "instrucao": "Escolha o método de menor resistência entre as técnicas já praticadas.",
       "prompt": "212²",
       "resposta": {
         "tipo": "numero",
