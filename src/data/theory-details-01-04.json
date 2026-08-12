@@ -1,0 +1,2449 @@
+{
+  "schemaVersion": 1,
+  "descricao": "Detalhamento localizado para pt-BR das Lectures 1 a 4 de calculo-mental-dicas.pdf. As dicas preservam a progressão do livro, mas reorganizam a explicação em técnicas acionáveis, com algoritmos, intuição, casos especiais, orientações de treino e exemplos resolvidos. As páginas são as impressas no livro; quando uma solução esclarece o método, sua página também é indicada.",
+  "capitulos": [
+    {
+      "capituloId": "capitulo-01",
+      "capituloOrdem": 1,
+      "titulo": "Matemática de cabeça!",
+      "dicas": [
+        {
+          "id": "c01-d01-treino-em-camadas",
+          "ordem": 1,
+          "titulo": "Treine em camadas: sequência, ordem normal e mistura",
+          "paginas": [4, 8],
+          "resumo": "A velocidade não vem só de conhecer um truque. O livro recomenda praticar até a recuperação ser automática: primeiro conte pelos múltiplos, depois responda às contas em ordem e, por fim, misture a ordem. As tabelas maiores seguem a mesma progressão.",
+          "quandoUsar": [
+            "Ao construir fluência de uma família da tabuada.",
+            "Quando você acerta em sequência, mas trava quando as perguntas são misturadas.",
+            "Antes de avançar para multiplicações de dois ou três dígitos."
+          ],
+          "porQueFunciona": "A contagem fornece uma trilha de apoio; a ordem normal associa cada multiplicador ao resultado; a mistura remove essa trilha e testa recuperação direta. Assim, a resposta deixa de depender do item anterior.",
+          "algoritmo": {
+            "titulo": "Progressão de automatização",
+            "passos": [
+              { "ordem": 1, "acao": "Conte", "detalhe": "Recite os múltiplos da família em intervalos regulares.", "expressao": "3, 6, 9, 12, 15, …" },
+              { "ordem": 2, "acao": "Associe", "detalhe": "Resolva os fatos na ordem do multiplicador.", "expressao": "3×1, 3×2, 3×3, …" },
+              { "ordem": 3, "acao": "Misture", "detalhe": "Apresente os mesmos fatos fora de ordem, sem usar o resultado anterior como pista." },
+              { "ordem": 4, "acao": "Amplie", "detalhe": "Preencha linhas de tabelas maiores e depois células ou linhas em ordem aleatória." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d01-ex01",
+              "enunciado": "Fixar a família do 3 antes de misturá-la",
+              "resposta": "Recuperar cada produto do 3 sem depender da sequência",
+              "etapas": [
+                { "expressao": "3, 6, 9, 12, …", "explicacao": "Primeiro consolide o ritmo dos múltiplos." },
+                { "expressao": "3×1=3; 3×2=6; 3×3=9", "explicacao": "Depois ligue posição, pergunta e resposta." },
+                { "expressao": "3×7; 3×2; 3×9", "explicacao": "Por último, mude a ordem para exigir evocação direta." }
+              ],
+              "conclusao": "Só considere a família automatizada quando a mistura não derrubar a velocidade.",
+              "origem": { "pagina": 4 }
+            }
+          ],
+          "armadilhas": [
+            "Confundir recitar múltiplos com saber responder fora de ordem.",
+            "Pular cedo para tabelas maiores sem automatizar a tabuada básica.",
+            "Medir apenas acerto e ignorar hesitação."
+          ],
+          "lembrete": "Ordem ensina; mistura confirma.",
+          "tags": ["treino", "tabuada", "fluencia", "progressao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [4, 8] }
+        },
+        {
+          "id": "c01-d02-esquerda-para-direita",
+          "ordem": 2,
+          "titulo": "Calcule mentalmente da esquerda para a direita",
+          "paginas": [4, 7],
+          "resumo": "No papel é comum começar pelas unidades; de cabeça, o livro recomenda acompanhar a leitura do número e começar pela maior ordem. Em somas com blocos de grandezas diferentes, muitas respostas podem ser percebidas quase imediatamente.",
+          "quandoUsar": [
+            "Em adições mentais.",
+            "Quando as parcelas ocupam ordens diferentes, como milhares e dezenas.",
+            "Quando a conta é ouvida e precisa ser acompanhada sem escrevê-la."
+          ],
+          "porQueFunciona": "A direção coincide com a forma como lemos e falamos números. O primeiro parcial já aproxima a magnitude da resposta, reduzindo a necessidade de reorganizar dígitos na memória.",
+          "algoritmo": {
+            "titulo": "Leitura por blocos posicionais",
+            "passos": [
+              { "ordem": 1, "acao": "Identifique o maior bloco", "detalhe": "Comece por milhares, centenas ou dezenas, conforme a conta." },
+              { "ordem": 2, "acao": "Acumule o próximo bloco", "detalhe": "Some a ordem seguinte sem desmontar o parcial já formado." },
+              { "ordem": 3, "acao": "Finalize nas unidades", "detalhe": "Ajuste o menor bloco por último." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d02-ex01",
+              "enunciado": "2300 + 45",
+              "resposta": "2345",
+              "etapas": [
+                { "expressao": "2300 + 40 = 2340", "explicacao": "Preserve os milhares e acrescente a dezena." },
+                { "expressao": "2340 + 5 = 2345", "explicacao": "Finalize com as unidades." }
+              ],
+              "conclusao": "A resposta se forma na mesma direção em que o número é pronunciado.",
+              "origem": { "pagina": 4 }
+            }
+          ],
+          "armadilhas": [
+            "Aplicar automaticamente o procedimento escrito da direita para a esquerda.",
+            "Tentar guardar todos os algarismos separadamente em vez de manter um parcial com significado.",
+            "Ignorar o valor posicional ao ouvir a conta."
+          ],
+          "lembrete": "De cabeça, comece pelo lado que conta a grandeza da resposta.",
+          "tags": ["esquerda-para-direita", "adicao", "valor-posicional", "audio"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [4, 7] }
+        },
+        {
+          "id": "c01-d03-potencias-de-dez",
+          "ordem": 3,
+          "titulo": "Use o valor posicional ao multiplicar por potências de 10",
+          "paginas": [8],
+          "resumo": "Os exercícios fazem a escala avançar de ×10 a ×1.000.000. A ideia é preservar os algarismos significativos e deslocar sua posição, sem refazer uma multiplicação longa.",
+          "quandoUsar": [
+            "Ao multiplicar inteiros por 10, 100, 1000 ou um milhão.",
+            "Como preparação para produtos com dezenas ou centenas redondas.",
+            "Quando a resposta deve ser dita rapidamente da esquerda para a direita."
+          ],
+          "porQueFunciona": "No sistema decimal, multiplicar por 10 eleva cada algarismo uma ordem. Repetir o deslocamento equivale a multiplicar por potências sucessivas de 10.",
+          "algoritmo": {
+            "titulo": "Escala decimal",
+            "passos": [
+              { "ordem": 1, "acao": "Reconheça a potência", "detalhe": "Conte quantas ordens decimais o multiplicador representa.", "expressao": "1000 = 10³" },
+              { "ordem": 2, "acao": "Preserve o número-base", "detalhe": "Mantenha a sequência dos algarismos significativos." },
+              { "ordem": 3, "acao": "Desloque a posição", "detalhe": "Em inteiros, anexe a quantidade correspondente de zeros." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d03-ex01",
+              "enunciado": "243 × 1000",
+              "resposta": "243.000",
+              "etapas": [
+                { "expressao": "1000 = 10³", "explicacao": "O multiplicador desloca o número três ordens." },
+                { "expressao": "243 → 243.000", "explicacao": "Os algarismos 2, 4 e 3 permanecem; três zeros ocupam as novas ordens." }
+              ],
+              "conclusao": "A conta é de posicionamento, não de produtos parciais.",
+              "origem": { "pagina": 8 }
+            }
+          ],
+          "armadilhas": [
+            "Anexar a quantidade errada de zeros.",
+            "Tratar um milhão como mil.",
+            "Perder o número-base enquanto conta zeros."
+          ],
+          "lembrete": "Potência de 10 muda a casa, não os algarismos significativos.",
+          "tags": ["multiplicacao", "potencias-de-dez", "valor-posicional"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [8] }
+        },
+        {
+          "id": "c01-d04-decompor-multiplicacao",
+          "ordem": 4,
+          "titulo": "Decomponha a multiplicação do maior bloco para o menor",
+          "paginas": [5, 8, 9],
+          "resumo": "Uma multiplicação que parece grande vira uma soma de produtos simples. Calcule centenas, dezenas e unidades nessa ordem e acumule do maior parcial para o menor.",
+          "quandoUsar": [
+            "Em produtos de dois ou três dígitos por um dígito.",
+            "Quando você quer uma noção antecipada da magnitude da resposta.",
+            "Em contas ouvidas, nas quais escrever produtos parciais não é opção."
+          ],
+          "porQueFunciona": "A distributiva permite multiplicar cada parcela posicional separadamente. Começar pelo maior bloco estabiliza a parte mais importante da resposta e deixa um ajuste menor para o fim.",
+          "algoritmo": {
+            "titulo": "Distribuição por valor posicional",
+            "passos": [
+              { "ordem": 1, "acao": "Decomponha", "detalhe": "Escreva mentalmente o número como soma de centenas, dezenas e unidades.", "expressao": "432 = 400 + 30 + 2" },
+              { "ordem": 2, "acao": "Multiplique o maior bloco", "detalhe": "Comece pela parcela de maior valor." },
+              { "ordem": 3, "acao": "Acumule", "detalhe": "Some cada produto seguinte ao parcial anterior." },
+              { "ordem": 4, "acao": "Cheque a escala", "detalhe": "Use o primeiro produto como estimativa da ordem de grandeza." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d04-ex01",
+              "enunciado": "432 × 3",
+              "resposta": "1296",
+              "etapas": [
+                { "expressao": "3×400 = 1200", "explicacao": "Forme primeiro o bloco dominante." },
+                { "expressao": "3×30 = 90", "explicacao": "Acrescente as dezenas." },
+                { "expressao": "3×2 = 6", "explicacao": "Acrescente as unidades." },
+                { "expressao": "1200+90+6 = 1296", "explicacao": "Some do maior parcial para o menor." }
+              ],
+              "conclusao": "A conta grande foi reduzida a três fatos simples da tabuada.",
+              "origem": { "pagina": 5 }
+            },
+            {
+              "id": "c01-d04-ex02",
+              "enunciado": "54 × 7",
+              "resposta": "378",
+              "etapas": [
+                { "expressao": "7×50 = 350", "explicacao": "Além de parcial, 350 é uma boa estimativa da resposta." },
+                { "expressao": "7×4 = 28", "explicacao": "Calcule o ajuste das unidades." },
+                { "expressao": "350+28 = 378", "explicacao": "Feche a resposta." }
+              ],
+              "conclusao": "Ouça e construa a resposta da esquerda para a direita.",
+              "origem": { "pagina": 5 }
+            }
+          ],
+          "armadilhas": [
+            "Somar os parciais do menor para o maior e aumentar a carga de memória.",
+            "Esquecer um bloco posicional com zero implícito.",
+            "Confundir a estimativa inicial com a resposta final."
+          ],
+          "lembrete": "Quebre, multiplique, acumule — sempre do maior para o menor.",
+          "tags": ["multiplicacao", "decomposicao", "distributiva", "esquerda-para-direita"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [5, 8, 9] }
+        },
+        {
+          "id": "c01-d05-padrao-do-nove",
+          "ordem": 5,
+          "titulo": "Use os dois sinais do padrão do 9",
+          "paginas": [4],
+          "resumo": "Nos fatos básicos 9×n, o algarismo das dezenas é n−1 e os dois algarismos do produto somam 9. Um sinal prevê a dezena e o outro completa ou confere a unidade.",
+          "quandoUsar": [
+            "Na tabuada de 9 com multiplicadores de um dígito.",
+            "Para recuperar um fato esquecido.",
+            "Como conferência rápida de um produto básico por 9."
+          ],
+          "porQueFunciona": "Para 1≤n≤9, 9n = 10n−n = 10(n−1)+(10−n). Portanto a dezena é n−1 e a unidade é 10−n; juntas, somam 9.",
+          "algoritmo": {
+            "titulo": "Dezena anterior e complemento",
+            "passos": [
+              { "ordem": 1, "acao": "Reduza um", "detalhe": "Subtraia 1 do multiplicador para obter a dezena." },
+              { "ordem": 2, "acao": "Complete nove", "detalhe": "Escolha a unidade que faça os dois algarismos somarem 9." },
+              { "ordem": 3, "acao": "Confira", "detalhe": "Some os algarismos da resposta e verifique se dão 9." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d05-ex01",
+              "enunciado": "9 × 3",
+              "resposta": "27",
+              "etapas": [
+                { "expressao": "3−1 = 2", "explicacao": "O produto começa com 2." },
+                { "expressao": "2+7 = 9", "explicacao": "A unidade que completa 9 é 7." }
+              ],
+              "conclusao": "Os dois sinais convergem para 27.",
+              "origem": { "pagina": 4 }
+            }
+          ],
+          "armadilhas": [
+            "Estender sem adaptação a multiplicadores com mais de um dígito.",
+            "Usar apenas a soma 9, que não identifica sozinha a resposta.",
+            "Esquecer que 9×1=09 pode ser pensado com zero inicial."
+          ],
+          "lembrete": "No fato básico do 9: um a menos na frente, complemento de 9 atrás.",
+          "tags": ["tabuada", "vezes-9", "padrao", "complemento"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [4] }
+        },
+        {
+          "id": "c01-d06-vezes-onze-dois-digitos",
+          "ordem": 6,
+          "titulo": "Multiplique dois dígitos por 11 somando as pontas",
+          "paginas": [5, 9],
+          "resumo": "Mantenha os dois algarismos originais nas extremidades e coloque a soma deles no meio. Se a soma tiver dois algarismos, escreva a unidade no meio e transporte a dezena para a ponta esquerda.",
+          "quandoUsar": [
+            "Em qualquer número de dois dígitos multiplicado por 11.",
+            "Quando se busca resposta imediata sem produtos parciais.",
+            "Como base para o método de 11 com números maiores."
+          ],
+          "porQueFunciona": "Se o número é 10a+b, então 11(10a+b)=100a+10(a+b)+b. A soma central pode invadir a casa seguinte, o que explica o transporte.",
+          "algoritmo": {
+            "titulo": "Pontas, soma central e transporte",
+            "passos": [
+              { "ordem": 1, "acao": "Preserve as pontas", "detalhe": "Use o primeiro algarismo como início e o último como final provisórios." },
+              { "ordem": 2, "acao": "Some", "detalhe": "Some os dois algarismos." },
+              { "ordem": 3, "acao": "Insira", "detalhe": "Se a soma for menor que 10, coloque-a entre as pontas." },
+              { "ordem": 4, "acao": "Transporte", "detalhe": "Se a soma for 10 ou mais, escreva sua unidade no meio e adicione sua dezena à ponta esquerda." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d06-ex01",
+              "enunciado": "23 × 11",
+              "resposta": "253",
+              "etapas": [
+                { "expressao": "2+3 = 5", "explicacao": "A soma cabe em um algarismo." },
+                { "expressao": "2 | 5 | 3", "explicacao": "Insira 5 entre as pontas." }
+              ],
+              "conclusao": "O produto é 253.",
+              "origem": { "pagina": 5 }
+            },
+            {
+              "id": "c01-d06-ex02",
+              "enunciado": "85 × 11",
+              "resposta": "935",
+              "etapas": [
+                { "expressao": "8+5 = 13", "explicacao": "A soma exige transporte." },
+                { "expressao": "8+1 = 9", "explicacao": "Leve a dezena da soma para o 8." },
+                { "expressao": "9 | 3 | 5", "explicacao": "Use 3 no meio e 5 no fim." }
+              ],
+              "conclusao": "Transportar faz parte do atalho, não é exceção opcional.",
+              "origem": { "pagina": 5 }
+            }
+          ],
+          "armadilhas": [
+            "Escrever 8-13-5 como se 13 coubesse numa única casa.",
+            "Transportar para o lado direito em vez do esquerdo.",
+            "Alterar a última ponta sem necessidade."
+          ],
+          "lembrete": "Pontas ficam; a soma entra; se passar de 9, leve para a esquerda.",
+          "tags": ["multiplicacao", "vezes-11", "transporte", "atalho"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [5, 9] }
+        },
+        {
+          "id": "c01-d07-vezes-onze-tres-digitos",
+          "ordem": 7,
+          "titulo": "Multiplique três dígitos por 11 com somas adjacentes",
+          "paginas": [5, 9, 10],
+          "resumo": "Nos números de três dígitos, preserve as extremidades e substitua o miolo pelas somas de cada par vizinho. Transportes são processados da direita para a esquerda quando alguma soma passa de 9.",
+          "quandoUsar": [
+            "Em números de três dígitos multiplicados por 11.",
+            "Depois de dominar o caso de dois dígitos.",
+            "Em exercícios que exigem formar a resposta sem multiplicação longa."
+          ],
+          "porQueFunciona": "Ao somar o número a ele mesmo deslocado uma casa, cada coluna interna recebe exatamente dois algarismos vizinhos. As colunas extremas recebem apenas uma ponta.",
+          "algoritmo": {
+            "titulo": "Extremos e pares vizinhos",
+            "passos": [
+              { "ordem": 1, "acao": "Marque as extremidades", "detalhe": "O primeiro e o último algarismo iniciam e encerram a resposta provisória." },
+              { "ordem": 2, "acao": "Some o primeiro par", "detalhe": "Some primeiro+segundo para a primeira casa interna." },
+              { "ordem": 3, "acao": "Some o segundo par", "detalhe": "Some segundo+terceiro para a segunda casa interna." },
+              { "ordem": 4, "acao": "Normalize as casas", "detalhe": "Resolva eventuais transportes da direita para a esquerda." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d07-ex01",
+              "enunciado": "314 × 11",
+              "resposta": "3454",
+              "etapas": [
+                { "expressao": "3+1 = 4", "explicacao": "Primeira soma adjacente." },
+                { "expressao": "1+4 = 5", "explicacao": "Segunda soma adjacente." },
+                { "expressao": "3 | 4 | 5 | 4", "explicacao": "Reúna primeira ponta, somas e última ponta." }
+              ],
+              "conclusao": "O produto é 3454.",
+              "origem": { "pagina": 5 }
+            }
+          ],
+          "armadilhas": [
+            "Somar primeiro e terceiro algarismos, que não são adjacentes.",
+            "Esquecer que a primeira ponta também pode mudar após transporte.",
+            "Processar transporte da esquerda para a direita e alterar uma soma ainda não normalizada."
+          ],
+          "lembrete": "Por 11, o miolo é feito de vizinhos.",
+          "tags": ["multiplicacao", "vezes-11", "somas-adjacentes", "transporte"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [5, 9, 10] }
+        },
+        {
+          "id": "c01-d08-quadrado-final-cinco",
+          "ordem": 8,
+          "titulo": "Eleve números terminados em 5 ao quadrado",
+          "paginas": [5, 10, 88, 89],
+          "resumo": "Remova mentalmente o 5 final, multiplique o prefixo pelo inteiro seguinte e anexe 25. O livro mostra a regra com dois e três dígitos e amplia o treino até números como 1005.",
+          "quandoUsar": [
+            "Ao elevar ao quadrado qualquer inteiro terminado em 5.",
+            "Quando o prefixo e seu sucessor são fáceis de multiplicar.",
+            "Como padrão de reconhecimento rápido em séries de quadrados."
+          ],
+          "porQueFunciona": "Todo número terminado em 5 pode ser escrito como 10n+5. Seu quadrado é 100n(n+1)+25, por isso o bloco anterior é n(n+1) e os dois últimos algarismos são sempre 25.",
+          "algoritmo": {
+            "titulo": "Prefixo vezes sucessor, depois 25",
+            "passos": [
+              { "ordem": 1, "acao": "Separe o prefixo", "detalhe": "Retire o algarismo 5 final." },
+              { "ordem": 2, "acao": "Encontre o sucessor", "detalhe": "Some 1 ao prefixo." },
+              { "ordem": 3, "acao": "Multiplique", "detalhe": "Calcule prefixo × sucessor." },
+              { "ordem": 4, "acao": "Anexe", "detalhe": "Coloque o bloco 25 nas duas últimas casas; preserve zeros internos quando necessários." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d08-ex01",
+              "enunciado": "35²",
+              "resposta": "1225",
+              "etapas": [
+                { "expressao": "3×4 = 12", "explicacao": "Multiplique o prefixo 3 por seu sucessor 4." },
+                { "expressao": "12 | 25 = 1225", "explicacao": "Anexe 25." }
+              ],
+              "conclusao": "35²=1225.",
+              "origem": { "pagina": 5 }
+            },
+            {
+              "id": "c01-d08-ex02",
+              "enunciado": "305²",
+              "resposta": "93.025",
+              "etapas": [
+                { "expressao": "30×31 = 930", "explicacao": "Agora o prefixo é 30, não apenas o primeiro algarismo." },
+                { "expressao": "930 | 25 = 93.025", "explicacao": "Anexe 25 ao bloco 930." }
+              ],
+              "conclusao": "A regra não se limita a números de dois dígitos.",
+              "origem": { "pagina": 5 }
+            }
+          ],
+          "armadilhas": [
+            "Em 305², usar 3×4 em vez de 30×31.",
+            "Anexar apenas um 5 em vez do bloco 25.",
+            "Perder um zero no encontro entre o produto do prefixo e o bloco final."
+          ],
+          "lembrete": "Tire o 5, multiplique vizinhos, cole 25.",
+          "tags": ["quadrado", "final-5", "atalho", "padrao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [5, 10, 88, 89] }
+        },
+        {
+          "id": "c01-d09-mesmo-prefixo-unidades-dez",
+          "ordem": 9,
+          "titulo": "Multiplique fatores com o mesmo prefixo e finais que somam 10",
+          "paginas": [6, 10, 89],
+          "resumo": "Quando dois números de dois dígitos têm a mesma dezena e suas unidades somam 10, multiplique a dezena por sua sucessora e anexe o produto das unidades como bloco de duas casas.",
+          "quandoUsar": [
+            "Em produtos como 21×29, 64×66 ou 84×86.",
+            "Também no caso central em que os fatores são iguais, como 25×25.",
+            "Quando as unidades são complementares até 10."
+          ],
+          "porQueFunciona": "Se os fatores são 10a+b e 10a+(10−b), o produto é 100a(a+1)+b(10−b). O primeiro termo cria o bloco inicial e o segundo ocupa as duas últimas casas.",
+          "algoritmo": {
+            "titulo": "Dezena sucessora e bloco das unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Valide o padrão", "detalhe": "Confira se as dezenas são iguais e as unidades somam 10." },
+              { "ordem": 2, "acao": "Calcule o início", "detalhe": "Multiplique a dezena comum por sua sucessora." },
+              { "ordem": 3, "acao": "Calcule o fim", "detalhe": "Multiplique as unidades." },
+              { "ordem": 4, "acao": "Formate duas casas", "detalhe": "Se o produto das unidades for menor que 10, use zero à esquerda antes de anexar." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d09-ex01",
+              "enunciado": "84 × 86",
+              "resposta": "7224",
+              "etapas": [
+                { "expressao": "8×9 = 72", "explicacao": "A dezena comum 8 multiplica sua sucessora." },
+                { "expressao": "4×6 = 24", "explicacao": "As unidades formam o bloco final." },
+                { "expressao": "72 | 24 = 7224", "explicacao": "Junte os dois blocos." }
+              ],
+              "conclusao": "O produto é 7224.",
+              "origem": { "pagina": 6 }
+            },
+            {
+              "id": "c01-d09-ex02",
+              "enunciado": "21 × 29",
+              "resposta": "609",
+              "etapas": [
+                { "expressao": "2×3 = 6", "explicacao": "Forme o bloco inicial." },
+                { "expressao": "1×9 = 09", "explicacao": "O bloco final precisa ocupar duas casas." },
+                { "expressao": "6 | 09 = 609", "explicacao": "Preserve o zero interno." }
+              ],
+              "conclusao": "O zero à esquerda do bloco 09 é estrutural.",
+              "origem": { "pagina": 89 }
+            }
+          ],
+          "armadilhas": [
+            "Usar a regra quando as dezenas diferem.",
+            "Usar a regra quando as unidades não somam 10.",
+            "Omitir o zero do bloco final 01–09."
+          ],
+          "lembrete": "Mesma dezena, finais até 10: vizinhos na frente, unidades atrás.",
+          "tags": ["multiplicacao", "unidades-complementares", "mesma-dezena", "atalho"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [6, 10, 89] }
+        },
+        {
+          "id": "c01-d10-adolescente-por-um-digito",
+          "ordem": 10,
+          "titulo": "Multiplique de 10 a 19 por um dígito separando o 10",
+          "paginas": [6],
+          "resumo": "Trate o número de 10 a 19 como 10 mais sua unidade. Multiplique o fator de um dígito por 10 e pela unidade; depois some.",
+          "quandoUsar": [
+            "Quando um fator está entre 10 e 19 e o outro tem um dígito.",
+            "Como preparação para produtos em que ambos os fatores estão entre 10 e 19.",
+            "Quando a tabuada básica é mais rápida que uma multiplicação escrita."
+          ],
+          "porQueFunciona": "É a distributiva aplicada à decomposição 10+d: k(10+d)=10k+kd.",
+          "algoritmo": {
+            "titulo": "Dez vezes mais ajuste",
+            "passos": [
+              { "ordem": 1, "acao": "Separe", "detalhe": "Escreva mentalmente o número como 10+d." },
+              { "ordem": 2, "acao": "Multiplique por 10", "detalhe": "Calcule o bloco principal 10k." },
+              { "ordem": 3, "acao": "Multiplique a unidade", "detalhe": "Calcule kd." },
+              { "ordem": 4, "acao": "Some", "detalhe": "Junte o bloco principal e o ajuste." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d10-ex01",
+              "enunciado": "13 × 6",
+              "resposta": "78",
+              "etapas": [
+                { "expressao": "6×10 = 60", "explicacao": "Forme o bloco das dezenas." },
+                { "expressao": "6×3 = 18", "explicacao": "Calcule o ajuste." },
+                { "expressao": "60+18 = 78", "explicacao": "Some os parciais." }
+              ],
+              "conclusao": "O produto 13×6 vira duas contas da tabuada.",
+              "origem": { "pagina": 6 }
+            }
+          ],
+          "armadilhas": [
+            "Multiplicar o dígito apenas pela unidade e esquecer o 10.",
+            "Confundir 13 com 10×3.",
+            "Somar antes de concluir os dois produtos parciais."
+          ],
+          "lembrete": "Entre 10 e 19: faça dez vezes e ajuste pela unidade.",
+          "tags": ["multiplicacao", "10-a-19", "decomposicao", "distributiva"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [6] }
+        },
+        {
+          "id": "c01-d11-dois-adolescentes",
+          "ordem": 11,
+          "titulo": "Multiplique dois números entre 10 e 19 por soma cruzada",
+          "paginas": [6, 8, 10],
+          "resumo": "Some a unidade de um fator ao outro fator, multiplique essa soma por 10 e acrescente o produto das duas unidades. O livro usa esse domínio para ampliar tabelas e quadrados na faixa de 10 a 20.",
+          "quandoUsar": [
+            "Quando ambos os fatores estão entre 10 e 19.",
+            "Ao elevar números dessa faixa ao quadrado.",
+            "Como base para tabelas de 11 a 19."
+          ],
+          "porQueFunciona": "Para (10+a)(10+b), a soma cruzada produz 10+a+b. Multiplicá-la por 10 dá 100+10a+10b; falta apenas ab, o produto das unidades.",
+          "algoritmo": {
+            "titulo": "Soma cruzada, vezes 10, produto das unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Cruze e some", "detalhe": "Some a unidade de um fator ao outro fator inteiro." },
+              { "ordem": 2, "acao": "Escalone", "detalhe": "Multiplique o resultado por 10." },
+              { "ordem": 3, "acao": "Multiplique as unidades", "detalhe": "Calcule o produto dos algarismos finais." },
+              { "ordem": 4, "acao": "Ajuste", "detalhe": "Some esse produto ao bloco de dezenas." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c01-d11-ex01",
+              "enunciado": "13 × 14",
+              "resposta": "182",
+              "etapas": [
+                { "expressao": "13+4 = 17", "explicacao": "Some a unidade do segundo fator ao primeiro." },
+                { "expressao": "17×10 = 170", "explicacao": "Forme o bloco principal." },
+                { "expressao": "3×4 = 12", "explicacao": "Multiplique as unidades." },
+                { "expressao": "170+12 = 182", "explicacao": "Acrescente o ajuste." }
+              ],
+              "conclusao": "O método é simétrico: 14+3 também produziria 17.",
+              "origem": { "pagina": 6 }
+            }
+          ],
+          "armadilhas": [
+            "Somar apenas as unidades, em vez de uma unidade ao outro fator inteiro.",
+            "Esquecer de multiplicar a soma cruzada por 10.",
+            "Anexar o produto das unidades sem somá-lo quando ele gera transporte."
+          ],
+          "lembrete": "Cruze somando, dê um zero, depois some o produto das pontas.",
+          "tags": ["multiplicacao", "10-a-19", "soma-cruzada", "quadrados"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [6, 8, 10] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-02",
+      "capituloOrdem": 2,
+      "titulo": "Adição e subtração mental",
+      "dicas": [
+        {
+          "id": "c02-d01-protocolo-de-memoria",
+          "ordem": 1,
+          "titulo": "Aumente a carga mental aos poucos",
+          "paginas": [13, 15, 16, 17, 20, 91, 92],
+          "resumo": "Os blocos de exercícios não são uma lista aleatória: começam em contas curtas, avançam gradualmente, pedem que o número seja ocultado depois da leitura, sugerem dizer contas difíceis em voz alta e exigem duas soluções em pontos estratégicos. Ao fim, praticam-se parciais que serão necessários na multiplicação.",
+          "quandoUsar": [
+            "Ao transformar um método compreendido em cálculo realmente mental.",
+            "Quando você resolve vendo a conta, mas perde o problema ao desviar os olhos.",
+            "Antes de iniciar multiplicações que exigem guardar e atualizar parciais."
+          ],
+          "porQueFunciona": "Ver menos do enunciado obriga a memória de trabalho a conservar os operandos; verbalizar dá um suporte auditivo; resolver por dois caminhos cria uma verificação independente. A dificuldade crescente evita saltos grandes demais.",
+          "algoritmo": {
+            "titulo": "Escada de autonomia mental",
+            "passos": [
+              { "ordem": 1, "acao": "Resolva vendo", "detalhe": "Use contas curtas até o percurso esquerda→direita ficar estável." },
+              { "ordem": 2, "acao": "Leia e oculte", "detalhe": "Depois de ler, desvie os olhos e reconstrua a conta na memória." },
+              { "ordem": 3, "acao": "Verbalize", "detalhe": "Em três dígitos, diga a conta ou os parciais antes de operar." },
+              { "ordem": 4, "acao": "Duplique o método", "detalhe": "Resolva novamente por arredondamento e ajuste." },
+              { "ordem": 5, "acao": "Transfira", "detalhe": "Pratique somas e subtrações típicas de produtos parciais." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d01-ex01",
+              "enunciado": "764 + 637, lido uma vez e depois ocultado",
+              "resposta": "1401",
+              "etapas": [
+                { "expressao": "764+600 = 1364", "explicacao": "Diga ou retenha o primeiro parcial grande." },
+                { "expressao": "1364+30 = 1394", "explicacao": "Atualize apenas a dezena." },
+                { "expressao": "1394+7 = 1401", "explicacao": "Finalize nas unidades." }
+              ],
+              "conclusao": "A verbalização dos parciais ajuda a conta a sobreviver sem apoio visual.",
+              "origem": { "pagina": 92 }
+            }
+          ],
+          "armadilhas": [
+            "Ocultar cedo demais uma conta cujo algoritmo ainda não está automatizado.",
+            "Dizer todos os dígitos soltos, criando mais carga em vez de um parcial coerente.",
+            "Confundir repetir o mesmo caminho com verificar por um segundo método."
+          ],
+          "lembrete": "Veja, oculte, verbalize, confira e só então aumente.",
+          "tags": ["treino", "memoria-de-trabalho", "progressao", "verbalizacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [13, 15, 16, 17, 20, 91, 92] }
+        },
+        {
+          "id": "c02-d02-adicao-um-dois-digitos",
+          "ordem": 2,
+          "titulo": "Some um ou dois dígitos por ordens",
+          "paginas": [11, 13, 14, 90],
+          "resumo": "Ao adicionar um dígito, altere primeiro a casa das unidades. Com dois dígitos, some as dezenas e depois as unidades. O parcial deve permanecer como um número inteiro, não como algarismos desconectados.",
+          "quandoUsar": [
+            "Em somas mentais de até dois dígitos.",
+            "Como operação interna de multiplicações maiores.",
+            "Quando é possível acompanhar a conta da esquerda para a direita."
+          ],
+          "porQueFunciona": "A parcela é decomposta em dezenas e unidades, e a associatividade permite adicioná-las sucessivamente sem mudar o total.",
+          "algoritmo": {
+            "titulo": "Dezenas antes das unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Separe a parcela", "detalhe": "Identifique dezenas e unidades." },
+              { "ordem": 2, "acao": "Some as dezenas", "detalhe": "Atualize o parcial pela maior ordem." },
+              { "ordem": 3, "acao": "Some as unidades", "detalhe": "Ajuste o parcial com o restante." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d02-ex01",
+              "enunciado": "62 + 24",
+              "resposta": "86",
+              "etapas": [
+                { "expressao": "62+20 = 82", "explicacao": "Acrescente a dezena primeiro." },
+                { "expressao": "82+4 = 86", "explicacao": "Finalize com a unidade." }
+              ],
+              "conclusao": "A soma acompanha a ordem de leitura da parcela 24.",
+              "origem": { "pagina": 11 }
+            },
+            {
+              "id": "c02-d02-ex02",
+              "enunciado": "52 + 4",
+              "resposta": "56",
+              "etapas": [
+                { "expressao": "2+4 = 6", "explicacao": "Só as unidades mudam." },
+                { "expressao": "50+6 = 56", "explicacao": "A dezena permanece." }
+              ],
+              "conclusao": "Um dígito atua primeiro sobre a unidade do número.",
+              "origem": { "pagina": 11 }
+            }
+          ],
+          "armadilhas": [
+            "Somar unidades antes das dezenas por hábito do algoritmo escrito.",
+            "Esquecer que uma soma de unidades pode mudar a dezena.",
+            "Guardar 8 e 2 separadamente em vez do parcial 82."
+          ],
+          "lembrete": "Atualize o número inteiro: dezenas, depois unidades.",
+          "tags": ["adicao", "dois-digitos", "esquerda-para-direita", "decomposicao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 13, 14, 90] }
+        },
+        {
+          "id": "c02-d03-adicao-blocos-redondos",
+          "ordem": 3,
+          "titulo": "Reconheça somas de centenas e dezenas redondas",
+          "paginas": [11, 15, 91],
+          "resumo": "Antes do algoritmo geral de três dígitos, o livro destaca casos quase imediatos: uma parcela múltipla de 100 altera as centenas; duas parcelas múltiplas de 10 podem ser somadas por centenas e dezenas. Esse tipo de leitura é útil em totais cotidianos.",
+          "quandoUsar": [
+            "Quando uma parcela é múltipla de 100.",
+            "Quando as duas parcelas terminam em zero.",
+            "Em estimativas e totais como contagem de calorias."
+          ],
+          "porQueFunciona": "Zeros nas ordens menores eliminam etapas: não há unidades para processar e, em alguns casos, nem dezenas.",
+          "algoritmo": {
+            "titulo": "Pule as ordens zeradas",
+            "passos": [
+              { "ordem": 1, "acao": "Inspecione os zeros", "detalhe": "Veja quais ordens não exigem operação." },
+              { "ordem": 2, "acao": "Some o bloco alto", "detalhe": "Acrescente centenas ou milhares diretamente." },
+              { "ordem": 3, "acao": "Complete as dezenas", "detalhe": "Se houver dezenas restantes, some-as no final." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d03-ex01",
+              "enunciado": "450 + 320",
+              "resposta": "770",
+              "etapas": [
+                { "expressao": "450+300 = 750", "explicacao": "Some as centenas." },
+                { "expressao": "750+20 = 770", "explicacao": "Some a dezena restante; não existe etapa de unidades." }
+              ],
+              "conclusao": "Os zeros finais tornam a conta um problema de dois blocos.",
+              "origem": { "pagina": 11 }
+            },
+            {
+              "id": "c02-d03-ex02",
+              "enunciado": "400 + 567",
+              "resposta": "967",
+              "etapas": [
+                { "expressao": "500+400 = 900", "explicacao": "A parcela 400 altera diretamente as centenas de 567." },
+                { "expressao": "900+67 = 967", "explicacao": "Dezenas e unidades de 567 permanecem." }
+              ],
+              "conclusao": "Uma centena redonda não cria trabalho nas casas menores.",
+              "origem": { "pagina": 11 }
+            }
+          ],
+          "armadilhas": [
+            "Executar etapas inúteis para casas que são zero.",
+            "Desalinhar mentalmente dezenas e centenas.",
+            "Ler 320 como 32."
+          ],
+          "lembrete": "Zero final é uma etapa que você não precisa fazer.",
+          "tags": ["adicao", "numeros-redondos", "centenas", "dezenas"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 15, 91] }
+        },
+        {
+          "id": "c02-d04-adicao-tres-digitos",
+          "ordem": 4,
+          "titulo": "Some três dígitos mantendo o prefixo estável",
+          "paginas": [11, 15, 16, 91, 92],
+          "resumo": "Some centenas, dezenas e unidades. Quando o parcial alto já está claro, mantenha-o como âncora e concentre-se apenas no bloco menor que ainda muda.",
+          "quandoUsar": [
+            "Em somas gerais de três dígitos.",
+            "Quando a primeira etapa já determina centenas ou milhares da resposta.",
+            "Quando dizer o parcial ajuda a liberar memória para a próxima etapa."
+          ],
+          "porQueFunciona": "A soma posicional pode ser reagrupada. Separar um prefixo estável evita recalcular a parte que não será alterada pelos blocos menores.",
+          "algoritmo": {
+            "titulo": "Centenas, dezenas, unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Some centenas", "detalhe": "Crie o primeiro parcial grande." },
+              { "ordem": 2, "acao": "Ancore o prefixo", "detalhe": "Diga ou retenha a parte que não deve mudar." },
+              { "ordem": 3, "acao": "Some dezenas", "detalhe": "Atualize o bloco baixo." },
+              { "ordem": 4, "acao": "Some unidades", "detalhe": "Resolva a última mudança e recomponha a resposta." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d04-ex01",
+              "enunciado": "314 + 159",
+              "resposta": "473",
+              "etapas": [
+                { "expressao": "314+100 = 414", "explicacao": "Some a centena." },
+                { "expressao": "14+50 = 64", "explicacao": "Mantenha 400 e trabalhe no bloco abaixo de 100." },
+                { "expressao": "64+9 = 73", "explicacao": "Finalize o bloco baixo." },
+                { "expressao": "400+73 = 473", "explicacao": "Reúna prefixo e bloco final." }
+              ],
+              "conclusao": "A memória protege 400 enquanto só 14→64→73 muda.",
+              "origem": { "pagina": 11 }
+            }
+          ],
+          "armadilhas": [
+            "Perder o prefixo ao concentrar-se no bloco menor.",
+            "Ignorar que o bloco menor pode gerar transporte para o prefixo.",
+            "Somar duas ordens de uma vez antes de dominar a sequência."
+          ],
+          "lembrete": "Segure o prefixo; deixe apenas o final da resposta trabalhar.",
+          "tags": ["adicao", "tres-digitos", "memoria", "parciais"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 15, 16, 91, 92] }
+        },
+        {
+          "id": "c02-d05-adicao-arredondar-ajustar",
+          "ordem": 5,
+          "titulo": "Troque uma adição com transportes por soma redonda e subtração",
+          "paginas": [11, 15, 16, 91, 92],
+          "resumo": "Se uma parcela está perto de uma dezena, centena ou milhar e a decomposição normal gera vários transportes, arredonde-a para cima, some o número redondo e retire o excesso.",
+          "quandoUsar": [
+            "Quando uma parcela termina em 8 ou 9, ou está muito perto de uma base redonda.",
+            "Quando o caminho direto exigiria transporte em várias etapas.",
+            "Como segundo método independente para conferir uma soma."
+          ],
+          "porQueFunciona": "Substituir b por R−d transforma a+b em a+R−d. A soma com R é simples e o ajuste d é pequeno.",
+          "algoritmo": {
+            "titulo": "Some demais, depois devolva",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha a base", "detalhe": "Encontre uma dezena, centena ou milhar logo acima da parcela." },
+              { "ordem": 2, "acao": "Meça o excesso", "detalhe": "Calcule quanto a base excede a parcela." },
+              { "ordem": 3, "acao": "Some a base", "detalhe": "Faça a soma redonda." },
+              { "ordem": 4, "acao": "Retire o excesso", "detalhe": "Subtraia a diferença medida." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d05-ex01",
+              "enunciado": "766 + 489",
+              "resposta": "1255",
+              "etapas": [
+                { "expressao": "489 = 500−11", "explicacao": "Troque a parcela por uma base e um ajuste." },
+                { "expressao": "766+500 = 1266", "explicacao": "Faça a soma fácil." },
+                { "expressao": "1266−11 = 1255", "explicacao": "Retire o que foi acrescentado a mais." }
+              ],
+              "conclusao": "Uma adição cheia de transportes virou soma redonda e subtração curta.",
+              "origem": { "pagina": 11 }
+            },
+            {
+              "id": "c02-d05-ex02",
+              "enunciado": "68 + 97",
+              "resposta": "165",
+              "etapas": [
+                { "expressao": "97 = 100−3", "explicacao": "Use 100 como base." },
+                { "expressao": "68+100−3 = 168−3", "explicacao": "Some e ajuste." },
+                { "expressao": "168−3 = 165", "explicacao": "Feche a conta." }
+              ],
+              "conclusao": "O exercício recomenda comparar este caminho ao método direto.",
+              "origem": { "pagina": 91 }
+            }
+          ],
+          "armadilhas": [
+            "Somar a base e esquecer de retirar o excesso.",
+            "Retirar o ajuste com sinal invertido.",
+            "Escolher uma base distante e criar um ajuste maior que a economia obtida."
+          ],
+          "lembrete": "Parcela quase redonda: arredonde para cima e cobre o troco.",
+          "tags": ["adicao", "arredondamento", "ajuste", "transporte"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 15, 16, 91, 92] }
+        },
+        {
+          "id": "c02-d06-subtracao-esquerda-direita",
+          "ordem": 6,
+          "titulo": "Subtraia dezenas antes das unidades",
+          "paginas": [11, 16, 17, 93],
+          "resumo": "Na subtração mental de dois dígitos, retire primeiro as dezenas do subtraendo e depois as unidades. Antecipar a dezena em que a resposta cairá ajuda a completar a última etapa.",
+          "quandoUsar": [
+            "Em subtrações mentais de dois dígitos sem ajuste redondo obrigatório.",
+            "Quando o subtraendo pode ser lido naturalmente como dezenas mais unidades.",
+            "Como método-base para comparar com a estratégia de subtrair demais."
+          ],
+          "porQueFunciona": "A−(10d+u)=(A−10d)−u. Retirar o bloco maior primeiro mantém a magnitude da resposta visível.",
+          "algoritmo": {
+            "titulo": "Dezenas, previsão e unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Retire as dezenas", "detalhe": "Subtraia o múltiplo de 10 do subtraendo." },
+              { "ordem": 2, "acao": "Preveja a faixa", "detalhe": "Observe em qual dezena o resultado final deve cair." },
+              { "ordem": 3, "acao": "Retire as unidades", "detalhe": "Complete a subtração usando a previsão como controle." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d06-ex01",
+              "enunciado": "74 − 29",
+              "resposta": "45",
+              "etapas": [
+                { "expressao": "74−20 = 54", "explicacao": "Retire as dezenas." },
+                { "expressao": "54−9", "explicacao": "A resposta estará na casa dos 40." },
+                { "expressao": "14−9 = 5", "explicacao": "Use o final 5 com a dezena prevista." },
+                { "expressao": "54−9 = 45", "explicacao": "Recomponha a resposta." }
+              ],
+              "conclusao": "A previsão da dezena impede que o último passo seja tratado como algarismos isolados.",
+              "origem": { "pagina": 11 }
+            }
+          ],
+          "armadilhas": [
+            "Fazer 4−9 isoladamente e perder a dezena emprestada.",
+            "Subtrair unidades antes das dezenas por reflexo do papel.",
+            "Ignorar a faixa esperada do resultado."
+          ],
+          "lembrete": "Tire a dezena; descubra a faixa; feche nas unidades.",
+          "tags": ["subtracao", "esquerda-para-direita", "dois-digitos", "previsao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 16, 17, 93] }
+        },
+        {
+          "id": "c02-d07-subtrair-demais",
+          "ordem": 7,
+          "titulo": "Evite empréstimo subtraindo demais e devolvendo a diferença",
+          "paginas": [11, 17, 93],
+          "resumo": "Quando a etapa final exigiria empréstimo, arredonde o subtraendo para cima, retire o número redondo e some de volta a diferença. Os exercícios pedem deliberadamente uma segunda solução por esse caminho.",
+          "quandoUsar": [
+            "Quando o subtraendo está perto de uma dezena redonda.",
+            "Quando a subtração direta exigiria empréstimo.",
+            "Para conferir uma conta feita pelo método esquerda→direita."
+          ],
+          "porQueFunciona": "Se b=R−d, então a−b=a−R+d. Subtrair R remove um pouco a mais; somar d restaura exatamente esse excesso.",
+          "algoritmo": {
+            "titulo": "Arredonde o subtraendo para cima",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha a dezena", "detalhe": "Use a dezena imediatamente acima do subtraendo." },
+              { "ordem": 2, "acao": "Calcule a diferença", "detalhe": "Veja quanto falta do subtraendo até a dezena." },
+              { "ordem": 3, "acao": "Subtraia a dezena", "detalhe": "Faça a conta redonda." },
+              { "ordem": 4, "acao": "Devolva", "detalhe": "Some a diferença ao resultado." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d07-ex01",
+              "enunciado": "121 − 57",
+              "resposta": "64",
+              "etapas": [
+                { "expressao": "57 = 60−3", "explicacao": "Arredonde 57 para 60." },
+                { "expressao": "121−60 = 61", "explicacao": "Subtraia demais." },
+                { "expressao": "61+3 = 64", "explicacao": "Devolva o excesso." }
+              ],
+              "conclusao": "O empréstimo foi trocado por uma adição pequena.",
+              "origem": { "pagina": 11 }
+            },
+            {
+              "id": "c02-d07-ex02",
+              "enunciado": "73 − 59",
+              "resposta": "14",
+              "etapas": [
+                { "expressao": "59 = 60−1", "explicacao": "A base 60 fica a apenas 1." },
+                { "expressao": "73−60+1 = 13+1", "explicacao": "Subtraia a base e devolva 1." },
+                { "expressao": "13+1 = 14", "explicacao": "Finalize." }
+              ],
+              "conclusao": "Quanto menor o ajuste, mais atraente é o método.",
+              "origem": { "pagina": 93 }
+            }
+          ],
+          "armadilhas": [
+            "Subtrair a base e depois subtrair novamente a diferença.",
+            "Arredondar para baixo; neste método, o subtraendo é elevado.",
+            "Escolher uma base que torne o ajuste maior que a conta original."
+          ],
+          "lembrete": "Subtraiu demais? Some de volta.",
+          "tags": ["subtracao", "ajuste", "emprestimo", "dois-metodos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [11, 17, 93] }
+        },
+        {
+          "id": "c02-d08-subtracao-tres-digitos",
+          "ordem": 8,
+          "titulo": "Subtraia três dígitos por centenas, dezenas e unidades",
+          "paginas": [12, 17, 93, 94],
+          "resumo": "O método-base se estende: retire centenas, preserve o prefixo que ficou e processe dezenas e unidades. Dentro do bloco menor, continue da esquerda para a direita.",
+          "quandoUsar": [
+            "Em subtrações de três dígitos com blocos manejáveis.",
+            "Quando o subtraendo não está tão perto de uma base redonda a ponto de justificar ajuste.",
+            "Como base para perceber onde um complemento será mais eficiente."
+          ],
+          "porQueFunciona": "O subtraendo é decomposto por valor posicional, e subtrações sucessivas preservam a equivalência da conta original.",
+          "algoritmo": {
+            "titulo": "Centenas, dezenas, unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Retire centenas", "detalhe": "Forme o parcial principal." },
+              { "ordem": 2, "acao": "Proteja o prefixo", "detalhe": "Mantenha a parte alta enquanto trabalha no bloco restante." },
+              { "ordem": 3, "acao": "Retire dezenas", "detalhe": "Atualize o bloco baixo." },
+              { "ordem": 4, "acao": "Retire unidades", "detalhe": "Conclua e recomponha." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d08-ex01",
+              "enunciado": "846 − 225",
+              "resposta": "621",
+              "etapas": [
+                { "expressao": "846−200 = 646", "explicacao": "Retire as centenas." },
+                { "expressao": "46−20 = 26", "explicacao": "Preserve 600 e trabalhe no bloco 46." },
+                { "expressao": "26−5 = 21", "explicacao": "Retire as unidades." },
+                { "expressao": "600+21 = 621", "explicacao": "Recomponha a resposta." }
+              ],
+              "conclusao": "A conta longa vira uma sequência previsível de três retiradas.",
+              "origem": { "pagina": 12 }
+            }
+          ],
+          "armadilhas": [
+            "Perder as centenas preservadas enquanto calcula 46−25.",
+            "Retirar 25 de uma vez antes de dominar dezenas e unidades separadas.",
+            "Não perceber quando o último passo seria melhor por ajuste."
+          ],
+          "lembrete": "Retire por camadas e preserve o que já ficou estável.",
+          "tags": ["subtracao", "tres-digitos", "decomposicao", "memoria"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [12, 17, 93, 94] }
+        },
+        {
+          "id": "c02-d09-complemento-ate-cem",
+          "ordem": 9,
+          "titulo": "Encontre complementos de dois dígitos até 100",
+          "paginas": [12, 13, 18, 94],
+          "resumo": "O complemento é a distância até uma base redonda. Para um número de dois dígitos que não termina em zero, faça a dezena completar 9 e a unidade completar 10. Se termina em zero, preserve o zero e faça a dezena completar 10.",
+          "quandoUsar": [
+            "Para calcular 100−n rapidamente.",
+            "Como ajuste em subtrações próximas de centenas.",
+            "Ao calcular troco e diferenças até bases redondas."
+          ],
+          "porQueFunciona": "Nas unidades, completar 10 gera um transporte de 1; por isso as dezenas precisam completar apenas 9. Quando a unidade já é zero, não há transporte e a dezena completa 10 diretamente.",
+          "algoritmo": {
+            "titulo": "Regra 9–10, com caso do zero",
+            "passos": [
+              { "ordem": 1, "acao": "Observe a unidade", "detalhe": "Separe o caso geral do caso terminado em zero." },
+              { "ordem": 2, "acao": "Caso geral", "detalhe": "Complete a dezena até 9 e a unidade até 10." },
+              { "ordem": 3, "acao": "Caso zero", "detalhe": "Mantenha zero na unidade e complete a dezena até 10." },
+              { "ordem": 4, "acao": "Confira", "detalhe": "Some número e complemento; o resultado deve ser 100." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d09-ex01",
+              "enunciado": "Complemento de 75 até 100",
+              "resposta": "25",
+              "etapas": [
+                { "expressao": "7+2 = 9", "explicacao": "A dezena completa 9." },
+                { "expressao": "5+5 = 10", "explicacao": "A unidade completa 10." },
+                { "expressao": "75+25 = 100", "explicacao": "Confira a distância." }
+              ],
+              "conclusao": "O complemento é 25.",
+              "origem": { "pagina": 12 }
+            },
+            {
+              "id": "c02-d09-ex02",
+              "enunciado": "Complemento de 80 até 100",
+              "resposta": "20",
+              "etapas": [
+                { "expressao": "unidade 0 → complemento termina em 0", "explicacao": "Não haverá transporte das unidades." },
+                { "expressao": "8+2 = 10", "explicacao": "A dezena completa 10, não 9." }
+              ],
+              "conclusao": "O caso terminado em zero usa a regra 10–0.",
+              "origem": { "pagina": 12 }
+            }
+          ],
+          "armadilhas": [
+            "Aplicar 9–10 a 80 e obter uma forma impossível.",
+            "Confundir complemento com oposto ou valor absoluto.",
+            "Não conferir se a soma chega exatamente à base."
+          ],
+          "lembrete": "Normalmente 9 e 10; se termina em zero, 10 e zero.",
+          "tags": ["complemento", "base-100", "caso-especial", "subtracao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [12, 13, 18, 94] }
+        },
+        {
+          "id": "c02-d10-subtracao-com-complemento",
+          "ordem": 10,
+          "titulo": "Use o complemento para corrigir uma centena subtraída a mais",
+          "paginas": [12, 18, 94, 95],
+          "resumo": "Em uma subtração difícil, leve o subtraendo à centena seguinte, subtraia essa base e some o complemento da parte baixa. É a versão sistemática de subtrair demais e devolver.",
+          "quandoUsar": [
+            "Quando o subtraendo está abaixo de 200, 300, 400, 500 etc.",
+            "Quando a diferença até a centena seguinte é fácil por complemento.",
+            "Em subtrações de três dígitos com empréstimos incômodos."
+          ],
+          "porQueFunciona": "Se b=R−c, então a−b=a−R+c. O complemento c mede exatamente quanto deve ser devolvido depois de retirar R.",
+          "algoritmo": {
+            "titulo": "Centena seguinte mais complemento",
+            "passos": [
+              { "ordem": 1, "acao": "Suba o subtraendo", "detalhe": "Escolha a centena imediatamente acima." },
+              { "ordem": 2, "acao": "Ache o complemento", "detalhe": "Calcule a distância do subtraendo até essa centena." },
+              { "ordem": 3, "acao": "Subtraia a base", "detalhe": "Faça a retirada redonda." },
+              { "ordem": 4, "acao": "Some o complemento", "detalhe": "Devolva a distância calculada." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d10-ex01",
+              "enunciado": "835 − 467",
+              "resposta": "368",
+              "etapas": [
+                { "expressao": "467 = 500−33", "explicacao": "O complemento de 67 até 100 é 33; logo faltam 33 para 500." },
+                { "expressao": "835−500 = 335", "explicacao": "Subtraia a centena redonda." },
+                { "expressao": "335+33 = 368", "explicacao": "Some o complemento de volta." }
+              ],
+              "conclusao": "O empréstimo de várias casas foi substituído por um complemento e uma soma.",
+              "origem": { "pagina": 12 }
+            },
+            {
+              "id": "c02-d10-ex02",
+              "enunciado": "614 − 372",
+              "resposta": "242",
+              "etapas": [
+                { "expressao": "372 = 400−28", "explicacao": "O complemento até 400 é 28." },
+                { "expressao": "614−400 = 214", "explicacao": "Retire a base." },
+                { "expressao": "214+28 = 242", "explicacao": "Devolva o complemento." }
+              ],
+              "conclusao": "A sequência explicita o ajuste em vez de esconder um empréstimo.",
+              "origem": { "pagina": 94 }
+            }
+          ],
+          "armadilhas": [
+            "Usar o complemento até 100 quando a base escolhida exige outra centena sem ajustar o prefixo.",
+            "Subtrair, em vez de somar, o complemento no final.",
+            "Escolher a centena inferior ao subtraendo."
+          ],
+          "lembrete": "Retire a centena seguinte e devolva a distância.",
+          "tags": ["subtracao", "complemento", "ajuste", "tres-digitos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [12, 18, 94, 95] }
+        },
+        {
+          "id": "c02-d11-complemento-ate-mil",
+          "ordem": 11,
+          "titulo": "Encontre complementos de três dígitos até 1000",
+          "paginas": [12, 19, 95],
+          "resumo": "Para três dígitos que não terminam em zero, complete as duas primeiras casas até 9 e a última até 10. Se termina em zero, preserve o zero e use o complemento de dois dígitos do prefixo.",
+          "quandoUsar": [
+            "Para calcular 1000−n mentalmente.",
+            "Em subtrações próximas de um milhar.",
+            "Ao determinar troco representado em centavos."
+          ],
+          "porQueFunciona": "O transporte criado ao completar a última casa até 10 percorre as casas anteriores; por isso elas completam 9. Com zero final, não há transporte nessa casa e o problema reduz ao prefixo.",
+          "algoritmo": {
+            "titulo": "Regra 9–9–10",
+            "passos": [
+              { "ordem": 1, "acao": "Inspecione o final", "detalhe": "Veja se o número termina em zero." },
+              { "ordem": 2, "acao": "Caso geral", "detalhe": "Complete centenas e dezenas até 9; unidades até 10." },
+              { "ordem": 3, "acao": "Caso zero", "detalhe": "Preserve o zero e complemente o prefixo de dois dígitos." },
+              { "ordem": 4, "acao": "Mantenha casas", "detalhe": "Use zeros iniciais no complemento quando necessários." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d11-ex01",
+              "enunciado": "Complemento de 234 até 1000",
+              "resposta": "766",
+              "etapas": [
+                { "expressao": "2+7 = 9", "explicacao": "Complete a centena até 9." },
+                { "expressao": "3+6 = 9", "explicacao": "Complete a dezena até 9." },
+                { "expressao": "4+6 = 10", "explicacao": "Complete a unidade até 10." },
+                { "expressao": "234+766 = 1000", "explicacao": "Confira." }
+              ],
+              "conclusao": "O complemento é 766.",
+              "origem": { "pagina": 12 }
+            },
+            {
+              "id": "c02-d11-ex02",
+              "enunciado": "Complemento de 670 até 1000",
+              "resposta": "330",
+              "etapas": [
+                { "expressao": "670 termina em 0", "explicacao": "O complemento também terminará em zero." },
+                { "expressao": "complemento de 67 até 100 = 33", "explicacao": "Reduza o problema ao prefixo." },
+                { "expressao": "33 | 0 = 330", "explicacao": "Recoloque o zero final." }
+              ],
+              "conclusao": "O caso com zero evita aplicar mecanicamente 9–9–10.",
+              "origem": { "pagina": 12 }
+            }
+          ],
+          "armadilhas": [
+            "Tratar 670 pelo caso geral e perder o zero estrutural.",
+            "Omitir zero inicial em complementos como 026.",
+            "Completar todas as casas até 10."
+          ],
+          "lembrete": "Até 1000: 9, 9, 10 — salvo o zero final.",
+          "tags": ["complemento", "base-1000", "caso-especial", "zeros"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [12, 19, 95] }
+        },
+        {
+          "id": "c02-d12-troco-por-complementos",
+          "ordem": 12,
+          "titulo": "Calcule troco como distância até a nota",
+          "paginas": [12, 13, 19, 95, 96],
+          "resumo": "Preços em centavos podem ser tratados como inteiros e complementados até 1000, 2000, 5000 ou 10.000 centavos. Para troco de 100, os reais das duas quantias somam 99 e os centavos somam 100; para troco de 20, somam 19 e 100.",
+          "quandoUsar": [
+            "Ao dar troco de 10, 20, 50 ou 100.",
+            "Quando o preço tem reais e centavos.",
+            "Para conferir rapidamente o troco recebido."
+          ],
+          "porQueFunciona": "Os centavos completam 100 e geram um real de transporte. Por isso, antes desse transporte, a parte inteira completa uma unidade a menos que o total da nota.",
+          "algoritmo": {
+            "titulo": "Inteiros completam uma unidade a menos; centavos completam 100",
+            "passos": [
+              { "ordem": 1, "acao": "Defina o alvo", "detalhe": "Escolha a nota usada no pagamento." },
+              { "ordem": 2, "acao": "Complete centavos", "detalhe": "Encontre quanto falta até 100 centavos." },
+              { "ordem": 3, "acao": "Complete reais", "detalhe": "Faça os reais somarem alvo−1." },
+              { "ordem": 4, "acao": "Confira", "detalhe": "Some preço e troco e verifique a nota inteira." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d12-ex01",
+              "enunciado": "Troco de US$ 10 para US$ 6,75",
+              "resposta": "US$ 3,25",
+              "etapas": [
+                { "expressao": "675 + 325 = 1000 centavos", "explicacao": "Use o complemento de 675 até 1000." },
+                { "expressao": "US$ 6,75 + US$ 3,25 = US$ 10,00", "explicacao": "Confira na unidade monetária." }
+              ],
+              "conclusao": "O troco é o complemento do preço em centavos.",
+              "origem": { "pagina": 12 }
+            },
+            {
+              "id": "c02-d12-ex02",
+              "enunciado": "Troco de US$ 100 para US$ 23,58",
+              "resposta": "US$ 76,42",
+              "etapas": [
+                { "expressao": "23+76 = 99", "explicacao": "Os reais completam 99." },
+                { "expressao": "58+42 = 100", "explicacao": "Os centavos completam 100 e geram o real restante." },
+                { "expressao": "23,58+76,42 = 100,00", "explicacao": "Confira o transporte." }
+              ],
+              "conclusao": "A regra separa o troco em dois complementos coordenados.",
+              "origem": { "pagina": 13 }
+            }
+          ],
+          "armadilhas": [
+            "Fazer os reais somarem 100 antes de considerar o transporte dos centavos.",
+            "Tratar 58 centavos como 0,58 sem preservar duas casas.",
+            "Usar 99 como alvo para troco de 20; nesse caso os reais somam 19."
+          ],
+          "lembrete": "Centavos até 100; reais até uma unidade abaixo da nota.",
+          "tags": ["troco", "dinheiro", "complemento", "centavos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [12, 13, 19, 95, 96] }
+        },
+        {
+          "id": "c02-d13-parciais-para-multiplicacao",
+          "ordem": 13,
+          "titulo": "Automatize os parciais que a multiplicação vai exigir",
+          "paginas": [20, 96],
+          "resumo": "O capítulo termina com somas e subtrações escolhidas porque surgirão dentro de multiplicações mentais. O objetivo não é aprender outro algoritmo, mas tornar rápida a atualização de um parcial grande por um ajuste pequeno.",
+          "quandoUsar": [
+            "Antes de avançar para multiplicações 2×1 e 3×1.",
+            "Quando você sabe produzir os produtos parciais, mas demora para reuni-los.",
+            "Ao treinar manutenção de milhares enquanto dezenas e unidades mudam."
+          ],
+          "porQueFunciona": "Multiplicação mental é uma cadeia de produtos simples intercalados com somas ou subtrações. Automatizar essas junções remove um gargalo que não pertence à tabuada em si.",
+          "algoritmo": {
+            "titulo": "Treino de atualização de parcial",
+            "passos": [
+              { "ordem": 1, "acao": "Retenha o bloco alto", "detalhe": "Diga mentalmente milhares ou centenas estáveis." },
+              { "ordem": 2, "acao": "Atualize o bloco baixo", "detalhe": "Some ou subtraia dezenas antes de unidades." },
+              { "ordem": 3, "acao": "Observe o transporte", "detalhe": "Se o bloco baixo atravessar 100 ou 1000, atualize o prefixo." },
+              { "ordem": 4, "acao": "Repita até ser imediato", "detalhe": "A meta é reduzir a hesitação entre produtos parciais." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c02-d13-ex01",
+              "enunciado": "350 + 35",
+              "resposta": "385",
+              "etapas": [
+                { "expressao": "350+30 = 380", "explicacao": "Atualize as dezenas." },
+                { "expressao": "380+5 = 385", "explicacao": "Finalize nas unidades." }
+              ],
+              "conclusao": "Este formato aparece ao reunir produtos como 7×50 e 7×5.",
+              "origem": { "pagina": 96 }
+            },
+            {
+              "id": "c02-d13-ex02",
+              "enunciado": "6300 − 108",
+              "resposta": "6192",
+              "etapas": [
+                { "expressao": "6300−100 = 6200", "explicacao": "Retire a centena." },
+                { "expressao": "6200−8 = 6192", "explicacao": "Faça o ajuste final." }
+              ],
+              "conclusao": "A transição 6200→6192 treina empréstimo dentro de um parcial grande.",
+              "origem": { "pagina": 96 }
+            }
+          ],
+          "armadilhas": [
+            "Treinar só fatos de multiplicação e ignorar a soma dos parciais.",
+            "Recomeçar a conta inteira após cada ajuste.",
+            "Perder zeros do bloco alto."
+          ],
+          "lembrete": "Produto rápido não basta; a junção dos parciais também precisa ser rápida.",
+          "tags": ["preparacao", "multiplicacao", "parciais", "fluencia"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [20, 96] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-03",
+      "capituloOrdem": 3,
+      "titulo": "Avance e multiplique",
+      "dicas": [
+        {
+          "id": "c03-d01-retirar-apoio-visual",
+          "ordem": 1,
+          "titulo": "Retire o apoio visual sem abandonar a verificação",
+          "paginas": [21, 22, 23],
+          "resumo": "O capítulo trata multiplicações 2×1 e 3×1 como blocos essenciais de todo o restante. No início, ver a conta é aceitável; depois, o livro sugere mostrar apenas parte dela ou digitá-la na calculadora sem apertar igual até produzir uma resposta mental.",
+          "quandoUsar": [
+            "Na transição de cálculo escrito para cálculo realmente mental.",
+            "Quando os fatos da tabuada estão conhecidos, mas os operandos se perdem sem tela.",
+            "Para conferir uma resposta sem deixar a calculadora substituir o raciocínio."
+          ],
+          "porQueFunciona": "Reduzir gradualmente a informação visível treina a retenção dos operandos e dos parciais. Adiar a tecla de resultado mantém uma verificação objetiva, mas só depois de o cálculo acontecer.",
+          "algoritmo": {
+            "titulo": "Desvanecimento do suporte",
+            "passos": [
+              { "ordem": 1, "acao": "Resolva com a conta visível", "detalhe": "Consolide primeiro o caminho esquerda→direita." },
+              { "ordem": 2, "acao": "Mostre metade", "detalhe": "Oculte um dos fatores depois de lê-lo." },
+              { "ordem": 3, "acao": "Digite sem concluir", "detalhe": "Use a calculadora apenas como registro do enunciado; não pressione igual." },
+              { "ordem": 4, "acao": "Responda e confira", "detalhe": "Só revele o resultado depois de assumir uma resposta mental." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d01-ex01",
+              "enunciado": "Treinar 53 × 6 vendo apenas 53 após memorizar o segundo fator",
+              "resposta": "318",
+              "etapas": [
+                { "expressao": "6×50 = 300", "explicacao": "Produza o parcial principal sem reabrir o enunciado." },
+                { "expressao": "6×3 = 18", "explicacao": "Use o fator retido para o bloco final." },
+                { "expressao": "300+18 = 318", "explicacao": "Assuma a resposta antes da conferência." }
+              ],
+              "conclusao": "A verificação continua disponível, mas não participa da produção da resposta.",
+              "origem": { "pagina": 21 }
+            }
+          ],
+          "armadilhas": [
+            "Retirar apoio antes de dominar a decomposição.",
+            "Apertar igual no primeiro sinal de dúvida.",
+            "Decorar a tela em vez de treinar a retenção do fator."
+          ],
+          "lembrete": "A calculadora confirma depois; não pensa antes.",
+          "tags": ["treino", "memoria-de-trabalho", "calculadora", "autonomia"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [21, 22, 23] }
+        },
+        {
+          "id": "c03-d02-dois-por-um-adicao",
+          "ordem": 2,
+          "titulo": "Faça multiplicações 2×1 pelo método da adição",
+          "paginas": [21, 23, 24, 97, 98],
+          "resumo": "Decomponha o fator de dois dígitos em dezenas e unidades, multiplique cada parte pelo algarismo e some. O primeiro produto também estabelece uma faixa segura para a resposta.",
+          "quandoUsar": [
+            "Na maioria dos produtos de dois dígitos por um dígito.",
+            "Quando a unidade do número não está especialmente perto da próxima dezena.",
+            "Como bloco para multiplicações de dois números de dois dígitos."
+          ],
+          "porQueFunciona": "Pela distributiva, k(10d+u)=10kd+ku. Como ku é menor que 100, o primeiro parcial revela quanto a resposta ainda pode crescer.",
+          "algoritmo": {
+            "titulo": "Dezena vezes fator, unidade vezes fator",
+            "passos": [
+              { "ordem": 1, "acao": "Decomponha", "detalhe": "Separe dezenas e unidades." },
+              { "ordem": 2, "acao": "Multiplique as dezenas", "detalhe": "Forme e retenha o maior parcial." },
+              { "ordem": 3, "acao": "Multiplique as unidades", "detalhe": "Calcule o ajuste pela tabuada." },
+              { "ordem": 4, "acao": "Some", "detalhe": "Atualize o parcial da esquerda para a direita." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d02-ex01",
+              "enunciado": "53 × 6",
+              "resposta": "318",
+              "etapas": [
+                { "expressao": "6×50 = 300", "explicacao": "Comece pela dezena." },
+                { "expressao": "6×3 = 18", "explicacao": "O ajuste máximo de um fato 1×1 ainda é menor que 100." },
+                { "expressao": "300+18 = 318", "explicacao": "Some os parciais." }
+              ],
+              "conclusao": "Depois de 300, já se sabe que apenas as duas últimas casas serão ajustadas.",
+              "origem": { "pagina": 21 }
+            },
+            {
+              "id": "c03-d02-ex02",
+              "enunciado": "68 × 7",
+              "resposta": "476",
+              "etapas": [
+                { "expressao": "7×60 = 420", "explicacao": "Produto das dezenas." },
+                { "expressao": "7×8 = 56", "explicacao": "Produto das unidades." },
+                { "expressao": "420+56 = 476", "explicacao": "Junção dos parciais." }
+              ],
+              "conclusao": "O exercício reforça uma soma com transporte dentro da multiplicação.",
+              "origem": { "pagina": 97 }
+            }
+          ],
+          "armadilhas": [
+            "Calcular 6×5 em vez de 6×50.",
+            "Perder o primeiro parcial enquanto calcula a unidade.",
+            "Anexar o segundo produto em vez de somá-lo."
+          ],
+          "lembrete": "Dezena primeiro, unidade depois, soma no fim.",
+          "tags": ["multiplicacao", "dois-por-um", "metodo-da-adicao", "distributiva"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [21, 23, 24, 97, 98] }
+        },
+        {
+          "id": "c03-d03-reordenar-fatores",
+          "ordem": 3,
+          "titulo": "Reordene os fatores para executar primeiro a simplificação",
+          "paginas": [21],
+          "resumo": "Em uma cadeia de multiplicações, a ordem pode ser escolhida para eliminar uma fração ou criar um fator pequeno. O exemplo de área divide 14 por 2 antes de multiplicar por 59.",
+          "quandoUsar": [
+            "Em fórmulas com vários fatores.",
+            "Quando um fator cancela ou simplifica outro exatamente.",
+            "Em aplicações como área, taxa e conversão."
+          ],
+          "porQueFunciona": "A comutatividade e a associatividade permitem trocar e reagrupar fatores sem alterar o produto.",
+          "algoritmo": {
+            "titulo": "Simplifique antes de expandir",
+            "passos": [
+              { "ordem": 1, "acao": "Liste os fatores", "detalhe": "Não execute imediatamente na ordem escrita." },
+              { "ordem": 2, "acao": "Procure cancelamento", "detalhe": "Junte divisão por 2, 4 etc. ao fator que é divisível por ela." },
+              { "ordem": 3, "acao": "Reagrupe", "detalhe": "Forme um novo produto com menos dificuldade." },
+              { "ordem": 4, "acao": "Calcule", "detalhe": "Aplique o método 2×1 ao problema simplificado." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d03-ex01",
+              "enunciado": "Área de um triângulo de base 59 e altura 14",
+              "resposta": "413 polegadas quadradas",
+              "etapas": [
+                { "expressao": "½×59×14", "explicacao": "A fórmula cria três fatores." },
+                { "expressao": "(½×14)×59 = 7×59", "explicacao": "Reordene para simplificar 14 primeiro." },
+                { "expressao": "7×50+7×9 = 350+63", "explicacao": "Decomponha 59." },
+                { "expressao": "350+63 = 413", "explicacao": "Conclua a área." }
+              ],
+              "conclusao": "A escolha da ordem remove a fração antes da multiplicação mental.",
+              "origem": { "pagina": 21 }
+            }
+          ],
+          "armadilhas": [
+            "Multiplicar 59×14 antes de aplicar a metade.",
+            "Reordenar adição e multiplicação como se fossem todos fatores.",
+            "Cancelar valores que não pertencem ao mesmo produto."
+          ],
+          "lembrete": "Em uma cadeia de fatores, faça primeiro o par que simplifica.",
+          "tags": ["comutatividade", "associatividade", "simplificacao", "aplicacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [21] }
+        },
+        {
+          "id": "c03-d04-intuicao-distributiva",
+          "ordem": 4,
+          "titulo": "Entenda a distributiva como grupos divididos em partes",
+          "paginas": [22, 23],
+          "resumo": "O livro não apresenta a distributiva apenas como fórmula: imagine vários sacos iguais, cada um com uma parte grande e outra pequena. Contar cada cor separadamente e somar preserva o mesmo total; um desenho pode tornar a decomposição concreta.",
+          "quandoUsar": [
+            "Quando a fórmula distributiva parece abstrata.",
+            "Ao explicar por que produtos parciais podem ser somados.",
+            "Quando decompor uma quantidade real em categorias facilita a conta."
+          ],
+          "porQueFunciona": "Cada um dos k grupos contém a e b itens. Contar k vezes o total a+b equivale a contar separadamente ka e kb e reunir as duas coleções.",
+          "algoritmo": {
+            "titulo": "Modele, distribua e reúna",
+            "passos": [
+              { "ordem": 1, "acao": "Visualize grupos", "detalhe": "Interprete o multiplicador como quantidade de grupos iguais." },
+              { "ordem": 2, "acao": "Divida cada grupo", "detalhe": "Separe a quantidade interna em um bloco conveniente e um restante." },
+              { "ordem": 3, "acao": "Conte cada parte", "detalhe": "Multiplique o número de grupos por cada bloco." },
+              { "ordem": 4, "acao": "Reúna", "detalhe": "Some os totais das partes." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d04-ex01",
+              "enunciado": "3 sacos com 87 bolinhas em cada um, sendo 80 azuis e 7 vermelhas",
+              "resposta": "261 bolinhas",
+              "etapas": [
+                { "expressao": "87 = 80+7", "explicacao": "Separe cada saco por cor." },
+                { "expressao": "3×80 = 240", "explicacao": "Conte as azuis nos três sacos." },
+                { "expressao": "3×7 = 21", "explicacao": "Conte as vermelhas." },
+                { "expressao": "240+21 = 261", "explicacao": "Reúna as categorias." }
+              ],
+              "conclusao": "O modelo visual realiza 3×(80+7)=3×80+3×7.",
+              "origem": { "pagina": 22 }
+            }
+          ],
+          "armadilhas": [
+            "Multiplicar apenas uma das parcelas pelo fator externo.",
+            "Separar 87 em blocos cuja soma não é 87.",
+            "Confundir distributiva com fatoração, que percorre o caminho inverso."
+          ],
+          "lembrete": "Se cada grupo foi dividido, multiplique todas as partes.",
+          "tags": ["distributiva", "intuicao", "modelo-visual", "multiplicacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [22, 23] }
+        },
+        {
+          "id": "c03-d05-metodo-da-subtracao",
+          "ordem": 5,
+          "titulo": "Arredonde o fator para cima e use o método da subtração",
+          "paginas": [21, 23, 25, 98],
+          "resumo": "Quando o fator de dois dígitos está muito perto de uma dezena ou centena, pode ser mais fácil multiplicar pelo número redondo e retirar o excesso. O bloco de exercícios pede resolver os mesmos produtos pelos métodos da adição e da subtração para comparar e conferir.",
+          "quandoUsar": [
+            "Quando um fator termina em 8 ou 9, ou está perto de 50 ou 100.",
+            "Quando a decomposição direta produziria uma soma mais difícil que a correção.",
+            "Como verificação independente do método da adição."
+          ],
+          "porQueFunciona": "Se n=R−d, então kn=kR−kd. A base redonda torna kR imediato e d pequeno torna a correção curta.",
+          "algoritmo": {
+            "titulo": "Produto redondo menos excesso",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha a base", "detalhe": "Use a dezena ou centena logo acima do fator." },
+              { "ordem": 2, "acao": "Meça o excesso", "detalhe": "Calcule a diferença entre base e fator." },
+              { "ordem": 3, "acao": "Multiplique a base", "detalhe": "Faça o produto fácil." },
+              { "ordem": 4, "acao": "Subtraia a correção", "detalhe": "Retire fator pequeno × excesso." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d05-ex01",
+              "enunciado": "59 × 7",
+              "resposta": "413",
+              "etapas": [
+                { "expressao": "59 = 60−1", "explicacao": "Use 60 como base." },
+                { "expressao": "7×60 = 420", "explicacao": "Multiplique o número redondo." },
+                { "expressao": "420−7×1 = 413", "explicacao": "Retire o excesso." }
+              ],
+              "conclusao": "A adição 350+63 foi substituída pela subtração 420−7.",
+              "origem": { "pagina": 21 }
+            },
+            {
+              "id": "c03-d05-ex02",
+              "enunciado": "89 × 9",
+              "resposta": "801",
+              "etapas": [
+                { "expressao": "89 = 90−1", "explicacao": "Arredonde para 90." },
+                { "expressao": "90×9 = 810", "explicacao": "Produto redondo." },
+                { "expressao": "810−9 = 801", "explicacao": "Corrija uma unidade do fator." }
+              ],
+              "conclusao": "O resultado coincide com o caminho direto 720+81.",
+              "origem": { "pagina": 98 }
+            }
+          ],
+          "armadilhas": [
+            "Adicionar a correção quando a base escolhida está acima do fator.",
+            "Escolher uma base abaixo e continuar usando subtração.",
+            "Comparar dois métodos sem refazer a conta de forma independente."
+          ],
+          "lembrete": "Fator quase redondo: multiplique o redondo e tire a sobra.",
+          "tags": ["multiplicacao", "metodo-da-subtracao", "arredondamento", "verificacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [21, 23, 25, 98] }
+        },
+        {
+          "id": "c03-d06-tres-por-um",
+          "ordem": 6,
+          "titulo": "Estenda a decomposição para multiplicações 3×1",
+          "paginas": [22, 27, 28, 100, 101],
+          "resumo": "Multiplique centenas, dezenas e unidades pelo algarismo, acumulando os resultados. Trabalhar da esquerda para a direita permite antecipar a magnitude e até dizer a parte inicial da resposta enquanto o cálculo continua.",
+          "quandoUsar": [
+            "Em produtos de três dígitos por um dígito.",
+            "Como preparação para quadrados de três dígitos.",
+            "Quando verbalizar o prefixo reduz a carga de memória."
+          ],
+          "porQueFunciona": "A distributiva separa o fator de três dígitos em três blocos. Os dois blocos menores têm limites conhecidos, de modo que uma parte do prefixo pode se tornar estável cedo.",
+          "algoritmo": {
+            "titulo": "Centena, dezena, unidade e verbalização",
+            "passos": [
+              { "ordem": 1, "acao": "Multiplique centenas", "detalhe": "Forme o maior parcial e estime a resposta." },
+              { "ordem": 2, "acao": "Multiplique dezenas", "detalhe": "Some ao parcial principal." },
+              { "ordem": 3, "acao": "Diga a parte estável", "detalhe": "Se as etapas restantes não puderem alterar o prefixo, verbalize-o." },
+              { "ordem": 4, "acao": "Multiplique unidades", "detalhe": "Calcule e some o último ajuste." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d06-ex01",
+              "enunciado": "324 × 7",
+              "resposta": "2268",
+              "etapas": [
+                { "expressao": "7×300 = 2100", "explicacao": "Comece pelas centenas." },
+                { "expressao": "7×20 = 140", "explicacao": "Some as dezenas." },
+                { "expressao": "2100+140 = 2240", "explicacao": "Forme o parcial antes das unidades." },
+                { "expressao": "7×4 = 28; 2240+28 = 2268", "explicacao": "Finalize." }
+              ],
+              "conclusao": "A direção esquerda→direita revela cedo que a resposta está na casa dos dois mil.",
+              "origem": { "pagina": 22 }
+            },
+            {
+              "id": "c03-d06-ex02",
+              "enunciado": "679 × 5",
+              "resposta": "3395",
+              "etapas": [
+                { "expressao": "5×600 = 3000", "explicacao": "O livro sugere dizer este bloco." },
+                { "expressao": "5×70+5×9 = 350+45", "explicacao": "Calcule o restante." },
+                { "expressao": "3000+350+45 = 3395", "explicacao": "Complete a resposta." }
+              ],
+              "conclusao": "Verbalizar 3000 libera espaço para 350+45.",
+              "origem": { "pagina": 101 }
+            }
+          ],
+          "armadilhas": [
+            "Dizer um prefixo que ainda pode receber transporte das etapas restantes.",
+            "Esquecer a dezena quando o número contém zero em outra posição.",
+            "Perder o parcial alto ao calcular um produto como 79×5."
+          ],
+          "lembrete": "Calcule grande primeiro; diga só o que já não pode mudar.",
+          "tags": ["multiplicacao", "tres-por-um", "verbalizacao", "memoria"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [22, 27, 28, 100, 101] }
+        },
+        {
+          "id": "c03-d07-dezenas-redondas-com-zero",
+          "ordem": 7,
+          "titulo": "Resolva produtos com dezenas redondas como um 2×1 seguido de escala",
+          "paginas": [25, 26, 28, 98, 99, 100, 101, 102],
+          "resumo": "Os exercícios isolam produtos como 20×16, 90×47 e 404×400 porque eles aparecem dentro de quadrados e multiplicações maiores. Ignore temporariamente o zero da dezena ou centena, resolva o produto menor e recoloque a escala decimal.",
+          "quandoUsar": [
+            "Quando um fator é múltiplo de 10 ou 100.",
+            "Na primeira etapa de multiplicações 2×2.",
+            "Como preparação para elevar números maiores ao quadrado."
+          ],
+          "porQueFunciona": "20×n=(2×n)×10 e 400×n=(4×n)×100. O zero representa escala decimal e pode ser aplicado após o produto significativo.",
+          "algoritmo": {
+            "titulo": "Retire a escala, multiplique, devolva a escala",
+            "passos": [
+              { "ordem": 1, "acao": "Separe a potência de 10", "detalhe": "Escreva mentalmente o fator redondo como algarismo significativo ×10 ou ×100." },
+              { "ordem": 2, "acao": "Calcule o núcleo", "detalhe": "Resolva o produto 2×1 ou 3×1 sem os zeros de escala." },
+              { "ordem": 3, "acao": "Reescale", "detalhe": "Multiplique o resultado por 10, 100 etc." },
+              { "ordem": 4, "acao": "Cheque zeros internos", "detalhe": "Não trate zeros que pertencem ao outro fator como simples escala." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d07-ex01",
+              "enunciado": "20 × 16",
+              "resposta": "320",
+              "etapas": [
+                { "expressao": "2×16 = 32", "explicacao": "Resolva o núcleo." },
+                { "expressao": "32×10 = 320", "explicacao": "Recoloque a escala de 20." }
+              ],
+              "conclusao": "É um problema 2×1 com um zero de escala anexado.",
+              "origem": { "pagina": 98 }
+            },
+            {
+              "id": "c03-d07-ex02",
+              "enunciado": "404 × 400",
+              "resposta": "161.600",
+              "etapas": [
+                { "expressao": "404×4 = 1616", "explicacao": "O zero de 404 é estrutural e permanece no núcleo; apenas os dois zeros de 400 são escala." },
+                { "expressao": "1616×100 = 161.600", "explicacao": "Recoloque a escala." }
+              ],
+              "conclusao": "Só remova os zeros que pertencem ao fator redondo usado como escala.",
+              "origem": { "pagina": 101 }
+            }
+          ],
+          "armadilhas": [
+            "Retirar todos os zeros da conta, inclusive zeros internos significativos.",
+            "Recolocar menos ou mais zeros que a potência de 10 separada.",
+            "Anexar zero antes de concluir o produto menor e confundir a memória."
+          ],
+          "lembrete": "Zero de escala espera; zero dentro do número fica.",
+          "tags": ["multiplicacao", "zeros", "escala-decimal", "preparacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [25, 26, 28, 98, 99, 100, 101, 102] }
+        },
+        {
+          "id": "c03-d08-fatoracao-dois-por-dois",
+          "ordem": 8,
+          "titulo": "Transforme um produto 2×2 em uma cadeia de produtos menores",
+          "paginas": [22, 23, 29, 102, 103],
+          "resumo": "Muitos números de dois dígitos são compostos. Fatore um deles e associe as multiplicações numa ordem conveniente, convertendo um produto 2×2 em etapas 2×1 e 3×1.",
+          "quandoUsar": [
+            "Quando um dos fatores se decompõe em fatores pequenos como 2, 4, 5, 7, 8 ou 9.",
+            "Quando a cadeia intermediária permanece fácil de multiplicar.",
+            "Para evitar o algoritmo geral de multiplicação de dois dígitos."
+          ],
+          "porQueFunciona": "Pela associatividade, a×(bc)=(ab)c. A fatoração não muda o valor do fator original; apenas muda a sequência das operações.",
+          "algoritmo": {
+            "titulo": "Fatore, escolha a ordem e encadeie",
+            "passos": [
+              { "ordem": 1, "acao": "Procure fatores", "detalhe": "Decomponha um dos números em fatores pequenos." },
+              { "ordem": 2, "acao": "Compare ordens", "detalhe": "Avalie qual fator aplicado primeiro produz o intermediário mais simples." },
+              { "ordem": 3, "acao": "Faça o primeiro produto", "detalhe": "Use 2×1 ou 3×1." },
+              { "ordem": 4, "acao": "Aplique o fator restante", "detalhe": "Conclua sem perder o vínculo com o problema original." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d08-ex01",
+              "enunciado": "23 × 16",
+              "resposta": "368",
+              "etapas": [
+                { "expressao": "16 = 8×2", "explicacao": "Fatore 16." },
+                { "expressao": "23×8 = 160+24 = 184", "explicacao": "Aplique o primeiro fator." },
+                { "expressao": "184×2 = 368", "explicacao": "Aplique o segundo." }
+              ],
+              "conclusao": "Também seriam válidas as ordens 2×8 ou a fatoração 4×4.",
+              "origem": { "pagina": 22 }
+            },
+            {
+              "id": "c03-d08-ex02",
+              "enunciado": "43 × 14",
+              "resposta": "602",
+              "etapas": [
+                { "expressao": "14 = 7×2", "explicacao": "Fatore o segundo número." },
+                { "expressao": "43×7 = 301", "explicacao": "Primeiro caminho." },
+                { "expressao": "301×2 = 602", "explicacao": "Conclua." },
+                { "expressao": "43×2=86; 86×7=602", "explicacao": "A solução também compara a ordem inversa." }
+              ],
+              "conclusao": "As duas ordens são corretas; escolha a que pesa menos na memória.",
+              "origem": { "pagina": 102 }
+            }
+          ],
+          "armadilhas": [
+            "Usar fatores cujo produto não recompõe o número original.",
+            "Esquecer um fator da cadeia.",
+            "Escolher uma ordem que produz um intermediário mais difícil sem comparar alternativas."
+          ],
+          "lembrete": "Fatorar é trocar um salto grande por dois saltos conhecidos.",
+          "tags": ["multiplicacao", "fatoracao", "associatividade", "dois-por-dois"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [22, 23, 29, 102, 103] }
+        },
+        {
+          "id": "c03-d09-encadear-fatores-em-aplicacoes",
+          "ordem": 9,
+          "titulo": "Em produtos com muitos fatores, forme intermediários reutilizáveis",
+          "paginas": [29, 103],
+          "resumo": "Os problemas de contagem de mãos de pôquer aplicam as mesmas ideias a cadeias longas. Agrupe fatores para produzir quadrados, potências ou números que já apareceram nos exercícios, e mantenha cada intermediário até usá-lo imediatamente.",
+          "quandoUsar": [
+            "Em fórmulas combinatórias já reduzidas a um produto.",
+            "Quando há vários fatores pequenos e diferentes ordens possíveis.",
+            "Para reutilizar fatos conhecidos, como potências de 4 ou produtos 3×1."
+          ],
+          "porQueFunciona": "Comutatividade e associatividade permitem reagrupar todos os fatores. Formar intermediários convenientes reduz a quantidade de valores simultaneamente ativos na memória.",
+          "algoritmo": {
+            "titulo": "Agrupe, consuma e substitua",
+            "passos": [
+              { "ordem": 1, "acao": "Identifique padrões", "detalhe": "Procure fatores repetidos, potências e pares fáceis." },
+              { "ordem": 2, "acao": "Forme um intermediário", "detalhe": "Multiplique um pequeno grupo." },
+              { "ordem": 3, "acao": "Substitua", "detalhe": "Troque o grupo pelo intermediário; não retenha os dois." },
+              { "ordem": 4, "acao": "Continue", "detalhe": "Aplique imediatamente o próximo fator conveniente." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c03-d09-ex01",
+              "enunciado": "10 × 4⁵, quantidade indicada para sequências no exemplo de pôquer",
+              "resposta": "10.240",
+              "etapas": [
+                { "expressao": "4⁵×10 = 4×4×4×4×4×10", "explicacao": "Expanda a potência para planejar os agrupamentos." },
+                { "expressao": "4×4 = 16; 4×4×4 = 64", "explicacao": "Forme blocos familiares." },
+                { "expressao": "16×64 = 1024", "explicacao": "Reúna os blocos." },
+                { "expressao": "1024×10 = 10.240", "explicacao": "Deixe a escala decimal para o final." }
+              ],
+              "conclusao": "A cadeia longa vira uma sequência curta de intermediários consumidos imediatamente.",
+              "origem": { "pagina": 103 }
+            }
+          ],
+          "armadilhas": [
+            "Tentar guardar todos os fatores e todos os intermediários ao mesmo tempo.",
+            "Mudar a expressão reduzida do enunciado sem preservar sua equivalência.",
+            "Aplicar fórmulas de pôquer fora do contexto; aqui elas servem como prática de multiplicação."
+          ],
+          "lembrete": "Crie um número útil, use-o e esqueça os fatores que ele substituiu.",
+          "tags": ["multiplicacao", "multiplos-fatores", "aplicacao", "memoria"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [29, 103] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-04",
+      "capituloOrdem": 4,
+      "titulo": "Dividir e conquistar",
+      "dicas": [
+        {
+          "id": "c04-d01-divisao-como-taxa",
+          "ordem": 1,
+          "titulo": "Leia a divisão como taxa e projeção",
+          "paginas": [30],
+          "resumo": "O capítulo abre com uma aplicação de boliche: dividir um total parcial pelo número de rodadas produz uma média, que pode ser reescalada para projetar o total. Isso apresenta a divisão como interpretação de ritmo, não apenas algoritmo.",
+          "quandoUsar": [
+            "Ao calcular média por período, rodada, litro ou unidade.",
+            "Quando se quer projetar um resultado mantendo o ritmo atual.",
+            "Para dar significado ao quociente antes de operar."
+          ],
+          "porQueFunciona": "Dividir total por quantidade de unidades encontra o valor por unidade. Multiplicar essa taxa pelo número futuro de unidades produz a projeção sob a hipótese de ritmo constante.",
+          "algoritmo": {
+            "titulo": "Total, taxa unitária, projeção",
+            "passos": [
+              { "ordem": 1, "acao": "Encontre a taxa", "detalhe": "Divida o total observado pela quantidade de unidades observadas." },
+              { "ordem": 2, "acao": "Declare a hipótese", "detalhe": "Assuma que a taxa permanecerá constante." },
+              { "ordem": 3, "acao": "Reescale", "detalhe": "Multiplique a taxa pelo total de unidades desejado." },
+              { "ordem": 4, "acao": "Interprete", "detalhe": "Diga a unidade da resposta; projeção não é garantia." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d01-ex01",
+              "enunciado": "45 pontos após 3 rodadas; projeção para 10 rodadas",
+              "resposta": "Média 15 por rodada e projeção de 150 pontos",
+              "etapas": [
+                { "expressao": "45÷3 = 15", "explicacao": "Calcule a taxa por rodada." },
+                { "expressao": "15×10 = 150", "explicacao": "Projete a mesma taxa para dez rodadas." }
+              ],
+              "conclusao": "O quociente 15 é uma taxa intermediária com significado.",
+              "origem": { "pagina": 30 }
+            }
+          ],
+          "armadilhas": [
+            "Confundir média atual com resultado garantido.",
+            "Projetar para outra quantidade sem manter as unidades coerentes.",
+            "Multiplicar antes de encontrar a taxa por unidade."
+          ],
+          "lembrete": "Divisão encontra o ritmo; multiplicação projeta o ritmo.",
+          "tags": ["divisao", "taxa", "media", "aplicacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [30] }
+        },
+        {
+          "id": "c04-d02-divisao-um-digito-por-blocos",
+          "ordem": 2,
+          "titulo": "Divida por um dígito retirando múltiplos posicionais",
+          "paginas": [30, 33, 105, 106],
+          "resumo": "Em vez de imitar no ar o algoritmo de baixar algarismos, estime quantas dezenas ou centenas do divisor cabem no dividendo, retire esse grande múltiplo e continue com um problema menor. Guarde as partes do quociente e some-as.",
+          "quandoUsar": [
+            "Em divisões mentais por um dígito.",
+            "Quando o quociente pode ser construído por dezenas, centenas e unidades.",
+            "Quando se deseja quociente e resto."
+          ],
+          "porQueFunciona": "Se N=q₁d+r₁ e r₁=q₂d+r₂, então N=(q₁+q₂)d+r₂. Retirar múltiplos grandes apenas decompõe o quociente.",
+          "algoritmo": {
+            "titulo": "Quociente em pedaços",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha um múltiplo grande", "detalhe": "Use a primeira parte do dividendo para estimar dezenas ou centenas do quociente." },
+              { "ordem": 2, "acao": "Retire", "detalhe": "Subtraia divisor × pedaço do quociente." },
+              { "ordem": 3, "acao": "Divida o resto", "detalhe": "Repita com unidades menores." },
+              { "ordem": 4, "acao": "Some o quociente", "detalhe": "Reúna os pedaços; o que sobrar abaixo do divisor é o resto." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d02-ex01",
+              "enunciado": "79 ÷ 3",
+              "resposta": "26 R 1",
+              "etapas": [
+                { "expressao": "3×20 = 60", "explicacao": "Em vez de dizer que 3 cabe 2 vezes em 7, interprete esse 2 como 20 no número inteiro." },
+                { "expressao": "79−60 = 19", "explicacao": "Reduza o problema." },
+                { "expressao": "19÷3 = 6 R1", "explicacao": "Encontre o pedaço final do quociente." },
+                { "expressao": "20+6 = 26", "explicacao": "Reúna os pedaços." }
+              ],
+              "conclusao": "79=3×26+1.",
+              "origem": { "pagina": 30 }
+            },
+            {
+              "id": "c04-d02-ex02",
+              "enunciado": "4668 ÷ 6",
+              "resposta": "778",
+              "etapas": [
+                { "expressao": "6×700 = 4200; sobra 468", "explicacao": "Retire centenas do quociente." },
+                { "expressao": "6×70 = 420; sobra 48", "explicacao": "Retire dezenas." },
+                { "expressao": "6×8 = 48", "explicacao": "Feche nas unidades." },
+                { "expressao": "700+70+8 = 778", "explicacao": "Some o quociente." }
+              ],
+              "conclusao": "A divisão exata é construída da maior ordem para a menor.",
+              "origem": { "pagina": 106 }
+            }
+          ],
+          "armadilhas": [
+            "Guardar 2 em vez de 20 na primeira etapa de 79÷3.",
+            "Escolher um múltiplo que ultrapassa sem estar usando conscientemente overshooting.",
+            "Aceitar resto igual ou maior que o divisor."
+          ],
+          "lembrete": "Retire muitos divisores de uma vez e some os pedaços do quociente.",
+          "tags": ["divisao", "um-digito", "quociente-resto", "decomposicao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [30, 33, 105, 106] }
+        },
+        {
+          "id": "c04-d03-reescalar-divisao",
+          "ordem": 3,
+          "titulo": "Multiplique dividendo e divisor pelo mesmo fator para criar uma divisão fácil",
+          "paginas": [30, 32, 34, 106, 107],
+          "resumo": "O quociente não muda quando ambos os termos são multiplicados pelo mesmo número não nulo. O livro usa dobramentos sucessivos para transformar divisores 5, 12,5, 25 e 50 em 10 ou 100.",
+          "quandoUsar": [
+            "Quando o divisor é 5, 25, 50, 12,5 ou outro número que chega facilmente a 10 ou 100.",
+            "Quando há decimal no divisor.",
+            "Ao converter uma divisão difícil numa mudança de casa decimal."
+          ],
+          "porQueFunciona": "(ka)/(kb)=a/b para k≠0. Escolher k de modo que kb seja potência de 10 preserva o quociente e simplifica a operação.",
+          "algoritmo": {
+            "titulo": "Reescale até uma potência de 10",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha o fator", "detalhe": "Prefira 2, 4 ou 10 para levar o divisor a 10, 100 ou outro divisor simples." },
+              { "ordem": 2, "acao": "Aplique aos dois", "detalhe": "Multiplique dividendo e divisor pelo mesmo fator." },
+              { "ordem": 3, "acao": "Repita se necessário", "detalhe": "Dobramentos sucessivos podem ser mais fáceis que um único produto." },
+              { "ordem": 4, "acao": "Divida pela base", "detalhe": "Use deslocamento decimal ou divisão curta no problema transformado." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d03-ex01",
+              "enunciado": "1234 ÷ 5",
+              "resposta": "246,8",
+              "etapas": [
+                { "expressao": "1234÷5 = 2468÷10", "explicacao": "Dobre dividendo e divisor." },
+                { "expressao": "2468÷10 = 246,8", "explicacao": "Dividir por 10 desloca a vírgula." }
+              ],
+              "conclusao": "O divisor 5 foi substituído por 10 sem mudar o quociente.",
+              "origem": { "pagina": 30 }
+            },
+            {
+              "id": "c04-d03-ex02",
+              "enunciado": "812 ÷ 12,5",
+              "resposta": "64,96",
+              "etapas": [
+                { "expressao": "812÷12,5 = 1624÷25", "explicacao": "Primeiro dobramento." },
+                { "expressao": "1624÷25 = 3248÷50", "explicacao": "Segundo dobramento." },
+                { "expressao": "3248÷50 = 6496÷100", "explicacao": "Terceiro dobramento cria 100." },
+                { "expressao": "6496÷100 = 64,96", "explicacao": "Desloque duas casas." }
+              ],
+              "conclusao": "Dobramentos eliminam o divisor decimal.",
+              "origem": { "pagina": 107 }
+            }
+          ],
+          "armadilhas": [
+            "Multiplicar apenas o dividendo ou apenas o divisor.",
+            "Mover a vírgula antes de o divisor virar uma potência de 10.",
+            "Usar fator zero."
+          ],
+          "lembrete": "Mudou um lado da fração? Mude o outro do mesmo jeito.",
+          "tags": ["divisao", "reescalonamento", "dobrar", "decimal"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [30, 32, 34, 106, 107] }
+        },
+        {
+          "id": "c04-d04-divisao-dois-digitos",
+          "ordem": 4,
+          "titulo": "Construa a divisão por dois dígitos com produtos 2×1",
+          "paginas": [30, 33, 106, 107],
+          "resumo": "Estime quantas dezenas do divisor cabem no dividendo, use multiplicação rápida para retirar esse bloco e resolva o resto. A fluência 2×1 do capítulo anterior é o motor desta etapa.",
+          "quandoUsar": [
+            "Em dividendos de três ou quatro dígitos por divisor de dois dígitos.",
+            "Quando os primeiros dígitos permitem estimar dezenas do quociente.",
+            "Em aplicações como consumo por unidade."
+          ],
+          "porQueFunciona": "O quociente pode ser decomposto em dezenas e unidades. Multiplicar o divisor por cada pedaço e subtrair preserva a igualdade dividendo=divisor×quociente+resto.",
+          "algoritmo": {
+            "titulo": "Estime dezenas, retire, complete unidades",
+            "passos": [
+              { "ordem": 1, "acao": "Estime o primeiro dígito", "detalhe": "Compare o divisor aos primeiros algarismos do dividendo." },
+              { "ordem": 2, "acao": "Escalone", "detalhe": "Interprete esse dígito como dezenas ou centenas do quociente." },
+              { "ordem": 3, "acao": "Multiplique e retire", "detalhe": "Use um produto 2×1 para reduzir o dividendo." },
+              { "ordem": 4, "acao": "Complete", "detalhe": "Divida o resto para obter unidades e resto final." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d04-ex01",
+              "enunciado": "353 ÷ 14, consumo de 353 milhas em 14 galões",
+              "resposta": "25 R 3",
+              "etapas": [
+                { "expressao": "14×20 = 280", "explicacao": "14 cabe duas dezenas no início de 353." },
+                { "expressao": "353−280 = 73", "explicacao": "Reduza o problema." },
+                { "expressao": "14×5 = 70", "explicacao": "Complete cinco unidades do quociente." },
+                { "expressao": "73−70 = 3", "explicacao": "Determine o resto." }
+              ],
+              "conclusao": "353=14×25+3.",
+              "origem": { "pagina": 30 }
+            },
+            {
+              "id": "c04-d04-ex02",
+              "enunciado": "975 ÷ 13",
+              "resposta": "75",
+              "etapas": [
+                { "expressao": "13×70 = 910", "explicacao": "Retire sete dezenas do divisor." },
+                { "expressao": "975−910 = 65", "explicacao": "Resto intermediário." },
+                { "expressao": "13×5 = 65", "explicacao": "Complete o quociente." },
+                { "expressao": "70+5 = 75", "explicacao": "A divisão é exata." }
+              ],
+              "conclusao": "O produto 13×7 reaparece escalado como 13×70.",
+              "origem": { "pagina": 106 }
+            }
+          ],
+          "armadilhas": [
+            "Ler o primeiro dígito estimado como unidade quando ele representa dezenas.",
+            "Não verificar se o produto escolhido ultrapassa o dividendo.",
+            "Parar com resto ainda maior que o divisor."
+          ],
+          "lembrete": "A divisão por dois dígitos é multiplicação 2×1 ao contrário.",
+          "tags": ["divisao", "dois-digitos", "quociente-resto", "multiplicacao-inversa"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [30, 33, 106, 107] }
+        },
+        {
+          "id": "c04-d05-estimar-e-usar-complemento",
+          "ordem": 5,
+          "titulo": "Se a primeira estimativa passar, desça uma unidade e ache o resto por complemento",
+          "paginas": [30],
+          "resumo": "Ao estimar um quociente, um produto ligeiramente maior revela imediatamente que o quociente inteiro é uma unidade menor. Depois calcule esse produto e use complemento para encontrar a diferença até o dividendo.",
+          "quandoUsar": [
+            "Quando o múltiplo mais natural do divisor ultrapassa pouco o dividendo.",
+            "Quando o dividendo é uma base redonda, como 500.",
+            "Antes de adotar a forma mais direta de overshooting com resto negativo."
+          ],
+          "porQueFunciona": "Se d(q+1)>N, então o quociente inteiro não chega a q+1. Ao calcular dq, o resto é N−dq; perto de uma base redonda, complementos aceleram essa diferença.",
+          "algoritmo": {
+            "titulo": "Teste alto, recue e complete",
+            "passos": [
+              { "ordem": 1, "acao": "Teste o candidato", "detalhe": "Multiplique o divisor pelo quociente mais natural." },
+              { "ordem": 2, "acao": "Recue", "detalhe": "Se passou, reduza o quociente em uma unidade." },
+              { "ordem": 3, "acao": "Calcule o produto válido", "detalhe": "Multiplique pelo quociente reduzido." },
+              { "ordem": 4, "acao": "Ache o resto", "detalhe": "Use complemento até o dividendo, se ele for redondo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d05-ex01",
+              "enunciado": "500 ÷ 73",
+              "resposta": "6 R 62",
+              "etapas": [
+                { "expressao": "73×7 = 511", "explicacao": "O candidato 7 ultrapassa 500." },
+                { "expressao": "quociente inteiro = 6", "explicacao": "Recue uma unidade." },
+                { "expressao": "73×6 = 438", "explicacao": "Calcule o produto válido." },
+                { "expressao": "500−438 = 62", "explicacao": "Use a distância de 438 até 500." }
+              ],
+              "conclusao": "O teste que falhou ainda delimitou o quociente.",
+              "origem": { "pagina": 30 }
+            }
+          ],
+          "armadilhas": [
+            "Descartar a informação do produto que passou.",
+            "Manter quociente 7 com resto positivo incorreto.",
+            "Calcular complemento até uma base diferente do dividendo."
+          ],
+          "lembrete": "Passou por pouco? O inteiro é um a menos.",
+          "tags": ["divisao", "estimativa", "complemento", "resto"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [30] }
+        },
+        {
+          "id": "c04-d06-overshooting",
+          "ordem": 6,
+          "titulo": "Aproveite o produto que passou usando overshooting",
+          "paginas": [31, 34, 107],
+          "resumo": "Em vez de recalcular o produto com quociente uma unidade menor, represente provisoriamente a resposta com o quociente alto e um resto negativo. Depois reduza o quociente em 1 e some um divisor ao resto.",
+          "quandoUsar": [
+            "Quando um múltiplo redondo do divisor passa pouco do dividendo.",
+            "Quando o produto alto já foi calculado e o produto inferior seria trabalhoso.",
+            "Nos exercícios explicitamente marcados para overshooting."
+          ],
+          "porQueFunciona": "N=dq+r também pode ser escrito como d(q−1)+(r+d). Se r é negativo, reduzir q em 1 e adicionar d converte o resto para a faixa padrão 0≤r<d.",
+          "algoritmo": {
+            "titulo": "Quociente alto, resto negativo, normalização",
+            "passos": [
+              { "ordem": 1, "acao": "Use o múltiplo alto", "detalhe": "Calcule d×q mesmo que ultrapasse um pouco." },
+              { "ordem": 2, "acao": "Registre o excesso", "detalhe": "Escreva mentalmente o resto como N−dq, que será negativo." },
+              { "ordem": 3, "acao": "Reduza o quociente", "detalhe": "Troque q por q−1." },
+              { "ordem": 4, "acao": "Normalize o resto", "detalhe": "Some d ao resto negativo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d06-ex01",
+              "enunciado": "770 ÷ 79",
+              "resposta": "9 R 59",
+              "etapas": [
+                { "expressao": "79×10 = 790", "explicacao": "Use a dezena de quociente, embora passe 20." },
+                { "expressao": "10 R −20", "explicacao": "Represente a diferença como resto negativo." },
+                { "expressao": "9 R (−20+79)", "explicacao": "Reduza o quociente e acrescente um divisor." },
+                { "expressao": "9 R 59", "explicacao": "Normalize." }
+              ],
+              "conclusao": "O cálculo 79×10 foi preservado integralmente.",
+              "origem": { "pagina": 31 }
+            },
+            {
+              "id": "c04-d06-ex02",
+              "enunciado": "183 ÷ 19",
+              "resposta": "9 R 12",
+              "etapas": [
+                { "expressao": "19×10 = 190", "explicacao": "O múltiplo alto passa 7." },
+                { "expressao": "10 R −7", "explicacao": "Resto provisório." },
+                { "expressao": "9 R (19−7) = 9 R12", "explicacao": "Normalize." }
+              ],
+              "conclusao": "O resto final fica positivo e menor que 19.",
+              "origem": { "pagina": 107 }
+            }
+          ],
+          "armadilhas": [
+            "Entregar resto negativo como forma final convencional.",
+            "Reduzir o quociente sem adicionar um divisor ao resto.",
+            "Usar overshooting quando o excesso é grande e a normalização exigiria várias unidades."
+          ],
+          "lembrete": "Um a menos no quociente compra um divisor a mais no resto.",
+          "tags": ["divisao", "overshooting", "resto-negativo", "ajuste"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [31, 34, 107] }
+        },
+        {
+          "id": "c04-d07-limite-pratico-e-quatro-digitos",
+          "ordem": 7,
+          "titulo": "Ataque 4÷2 dígitos por dezenas do quociente e complementos",
+          "paginas": [31],
+          "resumo": "O autor considera um número de quatro dígitos dividido por um de dois dígitos próximo do limite mental para a maioria das pessoas. A estratégia continua a mesma, mas exige escolher uma grande dezena do quociente, reter o parcial e usar complementos para o resto.",
+          "quandoUsar": [
+            "Em divisões mentais de quatro por dois dígitos.",
+            "Quando um produto divisor×8 ou divisor×9 fornece rapidamente as dezenas do quociente.",
+            "Quando o resto intermediário fica perto de uma base redonda."
+          ],
+          "porQueFunciona": "A escala não muda a identidade da divisão por blocos; apenas aumenta a carga de memória. Produtos 2×1 e complementos reduzem essa carga.",
+          "algoritmo": {
+            "titulo": "Grande bloco, complemento, bloco final",
+            "passos": [
+              { "ordem": 1, "acao": "Estime dezenas", "detalhe": "Use os primeiros algarismos para escolher 70, 80 ou 90 etc." },
+              { "ordem": 2, "acao": "Multiplique", "detalhe": "Calcule divisor×dígito e escale por 10." },
+              { "ordem": 3, "acao": "Subtraia por complemento", "detalhe": "Encontre o resto intermediário sem empréstimo longo." },
+              { "ordem": 4, "acao": "Complete unidades", "detalhe": "Resolva a divisão menor restante." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d07-ex01",
+              "enunciado": "2001 ÷ 23",
+              "resposta": "87",
+              "etapas": [
+                { "expressao": "23×8 = 184", "explicacao": "Calcule o núcleo 2×1." },
+                { "expressao": "23×80 = 1840", "explicacao": "Escale para dezenas do quociente." },
+                { "expressao": "2001−1840 = 161", "explicacao": "1840 está 160 abaixo de 2000; com o 1 adicional, sobram 161." },
+                { "expressao": "161÷23 = 7", "explicacao": "Complete as unidades." },
+                { "expressao": "80+7 = 87", "explicacao": "A divisão é exata." }
+              ],
+              "conclusao": "Produtos rápidos e complemento tornam manejável uma conta no limite prático indicado.",
+              "origem": { "pagina": 31 }
+            }
+          ],
+          "armadilhas": [
+            "Subestimar a carga de guardar 1840 enquanto calcula o resto.",
+            "Esquecer o 1 de 2001 ao usar 2000 como base.",
+            "Forçar contas maiores sem dominar 2×1 e complementos."
+          ],
+          "lembrete": "No limite mental, cada bloco deve usar uma habilidade já automática.",
+          "tags": ["divisao", "quatro-por-dois", "limite-pratico", "complemento"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [31] }
+        },
+        {
+          "id": "c04-d08-simplificar-fatores-comuns",
+          "ordem": 8,
+          "titulo": "Cancele um fator comum antes de dividir",
+          "paginas": [31, 34, 107],
+          "resumo": "Se dividendo e divisor compartilham um fator, divida ambos por ele e resolva um problema menor. O valor fracionário permanece o mesmo.",
+          "quandoUsar": [
+            "Quando ambos os termos são pares ou têm outro fator comum evidente.",
+            "Quando a simplificação reduz um divisor de dois dígitos a um dígito.",
+            "Antes de converter o resultado em fração ou decimal."
+          ],
+          "porQueFunciona": "(ka)/(kb)=a/b. Cancelar k preserva a razão, desde que k não seja zero.",
+          "algoritmo": {
+            "titulo": "Encontre, cancele e resolva",
+            "passos": [
+              { "ordem": 1, "acao": "Procure fator comum", "detalhe": "Teste 2, 3, 4, 5 etc." },
+              { "ordem": 2, "acao": "Divida ambos", "detalhe": "Cancele exatamente o mesmo fator." },
+              { "ordem": 3, "acao": "Repita", "detalhe": "Se ainda houver fator comum conveniente, simplifique novamente." },
+              { "ordem": 4, "acao": "Resolva", "detalhe": "Divida o par reduzido e preserve a forma desejada da resposta." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d08-ex01",
+              "enunciado": "2012 ÷ 24",
+              "resposta": "83 5/6",
+              "etapas": [
+                { "expressao": "2012 = 503×4; 24 = 6×4", "explicacao": "Identifique o fator comum 4." },
+                { "expressao": "2012÷24 = 503÷6", "explicacao": "Cancele o 4." },
+                { "expressao": "503÷6 = 83 R5 = 83 5/6", "explicacao": "Resolva a divisão por um dígito." }
+              ],
+              "conclusao": "A equivalência é direta quando as respostas são expressas como fração.",
+              "origem": { "pagina": 31 }
+            },
+            {
+              "id": "c04-d08-ex02",
+              "enunciado": "654 ÷ 36",
+              "resposta": "18 1/6",
+              "etapas": [
+                { "expressao": "654÷6 = 109; 36÷6 = 6", "explicacao": "Cancele o fator comum 6." },
+                { "expressao": "109÷6 = 18 R1", "explicacao": "Resolva o problema reduzido." },
+                { "expressao": "18 R1 = 18 1/6", "explicacao": "Converta o resto em fração do divisor." }
+              ],
+              "conclusao": "O divisor caiu de 36 para 6.",
+              "origem": { "pagina": 107 }
+            }
+          ],
+          "armadilhas": [
+            "Dividir os dois termos por fatores diferentes.",
+            "Cancelar um número que não divide ambos exatamente.",
+            "Comparar restos das formas original e simplificada sem convertê-los em fração."
+          ],
+          "lembrete": "Fator comum sai dos dois lados, nunca de um só.",
+          "tags": ["divisao", "simplificacao", "fator-comum", "fracoes"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [31, 34, 107] }
+        },
+        {
+          "id": "c04-d09-ciclo-dos-setimos",
+          "ordem": 9,
+          "titulo": "Memorize um ciclo para todas as frações com denominador 7",
+          "paginas": [31, 34, 107],
+          "resumo": "O bloco 142857 se repete em 1/7. As outras frações de sétimos usam os mesmos seis algarismos, começando em pontos diferentes do ciclo. O livro sugere imaginar os algarismos em círculo.",
+          "quandoUsar": [
+            "Ao converter 1/7 a 6/7 em decimal.",
+            "Quando um cálculo maior termina numa fração de sétimos.",
+            "Para reconhecer e conferir uma repetição decimal."
+          ],
+          "porQueFunciona": "Os restos da divisão por 7 percorrem um ciclo de seis posições. Multiplicar o numerador muda o ponto de partida, mas não o conjunto ordenado cíclico 142857.",
+          "algoritmo": {
+            "titulo": "Círculo 142857",
+            "passos": [
+              { "ordem": 1, "acao": "Memorize o ciclo", "detalhe": "Guarde 142857 como sequência circular." },
+              { "ordem": 2, "acao": "Associe o início", "detalhe": "Para cada numerador, escolha a rotação correspondente." },
+              { "ordem": 3, "acao": "Repita", "detalhe": "Continue o mesmo ciclo indefinidamente." },
+              { "ordem": 4, "acao": "Confira", "detalhe": "Multiplique aproximadamente pelo denominador ou verifique a rotação." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d09-ex01",
+              "enunciado": "2/7 em decimal",
+              "resposta": "0,285714…",
+              "etapas": [
+                { "expressao": "ciclo: 1-4-2-8-5-7", "explicacao": "Use a sequência memorizada em círculo." },
+                { "expressao": "começo em 2 → 2-8-5-7-1-4", "explicacao": "Escolha a rotação de 2/7." },
+                { "expressao": "2/7 = 0,285714…", "explicacao": "Repita o bloco." }
+              ],
+              "conclusao": "Não é necessário fazer divisão longa para cada sétimo.",
+              "origem": { "pagina": 31 }
+            },
+            {
+              "id": "c04-d09-ex02",
+              "enunciado": "3/7 em decimal",
+              "resposta": "0,428571…",
+              "etapas": [
+                { "expressao": "começo em 4 → 4-2-8-5-7-1", "explicacao": "Gire o mesmo ciclo." },
+                { "expressao": "3/7 = 0,428571…", "explicacao": "Repita." }
+              ],
+              "conclusao": "Todos os sétimos não inteiros compartilham o ciclo.",
+              "origem": { "pagina": 31 }
+            }
+          ],
+          "armadilhas": [
+            "Mudar a ordem interna do ciclo ao escolher outro início.",
+            "Tratar o bloco como decimal finito.",
+            "Usar o ciclo de sétimos para outro denominador."
+          ],
+          "lembrete": "142857 gira; não se embaralha.",
+          "tags": ["divisao", "fracoes", "setimos", "decimal-periodico"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [31, 34, 107] }
+        },
+        {
+          "id": "c04-d10-fracoes-maiores-por-transformacao",
+          "ordem": 10,
+          "titulo": "Transforme frações para expor denominadores conhecidos",
+          "paginas": [32, 34, 107],
+          "resumo": "Frações com denominadores maiores continuam sendo divisões, mas podem ser reescaladas. Denominadores pares costumam permitir divisões sucessivas por 2; se um denominador ímpar é múltiplo de 5, dobrar numerador e denominador pode criar um final 0 e revelar uma divisão conhecida.",
+          "quandoUsar": [
+            "Ao converter frações com denominadores como 16 ou 35.",
+            "Quando dobrar cria 10, 50, 70 ou 100 no denominador.",
+            "Quando parte da fração pode ser reduzida a meios, oitavos ou sétimos já conhecidos."
+          ],
+          "porQueFunciona": "Reescalar os dois termos preserva a fração. Separar um fator 10 do denominador transforma o resultado conhecido em uma casa decimal menor.",
+          "algoritmo": {
+            "titulo": "Reescale e reutilize uma expansão conhecida",
+            "passos": [
+              { "ordem": 1, "acao": "Fatore o denominador", "detalhe": "Procure potências de 2, fatores 5 ou 10." },
+              { "ordem": 2, "acao": "Reescale", "detalhe": "Dobre ou multiplique ambos os termos por um fator conveniente." },
+              { "ordem": 3, "acao": "Resolva a parte conhecida", "detalhe": "Use oitavos, sétimos ou divisão por potência de 10." },
+              { "ordem": 4, "acao": "Ajuste a vírgula", "detalhe": "Aplique o fator decimal restante." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d10-ex01",
+              "enunciado": "5/16 em decimal",
+              "resposta": "0,3125",
+              "etapas": [
+                { "expressao": "50÷16 = 25÷8", "explicacao": "Multiplique o numerador por 10 e simplifique a divisão auxiliar." },
+                { "expressao": "25÷8 = 3,125", "explicacao": "Use oitavos." },
+                { "expressao": "5÷16 = 0,3125", "explicacao": "Como 50 era dez vezes 5, desloque uma casa de volta." }
+              ],
+              "conclusao": "Uma divisão auxiliar com 25/8 expõe o decimal exato.",
+              "origem": { "pagina": 107 }
+            },
+            {
+              "id": "c04-d10-ex02",
+              "enunciado": "12/35 em decimal",
+              "resposta": "0,342857…",
+              "etapas": [
+                { "expressao": "12/35 = 24/70", "explicacao": "Dobre ambos os termos; surge 7×10 no denominador." },
+                { "expressao": "24/7 = 3 3/7 = 3,428571…", "explicacao": "Use o ciclo dos sétimos." },
+                { "expressao": "24/70 = 0,3428571…", "explicacao": "Dividir ainda por 10 desloca a vírgula." }
+              ],
+              "conclusao": "O denominador 35 foi convertido em um sétimo e uma escala decimal.",
+              "origem": { "pagina": 107 }
+            }
+          ],
+          "armadilhas": [
+            "Reescalar apenas o numerador.",
+            "Perder a casa decimal criada pelo fator 10.",
+            "Supor que todo denominador ímpar tem um atalho simples."
+          ],
+          "lembrete": "Mude a forma da fração até reconhecer uma divisão que você já sabe.",
+          "tags": ["divisao", "fracoes", "reescalonamento", "decimal"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [32, 34, 107] }
+        },
+        {
+          "id": "c04-d11-varredura-divisibilidade-2-a-12",
+          "ordem": 11,
+          "titulo": "Faça uma varredura organizada de divisibilidade de 2 a 12",
+          "paginas": [32, 33, 103, 104, 108],
+          "resumo": "O primeiro bloco de exercícios pede todos os divisores entre 2 e 12. As soluções combinam sinais baratos: algarismo final para 2, 5 e 10; soma dos algarismos para 3 e 9; composição para 6 e 12; finais para 4 e 8; soma alternada para 11; e regra iterativa própria para 7.",
+          "quandoUsar": [
+            "Ao fatorar um número antes de simplificar divisão ou multiplicação.",
+            "Quando é preciso listar vários divisores pequenos, não testar apenas um.",
+            "Para conferir se um resultado admite cancelamento."
+          ],
+          "porQueFunciona": "Cada teste preserva o resto relevante do número para aquele divisor. Organizar testes compartilhados evita trabalho: divisibilidade por 2 e 3 implica 6; por 3 e 4 implica 12.",
+          "algoritmo": {
+            "titulo": "Testes baratos primeiro, compostos depois",
+            "passos": [
+              { "ordem": 1, "acao": "Olhe o final", "detalhe": "Teste 2, 5 e 10 pelo último algarismo; 4 pelos dois finais; 8 pelos três finais." },
+              { "ordem": 2, "acao": "Some algarismos", "detalhe": "Teste 3 e 9." },
+              { "ordem": 3, "acao": "Combine", "detalhe": "2 e 3 dão 6; 3 e 4 dão 12." },
+              { "ordem": 4, "acao": "Alterne", "detalhe": "Para 11, some e subtraia algarismos alternadamente; o resultado deve ser múltiplo de 11." },
+              { "ordem": 5, "acao": "Reserve o 7", "detalhe": "Aplique a redução a−2b em sequência." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d11-ex01",
+              "enunciado": "Quais números de 2 a 12 dividem 7062?",
+              "resposta": "2, 3, 6 e 11",
+              "etapas": [
+                { "expressao": "último algarismo 2", "explicacao": "É par, então passa no teste de 2." },
+                { "expressao": "7+0+6+2 = 15", "explicacao": "15 é múltiplo de 3, mas não de 9." },
+                { "expressao": "2 e 3 → 6", "explicacao": "Combine os dois testes." },
+                { "expressao": "7−0+6−2 = 11", "explicacao": "A soma alternada é múltipla de 11." }
+              ],
+              "conclusao": "A varredura encontra quatro divisores sem divisão longa.",
+              "origem": { "pagina": 104 }
+            },
+            {
+              "id": "c04-d11-ex02",
+              "enunciado": "O que há de especial em 2520?",
+              "resposta": "É o menor inteiro positivo divisível por todos os números de 1 a 10",
+              "etapas": [
+                { "expressao": "2520", "explicacao": "O exercício encerra o bloco reunindo os testes de divisibilidade." },
+                { "expressao": "múltiplo de 1,2,3,4,5,6,7,8,9,10", "explicacao": "A propriedade combina todas as famílias pequenas." }
+              ],
+              "conclusao": "O número funciona como síntese dos testes praticados.",
+              "origem": { "pagina": 108 }
+            }
+          ],
+          "armadilhas": [
+            "Concluir que passar em 2 e 4 prova 8; o teste de 8 precisa das três casas finais.",
+            "Usar soma simples para 11 em vez de soma alternada.",
+            "Esquecer que 12 exige simultaneamente 3 e 4."
+          ],
+          "lembrete": "Final, soma, combinações, alternância — deixe o 7 para sua regra própria.",
+          "tags": ["divisibilidade", "2-a-12", "fatoracao", "diagnostico"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [32, 33, 103, 104, 108] }
+        },
+        {
+          "id": "c04-d12-criar-zero-eliminar-zero",
+          "ordem": 12,
+          "titulo": "Teste divisibilidade criando e eliminando zeros",
+          "paginas": [32, 33, 104],
+          "resumo": "Some ou subtraia um múltiplo do divisor para fazer o número terminar em zero; elimine esse zero dividindo por 10 e repita. As soluções aplicam o método a 17, 59 e 7, divisores sem fatores 2 ou 5.",
+          "quandoUsar": [
+            "Para testar divisibilidade por divisores como 7, 17 ou 59.",
+            "Quando é fácil escolher um múltiplo do divisor que zere a unidade.",
+            "Quando reduções sucessivas tornam o número pequeno."
+          ],
+          "porQueFunciona": "Somar ou subtrair k vezes o divisor não altera se o número é múltiplo dele. Para divisores coprimos com 10, retirar um fator 10 também preserva a condição de divisibilidade.",
+          "algoritmo": {
+            "titulo": "Ajuste a unidade, remova o zero, repita",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha um múltiplo", "detalhe": "Encontre k×d que, somado ou subtraído, faça a unidade virar zero." },
+              { "ordem": 2, "acao": "Crie o zero", "detalhe": "Aplique o ajuste ao número." },
+              { "ordem": 3, "acao": "Elimine o zero", "detalhe": "Divida o número transformado por 10." },
+              { "ordem": 4, "acao": "Repita", "detalhe": "Continue até chegar a um número cuja divisibilidade seja óbvia." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d12-ex01",
+              "enunciado": "4913 é divisível por 17?",
+              "resposta": "Sim",
+              "etapas": [
+                { "expressao": "4913+17 = 4930", "explicacao": "Crie um zero final somando um divisor." },
+                { "expressao": "4930÷10 = 493", "explicacao": "Elimine o zero." },
+                { "expressao": "493+17 = 510", "explicacao": "Crie outro zero." },
+                { "expressao": "510÷10 = 51", "explicacao": "Reduza novamente." },
+                { "expressao": "51 = 3×17", "explicacao": "A divisibilidade agora é evidente." }
+              ],
+              "conclusao": "4913 é múltiplo de 17.",
+              "origem": { "pagina": 104 }
+            },
+            {
+              "id": "c04-d12-ex02",
+              "enunciado": "3141 é divisível por 59?",
+              "resposta": "Não",
+              "etapas": [
+                { "expressao": "3141+59 = 3200", "explicacao": "Crie dois zeros." },
+                { "expressao": "3200÷100 = 32", "explicacao": "Elimine os zeros sucessivamente." },
+                { "expressao": "32 não é múltiplo de 59", "explicacao": "O teste termina." }
+              ],
+              "conclusao": "3141 não é divisível por 59.",
+              "origem": { "pagina": 104 }
+            }
+          ],
+          "armadilhas": [
+            "Eliminar zero sem considerar que o divisor pode compartilhar fatores 2 ou 5 com 10.",
+            "Somar um valor que não é múltiplo do divisor.",
+            "Parar num número menor sem concluir se ele é múltiplo do divisor."
+          ],
+          "lembrete": "Múltiplo do divisor muda a aparência, não a divisibilidade.",
+          "tags": ["divisibilidade", "criar-zero", "redução", "algoritmo-iterativo"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [32, 33, 104] }
+        },
+        {
+          "id": "c04-d13-regra-especial-do-sete",
+          "ordem": 13,
+          "titulo": "Teste o 7 retirando duas vezes o último algarismo",
+          "paginas": [33, 103, 104, 105],
+          "resumo": "Separe o número em 10a+b, remova o algarismo final b e calcule a−2b. Repita até chegar a um múltiplo reconhecível de 7. O exercício também pede justificar algebricamente a equivalência nos dois sentidos.",
+          "quandoUsar": [
+            "Para testar divisibilidade por 7 sem divisão longa.",
+            "Quando o método criar-zero seria mais demorado.",
+            "Para reduzir números grandes a dois ou três dígitos."
+          ],
+          "porQueFunciona": "Se 10a+b é múltiplo de 7, multiplicar por −2 e somar 21a produz a−2b, ainda múltiplo de 7. No sentido inverso, multiplicar a−2b por 10 e somar 21b recupera 10a+b; portanto a condição é equivalente.",
+          "algoritmo": {
+            "titulo": "Corte a unidade e subtraia seu dobro",
+            "passos": [
+              { "ordem": 1, "acao": "Separe", "detalhe": "Escreva mentalmente N=10a+b, com b como último algarismo." },
+              { "ordem": 2, "acao": "Dobre a unidade", "detalhe": "Calcule 2b." },
+              { "ordem": 3, "acao": "Subtraia", "detalhe": "Troque N por a−2b." },
+              { "ordem": 4, "acao": "Repita", "detalhe": "Continue até reconhecer um múltiplo ou não múltiplo de 7." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d13-ex01",
+              "enunciado": "2744 é divisível por 7?",
+              "resposta": "Sim",
+              "etapas": [
+                { "expressao": "274−2×4 = 274−8 = 266", "explicacao": "Remova 4 e subtraia seu dobro." },
+                { "expressao": "26−2×6 = 26−12 = 14", "explicacao": "Repita." },
+                { "expressao": "14 = 2×7", "explicacao": "O resultado reduzido é múltiplo de 7." }
+              ],
+              "conclusao": "2744 é divisível por 7.",
+              "origem": { "pagina": 104 }
+            },
+            {
+              "id": "c04-d13-ex02",
+              "enunciado": "Justifique a equivalência para N=10a+b",
+              "resposta": "10a+b é múltiplo de 7 se, e somente se, a−2b é",
+              "etapas": [
+                { "expressao": "−2(10a+b)+21a = a−2b", "explicacao": "Multiplicar e somar um múltiplo de 7 preserva a divisibilidade." },
+                { "expressao": "10(a−2b)+21b = 10a+b", "explicacao": "A construção inversa recupera o número original." }
+              ],
+              "conclusao": "A redução não é heurística: é uma equivalência modular.",
+              "origem": { "pagina": 105 }
+            }
+          ],
+          "armadilhas": [
+            "Subtrair o último algarismo uma vez, em vez de duas vezes.",
+            "Manter o último algarismo no prefixo a.",
+            "Concluir cedo demais ao obter número negativo; múltiplos negativos de 7 também contam."
+          ],
+          "lembrete": "Corte a ponta, dobre-a e subtraia.",
+          "tags": ["divisibilidade", "regra-do-7", "prova", "redução"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [33, 103, 104, 105] }
+        },
+        {
+          "id": "c04-d14-conversao-temperatura",
+          "ordem": 14,
+          "titulo": "Simplifique a conversão Fahrenheit–Celsius antes da divisão",
+          "paginas": [33, 106],
+          "resumo": "Os exercícios aplicam C=(F−32)×5/9. Depois da subtração, procure cancelar 9 ou 3 com o resultado antes de multiplicar por 5, escolhendo a ordem mais fácil.",
+          "quandoUsar": [
+            "Ao converter Fahrenheit para Celsius mentalmente com a fórmula exata.",
+            "Quando F−32 tem fator comum com 9.",
+            "Como aplicação conjunta de subtração, fatoração e divisão."
+          ],
+          "porQueFunciona": "Multiplicação e divisão dentro do mesmo produto fracionário podem ser reordenadas. Cancelar fatores comuns reduz os números sem alterar a razão 5/9.",
+          "algoritmo": {
+            "titulo": "Subtraia, simplifique, multiplique",
+            "passos": [
+              { "ordem": 1, "acao": "Retire 32", "detalhe": "Calcule F−32." },
+              { "ordem": 2, "acao": "Fatore", "detalhe": "Procure fator 9 ou 3 no resultado." },
+              { "ordem": 3, "acao": "Cancele", "detalhe": "Simplifique contra o denominador 9." },
+              { "ordem": 4, "acao": "Multiplique por 5", "detalhe": "Conclua e mantenha eventual fração." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c04-d14-ex01",
+              "enunciado": "80 °F em °C",
+              "resposta": "26 2/3 °C",
+              "etapas": [
+                { "expressao": "80−32 = 48", "explicacao": "Ajuste a origem das escalas." },
+                { "expressao": "48×5/9 = 240/9", "explicacao": "Aplique a razão." },
+                { "expressao": "240/9 = 80/3", "explicacao": "Simplifique por 3." },
+                { "expressao": "80/3 = 26 2/3", "explicacao": "Converta em número misto." }
+              ],
+              "conclusao": "80 °F correspondem a 26 2/3 °C pela fórmula usada no livro.",
+              "origem": { "pagina": 106 }
+            },
+            {
+              "id": "c04-d14-ex02",
+              "enunciado": "65 °F em °C",
+              "resposta": "18 1/3 °C",
+              "etapas": [
+                { "expressao": "65−32 = 33", "explicacao": "Primeira etapa." },
+                { "expressao": "33×5/9 = 11×5/3", "explicacao": "Cancele o fator 3." },
+                { "expressao": "55/3 = 18 1/3", "explicacao": "Conclua." }
+              ],
+              "conclusao": "Simplificar antes de multiplicar mantém os números pequenos.",
+              "origem": { "pagina": 106 }
+            }
+          ],
+          "armadilhas": [
+            "Multiplicar F por 5/9 antes de subtrair 32.",
+            "Cancelar 9 com 33 como se o resultado fosse inteiro; só um fator 3 cancela.",
+            "Trocar a fórmula por uma aproximação sem avisar."
+          ],
+          "lembrete": "Na fórmula: primeiro −32, depois simplifique 5/9.",
+          "tags": ["divisao", "temperatura", "fatoracao", "aplicacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [33, 106] }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1806 @@
+{
+  "schemaVersion": 1,
+  "descricao": "Detalhamento em pt-BR das Lectures 9 a 12 de calculo-mental-dicas.pdf. A organização preserva a progressão do livro: memória fonética, cálculo de calendários, multiplicação avançada e integração das técnicas. Foram incorporadas explicações, observações didáticas, instruções de treino e esclarecimentos das soluções; as páginas informadas são as páginas impressas no livro. Nos exemplos do sistema Major, palavras inglesas do original são mantidas quando a correspondência depende exatamente de sua pronúncia, acompanhadas de orientação para criar equivalentes pessoais em português.",
+  "capitulos": [
+    {
+      "capituloId": "capitulo-09",
+      "capituloOrdem": 9,
+      "titulo": "Memorizando números",
+      "dicas": [
+        {
+          "id": "c09-d01-codigo-fonetico-major",
+          "ordem": 1,
+          "titulo": "Converta algarismos em sons com o sistema Major",
+          "paginas": [58, 60, 128, 129],
+          "resumo": "O sistema Major associa cada algarismo a um grupo de sons consonantais: 1=t/d, 2=n, 3=m, 4=r, 5=l, 6=ch/sh/j, 7=k/g forte, 8=f/v, 9=p/b e 0=s/z. Vogais e os sons de h, w e y não carregam valor numérico e podem ser usados para formar palavras pronunciáveis.",
+          "quandoUsar": [
+            "Ao transformar uma sequência abstrata de dígitos em material verbal e visual.",
+            "Ao decodificar uma palavra-mnemônico para recuperar o número original.",
+            "Como preparação para memorizar datas, telefones, listas e resultados parciais de contas grandes."
+          ],
+          "porQueFunciona": "Números isolados oferecem poucas pistas à memória; palavras ativam som, significado e imagem. Como cada som consonantal relevante aponta para um único algarismo, a palavra funciona como uma representação reversível do número.",
+          "algoritmo": {
+            "titulo": "Tabela fonética básica",
+            "passos": [
+              { "ordem": 1, "acao": "Memorize por som", "detalhe": "Aprenda os dez pares ou grupos fonéticos, sem depender da grafia.", "expressao": "0=s/z; 1=t/d; 2=n; 3=m; 4=r; 5=l; 6=ch/sh/j; 7=k/g; 8=f/v; 9=p/b" },
+              { "ordem": 2, "acao": "Ignore sons neutros", "detalhe": "Desconsidere vogais e, no código apresentado no livro, h, w e y." },
+              { "ordem": 3, "acao": "Leia a pronúncia", "detalhe": "Registre uma consoante pronunciada uma vez apenas uma vez, ainda que apareça duplicada na escrita." },
+              { "ordem": 4, "acao": "Converta na ordem", "detalhe": "Troque cada som relevante pelo algarismo correspondente e preserve a sequência." },
+              { "ordem": 5, "acao": "Faça a volta", "detalhe": "Decodifique a palavra sem olhar a resposta para confirmar que o caminho é reversível." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d01-ex01",
+              "enunciado": "Decodifique NEWS pelo sistema Major do original em inglês",
+              "resposta": "20",
+              "etapas": [
+                { "expressao": "N → 2", "explicacao": "O som de n representa 2." },
+                { "expressao": "W → sem valor", "explicacao": "W é um dos sons neutros do código apresentado." },
+                { "expressao": "S → 0", "explicacao": "O som de s representa 0." },
+                { "expressao": "2, 0 → 20", "explicacao": "A ordem dos sons relevantes recupera o número." }
+              ],
+              "conclusao": "O valor depende da fala, não da quantidade total de letras.",
+              "origem": { "pagina": 128 }
+            },
+            {
+              "id": "c09-d01-ex02",
+              "enunciado": "Decodifique PHONETIC pelo sistema Major do original em inglês",
+              "resposta": "8217",
+              "etapas": [
+                { "expressao": "PH/F → 8", "explicacao": "O som de f corresponde a 8." },
+                { "expressao": "N → 2", "explicacao": "O som de n corresponde a 2." },
+                { "expressao": "T → 1", "explicacao": "O som de t corresponde a 1." },
+                { "expressao": "C/K → 7", "explicacao": "O c final tem som forte de k." },
+                { "expressao": "8-2-1-7", "explicacao": "As vogais não entram no número." }
+              ],
+              "conclusao": "Grafias diferentes podem produzir os mesmos sons codificados.",
+              "origem": { "pagina": 128 }
+            }
+          ],
+          "armadilhas": [
+            "Codificar letras silenciosas ou vogais como se tivessem valor.",
+            "Contar duas vezes uma consoante duplicada que produz um único som.",
+            "Aplicar cegamente a grafia inglesa a uma pronúncia em português; monte seu repertório pelo som real.",
+            "Avançar para sequências longas antes de recuperar a tabela sem hesitação."
+          ],
+          "lembrete": "No sistema Major, o ouvido manda: consoantes carregam dígitos; vogais costuram palavras.",
+          "tags": ["memoria", "sistema-major", "fonetica", "codificacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [58, 60, 128, 129] }
+        },
+        {
+          "id": "c09-d02-numero-em-palavra",
+          "ordem": 2,
+          "titulo": "Insira sons livres para transformar um número em palavra",
+          "paginas": [58, 59, 129],
+          "resumo": "Depois de converter cada dígito em um som consonantal, insira vogais e sons neutros onde for conveniente. Um mesmo número pode gerar muitas palavras, mas uma palavra bem pronunciada deve retornar a uma única sequência numérica.",
+          "quandoUsar": [
+            "Quando uma pequena sequência precisa virar uma imagem concreta.",
+            "Ao procurar a palavra mais vívida entre várias codificações válidas.",
+            "Quando é necessário conferir se um mnemônico preservou todos os dígitos."
+          ],
+          "porQueFunciona": "A liberdade de inserir vogais cria várias rotas até uma palavra memorável, enquanto a sequência dos sons consonantais mantém o número estável. Imagens concretas e incomuns são mais recuperáveis que cadeias de dígitos.",
+          "algoritmo": {
+            "titulo": "Codificação reversível em palavra",
+            "passos": [
+              { "ordem": 1, "acao": "Troque os dígitos por sons", "detalhe": "Gere ao menos uma opção consonantal para cada algarismo.", "expressao": "491 → r-p/b-t/d" },
+              { "ordem": 2, "acao": "Insira ligações", "detalhe": "Acrescente vogais e sons sem código até formar palavras pronunciáveis." },
+              { "ordem": 3, "acao": "Prefira imagem forte", "detalhe": "Escolha a alternativa mais concreta, estranha ou relacionada ao contexto." },
+              { "ordem": 4, "acao": "Teste ao contrário", "detalhe": "Pronuncie a palavra, remova sons neutros e recupere todos os dígitos na ordem." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d02-ex01",
+              "enunciado": "Transforme 491 em uma palavra pelo exemplo original",
+              "resposta": "RABBIT, REPEAT ou ORBIT são alternativas válidas em inglês",
+              "etapas": [
+                { "expressao": "4 → R", "explicacao": "O primeiro som obrigatório é r." },
+                { "expressao": "9 → P/B", "explicacao": "O segundo som pode ser p ou b." },
+                { "expressao": "1 → T/D", "explicacao": "O último som pode ser t ou d." },
+                { "expressao": "R-B-T → RABBIT", "explicacao": "As vogais tornam a sequência pronunciável; os dois b escritos formam um único som relevante." }
+              ],
+              "conclusao": "RABBIT volta a 491, não a 4991.",
+              "origem": { "pagina": 58 }
+            },
+            {
+              "id": "c09-d02-ex02",
+              "enunciado": "Converta PARTY em número pelo exemplo original",
+              "resposta": "941",
+              "etapas": [
+                { "expressao": "P → 9", "explicacao": "P fornece o primeiro dígito." },
+                { "expressao": "R → 4", "explicacao": "R fornece o segundo dígito." },
+                { "expressao": "T → 1", "explicacao": "T fornece o terceiro dígito." },
+                { "expressao": "Y → sem valor", "explicacao": "Y pode completar a palavra sem alterar o código." }
+              ],
+              "conclusao": "Mesmo que 941 aceite várias palavras, PARTY representa apenas essa sequência.",
+              "origem": { "pagina": 58 }
+            }
+          ],
+          "armadilhas": [
+            "Escolher uma palavra bonita que perde, troca ou acrescenta um som codificado.",
+            "Confundir letra dupla com som duplo.",
+            "Não verificar a decodificação antes de confiar no mnemônico.",
+            "Usar palavras abstratas quando há uma imagem concreta disponível."
+          ],
+          "lembrete": "Crie livremente, mas sempre decodifique de volta.",
+          "tags": ["memoria", "palavras", "visualizacao", "reversibilidade"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [58, 59, 129] }
+        },
+        {
+          "id": "c09-d03-datas-em-cenas",
+          "ordem": 3,
+          "titulo": "Prenda datas a cenas marcantes",
+          "paginas": [58, 61, 62, 129, 130, 131],
+          "resumo": "Para memorizar um ano ou uma data, codifique os dígitos em uma ou mais palavras e ligue essas palavras à pessoa ou ao acontecimento. O vínculo pode ser exagerado ou estranho; essa estranheza costuma favorecer a lembrança.",
+          "quandoUsar": [
+            "Ao estudar anos de fatos históricos.",
+            "Ao associar números de emendas, presidentes ou elementos a seus significados.",
+            "Quando uma data completa, com mês e dia, precisa permanecer ligada ao evento certo."
+          ],
+          "porQueFunciona": "A cena conecta o código fonético a conhecimento já significativo. Recuperar o evento evoca a imagem, a imagem evoca as palavras e as palavras devolvem os dígitos.",
+          "algoritmo": {
+            "titulo": "Evento, código e cena",
+            "passos": [
+              { "ordem": 1, "acao": "Separe os dígitos", "detalhe": "Escolha blocos que possam virar uma ou duas palavras fortes." },
+              { "ordem": 2, "acao": "Gere palavras", "detalhe": "Use os sons do sistema Major e confira a volta para o número." },
+              { "ordem": 3, "acao": "Inclua o assunto", "detalhe": "Coloque a pessoa, objeto ou fato histórico dentro da mesma cena." },
+              { "ordem": 4, "acao": "Exagere", "detalhe": "Use movimento, humor, absurdo ou emoção para destacar a associação." },
+              { "ordem": 5, "acao": "Recupere sem pista", "detalhe": "Parta apenas do evento e reconstrua palavra e número." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d03-ex01",
+              "enunciado": "Lembrar que Andrew Jackson foi eleito em 1828",
+              "resposta": "Uma cena de Jackson como sujeito TOUGH com uma KNIFE",
+              "etapas": [
+                { "expressao": "1828 → t/d-f/v-n-f/v", "explicacao": "Os sons obrigatórios podem ser distribuídos em duas palavras." },
+                { "expressao": "TOUGH + KNIFE", "explicacao": "No exemplo inglês do livro, as palavras recuperam os sons de 1828." },
+                { "expressao": "Jackson na cena", "explicacao": "A personagem histórica impede que o ano fique sem contexto." }
+              ],
+              "conclusao": "O evento chama a cena; a cena devolve 1828.",
+              "origem": { "pagina": 58 }
+            },
+            {
+              "id": "c09-d03-ex02",
+              "enunciado": "Lembrar que a Revolução Russa ocorreu em 1917",
+              "resposta": "Lenin vira TOP DOG na cena sugerida",
+              "etapas": [
+                { "expressao": "TOP DOG → 1-9-1-7", "explicacao": "Os sons t, p, d e g codificam 1917 no exemplo original." },
+                { "expressao": "Lenin como TOP DOG", "explicacao": "A imagem liga a frase diretamente à revolução." }
+              ],
+              "conclusao": "Uma associação excêntrica pode ser mais útil que uma frase historicamente literal.",
+              "origem": { "pagina": 130 }
+            },
+            {
+              "id": "c09-d03-ex03",
+              "enunciado": "Lembrar que a 16ª emenda permite cobrar imposto de renda",
+              "resposta": "Imagine o governo podendo TOUCH todo o dinheiro",
+              "etapas": [
+                { "expressao": "TOUCH → 1-6", "explicacao": "T representa 1 e o som ch representa 6." },
+                { "expressao": "TOUCH no dinheiro", "explicacao": "A ação de tocar conecta o número 16 à cobrança de renda." }
+              ],
+              "conclusao": "O próprio significado do mnemônico reforça a informação jurídica.",
+              "origem": { "pagina": 131 }
+            }
+          ],
+          "armadilhas": [
+            "Memorizar a palavra sem colocar o evento dentro da imagem.",
+            "Criar uma frase tão longa que a ordem dos blocos se perde.",
+            "Julgar uma associação estranha como ruim; o inusitado pode ser justamente a pista mais forte.",
+            "Traduzir literalmente um mnemônico inglês e destruir sua codificação fonética."
+          ],
+          "lembrete": "Não memorize apenas o ano: faça o acontecimento atuar com ele.",
+          "tags": ["memoria", "datas", "historia", "associacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [58, 61, 62, 129, 130, 131] }
+        },
+        {
+          "id": "c09-d04-sequencias-longas",
+          "ordem": 4,
+          "titulo": "Divida sequências longas procurando palavras compridas",
+          "paginas": [59, 60, 130],
+          "resumo": "Em números longos, procure blocos que virem palavras com muitos sons codificados. Quanto menos palavras forem necessárias, menor tende a ser a carga de memória. Depois, costure-as numa frase visual e ordenada.",
+          "quandoUsar": [
+            "Em números de telefone, cartões, documentos e constantes matemáticas.",
+            "Quando uma sequência supera o que você consegue repetir mecanicamente.",
+            "Ao criar uma lembrança temporária de um número recém-recebido."
+          ],
+          "porQueFunciona": "O agrupamento reduz o número de unidades que a memória de trabalho precisa manter. Uma frase cria sequência e relações entre essas unidades, dificultando inversões e omissões.",
+          "algoritmo": {
+            "titulo": "Agrupamento fonético de muitos dígitos",
+            "passos": [
+              { "ordem": 1, "acao": "Varra a sequência", "detalhe": "Procure trechos que aceitem uma palavra longa e fácil de imaginar." },
+              { "ordem": 2, "acao": "Cubra sem lacunas", "detalhe": "Divida o número inteiro em blocos; nenhum dígito pode desaparecer." },
+              { "ordem": 3, "acao": "Minimize os blocos", "detalhe": "Entre opções igualmente claras, prefira a que usa menos palavras." },
+              { "ordem": 4, "acao": "Monte uma ação", "detalhe": "Ligue as imagens numa frase ou pequena narrativa, mantendo a ordem." },
+              { "ordem": 5, "acao": "Recite nos dois sentidos", "detalhe": "Reproduza a frase e decodifique cada bloco para conferir a sequência completa." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d04-ex01",
+              "enunciado": "Memorizar os primeiros 24 dígitos apresentados de π",
+              "resposta": "Converter 314159265358979323846264 em uma frase curta de imagens encadeadas",
+              "etapas": [
+                { "expressao": "314159265358979323846264", "explicacao": "Trate a sequência como cobertura completa, não como dígitos avulsos." },
+                { "expressao": "palavras longas", "explicacao": "O exemplo do livro usa poucas palavras que, juntas, cobrem todos os sons numéricos." },
+                { "expressao": "frase em ordem", "explicacao": "As palavras formam uma pequena narrativa para preservar a sequência." },
+                { "expressao": "frase → 24 dígitos", "explicacao": "A checagem final deve reconstruir exatamente o número original." }
+              ],
+              "conclusao": "A meta não é decorar a frase do livro, mas aprender a compactar uma sequência em imagens próprias.",
+              "origem": { "pagina": 59 }
+            },
+            {
+              "id": "c09-d04-ex02",
+              "enunciado": "Memorizar o telefone 202-456-1414",
+              "resposta": "Quebrar o número em palavras foneticamente válidas e uni-las a uma cena da Casa Branca",
+              "etapas": [
+                { "expressao": "202 | 456 | 1414", "explicacao": "Uma divisão inicial organiza a busca por palavras." },
+                { "expressao": "palavras → cena presidencial", "explicacao": "As sugestões da solução ligam os blocos a personagens e objetos visualizáveis." },
+                { "expressao": "cena → 2024561414", "explicacao": "A decodificação confirma cada bloco e sua ordem." }
+              ],
+              "conclusao": "O contexto do dono do telefone serve de cola para o código.",
+              "origem": { "pagina": 130 }
+            }
+          ],
+          "armadilhas": [
+            "Criar muitos blocos de um único dígito sem necessidade.",
+            "Cobrir todos os dígitos, mas trocar a ordem das palavras.",
+            "Usar uma frase gramaticalmente correta, porém sem imagens claras.",
+            "Não ensaiar a decodificação completa logo após criar a frase."
+          ],
+          "lembrete": "Procure compressão com imagem: menos palavras, todos os dígitos, ordem intacta.",
+          "tags": ["memoria", "chunking", "sequencias", "telefone", "pi"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [59, 60, 130] }
+        },
+        {
+          "id": "c09-d05-sistema-de-ganchos",
+          "ordem": 5,
+          "titulo": "Use palavras-gancho para listas numeradas",
+          "paginas": [59, 60, 62, 130, 131],
+          "resumo": "No sistema de ganchos, cada posição recebe uma palavra concreta produzida pelo sistema Major. Para recordar o item de uma lista, imagine o objeto associado interagindo com o gancho daquele número. O livro sugere, em inglês, tea, knee, moo, ear, oil, shoe, key, foe, pie e dice para 1 a 10 e recomenda criar um conjunto pessoal.",
+          "quandoUsar": [
+            "Em listas cuja posição também importa, como presidentes, elementos ou emendas.",
+            "Quando você precisa responder tanto qual item ocupa uma posição quanto qual é a posição do item.",
+            "Ao expandir um repertório estável de associações para números de dois dígitos."
+          ],
+          "porQueFunciona": "O gancho é uma pista permanente para a posição; a cena associada liga essa pista ao conteúdo variável. Como os ganchos derivam do próprio número, é possível ir da posição à imagem e da imagem de volta à posição.",
+          "algoritmo": {
+            "titulo": "Lista indexada por imagens",
+            "passos": [
+              { "ordem": 1, "acao": "Crie seus ganchos", "detalhe": "Escolha uma palavra curta, concreta e foneticamente válida para cada número; adapte ao português em vez de traduzir sons mecanicamente." },
+              { "ordem": 2, "acao": "Estabilize o repertório", "detalhe": "Recupere palavra por número e número por palavra sem hesitar." },
+              { "ordem": 3, "acao": "Faça a interação", "detalhe": "Imagine o item da lista tocando, quebrando, vestindo ou sendo transformado pelo gancho." },
+              { "ordem": 4, "acao": "Torne estranho", "detalhe": "Exagere tamanho, movimento ou emoção para impedir uma associação apagada." },
+              { "ordem": 5, "acao": "Amplie", "detalhe": "Para posições acima de 10, gere palavras a partir dos dois dígitos pelo mesmo código." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d05-ex01",
+              "enunciado": "Associar George Washington à posição 1",
+              "resposta": "Imaginar Washington tomando tea, o gancho inglês de 1",
+              "etapas": [
+                { "expressao": "1 → T/D → TEA", "explicacao": "No conjunto original, TEA representa o primeiro lugar." },
+                { "expressao": "Washington + chá", "explicacao": "A interação visual liga o primeiro presidente ao gancho." }
+              ],
+              "conclusao": "Ao pensar em 1, o gancho chama a cena com Washington.",
+              "origem": { "pagina": 59 }
+            },
+            {
+              "id": "c09-d05-ex02",
+              "enunciado": "Associar Ronald Reagan à posição 40",
+              "resposta": "Usar ROSE como gancho de 40 e imaginar uma red rose com Reagan",
+              "etapas": [
+                { "expressao": "40 → R-S/Z → ROSE", "explicacao": "Os sons relevantes de ROSE recuperam 40." },
+                { "expressao": "red rose + Reagan", "explicacao": "A aliteração e a imagem conectam o gancho ao presidente." }
+              ],
+              "conclusao": "O mesmo princípio funciona além dos dez primeiros lugares.",
+              "origem": { "pagina": 59 }
+            },
+            {
+              "id": "c09-d05-ex03",
+              "enunciado": "Ligar a 4ª emenda a buscas e apreensões",
+              "resposta": "Use EAR como gancho inglês de 4 e imagine uma inspeção absurda no ouvido",
+              "etapas": [
+                { "expressao": "4 → R → EAR", "explicacao": "EAR é o quarto gancho na lista original." },
+                { "expressao": "inspeção + EAR + apreensão", "explicacao": "A cena exagerada conecta o número ao conteúdo protegido pela emenda." }
+              ],
+              "conclusao": "O gancho fornece a posição e a ação fornece o significado.",
+              "origem": { "pagina": 131 }
+            }
+          ],
+          "armadilhas": [
+            "Trocar constantemente as palavras-gancho e perder a pista estável.",
+            "Criar apenas uma proximidade abstrata, sem interação visual.",
+            "Usar o conjunto inglês sem dominar sua pronúncia; um conjunto pessoal em português costuma ser mais robusto.",
+            "Treinar somente número para palavra e não a direção inversa."
+          ],
+          "lembrete": "A posição tem um objeto fixo; faça o conteúdo colidir com ele.",
+          "tags": ["memoria", "sistema-de-ganchos", "listas", "associacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [59, 60, 62, 130, 131] }
+        },
+        {
+          "id": "c09-d06-usos-praticos-e-memoria-de-trabalho",
+          "ordem": 6,
+          "titulo": "Use o código como memória de trabalho — e deixe a repetição assumir depois",
+          "paginas": [58, 59, 60],
+          "resumo": "O código é especialmente útil para números temporários — telefone novo, endereço, vaga, quarto de hotel ou parcial de uma conta grande — e também para acrescentar dígitos memoráveis a senhas. Se uma sequência é usada muitas vezes, o código tende a desaparecer da consciência: o número passa à memória de longo prazo ou ganha outras pistas contextuais.",
+          "quandoUsar": [
+            "Ao segurar um resultado parcial enquanto outra subconta é executada.",
+            "Para números importantes por poucos minutos ou dias.",
+            "Ao diferenciar credenciais com sufixos numéricos memorizáveis, respeitando boas práticas de segurança atuais.",
+            "Quando uma sequência recorrente ainda não foi automatizada."
+          ],
+          "porQueFunciona": "A palavra ocupa uma unidade significativa na memória de trabalho, em vez de vários dígitos soltos. Recuperações repetidas fortalecem o caminho até que o número possa ser lembrado diretamente, sem recodificação consciente.",
+          "algoritmo": {
+            "titulo": "Guardar, usar, verificar e consolidar",
+            "passos": [
+              { "ordem": 1, "acao": "Codifique o parcial", "detalhe": "Converta a parte que precisa esperar em uma palavra ou imagem curta." },
+              { "ordem": 2, "acao": "Execute a próxima etapa", "detalhe": "Faça a nova subconta sem continuar repetindo uma longa cadeia de dígitos." },
+              { "ordem": 3, "acao": "Recupere e combine", "detalhe": "Decodifique o parcial e integre-o à resposta." },
+              { "ordem": 4, "acao": "Confirme", "detalhe": "Faça uma checagem de magnitude ou reconstrua o código antes de encerrar." },
+              { "ordem": 5, "acao": "Revise com espaçamento", "detalhe": "Para números permanentes, recupere em momentos diferentes até o acesso direto substituir o apoio." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c09-d06-ex01",
+              "enunciado": "Diferenciar uma credencial ligada a uma conta Visa no exemplo do livro",
+              "resposta": "Anexar 80741, codificado pelos sons de VISA CARD",
+              "etapas": [
+                { "expressao": "V-S-K-R-D", "explicacao": "Retire os sons sem valor e preserve os consonantais relevantes." },
+                { "expressao": "V=8, S=0, K=7, R=4, D=1", "explicacao": "A sequência fonética produz 80741." },
+                { "expressao": "VISA CARD ↔ 80741", "explicacao": "A palavra contextual ajuda a recuperar o sufixo." }
+              ],
+              "conclusao": "O exemplo ilustra personalização memorizável; não substitui senha única, longa e proteção multifator.",
+              "origem": { "pagina": 59 }
+            }
+          ],
+          "armadilhas": [
+            "Confiar tanto na imagem que deixa de verificar o parcial numérico.",
+            "Manter uma palavra provisória depois que ela já cumpriu sua função e misturá-la com a próxima conta.",
+            "Usar o mesmo segredo-base em serviços diferentes apenas porque o sufixo muda.",
+            "Esperar memória permanente sem recuperação repetida."
+          ],
+          "lembrete": "Codifique para liberar espaço; recupere para calcular; repita para automatizar.",
+          "tags": ["memoria-de-trabalho", "calculos-grandes", "uso-pratico", "consolidacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [58, 59, 60] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-10",
+      "capituloOrdem": 10,
+      "titulo": "Calculando calendários",
+      "dicas": [
+        {
+          "id": "c10-d01-codigos-base",
+          "ordem": 1,
+          "titulo": "Automatize os códigos de dias e meses",
+          "paginas": [63, 65, 66, 131, 132],
+          "resumo": "O cálculo usa resíduos de 7. Segunda a sábado valem 1 a 6; domingo vale 0 ou 7. Os meses, em ano comum, seguem 6-2-2-5-0-3-5-1-4-6-2-4 de janeiro a dezembro; em ano bissexto, somente janeiro e fevereiro mudam para 5 e 1.",
+          "quandoUsar": [
+            "Antes de calcular mentalmente o dia da semana de uma data.",
+            "Ao treinar recuperação rápida dos códigos sem consultar tabela.",
+            "Para reconhecer meses que compartilham o mesmo padrão de sexta-feira 13."
+          ],
+          "porQueFunciona": "Cada código representa um deslocamento semanal. Como somas que diferem por múltiplos de 7 caem no mesmo dia, basta guardar um representante pequeno para cada mês, ano e dia da semana.",
+          "algoritmo": {
+            "titulo": "Repertório mínimo do calendário",
+            "passos": [
+              { "ordem": 1, "acao": "Associe os dias", "detalhe": "Conte de segunda=1 até sábado=6; trate domingo como 0 quando estiver reduzindo módulos.", "expressao": "seg=1, ter=2, qua=3, qui=4, sex=5, sáb=6, dom=0" },
+              { "ordem": 2, "acao": "Agrupe os meses", "detalhe": "Memorize a sequência em quatro blocos de três.", "expressao": "622 | 503 | 514 | 624" },
+              { "ordem": 3, "acao": "Crie pistas pessoais", "detalhe": "Relacione mês e código; por exemplo, janeiro pode lembrar férias, palavra de seis letras em português." },
+              { "ordem": 4, "acao": "Cheque o bissexto", "detalhe": "Se a data estiver em janeiro ou fevereiro de ano bissexto, reduza o código normal em 1.", "expressao": "jan: 6→5; fev: 2→1" },
+              { "ordem": 5, "acao": "Recupere misturado", "detalhe": "Treine meses fora de ordem para não depender da sequência anual." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d01-ex01",
+              "enunciado": "Quais são os códigos dos meses em um ano comum?",
+              "resposta": "622 503 514 624",
+              "etapas": [
+                { "expressao": "jan–mar: 622", "explicacao": "Janeiro vale 6; fevereiro e março valem 2." },
+                { "expressao": "abr–jun: 503", "explicacao": "Abril vale 5, maio 0 e junho 3." },
+                { "expressao": "jul–set: 514", "explicacao": "Julho vale 5, agosto 1 e setembro 4." },
+                { "expressao": "out–dez: 624", "explicacao": "Outubro vale 6, novembro 2 e dezembro 4." }
+              ],
+              "conclusao": "Em bissexto, substitua apenas o início por 512.",
+              "origem": { "pagina": 131 }
+            }
+          ],
+          "armadilhas": [
+            "Usar janeiro=6 ou fevereiro=2 num ano bissexto.",
+            "Confundir domingo=0 com ausência de dia.",
+            "Saber recitar a sequência e não conseguir responder por um mês isolado.",
+            "Misturar código do mês com seu número ordinal."
+          ],
+          "lembrete": "Meses: 622 503 514 624; no bissexto, janeiro e fevereiro recuam um.",
+          "tags": ["calendario", "codigos", "meses", "dias-da-semana"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [63, 65, 66, 131, 132] }
+        },
+        {
+          "id": "c10-d02-dia-da-semana",
+          "ordem": 2,
+          "titulo": "Some mês, data e ano e reduza por 7",
+          "paginas": [63, 66, 68, 132, 133, 135, 136],
+          "resumo": "A regra central é código do mês + dia do mês + código do ano. Subtraia o maior múltiplo de 7 possível; o resto identifica o dia da semana. Calcular o código do ano primeiro costuma reduzir a parte mais difícil da tarefa.",
+          "quandoUsar": [
+            "Para determinar o dia da semana de uma data válida no calendário escolhido.",
+            "Ao conferir datas históricas dentro do período gregoriano aplicável.",
+            "Como base para localizar o primeiro ou o enésimo dia da semana de um mês."
+          ],
+          "porQueFunciona": "Avançar um dia, mês ou ano desloca a semana por um número conhecido de posições. Somar os três deslocamentos e tomar o resto na divisão por 7 preserva somente a posição semanal relevante.",
+          "algoritmo": {
+            "titulo": "Fórmula completa da data",
+            "passos": [
+              { "ordem": 1, "acao": "Valide a data", "detalhe": "Confirme que o dia existe e qual calendário deve ser usado." },
+              { "ordem": 2, "acao": "Calcule o ano", "detalhe": "Obtenha primeiro o código anual, inclusive ajuste de século." },
+              { "ordem": 3, "acao": "Escolha o mês", "detalhe": "Aplique o código mensal e o ajuste de janeiro/fevereiro bissextos." },
+              { "ordem": 4, "acao": "Some", "detalhe": "Some código do mês, número do dia e código do ano.", "expressao": "M + D + A" },
+              { "ordem": 5, "acao": "Reduza", "detalhe": "Subtraia múltiplos de 7 até obter 0 a 6." },
+              { "ordem": 6, "acao": "Traduza", "detalhe": "Converta 0 a 6 em domingo a sábado." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d02-ex01",
+              "enunciado": "1º de janeiro de 2000",
+              "resposta": "Sábado",
+              "etapas": [
+                { "expressao": "ano 2000 → código 0", "explicacao": "Esse é o ano-base do método." },
+                { "expressao": "janeiro bissexto → código 5", "explicacao": "2000 é bissexto, então janeiro não usa 6." },
+                { "expressao": "5 + 1 + 0 = 6", "explicacao": "O total já está entre 0 e 6." },
+                { "expressao": "6 → sábado", "explicacao": "O código final identifica o dia." }
+              ],
+              "conclusao": "O ajuste bissexto é indispensável mesmo no ano-base.",
+              "origem": { "pagina": 63 }
+            },
+            {
+              "id": "c10-d02-ex02",
+              "enunciado": "29 de novembro de 2000",
+              "resposta": "Quarta-feira",
+              "etapas": [
+                { "expressao": "novembro=2; ano=0", "explicacao": "Selecione os dois códigos." },
+                { "expressao": "2 + 29 + 0 = 31", "explicacao": "Some com o dia do mês." },
+                { "expressao": "31 − 28 = 3", "explicacao": "28 é o maior múltiplo de 7 abaixo de 31." },
+                { "expressao": "3 → quarta-feira", "explicacao": "Converta o resto em dia." }
+              ],
+              "conclusao": "Números grandes são descartados em semanas inteiras.",
+              "origem": { "pagina": 132 }
+            },
+            {
+              "id": "c10-d02-ex03",
+              "enunciado": "16 de janeiro de 1964",
+              "resposta": "Quinta-feira",
+              "etapas": [
+                { "expressao": "1964 → código 4", "explicacao": "O código anual já inclui o deslocamento do século XX." },
+                { "expressao": "janeiro bissexto → 5", "explicacao": "1964 é divisível por 4 e janeiro sofre ajuste." },
+                { "expressao": "5 + 16 + 4 = 25; 25 − 21 = 4", "explicacao": "Reduza o total módulo 7." },
+                { "expressao": "4 → quinta-feira", "explicacao": "Leia o código final." }
+              ],
+              "conclusao": "A ordem ano primeiro, mês ajustado depois reduz esquecimentos.",
+              "origem": { "pagina": 135 }
+            }
+          ],
+          "armadilhas": [
+            "Somar antes de conferir se janeiro ou fevereiro pertencem a um bissexto.",
+            "Parar com resto 7 em vez de convertê-lo a 0/domingo.",
+            "Aplicar a fórmula a uma data inexistente, como 31 de junho.",
+            "Usar o calendário gregoriano em um lugar ou época que ainda seguia outro calendário."
+          ],
+          "lembrete": "Ano primeiro; depois M + D + A; retire semanas inteiras.",
+          "tags": ["calendario", "modulo-7", "dia-da-semana", "algoritmo"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [63, 66, 68, 132, 133, 135, 136] }
+        },
+        {
+          "id": "c10-d03-codigo-do-ano-2000",
+          "ordem": 3,
+          "titulo": "Calcule códigos anuais de 2000 a 2099",
+          "paginas": [63, 64, 65, 66, 132, 133],
+          "resumo": "Para anos de 2000 a 2099, use os dois últimos dígitos do ano, some a quantidade de bissextos já ocorridos — divisão inteira por 4 — e retire múltiplos de 7. Em fórmula: ano + bissextos − múltiplos de 7.",
+          "quandoUsar": [
+            "Ao calcular uma data do século XXI sem consultar a tabela anual.",
+            "Quando o código do ano não está automatizado.",
+            "Para reconstruir ou conferir a tabela que começa em 2000=0."
+          ],
+          "porQueFunciona": "Cada ano comum desloca o calendário um dia e cada dia extra de um bissexto acrescenta outro deslocamento. A divisão inteira por 4 conta esses dias adicionais dentro do intervalo usado pelo método.",
+          "algoritmo": {
+            "titulo": "Ano mais bissextos, módulo 7",
+            "passos": [
+              { "ordem": 1, "acao": "Isole o final", "detalhe": "Use os dois últimos dígitos como y.", "expressao": "2025 → y=25" },
+              { "ordem": 2, "acao": "Conte os bissextos", "detalhe": "Faça divisão inteira de y por 4 e ignore o resto.", "expressao": "⌊25/4⌋=6" },
+              { "ordem": 3, "acao": "Some os deslocamentos", "detalhe": "Some y e a quantidade de bissextos." },
+              { "ordem": 4, "acao": "Reduza por 7", "detalhe": "Subtraia o maior múltiplo de 7 conveniente.", "expressao": "A=(y+⌊y/4⌋) mod 7" },
+              { "ordem": 5, "acao": "Cheque o vizinho", "detalhe": "O código seguinte costuma avançar 1; depois de ano bissexto, o salto observado para o ano seguinte é 2." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d03-ex01",
+              "enunciado": "Código do ano de 2025",
+              "resposta": "3",
+              "etapas": [
+                { "expressao": "y=25", "explicacao": "Use os dois últimos dígitos." },
+                { "expressao": "⌊25/4⌋=6", "explicacao": "Há seis deslocamentos extras por bissextos após o ano-base." },
+                { "expressao": "25+6=31", "explicacao": "Some os deslocamentos comuns e extras." },
+                { "expressao": "31−28=3", "explicacao": "Reduza pelo maior múltiplo de 7." }
+              ],
+              "conclusao": "O código anual de 2025 é 3.",
+              "origem": { "pagina": 64 }
+            },
+            {
+              "id": "c10-d03-ex02",
+              "enunciado": "Código do ano de 2033",
+              "resposta": "6",
+              "etapas": [
+                { "expressao": "⌊33/4⌋=8", "explicacao": "Ignore o resto 1 da divisão." },
+                { "expressao": "33+8=41", "explicacao": "Acumule anos e bissextos." },
+                { "expressao": "41−35=6", "explicacao": "Reduza módulo 7." }
+              ],
+              "conclusao": "A divisão usada é inteira, não arredondada.",
+              "origem": { "pagina": 133 }
+            },
+            {
+              "id": "c10-d03-ex03",
+              "enunciado": "Código do ano de 2074",
+              "resposta": "1",
+              "etapas": [
+                { "expressao": "⌊74/4⌋=18", "explicacao": "Conte os bissextos." },
+                { "expressao": "74+18=92", "explicacao": "Some os deslocamentos." },
+                { "expressao": "92−91=1", "explicacao": "Retire 13 semanas; a solução também permite retirar 70 e depois 21." }
+              ],
+              "conclusao": "Escolha múltiplos de 7 mentalmente convenientes; o resto é o mesmo.",
+              "origem": { "pagina": 133 }
+            }
+          ],
+          "armadilhas": [
+            "Arredondar y÷4 em vez de descartar o resto.",
+            "Contar o ano 2000 novamente como um dos bissextos após o ponto de partida.",
+            "Confundir código anual com o fato de o próprio ano ser bissexto.",
+            "Fazer toda a soma da data antes do código anual e sobrecarregar a memória."
+          ],
+          "lembrete": "No século XXI: últimos dois dígitos + divisão inteira por 4, tudo módulo 7.",
+          "tags": ["calendario", "codigo-do-ano", "seculo-21", "divisao-inteira"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [63, 64, 65, 66, 132, 133] }
+        },
+        {
+          "id": "c10-d04-atalho-28-anos",
+          "ordem": 4,
+          "titulo": "Reduza anos altos pelo ciclo de 28 anos",
+          "paginas": [64, 65, 67, 134, 135],
+          "resumo": "Entre 1901 e 2099, o calendário repete o padrão a cada 28 anos. Subtrair 28, 56 ou 84 pode transformar um final de ano alto numa conta curta. Em 28 anos há 28 deslocamentos anuais e 7 bissextos, totalizando 35 dias, exatamente cinco semanas.",
+          "quandoUsar": [
+            "Quando os dois últimos dígitos tornam a fórmula anual trabalhosa.",
+            "Ao comparar calendários dentro de 1901–2099.",
+            "Para conferir um código obtido pela fórmula completa."
+          ],
+          "porQueFunciona": "Nesse intervalo, todo bloco de 28 anos contém sete bissextos. Os 35 dias de deslocamento equivalem a 0 módulo 7, portanto o arranjo de dias e datas se repete.",
+          "algoritmo": {
+            "titulo": "Redução por ciclos completos",
+            "passos": [
+              { "ordem": 1, "acao": "Confirme o intervalo", "detalhe": "Use o atalho diretamente apenas entre 1901 e 2099, onde não há exceção secular interna que quebre o padrão." },
+              { "ordem": 2, "acao": "Escolha um múltiplo", "detalhe": "Subtraia 28, 56 ou 84 para chegar a um ano equivalente e fácil." },
+              { "ordem": 3, "acao": "Calcule o equivalente", "detalhe": "Encontre o código do ano reduzido pela fórmula ou por um código conhecido." },
+              { "ordem": 4, "acao": "Transfira o código", "detalhe": "Atribua o mesmo código ao ano original." },
+              { "ordem": 5, "acao": "Cheque a fronteira", "detalhe": "Se a redução atravessar 1900 ou 2100, volte à regra secular para validar." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d04-ex01",
+              "enunciado": "Simplifique o código de 1999",
+              "resposta": "5",
+              "etapas": [
+                { "expressao": "1999−84=1915", "explicacao": "84 é três vezes 28, então preserva o calendário no intervalo válido." },
+                { "expressao": "15+⌊15/4⌋+1=15+3+1=19", "explicacao": "Para o século XX, acrescente o deslocamento secular 1." },
+                { "expressao": "19−14=5", "explicacao": "Reduza módulo 7." }
+              ],
+              "conclusao": "1999 e 1915 têm o mesmo código anual: 5.",
+              "origem": { "pagina": 135 }
+            },
+            {
+              "id": "c10-d04-ex02",
+              "enunciado": "Por que 28 anos fecham o ciclo nesse período?",
+              "resposta": "Porque 28 anos comuns de deslocamento mais 7 dias bissextos somam 35 dias",
+              "etapas": [
+                { "expressao": "28 anos → 28 dias de deslocamento", "explicacao": "Cada passagem anual move o calendário ao menos um dia." },
+                { "expressao": "7 bissextos → +7 dias", "explicacao": "Há um dia extra a cada quatro anos no intervalo." },
+                { "expressao": "28+7=35=5×7", "explicacao": "O total é um número inteiro de semanas." }
+              ],
+              "conclusao": "O resto módulo 7 é zero, logo os códigos se repetem.",
+              "origem": { "pagina": 134 }
+            }
+          ],
+          "armadilhas": [
+            "Usar o ciclo de 28 atravessando um século não bissexto sem conferir.",
+            "Subtrair um número que não seja múltiplo de 28.",
+            "Confundir repetição de código anual com identidade irrestrita entre calendários de eras diferentes.",
+            "Aplicar o atalho a datas anteriores à adoção local do gregoriano."
+          ],
+          "lembrete": "De 1901 a 2099, retire blocos de 28 antes de fazer uma conta grande.",
+          "tags": ["calendario", "ciclo-de-28", "atalho", "modulo-7"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [64, 65, 67, 134, 135] }
+        },
+        {
+          "id": "c10-d05-anos-bissextos",
+          "ordem": 5,
+          "titulo": "Aplique corretamente as exceções de ano bissexto",
+          "paginas": [64, 65, 67, 133, 135, 136],
+          "resumo": "No calendário gregoriano, um ano divisível por 4 costuma ser bissexto; se for divisível por 100, deixa de ser; se também for divisível por 400, volta a ser bissexto. O ajuste afeta diretamente janeiro e fevereiro e também os ciclos de longo prazo.",
+          "quandoUsar": [
+            "Antes de escolher os códigos de janeiro e fevereiro.",
+            "Ao atravessar anos seculares como 1900, 2000 ou 2100.",
+            "Ao justificar a repetição do calendário em 400 anos."
+          ],
+          "porQueFunciona": "A regra gregoriana retira três dias bissextos a cada 400 anos em relação ao esquema simples de um a cada quatro, aproximando o calendário do ano solar. Para o cálculo semanal, cada dia mantido ou retirado altera o deslocamento módulo 7.",
+          "algoritmo": {
+            "titulo": "Teste hierárquico de bissexto",
+            "passos": [
+              { "ordem": 1, "acao": "Teste 400", "detalhe": "Se o ano é divisível por 400, ele é bissexto e o teste termina." },
+              { "ordem": 2, "acao": "Teste 100", "detalhe": "Caso contrário, se é divisível por 100, não é bissexto." },
+              { "ordem": 3, "acao": "Teste 4", "detalhe": "Nos demais casos, divisibilidade por 4 indica ano bissexto." },
+              { "ordem": 4, "acao": "Ajuste o mês", "detalhe": "Somente para janeiro ou fevereiro desse ano, use 5 ou 1 em lugar de 6 ou 2." },
+              { "ordem": 5, "acao": "Valide a data", "detalhe": "Fevereiro 29 só existe se o teste confirmar o bissexto." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d05-ex01",
+              "enunciado": "Classifique 1900, 2000 e 2100",
+              "resposta": "1900 e 2100 não são bissextos; 2000 é bissexto",
+              "etapas": [
+                { "expressao": "1900÷100 exato; 1900÷400 não exato", "explicacao": "A exceção secular remove o dia extra." },
+                { "expressao": "2000÷400 exato", "explicacao": "A exceção da exceção mantém o dia extra." },
+                { "expressao": "2100÷100 exato; 2100÷400 não exato", "explicacao": "O ano não terá 29 de fevereiro." }
+              ],
+              "conclusao": "Ser divisível por 4 não basta para um ano secular.",
+              "origem": { "pagina": 65 }
+            },
+            {
+              "id": "c10-d05-ex02",
+              "enunciado": "O que fazer com 31 de junho de 2016?",
+              "resposta": "Rejeitar a data como inexistente",
+              "etapas": [
+                { "expressao": "junho tem 30 dias", "explicacao": "Valide o calendário antes da aritmética." },
+                { "expressao": "3+31+6−35=5", "explicacao": "A fórmula até produziria sexta-feira, mas esse resultado não legitima a data." }
+              ],
+              "conclusao": "Um algoritmo coerente pode aceitar entrada inválida; a validação vem primeiro.",
+              "origem": { "pagina": 133 }
+            }
+          ],
+          "armadilhas": [
+            "Declarar todo múltiplo de 4 bissexto sem testar 100 e 400.",
+            "Ajustar todos os meses de um ano bissexto em vez de somente janeiro e fevereiro.",
+            "Aplicar o ajuste a janeiro e fevereiro do ano seguinte.",
+            "Calcular uma data antes de verificar se ela existe."
+          ],
+          "lembrete": "400 mantém, 100 retira, 4 acrescenta — e só janeiro/fevereiro mudam de código.",
+          "tags": ["calendario", "ano-bissexto", "validacao", "gregoriano"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [64, 65, 67, 133, 135, 136] }
+        },
+        {
+          "id": "c10-d06-seculos-e-calendarios-historicos",
+          "ordem": 6,
+          "titulo": "Inclua o código do século e respeite o calendário histórico",
+          "paginas": [64, 65, 68, 135, 136, 137],
+          "resumo": "O deslocamento secular apresentado é 1900=1, 1800=3, 1700=5 e 1600=0. Some esse valor a ano + bissextos antes de reduzir por 7. O método descrito usa o calendário gregoriano; antes ou durante sua adoção gradual, o mesmo rótulo de data pode seguir o calendário juliano e produzir outro dia.",
+          "quandoUsar": [
+            "Em datas gregorianas dos séculos XVII a XX.",
+            "Quando uma data histórica parece divergir entre fontes.",
+            "Ao distinguir cálculo aritmético de validade histórica do calendário."
+          ],
+          "porQueFunciona": "Séculos com diferentes quantidades efetivas de dias bissextos chegam ao ponto de partida com resíduos semanais distintos. O código secular representa esse deslocamento acumulado; a escolha do calendário determina quais regras geraram o resíduo.",
+          "algoritmo": {
+            "titulo": "Data histórica com deslocamento secular",
+            "passos": [
+              { "ordem": 1, "acao": "Identifique o calendário", "detalhe": "Verifique se a região já adotava o gregoriano na data em questão." },
+              { "ordem": 2, "acao": "Escolha o século", "detalhe": "Use 0 para 1600, 5 para 1700, 3 para 1800 e 1 para 1900, conforme a tabela do livro." },
+              { "ordem": 3, "acao": "Calcule o ano", "detalhe": "Some os dois últimos dígitos, sua divisão inteira por 4 e o código secular; reduza por 7." },
+              { "ordem": 4, "acao": "Complete a data", "detalhe": "Some mês e dia e reduza novamente por 7." },
+              { "ordem": 5, "acao": "Declare a convenção", "detalhe": "Em fatos históricos próximos da transição, informe se o resultado é juliano ou gregoriano." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d06-ex01",
+              "enunciado": "4 de julho de 1776 no calendário gregoriano",
+              "resposta": "Quinta-feira",
+              "etapas": [
+                { "expressao": "76+19+5−98=2", "explicacao": "Some ano, bissextos e código 5 do século XVIII; reduza por 7." },
+                { "expressao": "julho=5", "explicacao": "Escolha o código mensal." },
+                { "expressao": "5+4+2−7=4", "explicacao": "O resto 4 corresponde a quinta-feira." }
+              ],
+              "conclusao": "O código secular faz parte do ano, não é somado depois do dia.",
+              "origem": { "pagina": 136 }
+            },
+            {
+              "id": "c10-d06-ex02",
+              "enunciado": "Como Shakespeare e Cervantes puderam ter 23 de abril de 1616 como data de morte e morrer com dez dias de diferença?",
+              "resposta": "Espanha usava o gregoriano; Inglaterra ainda usava o juliano",
+              "etapas": [
+                { "expressao": "Cervantes: 23/4 gregoriano", "explicacao": "A Espanha já havia adotado o calendário novo." },
+                { "expressao": "Shakespeare: 23/4 juliano", "explicacao": "A Inglaterra ainda registrava datas pelo calendário antigo." },
+                { "expressao": "23/4 juliano = 3/5 gregoriano", "explicacao": "Naquele período havia diferença de dez dias." }
+              ],
+              "conclusao": "Datas iguais por escrito não são necessariamente o mesmo dia físico quando os calendários diferem.",
+              "origem": { "pagina": 137 }
+            }
+          ],
+          "armadilhas": [
+            "Aplicar o código de 2000 a um século anterior sem compensação.",
+            "Supor adoção universal do gregoriano desde 1582; ela foi gradual.",
+            "Tratar o calendário juliano como se tivesse as exceções de 100 e 400.",
+            "Afirmar dias da semana da Antiguidade sem uma convenção histórica válida; o livro observa que a semana de sete dias nem sempre era usada."
+          ],
+          "lembrete": "Antes da conta histórica, pergunte: qual século, qual calendário, qual lugar?",
+          "tags": ["calendario", "seculos", "gregoriano", "juliano", "historia"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [64, 65, 68, 135, 136, 137] }
+        },
+        {
+          "id": "c10-d07-enesimo-dia-do-mes",
+          "ordem": 7,
+          "titulo": "Encontre o primeiro dia-alvo e avance por semanas",
+          "paginas": [66, 67, 133, 134],
+          "resumo": "Para descobrir datas como segundo domingo ou quarta quinta-feira, calcule o deslocamento fixo mês+ano, encontre o menor dia do mês que completa o código semanal desejado e acrescente blocos de 7.",
+          "quandoUsar": [
+            "Para datas móveis definidas por posição semanal, como Dia das Mães ou Ação de Graças.",
+            "Ao localizar rapidamente a primeira ocorrência de um dia da semana no mês.",
+            "Para conferir agendas mensais sem percorrer data por data."
+          ],
+          "porQueFunciona": "Depois de fixar mês e ano, aumentar a data em 7 não altera o resto módulo 7. Encontrada a primeira ocorrência, todas as seguintes ficam exatamente uma semana adiante.",
+          "algoritmo": {
+            "titulo": "Primeira ocorrência mais semanas",
+            "passos": [
+              { "ordem": 1, "acao": "Some mês e ano", "detalhe": "Calcule a base B=M+A e reduza se for conveniente." },
+              { "ordem": 2, "acao": "Escolha o alvo", "detalhe": "Converta o dia da semana desejado em código 0 a 6." },
+              { "ordem": 3, "acao": "Complete o código", "detalhe": "Encontre o menor dia d entre 1 e 7 para que B+d tenha o resto-alvo." },
+              { "ordem": 4, "acao": "Avance", "detalhe": "Para a n-ésima ocorrência, some 7×(n−1).", "expressao": "data=d+7(n−1)" },
+              { "ordem": 5, "acao": "Cheque o mês", "detalhe": "Confirme que a data final ainda existe naquele mês." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d07-ex01",
+              "enunciado": "Segundo domingo de maio de 2016",
+              "resposta": "8 de maio de 2016",
+              "etapas": [
+                { "expressao": "ano 2016=6; maio=0; B=6", "explicacao": "Forme a base do mês." },
+                { "expressao": "domingo=0≡7; 6+1=7", "explicacao": "O primeiro domingo cai no dia 1." },
+                { "expressao": "1+7=8", "explicacao": "Avance uma semana para o segundo domingo." }
+              ],
+              "conclusao": "O segundo domingo é 8 de maio.",
+              "origem": { "pagina": 133 }
+            },
+            {
+              "id": "c10-d07-ex02",
+              "enunciado": "Quarta quinta-feira de novembro de 2020",
+              "resposta": "26 de novembro de 2020",
+              "etapas": [
+                { "expressao": "ano 2020=4; novembro=2; B=6", "explicacao": "Some os códigos fixos." },
+                { "expressao": "quinta=4; 6+5=11≡4", "explicacao": "A primeira quinta-feira é dia 5." },
+                { "expressao": "5+3×7=26", "explicacao": "Avance três semanas para a quarta ocorrência." }
+              ],
+              "conclusao": "A quarta quinta-feira cai em 26 de novembro.",
+              "origem": { "pagina": 134 }
+            }
+          ],
+          "armadilhas": [
+            "Somar n semanas em vez de n−1 depois de encontrar a primeira ocorrência.",
+            "Confundir o código do dia da semana com o número do dia no mês.",
+            "Procurar todas as datas quando basta resolver um pequeno complemento módulo 7.",
+            "Não validar se uma quinta ocorrência cabe no mês."
+          ],
+          "lembrete": "Ache a primeira; as demais ficam a saltos de sete.",
+          "tags": ["calendario", "datas-moveis", "modulo-7", "agenda"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [66, 67, 133, 134] }
+        },
+        {
+          "id": "c10-d08-padroes-e-ciclo-400",
+          "ordem": 8,
+          "titulo": "Use a estrutura dos códigos para provar padrões do calendário",
+          "paginas": [65, 66, 67, 68, 131, 134, 136],
+          "resumo": "Os códigos permitem mais que localizar uma data. Como todo ano usa os sete códigos mensais e nenhum aparece mais de três vezes, sempre há pelo menos uma e no máximo três sextas-feiras 13. Em 400 anos gregorianos há 97 bissextos: 400+97=497=71×7, por isso o calendário retorna ao mesmo alinhamento semanal.",
+          "quandoUsar": [
+            "Ao justificar regularidades, não apenas obter respostas isoladas.",
+            "Para conferir a consistência de tabelas anuais e ciclos longos.",
+            "Ao raciocinar sobre limites de ocorrências de uma data semanal."
+          ],
+          "porQueFunciona": "A aritmética modular transforma o calendário em contagem de resíduos. Cobertura e frequência dos códigos mensais explicam padrões dentro de um ano; a soma de anos e bissextos explica o retorno em grandes ciclos.",
+          "algoritmo": {
+            "titulo": "Prova por resíduos semanais",
+            "passos": [
+              { "ordem": 1, "acao": "Traduza a afirmação", "detalhe": "Converta o evento de calendário em uma condição sobre códigos módulo 7." },
+              { "ordem": 2, "acao": "Conte ocorrências", "detalhe": "Observe quais códigos mensais aparecem e quantas vezes." },
+              { "ordem": 3, "acao": "Conte deslocamentos", "detalhe": "Para ciclos longos, some um por ano e mais um por bissexto." },
+              { "ordem": 4, "acao": "Reduza por 7", "detalhe": "Se o total é múltiplo de 7, o alinhamento semanal retorna." },
+              { "ordem": 5, "acao": "Verifique exceções", "detalhe": "Inclua as regras seculares antes de concluir um ciclo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c10-d08-ex01",
+              "enunciado": "Por que todo ano tem entre uma e três sextas-feiras 13?",
+              "resposta": "Porque os sete códigos mensais aparecem ao menos uma vez e nenhum aparece mais de três",
+              "etapas": [
+                { "expressao": "dia 13 + mês + ano ≡ 5 (mod 7)", "explicacao": "Uma sexta-feira 13 corresponde a um código mensal específico naquele ano." },
+                { "expressao": "todos os códigos 0…6 aparecem", "explicacao": "O código necessário aparece em pelo menos um mês." },
+                { "expressao": "frequência máxima=3", "explicacao": "Nenhum código mensal ocorre mais de três vezes." }
+              ],
+              "conclusao": "Logo o padrão acontece no mínimo uma e no máximo três vezes por ano.",
+              "origem": { "pagina": 131 }
+            },
+            {
+              "id": "c10-d08-ex02",
+              "enunciado": "Por que o calendário gregoriano se repete após 400 anos?",
+              "resposta": "Porque 400 anos mais 97 dias bissextos deslocam 497 dias, ou 71 semanas",
+              "etapas": [
+                { "expressao": "100 candidatos a bissexto", "explicacao": "Há cem múltiplos de 4 em quatro séculos." },
+                { "expressao": "100−3=97", "explicacao": "Três anos seculares deixam de ser bissextos; o divisível por 400 permanece." },
+                { "expressao": "400+97=497", "explicacao": "Some os deslocamentos de todos os anos e dias extras." },
+                { "expressao": "497=71×7", "explicacao": "O deslocamento total contém semanas completas." }
+              ],
+              "conclusao": "Após 400 anos, o resto semanal volta a zero.",
+              "origem": { "pagina": 136 }
+            }
+          ],
+          "armadilhas": [
+            "Tentar provar o padrão enumerando datas uma a uma.",
+            "Supor 100 bissextos em 400 anos e esquecer as três exceções seculares.",
+            "Confundir repetição semanal com repetição de todos os aspectos astronômicos.",
+            "Usar frequências de meses de ano comum sem conferir a alteração bissexta."
+          ],
+          "lembrete": "Calendário é aritmética módulo 7: conte deslocamentos, não folhas.",
+          "tags": ["calendario", "padroes", "ciclo-de-400", "sexta-feira-13", "prova"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [65, 66, 67, 68, 131, 134, 136] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-11",
+      "capituloOrdem": 11,
+      "titulo": "Multiplicação avançada",
+      "dicas": [
+        {
+          "id": "c11-d01-pre-requisitos-e-treino",
+          "ordem": 1,
+          "titulo": "Suba de nível apoiando cada conta nas habilidades anteriores",
+          "paginas": [69, 70, 71, 137, 138, 140],
+          "resumo": "O capítulo avisa que os problemas são desafiadores e pressupõe fluência nas multiplicações e quadrados anteriores. Quadrados de três dígitos dependem de quadrados de dois; quadrados de quatro dígitos dependem de quadrados de três e memória fonética. Praticar uma classe acima pode fazer a classe anterior parecer simples.",
+          "quandoUsar": [
+            "Antes de iniciar quadrados de três ou quatro dígitos.",
+            "Quando o método é conhecido, mas resultados parciais desaparecem durante a conta.",
+            "Ao diagnosticar se a dificuldade está na estratégia principal ou em um fato auxiliar ainda lento."
+          ],
+          "porQueFunciona": "Uma conta enorme não é uma habilidade isolada; ela encadeia fatos básicos, produtos por um dígito, quadrados menores e memória de trabalho. Automatizar os componentes libera atenção para a estrutura nova.",
+          "algoritmo": {
+            "titulo": "Escada de preparação avançada",
+            "passos": [
+              { "ordem": 1, "acao": "Mapeie as dependências", "detalhe": "Liste quais produtos pequenos e quadrados surgirão no método novo." },
+              { "ordem": 2, "acao": "Teste recuperação", "detalhe": "Resolva esses componentes isoladamente e misturados, medindo hesitação além do acerto." },
+              { "ordem": 3, "acao": "Escolha um apoio", "detalhe": "Para parciais difíceis, use fala em blocos, dedos ou uma palavra do sistema Major." },
+              { "ordem": 4, "acao": "Faça a classe-alvo", "detalhe": "Execute poucas contas completas, preservando precisão antes de velocidade." },
+              { "ordem": 5, "acao": "Volte um degrau", "detalhe": "Refaça contas menores e observe se a prática mais difícil aumentou a folga mental." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d01-ex01",
+              "enunciado": "Organizar mentalmente 126² sem perder o parcial",
+              "resposta": "15.876",
+              "etapas": [
+                { "expressao": "126−26=100; 126+26=152", "explicacao": "A estrutura principal reduz o quadrado a produto e correção." },
+                { "expressao": "100×152=15.200", "explicacao": "Diga mentalmente 15 mil e represente os 200 restantes com dois dedos, como sugere o livro." },
+                { "expressao": "26²=676", "explicacao": "Recupere com fluência o quadrado auxiliar." },
+                { "expressao": "15.200+676=15.876", "explicacao": "Recombine o parcial preservado com a correção." }
+              ],
+              "conclusao": "Se 26² ainda consome toda a atenção, o gargalo é o pré-requisito, não a fórmula de três dígitos.",
+              "origem": { "pagina": 69 }
+            }
+          ],
+          "armadilhas": [
+            "Aumentar o tamanho dos números antes de automatizar os quadrados menores.",
+            "Confundir lentidão de um subcálculo com falha do método completo.",
+            "Usar apoio de memória sem definir o que cada dedo ou palavra representa.",
+            "Buscar velocidade numa técnica nova e perder o controle dos parciais."
+          ],
+          "lembrete": "Contas gigantes são uma pilha de habilidades pequenas; fortaleça o degrau que cede.",
+          "tags": ["treino", "progressao", "pre-requisitos", "memoria-de-trabalho"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [69, 70, 71, 137, 138, 140] }
+        },
+        {
+          "id": "c11-d02-quadrados-tres-digitos",
+          "ordem": 2,
+          "titulo": "Leve quadrados de três dígitos a uma centena redonda",
+          "paginas": [69, 71, 72, 137, 138],
+          "resumo": "Escolha uma centena redonda z perto de x. Se d=x−z, desça d de um fator e suba d no outro: x²=(x−d)(x+d)+d²=z(z+2d)+d². O produto com z fica simples e resta apenas um quadrado de dois dígitos.",
+          "quandoUsar": [
+            "Ao elevar ao quadrado números de três dígitos.",
+            "Quando o número está perto de 100, 200, 300 ou outra centena conveniente.",
+            "Em medidas geométricas de lados quadrados."
+          ],
+          "porQueFunciona": "A identidade (x−d)(x+d)=x²−d² transforma dois fatores iguais em fatores simétricos, sendo um deles redondo. Somar d² recompõe exatamente o quadrado original.",
+          "algoritmo": {
+            "titulo": "Descer, subir, multiplicar e corrigir",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha a centena", "detalhe": "Selecione z para deixar |d| pequeno e o produto seguinte fácil." },
+              { "ordem": 2, "acao": "Meça a distância", "detalhe": "Calcule d=x−z." },
+              { "ordem": 3, "acao": "Crie o par", "detalhe": "Use z=x−d e x+d=z+2d." },
+              { "ordem": 4, "acao": "Multiplique pelo redondo", "detalhe": "Calcule z(z+2d), preservando o parcial." },
+              { "ordem": 5, "acao": "Some a correção", "detalhe": "Calcule d² e acrescente ao produto." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d02-ex01",
+              "enunciado": "108²",
+              "resposta": "11.664",
+              "etapas": [
+                { "expressao": "108−8=100", "explicacao": "Desça até a centena." },
+                { "expressao": "108+8=116", "explicacao": "Suba a mesma distância no outro fator." },
+                { "expressao": "100×116=11.600", "explicacao": "Faça o produto redondo." },
+                { "expressao": "8²=64; 11.600+64=11.664", "explicacao": "Reponha a diferença quadrática." }
+              ],
+              "conclusao": "A conta exige apenas multiplicar por 100 e saber 8².",
+              "origem": { "pagina": 69 }
+            },
+            {
+              "id": "c11-d02-ex02",
+              "enunciado": "Área de uma base quadrada com lado de 230 m",
+              "resposta": "52.900 m²",
+              "etapas": [
+                { "expressao": "230−30=200; 230+30=260", "explicacao": "Forme fatores simétricos em torno de 230." },
+                { "expressao": "200×260=52.000", "explicacao": "Multiplique os fatores fáceis." },
+                { "expressao": "30²=900", "explicacao": "Calcule a correção." },
+                { "expressao": "52.000+900=52.900", "explicacao": "Obtenha a área exata aproximada pelas medidas dadas." }
+              ],
+              "conclusao": "O método se conecta diretamente à interpretação geométrica de um quadrado.",
+              "origem": { "pagina": 69 }
+            },
+            {
+              "id": "c11-d02-ex03",
+              "enunciado": "755² pelo método empurra-junta, puxa-separa",
+              "resposta": "570.025",
+              "etapas": [
+                { "expressao": "755+755=1510", "explicacao": "Dobre para encontrar um par de mesma soma." },
+                { "expressao": "1510=800+710", "explicacao": "Separe o dobro em fatores equidistantes de 755." },
+                { "expressao": "800×710=568.000", "explicacao": "O par arredondado simplifica o produto." },
+                { "expressao": "45²=2.025", "explicacao": "A distância de 755 a 800 é 45." },
+                { "expressao": "568.000+2.025=570.025", "explicacao": "Some a correção." }
+              ],
+              "conclusao": "Dobrar e separar pode revelar um par melhor que escolher o arredondamento diretamente.",
+              "origem": { "pagina": 69 }
+            }
+          ],
+          "armadilhas": [
+            "Mover os dois fatores na mesma direção, perdendo a simetria.",
+            "Subtrair d²; nesta montagem o produto simétrico está abaixo de x² e a correção é somada.",
+            "Escolher uma centena que reduz d, mas torna o outro fator desnecessariamente difícil.",
+            "Esquecer unidades quadradas em problemas de área."
+          ],
+          "lembrete": "Mesma distância em sentidos opostos; produto redondo; distância ao quadrado de volta.",
+          "tags": ["quadrados", "tres-digitos", "diferenca-de-quadrados", "geometria"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [69, 71, 72, 137, 138] }
+        },
+        {
+          "id": "c11-d03-quadrados-quatro-digitos",
+          "ordem": 3,
+          "titulo": "Use o milhar mais próximo e codifique os parciais",
+          "paginas": [70, 72, 138, 139],
+          "resumo": "Para quatro dígitos, aplique a mesma identidade usando o milhar redondo mais próximo. O quadrado da distância pode ter até 250.000, por isso é útil separar milhões, milhares e os três últimos dígitos e guardar blocos intermediários com o sistema Major.",
+          "quandoUsar": [
+            "Ao elevar mentalmente um número de quatro dígitos ao quadrado.",
+            "Quando o produto principal é simples, mas o parcial de seis dígitos ameaça se perder.",
+            "Como treino que aumenta a folga para quadrados de três dígitos."
+          ],
+          "porQueFunciona": "A distância ao milhar mais próximo nunca precisa superar 500; assim, d²≤250.000. Essa fronteira permite antecipar quando a casa dos milhões já é segura e dividir o restante em blocos memorizáveis.",
+          "algoritmo": {
+            "titulo": "Milhar simétrico com gerenciamento de carry",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha o milhar", "detalhe": "Arredonde x para o milhar z mais próximo; em empate, escolha o lado que facilitar o outro fator." },
+              { "ordem": 2, "acao": "Crie fatores simétricos", "detalhe": "Calcule z e 2x−z, equivalentes a x−d e x+d." },
+              { "ordem": 3, "acao": "Faça o produto principal", "detalhe": "Multiplique pelo milhar e separe milhões do bloco que ainda pode receber carry." },
+              { "ordem": 4, "acao": "Codifique o bloco", "detalhe": "Guarde milhares ou últimos três dígitos com palavra fonética, se necessário." },
+              { "ordem": 5, "acao": "Calcule d²", "detalhe": "Resolva o quadrado de até três dígitos usando a técnica anterior." },
+              { "ordem": 6, "acao": "Some por blocos", "detalhe": "Integre d², trate carries e só então pronuncie a resposta completa." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d03-ex01",
+              "enunciado": "2345²",
+              "resposta": "5.499.025",
+              "etapas": [
+                { "expressao": "2345−345=2000; 2345+345=2690", "explicacao": "Leve um fator ao milhar redondo." },
+                { "expressao": "2000×2690=5.380.000", "explicacao": "Obtenha o produto principal; 380 pode ser guardado como MOVIES no código original." },
+                { "expressao": "345²=300×390+45²", "explicacao": "Reduza o quadrado auxiliar a uma centena." },
+                { "expressao": "117.000+2.025=119.025", "explicacao": "Conclua o quadrado auxiliar; 025 pode ser guardado como SNAIL no original." },
+                { "expressao": "5.380.000+119.025=5.499.025", "explicacao": "Some os blocos e resolva o carry nos milhares." }
+              ],
+              "conclusao": "O algoritmo combina identidade algébrica, quadrado de três dígitos e memória fonética.",
+              "origem": { "pagina": 70 }
+            },
+            {
+              "id": "c11-d03-ex02",
+              "enunciado": "1235²",
+              "resposta": "1.525.225",
+              "etapas": [
+                { "expressao": "1000×1470=1.470.000", "explicacao": "Desça 235 a 1000 e suba 235 a 1470." },
+                { "expressao": "235²=55.225", "explicacao": "Use um quadrado de três dígitos já treinado." },
+                { "expressao": "1.470.000+55.225=1.525.225", "explicacao": "Some e trate a passagem de 470 para 525 milhares." }
+              ],
+              "conclusao": "A solução recomenda anunciar apenas os milhões seguros e manter o bloco sujeito a carry em código.",
+              "origem": { "pagina": 138 }
+            },
+            {
+              "id": "c11-d03-ex03",
+              "enunciado": "4764²",
+              "resposta": "22.695.696",
+              "etapas": [
+                { "expressao": "5000×4528=22.640.000", "explicacao": "Suba 236 até 5000 e desça 236 até 4528." },
+                { "expressao": "236²=55.696", "explicacao": "Calcule o quadrado da distância." },
+                { "expressao": "22.640.000+55.696=22.695.696", "explicacao": "Integre a correção." }
+              ],
+              "conclusao": "Arredondar para cima é válido; d pode ser negativo desde que a distância seja usada simetricamente.",
+              "origem": { "pagina": 139 }
+            }
+          ],
+          "armadilhas": [
+            "Pronunciar cedo um bloco de milhares que ainda pode receber carry de d².",
+            "Guardar uma palavra fonética sem saber se representa milhares ou unidades.",
+            "Confundir a distância até o milhar com os últimos três dígitos do número.",
+            "Somar os blocos antes de terminar completamente o quadrado auxiliar."
+          ],
+          "lembrete": "Diga apenas o que já está seguro; codifique o bloco que ainda pode mudar.",
+          "tags": ["quadrados", "quatro-digitos", "sistema-major", "carry", "memoria"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [70, 72, 138, 139] }
+        },
+        {
+          "id": "c11-d04-quarta-potencia",
+          "ordem": 4,
+          "titulo": "Obtenha a quarta potência quadrando duas vezes",
+          "paginas": [70, 72, 73, 139],
+          "resumo": "Depois de dominar quadrados de quatro dígitos, elevar um número de dois dígitos à quarta potência vira uma cadeia de dois quadrados: x⁴=(x²)². O primeiro resultado deve ser preservado com exatidão, pois se torna a entrada integral da segunda etapa.",
+          "quandoUsar": [
+            "Ao calcular a quarta potência de números de dois dígitos.",
+            "Como aplicação direta dos quadrados de três e quatro dígitos.",
+            "Como teste de integração entre recuperação de quadrados e gerenciamento de parciais."
+          ],
+          "porQueFunciona": "Pela regra de potências, (x²)²=x⁴. Em vez de multiplicar quatro fatores ou usar expansão, reutiliza-se duas vezes uma técnica já consolidada.",
+          "algoritmo": {
+            "titulo": "Quadrado do quadrado",
+            "passos": [
+              { "ordem": 1, "acao": "Faça o primeiro quadrado", "detalhe": "Calcule y=x² com precisão." },
+              { "ordem": 2, "acao": "Classifique y", "detalhe": "Escolha a técnica de quadrado de três ou quatro dígitos adequada ao tamanho de y." },
+              { "ordem": 3, "acao": "Quadrado novamente", "detalhe": "Calcule y² usando um arredondamento simétrico." },
+              { "ordem": 4, "acao": "Cheque a ordem", "detalhe": "Compare com uma potência de dez próxima para validar a quantidade de dígitos." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d04-ex01",
+              "enunciado": "32⁴",
+              "resposta": "1.048.576",
+              "etapas": [
+                { "expressao": "32²=1024", "explicacao": "Transforme a quarta potência em quadrado de quatro dígitos." },
+                { "expressao": "1024−24=1000; 1024+24=1048", "explicacao": "Crie fatores simétricos em torno de 1024." },
+                { "expressao": "1000×1048=1.048.000", "explicacao": "Faça o produto principal." },
+                { "expressao": "24²=576", "explicacao": "Calcule a correção." },
+                { "expressao": "1.048.000+576=1.048.576", "explicacao": "Finalize o segundo quadrado." }
+              ],
+              "conclusao": "Nenhuma técnica nova foi necessária além de quadrar duas vezes.",
+              "origem": { "pagina": 139 }
+            },
+            {
+              "id": "c11-d04-ex02",
+              "enunciado": "12⁴",
+              "resposta": "20.736",
+              "etapas": [
+                { "expressao": "12²=144", "explicacao": "Faça o primeiro quadrado." },
+                { "expressao": "144²=100×188+44²", "explicacao": "Leve 144 a 100 e forme o fator simétrico 188." },
+                { "expressao": "18.800+1.936=20.736", "explicacao": "Some produto principal e correção." }
+              ],
+              "conclusao": "A progressão conecta um fato básico a um quadrado de três dígitos.",
+              "origem": { "pagina": 139 }
+            }
+          ],
+          "armadilhas": [
+            "Confundir x⁴ com 4x ou com x²×2.",
+            "Arredondar o primeiro quadrado e contaminar toda a segunda etapa.",
+            "Esquecer que o segundo quadrado pode exigir carry entre blocos.",
+            "Não conferir se a resposta tem magnitude compatível com x⁴."
+          ],
+          "lembrete": "Quarta potência é só o quadrado exato do quadrado exato.",
+          "tags": ["potencias", "quarta-potencia", "quadrados", "composicao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [70, 72, 73, 139] }
+        },
+        {
+          "id": "c11-d05-cubos-aproximados",
+          "ordem": 5,
+          "titulo": "Aproxime cubos com a dezena vizinha",
+          "paginas": [70, 74, 141],
+          "resumo": "Para x=z+d, com z uma dezena redonda próxima, o livro aproxima x³ por z×z×(z+3d). A expressão captura os dois primeiros termos relevantes da expansão e ignora correções menores; é rápida e costuma ficar perto do valor exato.",
+          "quandoUsar": [
+            "Ao estimar o cubo de um número de dois dígitos.",
+            "Quando a ordem de grandeza importa mais que a unidade exata.",
+            "Como preparação para o algoritmo de cubo exato."
+          ],
+          "porQueFunciona": "A expansão (z+d)³=z³+3z²d+3zd²+d³ começa por z²(z+3d). Quando |d| é pequeno em relação a z, os termos restantes são bem menores que a parte mantida.",
+          "algoritmo": {
+            "titulo": "Dezena, desvio e fator triplo",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha z", "detalhe": "Arredonde x para a dezena mais próxima e defina d=x−z." },
+              { "ordem": 2, "acao": "Repita a base", "detalhe": "Use dois fatores iguais a z." },
+              { "ordem": 3, "acao": "Triplique o desvio", "detalhe": "Monte o terceiro fator z+3d." },
+              { "ordem": 4, "acao": "Multiplique", "detalhe": "Calcule z²(z+3d), escolhendo a ordem mais fácil." },
+              { "ordem": 5, "acao": "Declare estimativa", "detalhe": "Não apresente o resultado como exato; os termos 3zd²+d³ foram omitidos." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d05-ex01",
+              "enunciado": "Estime 43³",
+              "resposta": "Aproximadamente 78.400",
+              "etapas": [
+                { "expressao": "43=40+3", "explicacao": "Use z=40 e d=3." },
+                { "expressao": "z+3d=40+9=49", "explicacao": "Ajuste o terceiro fator." },
+                { "expressao": "40×40×49=1600×49=78.400", "explicacao": "Calcule a estimativa." },
+                { "expressao": "43³=79.507", "explicacao": "O livro fornece o valor exato para mostrar a proximidade." }
+              ],
+              "conclusao": "A aproximação erra por 1.107, cerca de 1,4% do valor exato.",
+              "origem": { "pagina": 70 }
+            },
+            {
+              "id": "c11-d05-ex02",
+              "enunciado": "Estime 99³",
+              "resposta": "Aproximadamente 970.000",
+              "etapas": [
+                { "expressao": "99=100−1", "explicacao": "Use z=100 e d=−1." },
+                { "expressao": "z+3d=97", "explicacao": "O desvio negativo reduz o terceiro fator." },
+                { "expressao": "100×100×97=970.000", "explicacao": "A multiplicação fica imediata." }
+              ],
+              "conclusao": "Arredondar para cima funciona desde que o sinal de d seja preservado.",
+              "origem": { "pagina": 141 }
+            }
+          ],
+          "armadilhas": [
+            "Usar x−z sem preservar o sinal quando z está acima de x.",
+            "Somar d apenas uma vez ao terceiro fator em vez de 3d.",
+            "Confundir a aproximação com a fórmula exata.",
+            "Escolher uma dezena distante e tornar os termos omitidos grandes demais."
+          ],
+          "lembrete": "Duas dezenas iguais e uma terceira corrigida por três desvios.",
+          "tags": ["cubos", "estimativa", "dois-digitos", "expansao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [70, 74, 141] }
+        },
+        {
+          "id": "c11-d06-multiplicacao-tres-por-dois",
+          "ordem": 6,
+          "titulo": "Escolha a estratégia de 3×2 pela estrutura dos fatores",
+          "paginas": [70, 71, 73, 140, 141],
+          "resumo": "O livro propõe uma ordem de preferência: ignore zeros finais temporariamente; procure fatorar o número de dois dígitos; se não der, tente fatorar o de três dígitos; por último, decomponha o de três dígitos e use a distributiva. Aproximadamente metade dos fatores de dois dígitos admite fatoração pequena útil.",
+          "quandoUsar": [
+            "Em produtos de três por dois dígitos.",
+            "Quando há zeros, fatores pequenos, proximidade de número redondo ou uma decomposição evidente.",
+            "Ao decidir rapidamente entre fatoração, complemento e distributiva."
+          ],
+          "porQueFunciona": "A associatividade permite reordenar fatores pequenos; a distributiva divide um produto difícil em parciais controláveis. Escolher primeiro a estrutura mais barata evita aplicar sempre um procedimento pesado.",
+          "algoritmo": {
+            "titulo": "Árvore de decisão do produto",
+            "passos": [
+              { "ordem": 1, "acao": "Remova zeros", "detalhe": "Se houver fatores de 10, reserve-os e recoloque-os no fim." },
+              { "ordem": 2, "acao": "Fatore o menor", "detalhe": "Procure escrever o número de dois dígitos como produto de fatores pequenos." },
+              { "ordem": 3, "acao": "Fatore o maior", "detalhe": "Se o menor é primo ou ruim, veja se o de três dígitos se divide em fator de dois dígitos por um dígito." },
+              { "ordem": 4, "acao": "Procure complemento", "detalhe": "Se um fator está perto de 10, 100 ou 1000, multiplique pelo redondo e corrija." },
+              { "ordem": 5, "acao": "Distribua", "detalhe": "Como último recurso, quebre o número de três dígitos em bloco redondo e resto." },
+              { "ordem": 6, "acao": "Cheque por estimativa", "detalhe": "Compare com um produto arredondado para detectar erro de escala." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d06-ex01",
+              "enunciado": "Quantas horas há em um ano comum: 365×24",
+              "resposta": "8.760",
+              "etapas": [
+                { "expressao": "24=6×4", "explicacao": "Fatore o multiplicador de dois dígitos." },
+                { "expressao": "365×6=2.190", "explicacao": "Faça o primeiro produto simples." },
+                { "expressao": "2.190×4=8.760", "explicacao": "Aplique o segundo fator." }
+              ],
+              "conclusao": "A fatoração evita dois produtos parciais grandes.",
+              "origem": { "pagina": 70 }
+            },
+            {
+              "id": "c11-d06-ex02",
+              "enunciado": "47×126",
+              "resposta": "5.922",
+              "etapas": [
+                { "expressao": "126=63×2", "explicacao": "Como 47 é primo, fatore o número de três dígitos." },
+                { "expressao": "47×63=47×(60+3)=2.820+141=2.961", "explicacao": "Resolva o produto intermediário." },
+                { "expressao": "2.961×2=5.922", "explicacao": "Dobre para recuperar o fator removido." }
+              ],
+              "conclusao": "Fatorar o número maior pode ser melhor que insistir no menor.",
+              "origem": { "pagina": 71 }
+            },
+            {
+              "id": "c11-d06-ex03",
+              "enunciado": "47×283",
+              "resposta": "13.301",
+              "etapas": [
+                { "expressao": "283=280+3", "explicacao": "Decomponha o número de três dígitos." },
+                { "expressao": "47×280=47×28×10=1.316×10=13.160", "explicacao": "Resolva o bloco redondo." },
+                { "expressao": "47×3=141", "explicacao": "Calcule o resto." },
+                { "expressao": "13.160+141=13.301", "explicacao": "Some os parciais." }
+              ],
+              "conclusao": "A distributiva é a rota geral quando nenhuma fatoração curta aparece.",
+              "origem": { "pagina": 71 }
+            },
+            {
+              "id": "c11-d06-ex04",
+              "enunciado": "599×74",
+              "resposta": "44.326",
+              "etapas": [
+                { "expressao": "599=600−1", "explicacao": "Explore a proximidade de 600." },
+                { "expressao": "600×74=44.400", "explicacao": "Faça o produto redondo." },
+                { "expressao": "44.400−74=44.326", "explicacao": "Corrija o 1 excedente." }
+              ],
+              "conclusao": "Antes de fatorar, uma pequena distância a um redondo pode resolver tudo.",
+              "origem": { "pagina": 140 }
+            }
+          ],
+          "armadilhas": [
+            "Fatorar em números que tornam a sequência mais difícil que o produto original.",
+            "Esquecer de recolocar zeros reservados.",
+            "Decompor 283 em 280+3 e omitir o produto pelo resto.",
+            "Aplicar correção com sinal errado em 599=600−1."
+          ],
+          "lembrete": "Zeros, fator do menor, fator do maior, complemento, distributiva — nessa ordem de busca.",
+          "tags": ["multiplicacao", "tres-por-dois", "fatoracao", "distributiva", "heuristica"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [70, 71, 73, 140, 141] }
+        },
+        {
+          "id": "c11-d07-cubos-exatos",
+          "ordem": 7,
+          "titulo": "Complete a aproximação para obter cubos exatos",
+          "paginas": [74, 75, 141, 142],
+          "resumo": "No material bônus, para x=z+d use (z+d)³=z[z(z+3d)+3d²]+d³. O início reaproveita a estimativa; depois acrescenta 3d² dentro do produto por z e d³ no final. Como d é um algarismo de −4 a 5 ao escolher a dezena mais próxima, as correções pertencem a listas curtas.",
+          "quandoUsar": [
+            "Ao calcular exatamente o cubo de um número de dois dígitos.",
+            "Depois que a aproximação por z²(z+3d) estiver confortável.",
+            "Quando pequenas tabelas de 3d² e d³ podem ser recuperadas rapidamente."
+          ],
+          "porQueFunciona": "A fórmula apenas reorganiza a expansão binomial completa: z³+3z²d+3zd²+d³. Nenhum termo é omitido, mas os dois primeiros são agrupados na mesma estrutura da aproximação.",
+          "algoritmo": {
+            "titulo": "Cubo exato por base e desvio",
+            "passos": [
+              { "ordem": 1, "acao": "Defina z e d", "detalhe": "Escolha a dezena redonda mais próxima e escreva x=z+d." },
+              { "ordem": 2, "acao": "Monte o fator", "detalhe": "Calcule z(z+3d)." },
+              { "ordem": 3, "acao": "Acrescente a correção interna", "detalhe": "Some 3d²; pelos finais 1/9, 2/8, 3/7, 4/6 e 5, os valores são 3, 12, 27, 48 e 75." },
+              { "ordem": 4, "acao": "Multiplique por z", "detalhe": "Multiplique o resultado interno pela dezena-base." },
+              { "ordem": 5, "acao": "Ajuste d³", "detalhe": "Some ou subtraia d³, preservando o sinal de d." },
+              { "ordem": 6, "acao": "Compare com a estimativa", "detalhe": "O valor exato deve permanecer próximo de z²(z+3d)." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c11-d07-ex01",
+              "enunciado": "42³",
+              "resposta": "74.088",
+              "etapas": [
+                { "expressao": "z=40; d=2", "explicacao": "Escolha a dezena mais próxima." },
+                { "expressao": "40×(40+6)+3×2²=40×46+12=1.852", "explicacao": "Forme o conteúdo dos colchetes." },
+                { "expressao": "1.852×40=74.080", "explicacao": "Multiplique novamente por z." },
+                { "expressao": "74.080+2³=74.080+8=74.088", "explicacao": "Aplique a correção final." }
+              ],
+              "conclusao": "A estimativa 73.600 vira o valor exato com duas correções pequenas.",
+              "origem": { "pagina": 74 }
+            },
+            {
+              "id": "c11-d07-ex02",
+              "enunciado": "96³",
+              "resposta": "884.736",
+              "etapas": [
+                { "expressao": "z=100; d=−4", "explicacao": "Arredondar para cima produz desvio negativo." },
+                { "expressao": "100×(100−12)+3×(−4)²=8.800+48=8.848", "explicacao": "d² é positivo mesmo com d negativo." },
+                { "expressao": "8.848×100=884.800", "explicacao": "Multiplique por z." },
+                { "expressao": "884.800+(−4)³=884.800−64=884.736", "explicacao": "d³ preserva o sinal negativo." }
+              ],
+              "conclusao": "O sinal afeta 3d no primeiro fator e d³ no fim, mas não 3d².",
+              "origem": { "pagina": 75 }
+            },
+            {
+              "id": "c11-d07-ex03",
+              "enunciado": "59³",
+              "resposta": "205.379",
+              "etapas": [
+                { "expressao": "z=60; d=−1", "explicacao": "Use a dezena mais próxima." },
+                { "expressao": "60×57+3=3.423", "explicacao": "Calcule z(z+3d)+3d²." },
+                { "expressao": "3.423×60=205.380", "explicacao": "Multiplique por z." },
+                { "expressao": "205.380−1=205.379", "explicacao": "Some d³=(−1)³." }
+              ],
+              "conclusao": "Para final 9, a última correção é sempre −1.",
+              "origem": { "pagina": 142 }
+            }
+          ],
+          "armadilhas": [
+            "Esquecer o termo 3d² porque a estimativa não o usa.",
+            "Dar sinal negativo a d².",
+            "Somar |d|³ quando d é negativo; o cubo mantém o sinal.",
+            "Usar a tabela pelo último dígito sem conferir qual dezena z foi escolhida."
+          ],
+          "lembrete": "A estimativa abre o caminho; +3d² por dentro e +d³ no fim tornam o cubo exato.",
+          "tags": ["cubos", "valor-exato", "binomio", "dois-digitos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [74, 75, 141, 142] }
+        }
+      ]
+    },
+    {
+      "capituloId": "capitulo-12",
+      "capituloOrdem": 12,
+      "titulo": "Mestres do cálculo mental",
+      "dicas": [
+        {
+          "id": "c12-d01-leia-antes-de-calcular",
+          "ordem": 1,
+          "titulo": "Leia os números antes de escolher o método",
+          "paginas": [76, 79, 80, 142, 143, 144],
+          "resumo": "A síntese do curso começa com uma pergunta estratégica: os números oferecem fatores pequenos, estão próximos, ficam perto de um redondo ou permitem trocar uma adição difícil por subtração fácil? O livro recomenda resolver um mesmo problema de mais de uma forma e abre a revisão com contas que pareciam muito difíceis antes do curso. Parte da revisão pede papel e somente a resposta final, lembrando que reconhecer quando usar um procedimento escrito também faz parte da escolha consciente do método.",
+          "quandoUsar": [
+            "Antes de iniciar qualquer conta mental não trivial.",
+            "Quando dois métodos parecem possíveis e você quer escolher o de menor carga.",
+            "Em revisão mista, na qual a principal habilidade é reconhecer a técnica adequada.",
+            "Ao conferir uma resposta por uma rota independente."
+          ],
+          "porQueFunciona": "A forma escrita do problema não determina a forma mais barata de resolvê-lo. Reescrever preservando o valor pode expor fatos automatizados, números redondos ou simetrias e reduzir tanto operações quanto memória de trabalho.",
+          "algoritmo": {
+            "titulo": "Varredura de menor resistência",
+            "passos": [
+              { "ordem": 1, "acao": "Estime", "detalhe": "Determine a ordem de grandeza e um intervalo plausível para a resposta." },
+              { "ordem": 2, "acao": "Procure fatores", "detalhe": "Teste rapidamente divisibilidade e produtos pequenos." },
+              { "ordem": 3, "acao": "Procure proximidade", "detalhe": "Veja se os fatores estão perto um do outro ou de potências de 10." },
+              { "ordem": 4, "acao": "Troque a operação", "detalhe": "Considere complemento, arredondar e corrigir ou transformar soma em subtração e vice-versa." },
+              { "ordem": 5, "acao": "Escolha pelo custo", "detalhe": "Prefira a rota com menos parciais difíceis, não necessariamente menos símbolos." },
+              { "ordem": 6, "acao": "Refaça de outro modo", "detalhe": "Quando a precisão importa, confirme com uma representação independente." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d01-ex01",
+              "enunciado": "21×29 por rotas diferentes",
+              "resposta": "609",
+              "etapas": [
+                { "expressao": "21×(30−1)=630−21=609", "explicacao": "A rota por arredondamento transforma o produto em uma subtração curta." },
+                { "expressao": "(25−4)(25+4)=25²−4²=625−16=609", "explicacao": "A proximidade dos fatores expõe diferença de quadrados." },
+                { "expressao": "(3×7)×29=(3×29)×7=87×7=609", "explicacao": "A fatoração e a associatividade oferecem outra rota." },
+                { "expressao": "20×29+1×29=580+29=609", "explicacao": "A distributiva fornece uma quarta conferência." }
+              ],
+              "conclusao": "O objetivo do exemplo não é decorar quatro soluções, mas treinar o olhar para escolher uma.",
+              "origem": { "pagina": 76 }
+            },
+            {
+              "id": "c12-d01-ex02",
+              "enunciado": "1618−789",
+              "resposta": "829",
+              "etapas": [
+                { "expressao": "789=800−11", "explicacao": "Troque o subtraendo por um redondo com correção." },
+                { "expressao": "1618−800=818", "explicacao": "Faça a subtração fácil." },
+                { "expressao": "818+11=829", "explicacao": "Devolva o que foi subtraído em excesso." }
+              ],
+              "conclusao": "Uma subtração difícil virou subtração redonda mais adição.",
+              "origem": { "pagina": 143 }
+            },
+            {
+              "id": "c12-d01-ex03",
+              "enunciado": "Troco de R$ 100,00 para uma compra de R$ 36,78",
+              "resposta": "R$ 63,22",
+              "etapas": [
+                { "expressao": "36+63=99", "explicacao": "Encontre os reais que completam 99." },
+                { "expressao": "0,78+0,22=1,00", "explicacao": "Complete os centavos até um real." },
+                { "expressao": "36,78+63,22=100,00", "explicacao": "Confira pelo complemento total." }
+              ],
+              "conclusao": "Para troco de 100, reais somam 99 e centavos somam 100 quando há centavos na compra.",
+              "origem": { "pagina": 142 }
+            }
+          ],
+          "armadilhas": [
+            "Começar a operar antes de observar fatores, complementos e simetrias.",
+            "Forçar o método mais recente mesmo quando uma técnica básica é menor.",
+            "Confundir várias rotas com obrigação de usar todas em toda conta.",
+            "Repetir a mesma decomposição na conferência e reproduzir o mesmo erro."
+          ],
+          "lembrete": "Primeiro reconheça a forma; depois calcule pela rota de menor resistência.",
+          "tags": ["estrategia", "heuristica", "revisao", "multiplos-metodos", "metacognicao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [76, 79, 80, 142, 143, 144] }
+        },
+        {
+          "id": "c12-d02-magnitude-e-benford",
+          "ordem": 2,
+          "titulo": "Antecipe a quantidade de dígitos e ajuste a intuição com Benford",
+          "paginas": [76, 78, 79, 143],
+          "resumo": "Um produto de números com m e n dígitos terá m+n ou m+n−1 dígitos. Os primeiros algarismos ajudam a decidir entre as opções. Mas, em muitos conjuntos reais, a lei de Benford torna inícios pequenos muito mais frequentes que grandes, então a intuição de escolher primeiros dígitos uniformemente pode enganar.",
+          "quandoUsar": [
+            "Antes de uma multiplicação longa, para prever o tamanho da resposta.",
+            "Como checagem de um resultado que pode ter perdido ou ganho uma casa.",
+            "Ao interpretar dados reais cujos primeiros algarismos parecem não uniformes."
+          ],
+          "porQueFunciona": "Os limites 10^(m−1)≤a<10^m e 10^(n−1)≤b<10^n restringem ab a m+n−1 ou m+n dígitos. A lei de Benford descreve muitos dados de várias escalas por P(primeiro=N)=log10(N+1)−log10(N), favorecendo N pequeno.",
+          "algoritmo": {
+            "titulo": "Faixa de dígitos e teste dos líderes",
+            "passos": [
+              { "ordem": 1, "acao": "Conte as casas", "detalhe": "Se os fatores têm m e n dígitos, anote as duas opções m+n−1 e m+n." },
+              { "ordem": 2, "acao": "Multiplique os líderes", "detalhe": "Use os primeiros algarismos, ou os dois primeiros quando estiver perto da fronteira." },
+              { "ordem": 3, "acao": "Decida a faixa", "detalhe": "Se a aproximação normalizada ultrapassa a potência de 10, escolha a opção maior." },
+              { "ordem": 4, "acao": "Compare a resposta", "detalhe": "Rejeite resultados fora da quantidade de dígitos prevista." },
+              { "ordem": 5, "acao": "Separe aritmética de frequência", "detalhe": "Use Benford para expectativa em coleções adequadas, não para alterar o produto de um caso conhecido." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d02-ex01",
+              "enunciado": "Um número de 5 dígitos iniciado por 5 vezes um de 6 dígitos iniciado por 6 terá quantos dígitos?",
+              "resposta": "11 dígitos",
+              "etapas": [
+                { "expressao": "5+6−1=10 ou 5+6=11", "explicacao": "Essas são as duas quantidades possíveis." },
+                { "expressao": "5×6=30", "explicacao": "O produto dos líderes já ultrapassa 10 com folga." },
+                { "expressao": "produto ≥ 30×10⁹", "explicacao": "A magnitude está na faixa de dezenas de bilhões." }
+              ],
+              "conclusao": "Nesse caso, a opção maior é garantida: 11 dígitos.",
+              "origem": { "pagina": 143 }
+            },
+            {
+              "id": "c12-d02-ex02",
+              "enunciado": "Por que um produto genérico de 5 por 3 dígitos não deve ser presumido quase sempre com 8 dígitos?",
+              "resposta": "Porque muitos dados reais começam mais frequentemente por 1, 2 ou 3",
+              "etapas": [
+                { "expressao": "opções: 7 ou 8 dígitos", "explicacao": "A regra de magnitude permite duas faixas." },
+                { "expressao": "líderes pequenos → produto líder menor", "explicacao": "Inícios pequenos favorecem a faixa de 7 dígitos." },
+                { "expressao": "Benford: P(1)>P(9)", "explicacao": "Em muitos conjuntos reais, os líderes não são equiprováveis." }
+              ],
+              "conclusao": "O livro estima uma divisão próxima de 50–50 para esse cenário realista, em contraste com a intuição uniforme.",
+              "origem": { "pagina": 76 }
+            }
+          ],
+          "armadilhas": [
+            "Afirmar que todo produto tem m+n dígitos.",
+            "Usar apenas um líder quando o produto está perto da fronteira 10.",
+            "Aplicar a lei de Benford a identificadores aleatórios, faixas artificiais ou um único número.",
+            "Confundir maior frequência estatística com certeza aritmética."
+          ],
+          "lembrete": "m×n casas dão m+n−1 ou m+n; os líderes decidem, Benford só calibra a expectativa.",
+          "tags": ["estimativa", "quantidade-de-digitos", "benford", "ordem-de-grandeza"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [76, 78, 79, 143] }
+        },
+        {
+          "id": "c12-d03-raiz-cubica-dois-digitos",
+          "ordem": 3,
+          "titulo": "Leia o começo e o fim de um cubo perfeito",
+          "paginas": [76, 77, 80, 145],
+          "resumo": "Para raízes cúbicas inteiras de dois dígitos, memorize 1³ a 10³. O bloco de milhares indica a dezena da raiz; o último algarismo do cubo determina unicamente a unidade. O método é mais observação de padrões que cálculo e funciona apenas quando a entrada é um cubo perfeito.",
+          "quandoUsar": [
+            "Ao encontrar a raiz cúbica inteira de um número de 4, 5 ou 6 dígitos que se sabe ser cubo perfeito.",
+            "Em desafios de reconhecimento rápido de cubos.",
+            "Como base para raízes cúbicas de números de três dígitos."
+          ],
+          "porQueFunciona": "Os cubos 1³…9³ têm finais todos distintos. Ao mesmo tempo, retirar os três últimos dígitos deixa um bloco cujo intervalo entre cubos consecutivos determina a dezena da raiz.",
+          "algoritmo": {
+            "titulo": "Bloco inicial mais assinatura final",
+            "passos": [
+              { "ordem": 1, "acao": "Confirme a faixa", "detalhe": "Um cubo de 4 a 6 dígitos tem raiz de dois dígitos: 9³=729 e 100³=1.000.000 limitam a faixa." },
+              { "ordem": 2, "acao": "Separe milhares", "detalhe": "Ignore os três últimos algarismos e observe o bloco inicial." },
+              { "ordem": 3, "acao": "Encontre a dezena", "detalhe": "Localize k tal que k³≤bloco<(k+1)³; a raiz está nos 10k." },
+              { "ordem": 4, "acao": "Leia a unidade", "detalhe": "Use a assinatura: 0→0, 1→1, 2→8, 3→7, 4→4, 5→5, 6→6, 7→3, 8→2, 9→9." },
+              { "ordem": 5, "acao": "Junte", "detalhe": "Combine dezena e unidade e, se houver dúvida sobre a premissa, confira elevando ao cubo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d03-ex01",
+              "enunciado": "∛54.872",
+              "resposta": "38",
+              "etapas": [
+                { "expressao": "27=3³ < 54 < 4³=64", "explicacao": "O bloco 54 põe a raiz na casa dos 30." },
+                { "expressao": "o cubo termina em 2", "explicacao": "Procure qual algarismo tem cubo terminado em 2." },
+                { "expressao": "8³=512", "explicacao": "Somente a unidade 8 produz final 2." },
+                { "expressao": "30+8=38", "explicacao": "Combine as duas partes." }
+              ],
+              "conclusao": "38³=54.872, portanto a leitura do padrão é exata.",
+              "origem": { "pagina": 77 }
+            },
+            {
+              "id": "c12-d03-ex02",
+              "enunciado": "∛12.167",
+              "resposta": "23",
+              "etapas": [
+                { "expressao": "2³=8≤12<3³=27", "explicacao": "O bloco 12 coloca a raiz na casa dos 20." },
+                { "expressao": "o cubo termina em 7", "explicacao": "A assinatura final pede unidade 3." },
+                { "expressao": "23", "explicacao": "Una dezena 2 e unidade 3." }
+              ],
+              "conclusao": "23³=12.167.",
+              "origem": { "pagina": 145 }
+            }
+          ],
+          "armadilhas": [
+            "Aplicar o método a um número que não é cubo perfeito e inventar uma raiz inteira.",
+            "Comparar o número completo com 1³…10³ em vez do bloco antes dos últimos três dígitos.",
+            "Usar o mesmo último algarismo da entrada como unidade da raiz nos pares 2/8 e 3/7.",
+            "Confundir o maior cubo abaixo do bloco com a unidade, em vez da dezena."
+          ],
+          "lembrete": "O começo revela a dezena; o último algarismo assina a unidade.",
+          "tags": ["raiz-cubica", "cubos-perfeitos", "reconhecimento", "dois-digitos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [76, 77, 80, 145] }
+        },
+        {
+          "id": "c12-d04-simplificacao-constante",
+          "ordem": 4,
+          "titulo": "Quebre contas enormes até restarem técnicas conhecidas",
+          "paginas": [77, 79, 80, 144],
+          "resumo": "O livro define cálculo mental avançado como simplificação constante. Um problema grande é decomposto em quadrados menores, produto cruzado, complementos e blocos guardados por mnemônicos. A habilidade de mestre é orquestrar métodos já aprendidos, não executar uma operação monolítica.",
+          "quandoUsar": [
+            "Em quadrados ou produtos muito maiores que os praticados diretamente.",
+            "Quando a conta pode ser dividida em uma parte redonda e um resto pequeno.",
+            "Ao decidir quais blocos dizer, codificar ou manter nos dedos durante uma sequência longa."
+          ],
+          "porQueFunciona": "A identidade (A+b)²=A²+2Ab+b² e a distributiva preservam o valor enquanto transformam uma tarefa grande em componentes familiares. Agrupar por milhões e milhares reduz interferência entre parciais.",
+          "algoritmo": {
+            "titulo": "Orquestração por blocos",
+            "passos": [
+              { "ordem": 1, "acao": "Escolha A", "detalhe": "Separe uma parte grande e redonda; deixe um resto b manejável." },
+              { "ordem": 2, "acao": "Expanda", "detalhe": "Para quadrados, planeje A², 2Ab e b² antes de calcular.", "expressao": "(A+b)²=A²+2Ab+b²" },
+              { "ordem": 3, "acao": "Ordene pelo custo", "detalhe": "Calcule primeiro o que estabiliza a magnitude e identifique blocos sujeitos a carry." },
+              { "ordem": 4, "acao": "Guarde com intenção", "detalhe": "Diga blocos seguros e codifique somente o que ainda precisa esperar." },
+              { "ordem": 5, "acao": "Recombine", "detalhe": "Some de blocos altos para baixos, tratando carries antes de pronunciar cada trecho." },
+              { "ordem": 6, "acao": "Estime", "detalhe": "Compare o resultado com A² e com o quadrado de um redondo próximo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d04-ex01",
+              "enunciado": "47.893² pela decomposição indicada no livro",
+              "resposta": "2.293.739.449",
+              "etapas": [
+                { "expressao": "47.893=47.000+893", "explicacao": "Separe dezenas de milhar de um resto de três dígitos." },
+                { "expressao": "47.000²=2.209.000.000", "explicacao": "Calcule o bloco quadrático principal." },
+                { "expressao": "2×47.000×893=83.942.000", "explicacao": "Calcule o termo cruzado; ele ocupa os blocos intermediários." },
+                { "expressao": "893²=797.449", "explicacao": "Resolva o quadrado menor pelas técnicas anteriores." },
+                { "expressao": "2.209.000.000+83.942.000+797.449=2.293.739.449", "explicacao": "Recombine e trate os carries." }
+              ],
+              "conclusao": "A conta enorme é uma composição de um quadrado redondo, um produto cruzado e um quadrado de três dígitos.",
+              "origem": { "pagina": 77 }
+            },
+            {
+              "id": "c12-d04-ex02",
+              "enunciado": "212² como revisão do método de quadrados",
+              "resposta": "44.944",
+              "etapas": [
+                { "expressao": "212−12=200; 212+12=224", "explicacao": "Leve um fator à centena." },
+                { "expressao": "200×224=44.800", "explicacao": "Calcule o produto principal." },
+                { "expressao": "12²=144", "explicacao": "Calcule a correção." },
+                { "expressao": "44.800+144=44.944", "explicacao": "Finalize." }
+              ],
+              "conclusao": "A revisão reforça que a mesma identidade escala para números maiores.",
+              "origem": { "pagina": 144 }
+            }
+          ],
+          "armadilhas": [
+            "Tratar a expressão grande como um único objeto e saturar a memória.",
+            "Omitir o fator 2 no termo cruzado 2Ab.",
+            "Pronunciar blocos que ainda podem mudar por carry.",
+            "Criar mais subproblemas do que a memória consegue identificar sem rótulos."
+          ],
+          "lembrete": "Grande não significa novo: decomponha até reconhecer cada peça.",
+          "tags": ["simplificacao", "quadrados", "decomposicao", "memoria-de-trabalho", "integracao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [77, 79, 80, 144] }
+        },
+        {
+          "id": "c12-d05-raiz-cubica-tres-digitos",
+          "ordem": 5,
+          "titulo": "Filtre centenas, unidades e depois o algarismo do meio",
+          "paginas": [80, 81, 145, 146, 147, 148],
+          "resumo": "Para a raiz de um cubo perfeito produzido por um número de três dígitos, o bloco dos milhões dá a centena, o último algarismo dá a unidade e a soma de dígitos restringe o algarismo central a três ou quatro opções. Uma estimativa final escolhe o candidato compatível com a magnitude.",
+          "quandoUsar": [
+            "Ao encontrar a raiz inteira de um cubo perfeito de um número de três dígitos.",
+            "Quando é possível combinar reconhecimento de cubos, divisibilidade por 3/9 e estimativa.",
+            "Em desafios que fornecem números grandes, mas foram construídos como cubos exatos."
+          ],
+          "porQueFunciona": "A centena e a unidade são determinadas por limites e assinaturas de cubos. Módulo 9, cubar reduz as somas de dígitos a três classes: 0 vira 0, 1/4/7 viram 1 e 2/5/8 viram 8. Isso filtra o centro; a monotonicidade do cubo permite decidir por estimativa.",
+          "algoritmo": {
+            "titulo": "Raiz cúbica em quatro filtros",
+            "passos": [
+              { "ordem": 1, "acao": "Leia os milhões", "detalhe": "Observe o bloco antes dos dois últimos grupos de três dígitos e encontre k³≤bloco<(k+1)³; k é a centena." },
+              { "ordem": 2, "acao": "Leia o final", "detalhe": "Use o último algarismo do cubo para determinar a unidade da raiz pela tabela de assinaturas." },
+              { "ordem": 3, "acao": "Some os dígitos", "detalhe": "Reduza a entrada módulo 9 e determine em qual classe deve cair a soma de dígitos da raiz." },
+              { "ordem": 4, "acao": "Liste o centro", "detalhe": "Teste 0 a 9 entre os algarismos já fixos e retenha somente os que pertencem à classe correta." },
+              { "ordem": 5, "acao": "Estime", "detalhe": "Compare a entrada com cubos redondos ou estime cubos dos candidatos." },
+              { "ordem": 6, "acao": "Confirme", "detalhe": "Quando a premissa de cubo perfeito não é garantida, eleve o candidato ao cubo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d05-ex01",
+              "enunciado": "∛17.173.512",
+              "resposta": "258",
+              "etapas": [
+                { "expressao": "2³=8<17<3³=27", "explicacao": "O bloco 17 fixa a centena 2." },
+                { "expressao": "o cubo termina em 2 → raiz termina em 8", "explicacao": "A assinatura fixa a unidade." },
+                { "expressao": "soma dos dígitos=27", "explicacao": "O cubo é múltiplo de 9; a raiz precisa ser múltipla de 3." },
+                { "expressao": "2_8 → 228, 258 ou 288", "explicacao": "Somente centros 2, 5 e 8 fazem a soma divisível por 3." },
+                { "expressao": "17 milhões fica entre 8 e 27 milhões", "explicacao": "A opção intermediária é mais plausível; 26³≈19.800 confirma a região." }
+              ],
+              "conclusao": "O candidato escolhido é 258, cujo cubo é 17.173.512.",
+              "origem": { "pagina": 146 }
+            },
+            {
+              "id": "c12-d05-ex02",
+              "enunciado": "∛212.776.173",
+              "resposta": "597",
+              "etapas": [
+                { "expressao": "5³=125<212<6³=216", "explicacao": "A centena é 5." },
+                { "expressao": "final 3 → unidade 7", "explicacao": "7³ termina em 3." },
+                { "expressao": "soma dos dígitos=36", "explicacao": "A raiz deve ser múltipla de 3." },
+                { "expressao": "507, 537, 567 ou 597", "explicacao": "Os centros 0, 3, 6 e 9 satisfazem o filtro." },
+                { "expressao": "212 milhões≈600³=216 milhões", "explicacao": "A entrada está muito perto do topo da faixa, então escolha o maior candidato." }
+              ],
+              "conclusao": "A raiz cúbica é 597.",
+              "origem": { "pagina": 147 }
+            },
+            {
+              "id": "c12-d05-ex03",
+              "enunciado": "∛374.805.361",
+              "resposta": "721",
+              "etapas": [
+                { "expressao": "7³=343<374<8³=512", "explicacao": "A centena é 7." },
+                { "expressao": "final 1 → unidade 1", "explicacao": "1³ é o único cubo básico terminado em 1." },
+                { "expressao": "soma dos dígitos=37→1", "explicacao": "A soma da raiz deve reduzir a 1, 4 ou 7." },
+                { "expressao": "721, 751 ou 781", "explicacao": "Centros 2, 5 e 8 satisfazem a classe." },
+                { "expressao": "72³≈70×70×76=372.400", "explicacao": "374 milhões está muito perto de 720³, favorecendo a opção menor." }
+              ],
+              "conclusao": "A raiz cúbica é 721.",
+              "origem": { "pagina": 147 }
+            },
+            {
+              "id": "c12-d05-ex04",
+              "enunciado": "∛4.410.944",
+              "resposta": "164",
+              "etapas": [
+                { "expressao": "1³<4<2³", "explicacao": "A centena é 1." },
+                { "expressao": "final 4 → unidade 4", "explicacao": "4³ termina em 4." },
+                { "expressao": "soma dos dígitos=26→8", "explicacao": "A raiz deve ter soma reduzida a 2, 5 ou 8." },
+                { "expressao": "104, 134, 164 ou 194", "explicacao": "Centros 0, 3, 6 e 9 passam pelo filtro." },
+                { "expressao": "16³=4096", "explicacao": "A estimativa de 160³≈4,096 milhões coloca 164 na região correta." }
+              ],
+              "conclusao": "A raiz cúbica é 164.",
+              "origem": { "pagina": 148 }
+            }
+          ],
+          "armadilhas": [
+            "Confundir o bloco dos milhões com os três primeiros algarismos arbitrários.",
+            "Usar soma de dígitos para escolher um único centro; ela apenas filtra candidatos.",
+            "Esquecer que resto 0 módulo 9 costuma ser representado por soma reduzida 9 nos exemplos.",
+            "Escolher pela proximidade linear; cubos crescem de modo não linear, então estime um cubo de referência.",
+            "Aplicar a técnica sem a garantia de que a entrada é cubo perfeito."
+          ],
+          "lembrete": "Milhões fixam a frente, final fixa a cauda, soma filtra o meio, estimativa decide.",
+          "tags": ["raiz-cubica", "tres-digitos", "soma-de-digitos", "estimativa", "cubos-perfeitos"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [80, 81, 145, 146, 147, 148] }
+        },
+        {
+          "id": "c12-d06-quadrados-cinco-digitos",
+          "ordem": 6,
+          "titulo": "Organize quadrados de cinco dígitos por bilhões, milhões e milhares",
+          "paginas": [81, 148, 149],
+          "resumo": "Os exercícios finais elevam a decomposição a cinco dígitos. Separe A como múltiplo de mil e b como resto: x²=A²+2Ab+b². Calcule e nomeie blocos, use o sistema Major para parciais e antecipe carries antes de pronunciar milhões ou milhares.",
+          "quandoUsar": [
+            "Ao calcular mentalmente quadrados de cinco dígitos.",
+            "Como desafio de integração de produtos 3×2, quadrados de três dígitos e memória fonética.",
+            "Quando a resposta precisa ser produzida em blocos falados sem papel."
+          ],
+          "porQueFunciona": "Escolher A terminado em três zeros posiciona 2Ab naturalmente no bloco de milhares, enquanto b² cabe em até seis dígitos. Essa estrutura torna previsíveis os pontos de carry entre bilhões, milhões e milhares.",
+          "algoritmo": {
+            "titulo": "Expansão em blocos de três casas",
+            "passos": [
+              { "ordem": 1, "acao": "Separe", "detalhe": "Escreva x=A+b, com A múltiplo de 1000 e b de até três dígitos." },
+              { "ordem": 2, "acao": "Calcule A²", "detalhe": "Obtenha o bloco dominante de bilhões e milhões." },
+              { "ordem": 3, "acao": "Calcule 2Ab", "detalhe": "Use as técnicas de produto avançado e acrescente os três zeros de A no lugar correto." },
+              { "ordem": 4, "acao": "Codifique o meio", "detalhe": "Transforme os blocos ainda não somados em palavras ou rótulos inequívocos." },
+              { "ordem": 5, "acao": "Calcule b²", "detalhe": "Use o método de quadrado de três dígitos." },
+              { "ordem": 6, "acao": "Antecipe carries", "detalhe": "Some de baixo para cima antes de dizer cada bloco alto." },
+              { "ordem": 7, "acao": "Verifique", "detalhe": "Compare com o quadrado de um múltiplo de 10.000 próximo." }
+            ]
+          },
+          "exemplosResolvidos": [
+            {
+              "id": "c12-d06-ex01",
+              "enunciado": "11.235²",
+              "resposta": "126.225.225",
+              "etapas": [
+                { "expressao": "11.235=11.000+235", "explicacao": "Separe o milhar redondo e o resto." },
+                { "expressao": "11.000²=121.000.000", "explicacao": "Calcule o quadrado principal." },
+                { "expressao": "2×11.000×235=5.170.000", "explicacao": "O livro sugere guardar 170 por código fonético e o 5 em dedos." },
+                { "expressao": "235²=55.225", "explicacao": "Recupere o quadrado auxiliar das soluções anteriores." },
+                { "expressao": "121.000.000+5.170.000+55.225=126.225.225", "explicacao": "Some e trate a passagem de 170 para 225 milhares." }
+              ],
+              "conclusao": "O bloco dos milhões pode ser dito só depois de integrar o termo cruzado.",
+              "origem": { "pagina": 148 }
+            },
+            {
+              "id": "c12-d06-ex02",
+              "enunciado": "56.753²",
+              "resposta": "3.220.903.009",
+              "etapas": [
+                { "expressao": "56.753=56.000+753", "explicacao": "Separe A e b." },
+                { "expressao": "56.000²=3.136.000.000", "explicacao": "Forme o bloco principal." },
+                { "expressao": "2×56.000×753=84.336.000", "explicacao": "Calcule o termo cruzado e preserve 84.336 em blocos." },
+                { "expressao": "753²=567.009", "explicacao": "Calcule o quadrado do resto." },
+                { "expressao": "3.136.000.000+84.336.000+567.009=3.220.903.009", "explicacao": "136+84 produz 220 milhões; 336.000+567.009 produz 903.009." }
+              ],
+              "conclusao": "Somar por blocos evita carregar todos os dez dígitos de uma vez.",
+              "origem": { "pagina": 148 }
+            },
+            {
+              "id": "c12-d06-ex03",
+              "enunciado": "82.682²",
+              "resposta": "6.836.313.124",
+              "etapas": [
+                { "expressao": "82.682=82.000+682", "explicacao": "Separe em milhar e resto." },
+                { "expressao": "82.000²=6.724.000.000", "explicacao": "Calcule o bloco principal." },
+                { "expressao": "2×82.000×682=111.848.000", "explicacao": "Obtenha o termo cruzado; a solução o divide em palavras fonéticas." },
+                { "expressao": "682²=465.124", "explicacao": "Calcule o quadrado do resto." },
+                { "expressao": "848.000+465.124=1.313.124", "explicacao": "Detecte o carry de um milhão antes de pronunciar o bloco anterior." },
+                { "expressao": "6.724.000.000+111.848.000+465.124=6.836.313.124", "explicacao": "Integre todos os blocos." }
+              ],
+              "conclusao": "Este exemplo explicita por que olhar adiante para o carry é parte do método, não detalhe de acabamento.",
+              "origem": { "pagina": 149 }
+            }
+          ],
+          "armadilhas": [
+            "Esquecer que 2Ab aparece duas vezes na expansão.",
+            "Dizer 835 milhões antes de perceber que o bloco inferior carregará mais um milhão.",
+            "Misturar uma palavra que representa 111.848 com outra que representa apenas 848.",
+            "Perder os três zeros associados ao fator A em 2Ab.",
+            "Não reutilizar quadrados e produtos já calculados nos exercícios anteriores."
+          ],
+          "lembrete": "Em cinco dígitos, pensar três casas à frente é tão importante quanto multiplicar.",
+          "tags": ["quadrados", "cinco-digitos", "blocos", "carry", "sistema-major"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [81, 148, 149] }
+        },
+        {
+          "id": "c12-d07-maestria-e-confianca",
+          "ordem": 7,
+          "titulo": "Trate maestria como exploração, não como campeonato",
+          "paginas": [77, 78, 79],
+          "resumo": "O capítulo encerra lembrando que um antigo desafio de recorde exigia extrair rapidamente a raiz 13ª de um número de 100 dígitos e que a marca passou a usar 200 dígitos; há ainda uma Copa Mundial de Cálculo Mental periódica. Esse não precisa ser o objetivo do aluno. O ganho duradouro é integrar aritmética, memória fonética e calendário, olhar números de outro modo e recuperar a confiança para explorar matemática além da aritmética.",
+          "quandoUsar": [
+            "Ao avaliar progresso sem se comparar apenas a recordistas.",
+            "Quando uma revisão difícil provoca a impressão de que nada foi aprendido.",
+            "Ao decidir como continuar estudando depois de dominar as técnicas do curso."
+          ],
+          "porQueFunciona": "Metas graduais e comparação com o próprio ponto de partida sustentam prática deliberada. A revisão mista mostra transferência: problemas antes intimidadores tornam-se combinações reconhecíveis, reforçando autoeficácia e curiosidade.",
+          "algoritmo": {
+            "titulo": "Ciclo pessoal de maestria",
+            "passos": [
+              { "ordem": 1, "acao": "Registre a base", "detalhe": "Resolva uma pequena revisão mista e anote acerto, tempo e método escolhido." },
+              { "ordem": 2, "acao": "Escolha um gargalo", "detalhe": "Trabalhe uma dependência específica, como quadrados menores ou preservação de carry." },
+              { "ordem": 3, "acao": "Varie as rotas", "detalhe": "Refaça algumas contas por outro método para aprofundar flexibilidade." },
+              { "ordem": 4, "acao": "Reteste misturado", "detalhe": "Volte a problemas de classes diferentes sem aviso da técnica." },
+              { "ordem": 5, "acao": "Compare consigo", "detalhe": "Observe quais problemas deixaram de parecer grandes desde a medição anterior." },
+              { "ordem": 6, "acao": "Expanda o horizonte", "detalhe": "Use a confiança conquistada para explorar álgebra e outros campos, não apenas contas maiores." }
+            ]
+          },
+          "exemplosResolvidos": [],
+          "armadilhas": [
+            "Definir sucesso apenas por velocidade de competição.",
+            "Ignorar a melhora de reconhecimento porque a conta final ainda demora.",
+            "Praticar somente um formato previsível e confundir familiaridade com transferência.",
+            "Usar um erro avançado como prova de incapacidade matemática.",
+            "Parar na aritmética quando o objetivo do curso é abrir caminho para mais matemática."
+          ],
+          "lembrete": "Maestria é ver mais possibilidades e resistir menos aos números — o recorde relevante é o seu progresso.",
+          "tags": ["maestria", "confianca", "pratica", "revisao", "motivacao"],
+          "origem": { "documentoId": "calculo-mental-dicas", "paginas": [77, 78, 79] }
+        }
+      ]
+    }
+  ]
+}
