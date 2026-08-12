@@ -243,10 +243,9 @@
 
 .game-button--exit {
   top: 12px;
-  padding: 0 12px;
-  display: flex;
-  justify-content: flex-end;
-  pointer-events: none;
+  right: 12px;
+  left: auto;
+  width: auto;
 }
 
 .game-button {
@@ -306,7 +305,7 @@
 
   .game-button--exit {
     top: 18px;
-    padding: 0 18px;
+    right: 18px;
   }
 
   .game-controls {
@@ -324,6 +323,12 @@
 }
 
 @media (max-width: 719px) {
+  .game-button--exit {
+    top: auto;
+    right: 16px;
+    bottom: 94px;
+  }
+
   .game-hud__bar {
     grid-template-columns: minmax(0, 1fr);
   }
