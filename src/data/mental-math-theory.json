@@ -1,0 +1,2876 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "id": "calculo-mental-dicas",
+    "titulo": "The Secrets of Mental Math — Course Guidebook",
+    "autor": "Arthur T. Benjamin",
+    "edicao": "The Great Courses, 2011",
+    "idiomaOriginal": "en",
+    "idiomaDosDados": "pt-BR",
+    "referenciaDePagina": "numeração impressa do livro (página do PDF menos 6)"
+  },
+  "contrato": {
+    "colecao": "capitulos[]",
+    "capituloObrigatorio": [
+      "id",
+      "ordem",
+      "titulo",
+      "tituloOriginal",
+      "dificuldade",
+      "paginasTeoria",
+      "paginasExercicios",
+      "prerequisitos",
+      "objetivo",
+      "padroes",
+      "secoes"
+    ],
+    "secaoObrigatoria": [
+      "id",
+      "ordem",
+      "titulo",
+      "paginas",
+      "resumo",
+      "exemplos"
+    ],
+    "exemploObrigatorio": [
+      "id",
+      "prompt",
+      "resposta",
+      "resolucao",
+      "origem",
+      "tags"
+    ],
+    "origemExemplo": {
+      "documentoId": "string",
+      "tipo": "exemplo",
+      "pagina": "number (numeração impressa)"
+    }
+  },
+  "descricao": "Teoria localizada e estruturada na ordem pedagógica integral dos 12 capítulos. Cada padrão aponta para as páginas e preserva os exemplos matemáticos do texto.",
+  "principiosDoCurso": [
+    "Praticar é indispensável: assistir ou ler as técnicas não substitui calcular.",
+    "No cálculo mental, avance da esquerda para a direita e trabalhe primeiro com as maiores ordens.",
+    "Simplifique continuamente: transforme uma conta difícil em contas menores, arredonde e ajuste, ou escolha fatores convenientes.",
+    "Procure mais de um caminho e escolha a matemática da menor resistência."
+  ],
+  "progressao": [
+    {
+      "etapa": 1,
+      "capitulos": [
+        1,
+        2
+      ],
+      "foco": "Fundação: leitura numérica, tabuada, adição, subtração, ajustes e complementos."
+    },
+    {
+      "etapa": 2,
+      "capitulos": [
+        3,
+        4
+      ],
+      "foco": "Blocos essenciais: multiplicações 2×1 e 3×1, divisão, divisibilidade e frações."
+    },
+    {
+      "etapa": 3,
+      "capitulos": [
+        5,
+        6
+      ],
+      "foco": "Controle e verificação: estimativa, ordem de grandeza, cálculo no papel e prova dos nove."
+    },
+    {
+      "etapa": 4,
+      "capitulos": [
+        7,
+        8
+      ],
+      "foco": "Intermediário: cinco estratégias de multiplicação 2×2 e divisão védica."
+    },
+    {
+      "etapa": 5,
+      "capitulos": [
+        9,
+        10
+      ],
+      "foco": "Memória aplicada: código fonético e cálculo de calendários."
+    },
+    {
+      "etapa": 6,
+      "capitulos": [
+        11,
+        12
+      ],
+      "foco": "Avançado: quadrados grandes, cubos, produtos 3×2, raízes cúbicas e integração dos métodos."
+    }
+  ],
+  "capitulos": [
+    {
+      "id": "capitulo-01",
+      "ordem": 1,
+      "titulo": "Matemática de cabeça!",
+      "tituloOriginal": "Math in Your Head!",
+      "dificuldade": 1,
+      "paginasTeoria": [
+        4,
+        5,
+        6
+      ],
+      "paginasExercicios": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "prerequisitos": [
+        "tabuada de 1 a 10"
+      ],
+      "objetivo": "Adotar a direção esquerda→direita, decompor números e conhecer atalhos que dão resultados imediatos.",
+      "padroes": [
+        "esquerda-para-direita",
+        "decomposicao",
+        "vezes-9",
+        "vezes-11",
+        "quadrado-final-5",
+        "unidades-complementares",
+        "numeros-10-a-20"
+      ],
+      "secoes": [
+        {
+          "id": "c01-esquerda-direita",
+          "ordem": 1,
+          "titulo": "Da esquerda para a direita",
+          "paginas": [
+            4,
+            5
+          ],
+          "resumo": "A direção natural do cálculo mental acompanha a leitura. Decomponha centenas, dezenas e unidades, calcule os blocos maiores primeiro e acumule os parciais.",
+          "passos": [
+            "Separe o número por valor posicional.",
+            "Calcule o maior bloco.",
+            "Acumule os blocos seguintes do maior para o menor."
+          ],
+          "exemplos": [
+            {
+              "id": "c01-ex-01",
+              "prompt": "2300 + 45",
+              "resposta": "2345",
+              "resolucao": "Leia 2300 e acrescente 45; não é preciso começar pelas unidades.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 4
+              },
+              "tags": [
+                "adicao"
+              ]
+            },
+            {
+              "id": "c01-ex-02",
+              "prompt": "432 × 3",
+              "resposta": "1296",
+              "resolucao": "3×400=1200; 3×30=90; 3×2=6; 1200+90+6=1296.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "multiplicacao",
+                "decomposicao"
+              ]
+            },
+            {
+              "id": "c01-ex-03",
+              "prompt": "54 × 7",
+              "resposta": "378",
+              "resolucao": "7×50=350; 7×4=28; 350+28=378.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "multiplicacao",
+                "decomposicao"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c01-tabuada-9",
+          "ordem": 2,
+          "titulo": "Fluência da tabuada e padrão do 9",
+          "paginas": [
+            4
+          ],
+          "resumo": "Conte por múltiplos, pratique em ordem e depois misture. Nos produtos de 9 por um algarismo, os algarismos da resposta somam 9 e o primeiro é um a menos que o multiplicador.",
+          "exemplos": [
+            {
+              "id": "c01-ex-04",
+              "prompt": "9 × 2",
+              "resposta": "18",
+              "resolucao": "1+8=9.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 4
+              },
+              "tags": [
+                "tabuada",
+                "vezes-9"
+              ]
+            },
+            {
+              "id": "c01-ex-05",
+              "prompt": "9 × 3",
+              "resposta": "27",
+              "resolucao": "O primeiro algarismo é 3−1=2; 2+7=9.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 4
+              },
+              "tags": [
+                "tabuada",
+                "vezes-9"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c01-vezes-11",
+          "ordem": 3,
+          "titulo": "Multiplicação por 11",
+          "paginas": [
+            5
+          ],
+          "resumo": "Em dois dígitos, mantenha as pontas e insira a soma no meio; faça transporte se a soma passar de 9. Em três dígitos, use as somas dos pares adjacentes.",
+          "formula": "ab × 11 → a (a+b) b; abc × 11 → a (a+b) (b+c) c, com transportes",
+          "exemplos": [
+            {
+              "id": "c01-ex-06",
+              "prompt": "23 × 11",
+              "resposta": "253",
+              "resolucao": "2+3=5; mantenha 2 e 3 nas pontas.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "vezes-11"
+              ]
+            },
+            {
+              "id": "c01-ex-07",
+              "prompt": "85 × 11",
+              "resposta": "935",
+              "resolucao": "8+5=13; escreva 3 e transporte 1 para o 8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "vezes-11",
+                "transporte"
+              ]
+            },
+            {
+              "id": "c01-ex-08",
+              "prompt": "314 × 11",
+              "resposta": "3454",
+              "resolucao": "3+1=4 e 1+4=5; mantenha as pontas 3 e 4.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "vezes-11"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c01-atalhos-produtos",
+          "ordem": 4,
+          "titulo": "Quadrados e produtos especiais",
+          "paginas": [
+            5,
+            6
+          ],
+          "resumo": "Explore a forma dos fatores: final 5; dezenas iguais com unidades somando 10; ou números entre 10 e 20.",
+          "exemplos": [
+            {
+              "id": "c01-ex-09",
+              "prompt": "35²",
+              "resposta": "1225",
+              "resolucao": "3×4=12; anexe 25.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "quadrado",
+                "final-5"
+              ]
+            },
+            {
+              "id": "c01-ex-10",
+              "prompt": "305²",
+              "resposta": "93025",
+              "resolucao": "30×31=930; anexe 25.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 5
+              },
+              "tags": [
+                "quadrado",
+                "final-5"
+              ]
+            },
+            {
+              "id": "c01-ex-11",
+              "prompt": "84 × 86",
+              "resposta": "7224",
+              "resolucao": "8×9=72 e 4×6=24; junte os blocos.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 6
+              },
+              "tags": [
+                "unidades-complementares"
+              ]
+            },
+            {
+              "id": "c01-ex-12",
+              "prompt": "13 × 6",
+              "resposta": "78",
+              "resolucao": "6×10=60; 6×3=18; 60+18=78.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 6
+              },
+              "tags": [
+                "numeros-10-a-20"
+              ]
+            },
+            {
+              "id": "c01-ex-13",
+              "prompt": "13 × 14",
+              "resposta": "182",
+              "resolucao": "13+4=17; 17×10=170; 3×4=12; total 182.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 6
+              },
+              "tags": [
+                "numeros-10-a-20"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-02",
+      "ordem": 2,
+      "titulo": "Adição e subtração mental",
+      "tituloOriginal": "Mental Addition and Subtraction",
+      "dificuldade": 2,
+      "paginasTeoria": [
+        11,
+        12,
+        13
+      ],
+      "paginasExercicios": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "prerequisitos": [
+        "capítulo 1"
+      ],
+      "objetivo": "Somar e subtrair um algarismo por vez, trocar transporte/empréstimo por ajustes e automatizar complementos.",
+      "padroes": [
+        "adicao-esquerda-direita",
+        "subtracao-esquerda-direita",
+        "arredondar-e-ajustar",
+        "complemento-100",
+        "complemento-1000",
+        "troco"
+      ],
+      "secoes": [
+        {
+          "id": "c02-adicao",
+          "ordem": 1,
+          "titulo": "Adição por ordens",
+          "paginas": [
+            11
+          ],
+          "resumo": "Some dezenas antes das unidades e centenas antes das dezenas. Quando vários passos exigirem transporte, arredonde uma parcela e corrija.",
+          "exemplos": [
+            {
+              "id": "c02-ex-01",
+              "prompt": "52 + 4",
+              "resposta": "56",
+              "resolucao": "Some apenas as unidades: 2+4=6.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao"
+              ]
+            },
+            {
+              "id": "c02-ex-02",
+              "prompt": "62 + 24",
+              "resposta": "86",
+              "resolucao": "62+20=82; 82+4=86.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao"
+              ]
+            },
+            {
+              "id": "c02-ex-03",
+              "prompt": "400 + 567",
+              "resposta": "967",
+              "resolucao": "A parcela 400 altera diretamente as centenas.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao"
+              ]
+            },
+            {
+              "id": "c02-ex-04",
+              "prompt": "450 + 320",
+              "resposta": "770",
+              "resolucao": "450+300=750; 750+20=770.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao"
+              ]
+            },
+            {
+              "id": "c02-ex-05",
+              "prompt": "314 + 159",
+              "resposta": "473",
+              "resolucao": "314+100=414; 414+50=464; 464+9=473.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao",
+                "tres-digitos"
+              ]
+            },
+            {
+              "id": "c02-ex-06",
+              "prompt": "766 + 489",
+              "resposta": "1255",
+              "resolucao": "489=500−11; 766+500=1266; 1266−11=1255.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "adicao",
+                "ajuste"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c02-subtracao",
+          "ordem": 2,
+          "titulo": "Subtração por ordens e ajuste",
+          "paginas": [
+            11,
+            12
+          ],
+          "resumo": "Retire primeiro as maiores ordens. Se houver empréstimo, subtraia um número redondo um pouco maior e devolva o excesso.",
+          "exemplos": [
+            {
+              "id": "c02-ex-07",
+              "prompt": "74 − 29",
+              "resposta": "45",
+              "resolucao": "74−20=54; 54−9=45.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "subtracao"
+              ]
+            },
+            {
+              "id": "c02-ex-08",
+              "prompt": "121 − 57",
+              "resposta": "64",
+              "resolucao": "57=60−3; 121−60=61; 61+3=64.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 11
+              },
+              "tags": [
+                "subtracao",
+                "ajuste"
+              ]
+            },
+            {
+              "id": "c02-ex-09",
+              "prompt": "846 − 225",
+              "resposta": "621",
+              "resolucao": "846−200=646; 46−20=26; 26−5=21; recomponha 621.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "subtracao",
+                "tres-digitos"
+              ]
+            },
+            {
+              "id": "c02-ex-10",
+              "prompt": "835 − 497",
+              "resposta": "338",
+              "resolucao": "497=500−3; 835−500=335; 335+3=338.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "subtracao",
+                "ajuste"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c02-complementos",
+          "ordem": 3,
+          "titulo": "Complementos de 100 e 1000",
+          "paginas": [
+            12
+          ],
+          "resumo": "O complemento é a distância até uma base redonda. Para 100, faça o primeiro algarismo completar 9 e o último completar 10; para 1000, use 9, 9 e 10. Se houver zero final, preserve-o e complemente o prefixo.",
+          "exemplos": [
+            {
+              "id": "c02-ex-11",
+              "prompt": "Complemento de 75 até 100",
+              "resposta": "25",
+              "resolucao": "7+2=9 e 5+5=10.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "complemento-100"
+              ]
+            },
+            {
+              "id": "c02-ex-12",
+              "prompt": "Complemento de 80 até 100",
+              "resposta": "20",
+              "resolucao": "Como termina em zero, o complemento também termina em zero; 8+2=10.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "complemento-100"
+              ]
+            },
+            {
+              "id": "c02-ex-13",
+              "prompt": "835 − 467",
+              "resposta": "368",
+              "resolucao": "Subtraia 500: 335. O complemento de 67 é 33; 335+33=368.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "complementos",
+                "subtracao"
+              ]
+            },
+            {
+              "id": "c02-ex-14",
+              "prompt": "Complemento de 234 até 1000",
+              "resposta": "766",
+              "resolucao": "2+7=9, 3+6=9, 4+6=10.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "complemento-1000"
+              ]
+            },
+            {
+              "id": "c02-ex-15",
+              "prompt": "Complemento de 670 até 1000",
+              "resposta": "330",
+              "resolucao": "Preserve o zero final e use o complemento de 67, que é 33.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "complemento-1000"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c02-troco",
+          "ordem": 4,
+          "titulo": "Troco como complemento",
+          "paginas": [
+            12,
+            13
+          ],
+          "resumo": "Troco de uma nota redonda é a distância do preço até essa nota. Para centavos, faça os reais somarem 99 e os centavos 100.",
+          "exemplos": [
+            {
+              "id": "c02-ex-16",
+              "prompt": "US$ 10,00 − US$ 6,75",
+              "resposta": "US$ 3,25",
+              "resolucao": "O complemento de 675 até 1000 é 325.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 12
+              },
+              "tags": [
+                "troco"
+              ]
+            },
+            {
+              "id": "c02-ex-17",
+              "prompt": "US$ 100,00 − US$ 23,58",
+              "resposta": "US$ 76,42",
+              "resolucao": "23+76=99 e 58+42=100.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 13
+              },
+              "tags": [
+                "troco"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-03",
+      "ordem": 3,
+      "titulo": "Avance e multiplique",
+      "tituloOriginal": "Go Forth and Multiply",
+      "dificuldade": 3,
+      "paginasTeoria": [
+        21,
+        22,
+        23
+      ],
+      "paginasExercicios": [
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "prerequisitos": [
+        "capítulo 2",
+        "tabuada fluente"
+      ],
+      "objetivo": "Dominar produtos 2×1 e 3×1 como blocos de toda multiplicação mental e introduzir fatoração.",
+      "padroes": [
+        "distributiva",
+        "metodo-da-adicao",
+        "metodo-da-subtracao",
+        "fatoracao",
+        "dois-por-um",
+        "tres-por-um"
+      ],
+      "secoes": [
+        {
+          "id": "c03-dois-por-um",
+          "ordem": 1,
+          "titulo": "Multiplicação 2×1",
+          "paginas": [
+            21
+          ],
+          "resumo": "Multiplique primeiro as dezenas e depois as unidades. Uma aproximação redonda também pode trocar uma soma difícil por uma subtração fácil.",
+          "exemplos": [
+            {
+              "id": "c03-ex-01",
+              "prompt": "53 × 6",
+              "resposta": "318",
+              "resolucao": "6×50=300; 6×3=18; total 318.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 21
+              },
+              "tags": [
+                "dois-por-um",
+                "metodo-da-adicao"
+              ]
+            },
+            {
+              "id": "c03-ex-02",
+              "prompt": "Área de triângulo com base 59 e altura 14",
+              "resposta": "413 pol²",
+              "resolucao": "½×14=7; 59×7=350+63=413. Alternativa: 60×7−7=413.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 21
+              },
+              "tags": [
+                "aplicacao",
+                "metodo-da-subtracao"
+              ]
+            },
+            {
+              "id": "c03-ex-03",
+              "prompt": "3 × 87",
+              "resposta": "261",
+              "resolucao": "Pela distributiva: 3×80 + 3×7 = 240+21.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 22
+              },
+              "tags": [
+                "distributiva"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c03-tres-por-um",
+          "ordem": 2,
+          "titulo": "Multiplicação 3×1",
+          "paginas": [
+            22
+          ],
+          "resumo": "Aplique a mesma decomposição a centenas, dezenas e unidades; dizer o início da resposta enquanto calcula reduz a carga da memória.",
+          "exemplos": [
+            {
+              "id": "c03-ex-04",
+              "prompt": "324 × 7",
+              "resposta": "2268",
+              "resolucao": "7×300=2100; 7×20=140; parcial 2240; 7×4=28; total 2268.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 22
+              },
+              "tags": [
+                "tres-por-um"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c03-fatoracao",
+          "ordem": 3,
+          "titulo": "Método da fatoração",
+          "paginas": [
+            22,
+            23
+          ],
+          "resumo": "Quando um fator composto se quebra em números pequenos, associe as multiplicações na ordem mais fácil.",
+          "formula": "a × (b×c) = (a×b) × c",
+          "exemplos": [
+            {
+              "id": "c03-ex-05",
+              "prompt": "23 × 16",
+              "resposta": "368",
+              "resolucao": "16=8×2; 23×8=184; 184×2=368. Também seria possível usar 2×8 ou 4×4.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 22
+              },
+              "tags": [
+                "fatoracao"
+              ]
+            },
+            {
+              "id": "c03-ex-06",
+              "prompt": "4 × 17",
+              "resposta": "68",
+              "resolucao": "4×10 + 4×7 = 40+28.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 23
+              },
+              "tags": [
+                "metodo-da-adicao"
+              ]
+            },
+            {
+              "id": "c03-ex-07",
+              "prompt": "41 × 17",
+              "resposta": "697",
+              "resolucao": "40×17 + 1×17 = 680+17.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 23
+              },
+              "tags": [
+                "metodo-da-adicao"
+              ]
+            },
+            {
+              "id": "c03-ex-08",
+              "prompt": "35 × 14",
+              "resposta": "490",
+              "resolucao": "14=2×7; 35×2×7=70×7.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 23
+              },
+              "tags": [
+                "fatoracao"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-04",
+      "ordem": 4,
+      "titulo": "Dividir e conquistar",
+      "tituloOriginal": "Divide and Conquer",
+      "dificuldade": 4,
+      "paginasTeoria": [
+        30,
+        31,
+        32
+      ],
+      "paginasExercicios": [
+        32,
+        33,
+        34
+      ],
+      "prerequisitos": [
+        "capítulo 3",
+        "complementos"
+      ],
+      "objetivo": "Dividir mentalmente por um ou dois dígitos, simplificar, ultrapassar o quociente e converter frações.",
+      "padroes": [
+        "divisibilidade",
+        "quociente-resto",
+        "dobrar-dividendo-e-divisor",
+        "overshooting",
+        "simplificacao",
+        "setimos"
+      ],
+      "secoes": [
+        {
+          "id": "c04-divisao-basica",
+          "ordem": 1,
+          "titulo": "Divisão por um dígito",
+          "paginas": [
+            30
+          ],
+          "resumo": "Trate os primeiros algarismos como dezenas ou centenas do quociente; retire o produto correspondente e divida o resto.",
+          "exemplos": [
+            {
+              "id": "c04-ex-00",
+              "prompt": "45 pontos após 3 rodadas",
+              "resposta": "média 15; ritmo de 150 pontos",
+              "resolucao": "45÷3=15 e, mantendo o ritmo por 10 rodadas, 15×10=150.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 30
+              },
+              "tags": [
+                "divisao",
+                "aplicacao"
+              ]
+            },
+            {
+              "id": "c04-ex-01",
+              "prompt": "79 ÷ 3",
+              "resposta": "26 R 1",
+              "resolucao": "3 cabe 20 vezes em 79: retire 60; 19÷3=6 R1.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 30
+              },
+              "tags": [
+                "quociente-resto"
+              ]
+            },
+            {
+              "id": "c04-ex-02",
+              "prompt": "1234 ÷ 5",
+              "resposta": "246,8",
+              "resolucao": "Dobre ambos: 2468÷10=246,8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 30
+              },
+              "tags": [
+                "simplificacao"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c04-divisao-dois-digitos",
+          "ordem": 2,
+          "titulo": "Divisão por dois dígitos",
+          "paginas": [
+            30,
+            31
+          ],
+          "resumo": "Estime o quociente com multiplicações 2×1. Se ultrapassar, conserve o cálculo e converta o resto negativo em um quociente uma unidade menor.",
+          "exemplos": [
+            {
+              "id": "c04-ex-03",
+              "prompt": "353 ÷ 14",
+              "resposta": "25 R 3",
+              "resolucao": "14×20=280; sobra 73; 14×5=70; sobra 3.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 30
+              },
+              "tags": [
+                "dois-digitos"
+              ]
+            },
+            {
+              "id": "c04-ex-04",
+              "prompt": "500 ÷ 73",
+              "resposta": "6 R 62",
+              "resolucao": "73×7=511 passa 11; portanto 7 R−11 equivale a 6 R(73−11)=6 R62.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 30
+              },
+              "tags": [
+                "overshooting"
+              ]
+            },
+            {
+              "id": "c04-ex-05",
+              "prompt": "770 ÷ 79",
+              "resposta": "9 R 59",
+              "resolucao": "79×10=790 passa 20; 10 R−20 equivale a 9 R59.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "overshooting"
+              ]
+            },
+            {
+              "id": "c04-ex-06",
+              "prompt": "2001 ÷ 23",
+              "resposta": "87",
+              "resolucao": "23×80=1840; sobra 161; 23×7=161.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "dois-digitos"
+              ]
+            },
+            {
+              "id": "c04-ex-07",
+              "prompt": "2012 ÷ 24",
+              "resposta": "83 5/6",
+              "resolucao": "Divida ambos por 4: 503÷6=83 5/6.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "simplificacao"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c04-fracoes",
+          "ordem": 3,
+          "titulo": "Frações em decimal",
+          "paginas": [
+            31,
+            32
+          ],
+          "resumo": "Memorize denominadores simples. Para sétimos, guarde 142857 em ciclo; cada numerador começa em outro ponto do mesmo ciclo.",
+          "exemplos": [
+            {
+              "id": "c04-ex-08",
+              "prompt": "1/7",
+              "resposta": "0,142857…",
+              "resolucao": "Memorize o ciclo 142857.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "setimos"
+              ]
+            },
+            {
+              "id": "c04-ex-09",
+              "prompt": "2/7",
+              "resposta": "0,285714…",
+              "resolucao": "Avance no mesmo ciclo.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "setimos"
+              ]
+            },
+            {
+              "id": "c04-ex-10",
+              "prompt": "3/7",
+              "resposta": "0,428571…",
+              "resolucao": "Avance no mesmo ciclo.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 31
+              },
+              "tags": [
+                "setimos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-05",
+      "ordem": 5,
+      "titulo": "A arte da estimativa",
+      "tituloOriginal": "The Art of Guesstimation",
+      "dificuldade": 5,
+      "paginasTeoria": [
+        35,
+        36,
+        37
+      ],
+      "paginasExercicios": [
+        38,
+        39,
+        40
+      ],
+      "prerequisitos": [
+        "capítulos 1 a 4"
+      ],
+      "objetivo": "Estimar por arredondamento e ordem de grandeza, calcular percentuais, juros e raízes aproximadas.",
+      "padroes": [
+        "arredondamento",
+        "ordem-de-grandeza",
+        "regra-de-70",
+        "prestacoes",
+        "dividir-e-fazer-media"
+      ],
+      "secoes": [
+        {
+          "id": "c05-ordem-grandeza",
+          "ordem": 1,
+          "titulo": "Arredondamento e quantidade de algarismos",
+          "paginas": [
+            35,
+            36
+          ],
+          "resumo": "Em a×b, o produto tem x+y ou x+y−1 algarismos. Em a÷b, o quociente tem a diferença dos comprimentos ou uma unidade a mais. Os primeiros algarismos decidem entre as opções.",
+          "exemplos": [
+            {
+              "id": "c05-ex-01",
+              "prompt": "Número de 5 algarismos × número de 3 algarismos",
+              "resposta": "7 ou 8 algarismos",
+              "resolucao": "O resultado tem 5+3 ou 5+3−1 algarismos.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 35
+              },
+              "tags": [
+                "ordem-de-grandeza"
+              ]
+            },
+            {
+              "id": "c05-ex-02",
+              "prompt": "Número de 8 algarismos ÷ número de 3 algarismos",
+              "resposta": "5 ou 6 algarismos",
+              "resolucao": "O resultado tem 8−3 ou 8−3+1 algarismos antes da vírgula.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 35
+              },
+              "tags": [
+                "ordem-de-grandeza"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c05-percentuais",
+          "ordem": 2,
+          "titulo": "Impostos e regra de 70",
+          "paginas": [
+            36
+          ],
+          "resumo": "Arredonde o valor antes de aplicar uma taxa inteira; para meia unidade percentual, derive o ajuste da taxa já calculada. Para estimar o tempo de duplicação, divida 70 pela taxa anual.",
+          "exemplos": [
+            {
+              "id": "c05-ex-03",
+              "prompt": "4% de US$ 23.456",
+              "resposta": "≈ US$ 920",
+              "resolucao": "Arredonde para 23.000 e multiplique por 0,04. O valor exato citado é US$ 938.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 36
+              },
+              "tags": [
+                "porcentagem"
+              ]
+            },
+            {
+              "id": "c05-ex-03b",
+              "prompt": "4,5% sobre um valor",
+              "resposta": "calcule 4% e acrescente um oitavo desse resultado",
+              "resolucao": "Como 0,5 é um oitavo de 4, o ajuste é dividir o imposto de 4% por 8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 36
+              },
+              "tags": [
+                "porcentagem",
+                "ajuste"
+              ]
+            },
+            {
+              "id": "c05-ex-04",
+              "prompt": "Tempo para dobrar a 3% ao ano",
+              "resposta": "≈ 23,3 anos",
+              "resolucao": "Regra de 70: 70÷3.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 36
+              },
+              "tags": [
+                "regra-de-70"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c05-prestacao",
+          "ordem": 3,
+          "titulo": "Estimativa de prestação",
+          "paginas": [
+            36,
+            37
+          ],
+          "resumo": "Some uma parcela de principal sem juros ao juro do primeiro mês. O resultado é uma estimativa alta, pois o saldo devedor cai.",
+          "exemplos": [
+            {
+              "id": "c05-ex-05",
+              "prompt": "US$ 200.000, 6% ao ano, 30 anos",
+              "resposta": "≈ US$ 1.555/mês",
+              "resolucao": "360 pagamentos; principal ≈200.000÷360≈555; primeiro juro=0,5%×200.000=1000; total≈1555.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 36
+              },
+              "tags": [
+                "prestacoes",
+                "juros"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c05-raiz",
+          "ordem": 4,
+          "titulo": "Dividir e fazer a média",
+          "paginas": [
+            37
+          ],
+          "resumo": "Para aproximar √n, escolha x, calcule n/x e faça a média de x e n/x. Uma repetição refina ainda mais.",
+          "formula": "novo palpite = (x + n/x) / 2",
+          "exemplos": [
+            {
+              "id": "c05-ex-06",
+              "prompt": "√40",
+              "resposta": "≈ 6,33",
+              "resolucao": "Comece em 6; 40÷6=6 2/3; a média é 6 1/3. O valor exato começa em 6,32.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 37
+              },
+              "tags": [
+                "raiz-quadrada"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-06",
+      "ordem": 6,
+      "titulo": "Cálculo mental e papel",
+      "tituloOriginal": "Mental Math and Paper",
+      "dificuldade": 6,
+      "paginasTeoria": [
+        41,
+        42,
+        43
+      ],
+      "paginasExercicios": [
+        44,
+        45
+      ],
+      "prerequisitos": [
+        "capítulo 5"
+      ],
+      "objetivo": "Acelerar contas no papel, conferir por prova dos nove e multiplicar por criss-cross ou números próximos.",
+      "padroes": [
+        "papel-direita-para-esquerda",
+        "criss-cross",
+        "prova-dos-nove",
+        "divisao-vedica-9",
+        "numeros-proximos"
+      ],
+      "secoes": [
+        {
+          "id": "c06-papel",
+          "ordem": 1,
+          "titulo": "Adição e subtração no papel",
+          "paginas": [
+            41
+          ],
+          "resumo": "No papel, a direção usual direita→esquerda volta a ser conveniente. Confira somas na ordem inversa e subtrações transformando-as em adições.",
+          "exemplos": [
+            {
+              "id": "c06-ex-01",
+              "prompt": "US$ 1.235,79 − US$ 271,82",
+              "resposta": "US$ 963,97",
+              "resolucao": "79−82 vira complemento de 3 centavos: 97; depois 1235−272=935+28=963.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 41
+              },
+              "tags": [
+                "subtracao",
+                "dinheiro"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c06-criss-cross",
+          "ordem": 2,
+          "titulo": "Método criss-cross",
+          "paginas": [
+            41
+          ],
+          "resumo": "A distributiva organiza produtos cruzados para que apenas a resposta seja escrita, da direita para a esquerda.",
+          "exemplos": [
+            {
+              "id": "c06-ex-02",
+              "prompt": "23 × 58",
+              "resposta": "1334",
+              "resolucao": "(20+3)(50+8): 20×50 + 20×8 + 3×50 + 3×8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 41
+              },
+              "tags": [
+                "criss-cross",
+                "distributiva"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c06-prova-nove",
+          "ordem": 3,
+          "titulo": "Soma dos algarismos / prova dos nove",
+          "paginas": [
+            41,
+            42,
+            43
+          ],
+          "resumo": "Reduza cada número somando algarismos até um dígito. A operação reduzida precisa ser compatível com a resposta; incompatibilidade prova um erro, compatibilidade não garante acerto.",
+          "exemplos": [
+            {
+              "id": "c06-ex-03",
+              "prompt": "Confira 314 × 159 = 49.926",
+              "resposta": "compatível: ambos reduzem a 3",
+              "resolucao": "314→8; 159→6; 8×6=48→3. A resposta 49.926→30→3.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 41
+              },
+              "tags": [
+                "prova-dos-nove"
+              ]
+            },
+            {
+              "id": "c06-ex-04",
+              "prompt": "Resto de 67 ÷ 9",
+              "resposta": "4",
+              "resolucao": "6+7=13→4.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 42
+              },
+              "tags": [
+                "prova-dos-nove"
+              ]
+            },
+            {
+              "id": "c06-ex-05",
+              "prompt": "Confira 67 + 83 = 150",
+              "resposta": "compatível: 4+2=6 e 150→6",
+              "resolucao": "Reduza cada parcela e a resposta.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 43
+              },
+              "tags": [
+                "prova-dos-nove",
+                "adicao"
+              ]
+            },
+            {
+              "id": "c06-ex-06",
+              "prompt": "Confira 67 × 83 = 5561",
+              "resposta": "compatível: 4×2=8 e 5561→8",
+              "resolucao": "Reduza cada fator e a resposta.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 43
+              },
+              "tags": [
+                "prova-dos-nove",
+                "multiplicacao"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c06-proximos",
+          "ordem": 4,
+          "titulo": "Método dos números próximos",
+          "paginas": [
+            42,
+            43
+          ],
+          "resumo": "Escolha uma base z com zeros e escreva os fatores como z+a e z+b. Multiplique z por z+a+b e acrescente ab; distâncias abaixo da base são negativas.",
+          "formula": "(z+a)(z+b) = z(z+a+b) + ab",
+          "exemplos": [
+            {
+              "id": "c06-ex-07",
+              "prompt": "107 × 111",
+              "resposta": "11.877",
+              "resolucao": "Base 100; distâncias 7 e 11; 100×118 + 7×11 = 11.800+77.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 42
+              },
+              "tags": [
+                "numeros-proximos"
+              ]
+            },
+            {
+              "id": "c06-ex-08",
+              "prompt": "23 × 26",
+              "resposta": "598",
+              "resolucao": "Base 20; 20×29 + 3×6 = 580+18.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 43
+              },
+              "tags": [
+                "numeros-proximos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-07",
+      "ordem": 7,
+      "titulo": "Multiplicação intermediária",
+      "tituloOriginal": "Intermediate Multiplication",
+      "dificuldade": 7,
+      "paginasTeoria": [
+        46,
+        47,
+        48
+      ],
+      "paginasExercicios": [
+        48,
+        49,
+        50,
+        51
+      ],
+      "prerequisitos": [
+        "multiplicação 2×1 e 3×1",
+        "capítulo 6"
+      ],
+      "objetivo": "Escolher entre cinco estratégias para multiplicações 2×2 e elevar números de dois dígitos ao quadrado.",
+      "padroes": [
+        "metodo-da-adicao",
+        "metodo-da-subtracao",
+        "fatoracao",
+        "quadrados",
+        "numeros-proximos",
+        "menor-resistencia"
+      ],
+      "secoes": [
+        {
+          "id": "c07-adicao-subtracao",
+          "ordem": 1,
+          "titulo": "Métodos da adição e da subtração",
+          "paginas": [
+            46
+          ],
+          "resumo": "Se um fator termina em 1, 2, 3 ou 4, arredonde-o para baixo e some o resto. Se termina em 7, 8 ou 9, arredonde-o para cima e subtraia o excesso.",
+          "exemplos": [
+            {
+              "id": "c07-ex-01",
+              "prompt": "41 × 17",
+              "resposta": "697",
+              "resolucao": "(40+1)×17=680+17.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 46
+              },
+              "tags": [
+                "metodo-da-adicao"
+              ]
+            },
+            {
+              "id": "c07-ex-02",
+              "prompt": "53 × 89",
+              "resposta": "4717",
+              "resolucao": "53×(90−1)=4770−53.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 46
+              },
+              "tags": [
+                "metodo-da-subtracao"
+              ]
+            },
+            {
+              "id": "c07-ex-03",
+              "prompt": "97 × 22",
+              "resposta": "2134",
+              "resolucao": "(100−3)×22=2200−66.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 46
+              },
+              "tags": [
+                "metodo-da-subtracao"
+              ]
+            },
+            {
+              "id": "c07-ex-03b",
+              "prompt": "9 × 79",
+              "resposta": "711",
+              "resolucao": "9×80−9×1=720−9.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 48
+              },
+              "tags": [
+                "metodo-da-subtracao"
+              ]
+            },
+            {
+              "id": "c07-ex-03c",
+              "prompt": "19 × 37",
+              "resposta": "703",
+              "resolucao": "20×37−1×37=740−37.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 48
+              },
+              "tags": [
+                "metodo-da-subtracao"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c07-fatoracao",
+          "ordem": 2,
+          "titulo": "Fatoração e menor resistência",
+          "paginas": [
+            46,
+            48
+          ],
+          "resumo": "Fatore um dos números e avalie a ordem dos fatores. O melhor caminho é o que produz os parciais mais fáceis e exige menos memória.",
+          "exemplos": [
+            {
+              "id": "c07-ex-04",
+              "prompt": "97 × 22",
+              "resposta": "2134",
+              "resolucao": "22=11×2; 97×11=1067; 1067×2=2134.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 46
+              },
+              "tags": [
+                "fatoracao",
+                "vezes-11"
+              ]
+            },
+            {
+              "id": "c07-ex-05",
+              "prompt": "43 × 28",
+              "resposta": "1204",
+              "resolucao": "28=7×4; 43×7=301; 301×4=1204.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 48
+              },
+              "tags": [
+                "fatoracao",
+                "menor-resistencia"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c07-quadrados",
+          "ordem": 3,
+          "titulo": "Quadrados de dois dígitos",
+          "paginas": [
+            47
+          ],
+          "resumo": "Mova uma cópia do número até uma dezena redonda e a outra na direção oposta; multiplique e some o quadrado da distância.",
+          "formula": "n² = (n−d)(n+d) + d²",
+          "exemplos": [
+            {
+              "id": "c07-ex-06",
+              "prompt": "13²",
+              "resposta": "169",
+              "resolucao": "Desça 3 até 10 e suba 3 até 16; 10×16+3²=160+9.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 47
+              },
+              "tags": [
+                "quadrado",
+                "numeros-proximos"
+              ]
+            },
+            {
+              "id": "c07-ex-06b",
+              "prompt": "5²",
+              "resposta": "25",
+              "resolucao": "Elevar ao quadrado é multiplicar o número por ele mesmo.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 48
+              },
+              "tags": [
+                "quadrado"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c07-numeros-proximos",
+          "ordem": 4,
+          "titulo": "Produtos com fatores próximos",
+          "paginas": [
+            47
+          ],
+          "resumo": "Escolha uma base comum. Se os fatores não estiverem próximos, às vezes dobrar um e dividir o outro por 2 cria um problema próximo equivalente.",
+          "exemplos": [
+            {
+              "id": "c07-ex-07",
+              "prompt": "26 × 23",
+              "resposta": "598",
+              "resolucao": "Base 20: 20×29 + 6×3 = 580+18.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 47
+              },
+              "tags": [
+                "numeros-proximos"
+              ]
+            },
+            {
+              "id": "c07-ex-08",
+              "prompt": "17 × 76",
+              "resposta": "1292",
+              "resolucao": "Dobre 17 e reduza 76 à metade: 34×38, um produto de números próximos.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 47
+              },
+              "tags": [
+                "numeros-proximos",
+                "reescalonamento"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c07-escolha",
+          "ordem": 5,
+          "titulo": "Como escolher",
+          "paginas": [
+            47
+          ],
+          "resumo": "Iguais: quadrado. Próximos: números próximos. Fator composto: fatoração. Próximo de 100 ou final 7–9: subtração. Final 1–4: adição. Se nada se destacar, use adição.",
+          "exemplos": []
+        }
+      ]
+    },
+    {
+      "id": "capitulo-08",
+      "ordem": 8,
+      "titulo": "A velocidade da divisão védica",
+      "tituloOriginal": "The Speed of Vedic Division",
+      "dificuldade": 8,
+      "paginasTeoria": [
+        52,
+        53,
+        54
+      ],
+      "paginasExercicios": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "prerequisitos": [
+        "divisão curta",
+        "multiplicação 2×1"
+      ],
+      "objetivo": "Executar divisão curta e divisão védica por divisores de dois dígitos próximos a dezenas redondas.",
+      "padroes": [
+        "divisao-curta",
+        "divisao-vedica",
+        "divisor-proximo-de-dezena",
+        "multiplicador-positivo",
+        "multiplicador-negativo",
+        "transporte"
+      ],
+      "secoes": [
+        {
+          "id": "c08-ideia",
+          "ordem": 1,
+          "titulo": "A ideia védica",
+          "paginas": [
+            52,
+            53
+          ],
+          "resumo": "Troque o divisor por uma dezena redonda mais fácil. Cada algarismo já obtido no quociente corrige a próxima etapa, compensando a diferença entre o divisor real e a base.",
+          "exemplos": [
+            {
+              "id": "c08-ex-01",
+              "prompt": "13.571 ÷ 39",
+              "resposta": "347 R 38",
+              "resolucao": "Use 40 como base e 4 como divisor operacional; some o dígito anterior do quociente em cada etapa.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 52
+              },
+              "tags": [
+                "vedica",
+                "final-9"
+              ]
+            },
+            {
+              "id": "c08-ex-02",
+              "prompt": "246.810 ÷ 79",
+              "resposta": "3124 R 14",
+              "resolucao": "Use 80; ao retirar múltiplos de 80, devolva uma unidade por múltiplo para compensar 79=80−1.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 53
+              },
+              "tags": [
+                "vedica",
+                "final-9"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c08-transporte",
+          "ordem": 2,
+          "titulo": "Quando o dígito passa de 9",
+          "paginas": [
+            53
+          ],
+          "resumo": "Se uma etapa produz 10 ou mais, transporte a dezena para a coluna anterior e use o valor completo na correção do resto.",
+          "exemplos": [
+            {
+              "id": "c08-ex-03",
+              "prompt": "1475 ÷ 29",
+              "resposta": "50 R 25",
+              "resolucao": "Com base 30, surge um dígito 10; transporte 1 para a coluna anterior e preserve 10 na correção final.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 53
+              },
+              "tags": [
+                "vedica",
+                "transporte"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c08-multiplicadores",
+          "ordem": 3,
+          "titulo": "Multiplicadores pela unidade do divisor",
+          "paginas": [
+            53
+          ],
+          "resumo": "Finais 9,8,7,6,5 sobem à dezena seguinte e usam +1,+2,+3,+4,+5. Finais 1,2,3,4 descem à dezena anterior e usam −1,−2,−3,−4. Resultado negativo exige reduzir o quociente anterior e aumentar o resto.",
+          "tabela": [
+            {
+              "final": 9,
+              "multiplicador": 1
+            },
+            {
+              "final": 8,
+              "multiplicador": 2
+            },
+            {
+              "final": 7,
+              "multiplicador": 3
+            },
+            {
+              "final": 6,
+              "multiplicador": 4
+            },
+            {
+              "final": 5,
+              "multiplicador": 5
+            },
+            {
+              "final": 1,
+              "multiplicador": -1
+            },
+            {
+              "final": 2,
+              "multiplicador": -2
+            },
+            {
+              "final": 3,
+              "multiplicador": -3
+            },
+            {
+              "final": 4,
+              "multiplicador": -4
+            }
+          ],
+          "exemplos": [
+            {
+              "id": "c08-ex-04",
+              "prompt": "123.456 ÷ 78",
+              "resposta": "1582 R 60",
+              "resolucao": "Suba 78 para 80 e use multiplicador +2 em cada correção.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 53
+              },
+              "tags": [
+                "vedica",
+                "final-8"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-09",
+      "ordem": 9,
+      "titulo": "Memorizando números",
+      "tituloOriginal": "Memorizing Numbers",
+      "dificuldade": 9,
+      "paginasTeoria": [
+        58,
+        59,
+        60
+      ],
+      "paginasExercicios": [
+        60,
+        61,
+        62
+      ],
+      "prerequisitos": [
+        "nenhum matemático; atenção aos sons do inglês"
+      ],
+      "objetivo": "Transformar algarismos em palavras pelo Sistema Maior e usar palavras-gancho para listas e resultados parciais.",
+      "padroes": [
+        "sistema-maior",
+        "codigo-fonetico",
+        "palavras-gancho",
+        "mnemônicos"
+      ],
+      "notaIdioma": "O código e os exercícios do livro são fonéticos em inglês; não se deve traduzir uma palavra sem recalcular seus sons consonantais.",
+      "secoes": [
+        {
+          "id": "c09-codigo",
+          "ordem": 1,
+          "titulo": "Código fonético do Sistema Maior",
+          "paginas": [
+            58
+          ],
+          "resumo": "Associe cada dígito a sons consonantais; vogais e os sons de h, w e y podem ser inseridos livremente para formar palavras.",
+          "tabela": [
+            {
+              "digito": 1,
+              "sons": [
+                "t",
+                "d"
+              ]
+            },
+            {
+              "digito": 2,
+              "sons": [
+                "n"
+              ]
+            },
+            {
+              "digito": 3,
+              "sons": [
+                "m"
+              ]
+            },
+            {
+              "digito": 4,
+              "sons": [
+                "r"
+              ]
+            },
+            {
+              "digito": 5,
+              "sons": [
+                "l"
+              ]
+            },
+            {
+              "digito": 6,
+              "sons": [
+                "ch",
+                "sh",
+                "j"
+              ]
+            },
+            {
+              "digito": 7,
+              "sons": [
+                "k",
+                "g"
+              ]
+            },
+            {
+              "digito": 8,
+              "sons": [
+                "f",
+                "v"
+              ]
+            },
+            {
+              "digito": 9,
+              "sons": [
+                "p",
+                "b"
+              ]
+            },
+            {
+              "digito": 0,
+              "sons": [
+                "s",
+                "z"
+              ]
+            }
+          ],
+          "exemplos": [
+            {
+              "id": "c09-ex-01",
+              "prompt": "491",
+              "resposta": "RABBIT, REPEAT ou ORBIT",
+              "resolucao": "4=r, 9=p/b, 1=t/d; consoantes duplas com um único som contam uma vez.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 58
+              },
+              "tags": [
+                "sistema-maior"
+              ]
+            },
+            {
+              "id": "c09-ex-02",
+              "prompt": "PARTY",
+              "resposta": "941",
+              "resolucao": "p=9, r=4, t=1; vogais e y não recebem número.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 58
+              },
+              "tags": [
+                "sistema-maior"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c09-datas-sequencias",
+          "ordem": 2,
+          "titulo": "Datas e sequências longas",
+          "paginas": [
+            58,
+            59
+          ],
+          "resumo": "Transforme o ano ou blocos de um número longo em poucas imagens vívidas; palavras mais longas reduzem a quantidade de itens a lembrar.",
+          "exemplos": [
+            {
+              "id": "c09-ex-03",
+              "prompt": "Andrew Jackson eleito em 1828",
+              "resposta": "TOUGH … KNIFE",
+              "resolucao": "1828 produz os sons T-F-N-F.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 58
+              },
+              "tags": [
+                "datas",
+                "mnemônico"
+              ]
+            },
+            {
+              "id": "c09-ex-04",
+              "prompt": "Discurso de Gettysburg em 1863",
+              "resposta": "TOUGH JAM",
+              "resolucao": "1863 produz os sons T-F-J-M.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "datas",
+                "mnemônico"
+              ]
+            },
+            {
+              "id": "c09-ex-05",
+              "prompt": "3,14159265358979323846264",
+              "resposta": "My turtle Poncho will, my love, pick up my new mover Ginger.",
+              "resolucao": "A frase do livro codifica os primeiros 24 algarismos de π em inglês.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "sequencia-longa"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c09-ganchos",
+          "ordem": 3,
+          "titulo": "Sistema de palavras-gancho",
+          "paginas": [
+            59
+          ],
+          "resumo": "Dê a cada posição uma palavra concreta que a codifique e ligue essa imagem ao item da lista. Associações estranhas ou exageradas tendem a ser lembradas.",
+          "exemplos": [
+            {
+              "id": "c09-ex-06",
+              "prompt": "Ganchos de 1 a 10",
+              "resposta": "tea, knee, moo, ear, oil, shoe, key, foe, pie, dice",
+              "resolucao": "Cada palavra inglesa contém os sons do número correspondente.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "ganchos"
+              ]
+            },
+            {
+              "id": "c09-ex-07",
+              "prompt": "11, 12, 13 e 40",
+              "resposta": "tot, tin, tomb e rose",
+              "resolucao": "Exemplos de ganchos de dois dígitos do autor.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "ganchos"
+              ]
+            },
+            {
+              "id": "c09-ex-08",
+              "prompt": "40º presidente Ronald Reagan",
+              "resposta": "red rose",
+              "resolucao": "ROSE codifica 40 e é ligada a Reagan.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "ganchos"
+              ]
+            },
+            {
+              "id": "c09-ex-09",
+              "prompt": "VISA CARD",
+              "resposta": "80.741",
+              "resolucao": "Exemplo do livro de anexar algarismos derivados do nome a uma senha.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "senha"
+              ]
+            },
+            {
+              "id": "c09-ex-10",
+              "prompt": "1º presidente George Washington",
+              "resposta": "tomar TEA com Washington",
+              "resolucao": "TEA é a palavra-gancho inglesa para a posição 1.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 59
+              },
+              "tags": [
+                "ganchos"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-10",
+      "ordem": 10,
+      "titulo": "Cálculo de calendário",
+      "tituloOriginal": "Calendar Calculating",
+      "dificuldade": 10,
+      "paginasTeoria": [
+        63,
+        64,
+        65
+      ],
+      "paginasExercicios": [
+        65,
+        66,
+        67,
+        68
+      ],
+      "prerequisitos": [
+        "adição mental",
+        "múltiplos de 7",
+        "memorização dos códigos"
+      ],
+      "objetivo": "Determinar o dia da semana de datas Gregorianas por códigos de mês, ano e século.",
+      "padroes": [
+        "codigo-do-mes",
+        "codigo-do-ano",
+        "modulo-7",
+        "anos-bissextos",
+        "regra-dos-28",
+        "codigos-de-seculo"
+      ],
+      "secoes": [
+        {
+          "id": "c10-mes-data",
+          "ordem": 1,
+          "titulo": "Códigos de mês e dia da semana",
+          "paginas": [
+            63
+          ],
+          "resumo": "Some código do mês, dia e código do ano; reduza pelo maior múltiplo de 7. Os códigos 1 a 6 são segunda a sábado; 0 ou 7 é domingo.",
+          "formula": "dia da semana = (código do mês + dia + código do ano) mod 7",
+          "tabelaMesesAnoComum": [
+            6,
+            2,
+            2,
+            5,
+            0,
+            3,
+            5,
+            1,
+            4,
+            6,
+            2,
+            4
+          ],
+          "ajusteBissexto": {
+            "janeiro": 5,
+            "fevereiro": 1
+          },
+          "exemplos": [
+            {
+              "id": "c10-ex-01",
+              "prompt": "1º de janeiro de 2000",
+              "resposta": "sábado",
+              "resolucao": "Ano bissexto: janeiro=5; dia=1; ano=0; soma=6.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 63
+              },
+              "tags": [
+                "dia-da-semana"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c10-codigo-ano",
+          "ordem": 2,
+          "titulo": "Código do ano de 2000 a 2099",
+          "paginas": [
+            63,
+            64
+          ],
+          "resumo": "Some os dois últimos algarismos do ano ao número de bissextos já ocorridos e reduza módulo 7. O código avança 1 em ano comum e 2 ao atravessar um bissexto.",
+          "formula": "código = (aa + floor(aa/4)) mod 7",
+          "exemplos": [
+            {
+              "id": "c10-ex-02",
+              "prompt": "Código de 2025",
+              "resposta": "3",
+              "resolucao": "25 + floor(25/4)=25+6=31; 31−28=3.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 64
+              },
+              "tags": [
+                "codigo-do-ano"
+              ]
+            },
+            {
+              "id": "c10-ex-03",
+              "prompt": "Códigos de 2000 a 2006",
+              "resposta": "0, 1, 2, 3, 5, 6, 0",
+              "resolucao": "2004 é bissexto e provoca salto adicional.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 63
+              },
+              "tags": [
+                "codigo-do-ano"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c10-bissextos-regra28",
+          "ordem": 3,
+          "titulo": "Bissextos e repetição de 28 anos",
+          "paginas": [
+            64
+          ],
+          "resumo": "É bissexto se divisível por 4, exceto séculos não divisíveis por 400. Entre 1901 e 2099, o calendário repete após 28 anos.",
+          "exemplos": [
+            {
+              "id": "c10-ex-04",
+              "prompt": "Simplifique o ano 1998 pela regra de 28",
+              "resposta": "um ano equivalente após subtrair múltiplos de 28",
+              "resolucao": "A data e o código permanecem iguais dentro do intervalo indicado.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 64
+              },
+              "tags": [
+                "regra-dos-28"
+              ]
+            },
+            {
+              "id": "c10-ex-05",
+              "prompt": "1700, 1800, 1900, 2000 e 2100",
+              "resposta": "1700/1800/1900/2100 não são bissextos; 2000 é",
+              "resolucao": "Séculos só são bissextos quando divisíveis por 400.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 64
+              },
+              "tags": [
+                "ano-bissexto"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c10-seculos",
+          "ordem": 4,
+          "titulo": "Códigos de século e limite histórico",
+          "paginas": [
+            64,
+            65
+          ],
+          "resumo": "Bases: 2000→0, 1900→1, 1800→3, 1700→5, 1600→0. O método apresentado usa o calendário Gregoriano; datas antigas podem pertencer ao Juliano ou a sistemas sem semana de sete dias.",
+          "tabelaSeculos": [
+            {
+              "seculo": 2000,
+              "codigo": 0
+            },
+            {
+              "seculo": 1900,
+              "codigo": 1
+            },
+            {
+              "seculo": 1800,
+              "codigo": 3
+            },
+            {
+              "seculo": 1700,
+              "codigo": 5
+            },
+            {
+              "seculo": 1600,
+              "codigo": 0
+            }
+          ],
+          "exemplos": []
+        }
+      ]
+    },
+    {
+      "id": "capitulo-11",
+      "ordem": 11,
+      "titulo": "Multiplicação avançada",
+      "tituloOriginal": "Advanced Multiplication",
+      "dificuldade": 11,
+      "paginasTeoria": [
+        69,
+        70,
+        71,
+        74,
+        75
+      ],
+      "paginasExercicios": [
+        71,
+        72,
+        73,
+        74,
+        75
+      ],
+      "prerequisitos": [
+        "quadrados de dois dígitos",
+        "multiplicação 3×1",
+        "Sistema Maior"
+      ],
+      "objetivo": "Calcular quadrados de três e quatro dígitos, quartas potências, cubos e produtos 3×2.",
+      "padroes": [
+        "quadrado-tres-digitos",
+        "quadrado-quatro-digitos",
+        "mnemônicos-parciais",
+        "cubo-aproximado",
+        "cubo-exato",
+        "tres-por-dois"
+      ],
+      "secoes": [
+        {
+          "id": "c11-quadrados-tres",
+          "ordem": 1,
+          "titulo": "Quadrados de três dígitos",
+          "paginas": [
+            69
+          ],
+          "resumo": "Vá à centena próxima, multiplique os valores equidistantes e some o quadrado da distância. Dizer a parte estável da resposta ou usar dedos ajuda a guardar parciais.",
+          "exemplos": [
+            {
+              "id": "c11-ex-01",
+              "prompt": "108²",
+              "resposta": "11.664",
+              "resolucao": "100×116 + 8² = 11.600+64.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 69
+              },
+              "tags": [
+                "quadrado",
+                "tres-digitos"
+              ]
+            },
+            {
+              "id": "c11-ex-02",
+              "prompt": "126²",
+              "resposta": "15.876",
+              "resolucao": "100×152 + 26² = 15.200+676.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 69
+              },
+              "tags": [
+                "quadrado",
+                "tres-digitos"
+              ]
+            },
+            {
+              "id": "c11-ex-03",
+              "prompt": "230²",
+              "resposta": "52.900",
+              "resolucao": "200×260 + 30² = 52.000+900.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 69
+              },
+              "tags": [
+                "quadrado",
+                "aplicacao"
+              ]
+            },
+            {
+              "id": "c11-ex-04",
+              "prompt": "755²",
+              "resposta": "570.025",
+              "resolucao": "800×710 + 45² = 568.000+2.025.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 69
+              },
+              "tags": [
+                "quadrado",
+                "empurrar-puxar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c11-quadrados-quatro",
+          "ordem": 2,
+          "titulo": "Quadrados de quatro dígitos com memória",
+          "paginas": [
+            70
+          ],
+          "resumo": "Use o milhar próximo e codifique o bloco intermediário pelo Sistema Maior enquanto calcula o quadrado da distância.",
+          "exemplos": [
+            {
+              "id": "c11-ex-05",
+              "prompt": "2345²",
+              "resposta": "5.499.025",
+              "resolucao": "2000×2690=5.380.000; guarde 380 como MOVIES; 345²=119.025; some para 5.499.025.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 70
+              },
+              "tags": [
+                "quadrado",
+                "quatro-digitos",
+                "memoria"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c11-cubos",
+          "ordem": 3,
+          "titulo": "Cubos aproximados e exatos",
+          "paginas": [
+            70,
+            74,
+            75
+          ],
+          "resumo": "Para estimar (z+d)³, use z²(z+3d). Para o valor exato, acrescente os termos 3d² e d³ na forma aninhada.",
+          "formulas": [
+            "(z+d)³ ≈ z²(z+3d)",
+            "(z+d)³ = z(z(z+3d)+3d²)+d³"
+          ],
+          "exemplos": [
+            {
+              "id": "c11-ex-06",
+              "prompt": "43³",
+              "resposta": "≈ 78.400",
+              "resolucao": "z=40,d=3: 40×40×49. O valor exato citado é 79.507.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 70
+              },
+              "tags": [
+                "cubo",
+                "estimativa"
+              ]
+            },
+            {
+              "id": "c11-ex-07",
+              "prompt": "42³",
+              "resposta": "74.088",
+              "resolucao": "z=40,d=2: [40×46+12]×40+8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 74
+              },
+              "tags": [
+                "cubo",
+                "exato"
+              ]
+            },
+            {
+              "id": "c11-ex-08",
+              "prompt": "96³",
+              "resposta": "884.736",
+              "resolucao": "z=100,d=−4: [100×88+48]×100−64.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 75
+              },
+              "tags": [
+                "cubo",
+                "exato"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c11-tres-por-dois",
+          "ordem": 4,
+          "titulo": "Multiplicação 3×2",
+          "paginas": [
+            70,
+            71
+          ],
+          "resumo": "Prioridade: ignore zeros até o fim; se possível, fatore o número de dois dígitos; depois tente fatorar o de três; no caso geral, separe centenas/dezenas das unidades e use a distributiva.",
+          "exemplos": [
+            {
+              "id": "c11-ex-09",
+              "prompt": "365 × 24",
+              "resposta": "8760",
+              "resolucao": "24=6×4; faça 365×6 e multiplique o resultado por 4.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 70
+              },
+              "tags": [
+                "tres-por-dois",
+                "fatoracao"
+              ]
+            },
+            {
+              "id": "c11-ex-10",
+              "prompt": "47 × 126",
+              "resposta": "5922",
+              "resolucao": "126=63×2; calcule 47×63 e dobre.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 71
+              },
+              "tags": [
+                "tres-por-dois",
+                "fatoracao"
+              ]
+            },
+            {
+              "id": "c11-ex-11",
+              "prompt": "47 × 283",
+              "resposta": "13.301",
+              "resolucao": "47×280 + 47×3.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 71
+              },
+              "tags": [
+                "tres-por-dois",
+                "distributiva"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "capitulo-12",
+      "ordem": 12,
+      "titulo": "Mestres do cálculo mental",
+      "tituloOriginal": "Masters of Mental Math",
+      "dificuldade": 12,
+      "paginasTeoria": [
+        76,
+        77,
+        78
+      ],
+      "paginasExercicios": [
+        79,
+        80,
+        81
+      ],
+      "prerequisitos": [
+        "capítulos 1 a 11"
+      ],
+      "objetivo": "Integrar as técnicas, reconhecer padrões em cubos perfeitos e decompor cálculos muito grandes.",
+      "padroes": [
+        "menor-resistencia",
+        "multiplos-metodos",
+        "lei-de-benford",
+        "raiz-cubica",
+        "simplificacao-constante"
+      ],
+      "secoes": [
+        {
+          "id": "c12-escolha",
+          "ordem": 1,
+          "titulo": "Olhe para os números antes de calcular",
+          "paginas": [
+            76,
+            77
+          ],
+          "resumo": "Procure fatores pequenos, proximidade, arredondamentos e conversões entre soma e subtração. Resolver por mais de um método fortalece a verificação e a flexibilidade.",
+          "exemplos": [
+            {
+              "id": "c12-ex-01",
+              "prompt": "21 × 29",
+              "resposta": "609",
+              "resolucao": "O livro propõe comparar adição, subtração, fatoração e números próximos para o mesmo produto.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 76
+              },
+              "tags": [
+                "multiplos-metodos"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c12-benford",
+          "ordem": 2,
+          "titulo": "Ordem de grandeza e Lei de Benford",
+          "paginas": [
+            76,
+            78
+          ],
+          "resumo": "Produtos de comprimentos x e y têm x+y ou x+y−1 algarismos. Em dados reais, primeiros algarismos pequenos são mais frequentes; a probabilidade do primeiro dígito N é log(N+1)−log(N).",
+          "formula": "P(primeiro algarismo=N) = log10(N+1) − log10(N)",
+          "exemplos": [
+            {
+              "id": "c12-ex-01b",
+              "prompt": "Número de 5 algarismos × número de 3 algarismos",
+              "resposta": "7 ou 8 algarismos",
+              "resolucao": "O produto tem 5+3 ou 5+3−1 algarismos.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 76
+              },
+              "tags": [
+                "ordem-de-grandeza"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c12-raiz-cubica",
+          "ordem": 3,
+          "titulo": "Raiz cúbica de cubos perfeitos",
+          "paginas": [
+            77
+          ],
+          "resumo": "Para uma raiz de dois dígitos, compare o início do número aos cubos de 1 a 10 para obter a dezena; o último algarismo do cubo determina unicamente a unidade.",
+          "tabelaFinais": [
+            {
+              "finalDoCubo": 0,
+              "finalDaRaiz": 0
+            },
+            {
+              "finalDoCubo": 1,
+              "finalDaRaiz": 1
+            },
+            {
+              "finalDoCubo": 2,
+              "finalDaRaiz": 8
+            },
+            {
+              "finalDoCubo": 3,
+              "finalDaRaiz": 7
+            },
+            {
+              "finalDoCubo": 4,
+              "finalDaRaiz": 4
+            },
+            {
+              "finalDoCubo": 5,
+              "finalDaRaiz": 5
+            },
+            {
+              "finalDoCubo": 6,
+              "finalDaRaiz": 6
+            },
+            {
+              "finalDoCubo": 7,
+              "finalDaRaiz": 3
+            },
+            {
+              "finalDoCubo": 8,
+              "finalDaRaiz": 2
+            },
+            {
+              "finalDoCubo": 9,
+              "finalDaRaiz": 9
+            }
+          ],
+          "exemplos": [
+            {
+              "id": "c12-ex-02",
+              "prompt": "∛54.872",
+              "resposta": "38",
+              "resolucao": "54 mil fica entre 30³ e 40³; a raiz está nos 30. Só 8³ termina em 2.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 77
+              },
+              "tags": [
+                "raiz-cubica"
+              ]
+            },
+            {
+              "id": "c12-ex-02b",
+              "prompt": "∛8",
+              "resposta": "2",
+              "resolucao": "2×2×2=8.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 78
+              },
+              "tags": [
+                "raiz-cubica"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "c12-simplificacao",
+          "ordem": 4,
+          "titulo": "Cálculo grande como sequência de simplificações",
+          "paginas": [
+            77,
+            78
+          ],
+          "resumo": "Quadrados enormes combinam decomposição, criss-cross, quadrados menores, complementos e mnemônicos. O objetivo não é guardar tudo de uma vez, mas estabilizar um bloco e avançar.",
+          "formula": "(a+b)² = a² + 2ab + b²",
+          "exemplos": [
+            {
+              "id": "c12-ex-03",
+              "prompt": "47.893²",
+              "resposta": "2.293.740.449",
+              "resolucao": "Decomponha em 47.000² + 2×47.000×893 + 893², como indicado pelo texto.",
+              "origem": {
+                "documentoId": "calculo-mental-dicas",
+                "tipo": "exemplo",
+                "pagina": 77
+              },
+              "tags": [
+                "quadrado",
+                "decomposicao"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "estatisticas": {
+    "capitulos": 12,
+    "secoes": 45,
+    "exemplos": 110,
+    "porCapitulo": {
+      "capitulo-01": {
+        "secoes": 4,
+        "exemplos": 13,
+        "exercicios": 62
+      },
+      "capitulo-02": {
+        "secoes": 4,
+        "exemplos": 17,
+        "exercicios": 110
+      },
+      "capitulo-03": {
+        "secoes": 3,
+        "exemplos": 8,
+        "exercicios": 98
+      },
+      "capitulo-04": {
+        "secoes": 3,
+        "exemplos": 11,
+        "exercicios": 27
+      },
+      "capitulo-05": {
+        "secoes": 4,
+        "exemplos": 7,
+        "exercicios": 28
+      },
+      "capitulo-06": {
+        "secoes": 4,
+        "exemplos": 8,
+        "exercicios": 21
+      },
+      "capitulo-07": {
+        "secoes": 5,
+        "exemplos": 11,
+        "exercicios": 48
+      },
+      "capitulo-08": {
+        "secoes": 3,
+        "exemplos": 4,
+        "exercicios": 44
+      },
+      "capitulo-09": {
+        "secoes": 3,
+        "exemplos": 10,
+        "exercicios": 28
+      },
+      "capitulo-10": {
+        "secoes": 4,
+        "exemplos": 5,
+        "exercicios": 41
+      },
+      "capitulo-11": {
+        "secoes": 4,
+        "exemplos": 11,
+        "exercicios": 56
+      },
+      "capitulo-12": {
+        "secoes": 4,
+        "exemplos": 5,
+        "exercicios": 35
+      }
+    }
+  }
+}

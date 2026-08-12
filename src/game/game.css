@@ -1,0 +1,338 @@
+.game-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  overflow: hidden;
+  background: #000;
+  color: #f7f1ea;
+}
+
+.game-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
+.game-hud,
+.game-footer,
+.game-controls,
+.game-button--exit {
+  position: absolute;
+  left: 0;
+  width: 100%;
+}
+
+.game-hud {
+  top: 0;
+  pointer-events: none;
+  padding: 12px 12px 0;
+}
+
+.math-shmup-hud {
+  display: grid;
+  gap: 8px;
+  width: min(100%, 420px);
+}
+
+.game-hud__bar,
+.game-hud__mission,
+.game-hud__drawer,
+.game-panel--radar,
+.game-panel--targets {
+  display: grid;
+  gap: 10px;
+}
+
+.game-footer,
+.game-status {
+  margin: 0;
+}
+
+.game-panel strong,
+.game-button,
+.game-control-button,
+.math-step__head strong,
+.game-hud__objective strong,
+.game-hud__question strong {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.game-hud__bar {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  background: rgba(8, 8, 8, 0.68);
+  backdrop-filter: blur(18px);
+  pointer-events: auto;
+}
+
+.game-hud__eyebrow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.game-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+  border-radius: 999px;
+  background: rgba(120, 0, 0, 0.28);
+  color: #ff8f8f;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.game-progress,
+.game-hud__objective-kicker {
+  color: rgba(247, 241, 234, 0.66);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.game-hud__question,
+.game-hud__objective {
+  display: grid;
+  gap: 4px;
+}
+
+.game-hud__question strong,
+.game-hud__objective strong {
+  color: #fff4f4;
+  font-size: clamp(0.98rem, 4vw, 1.16rem);
+}
+
+.game-hud__toggle {
+  min-width: 108px;
+}
+
+.game-hud__drawer {
+  width: min(100%, 420px);
+  max-height: min(52vh, 420px);
+  overflow: auto;
+  pointer-events: auto;
+}
+
+.game-panel {
+  min-width: 0;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(6, 6, 6, 0.72);
+  backdrop-filter: blur(16px);
+}
+
+.game-panel strong {
+  display: block;
+  color: #fff4f4;
+  margin-bottom: 2px;
+}
+
+.math-shmup-problem {
+  display: grid;
+  gap: 4px;
+  color: rgba(255, 255, 255, 0.94);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(0.94rem, 3.8vw, 1.08rem);
+}
+
+.math-paths {
+  display: grid;
+  gap: 8px;
+}
+
+.math-path {
+  display: grid;
+  gap: 8px;
+}
+
+.math-path--active .math-path__head {
+  color: #fff4f4;
+}
+
+.math-path--inactive {
+  opacity: 0.55;
+}
+
+.math-path__head {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.math-path__steps {
+  display: grid;
+  gap: 8px;
+}
+
+.math-step {
+  display: grid;
+  gap: 7px;
+  padding: 10px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.math-step--available {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.math-step--current {
+  border-color: rgba(255, 224, 102, 0.34);
+  background: rgba(255, 224, 102, 0.08);
+}
+
+.math-step--resolved {
+  border-color: rgba(52, 199, 89, 0.24);
+  background: rgba(52, 199, 89, 0.08);
+}
+
+.math-step__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.math-step__head span {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.math-step__head strong {
+  color: #fff4f4;
+  font-size: 1rem;
+}
+
+.game-status {
+  width: min(100%, 420px);
+  min-height: 40px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(247, 241, 234, 0.78);
+  line-height: 1.4;
+  font-size: 0.88rem;
+}
+
+.game-status--good {
+  background: rgba(52, 199, 89, 0.12);
+  color: rgba(232, 255, 239, 0.94);
+}
+
+.game-status--bad {
+  background: rgba(255, 69, 58, 0.14);
+  color: rgba(255, 232, 232, 0.94);
+}
+
+.game-status--neutral {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.game-button--exit {
+  top: 12px;
+  padding: 0 12px;
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.game-button {
+  pointer-events: auto;
+  min-height: 46px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff6f6;
+}
+
+.game-button--ghost {
+  background: rgba(15, 15, 15, 0.72);
+}
+
+.game-controls {
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 0 16px 18px;
+  pointer-events: none;
+}
+
+.game-control-button {
+  pointer-events: auto;
+  min-height: 58px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(12, 12, 12, 0.82);
+  color: #fff4f4;
+  font-size: 1.2rem;
+}
+
+.game-control-button--fire {
+  background: rgba(128, 7, 7, 0.68);
+  color: #fff6f6;
+}
+
+.game-footer {
+  bottom: 86px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  padding: 0 16px;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+@media (min-width: 720px) {
+  .game-hud {
+    padding: 18px 18px 0;
+  }
+
+  .game-button--exit {
+    top: 18px;
+    padding: 0 18px;
+  }
+
+  .game-controls {
+    width: auto;
+    right: 24px;
+    left: auto;
+    max-width: 360px;
+    padding: 0 0 24px;
+  }
+
+  .game-footer {
+    bottom: 112px;
+    padding: 0 24px;
+  }
+}
+
+@media (max-width: 719px) {
+  .game-hud__bar {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .game-hud__toggle {
+    width: 100%;
+  }
+
+  .game-footer {
+    display: none;
+  }
+}

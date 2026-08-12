@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Cálculo Mental</title>
+  <desc id="description">Calculadora colorida sobre um fundo escuro</desc>
+  <defs>
+    <linearGradient id="background" x1="54" y1="28" x2="458" y2="484" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#07162D" />
+      <stop offset="0.55" stop-color="#17133C" />
+      <stop offset="1" stop-color="#32125A" />
+    </linearGradient>
+    <linearGradient id="display" x1="154" y1="133" x2="362" y2="213" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25D9E7" />
+      <stop offset="1" stop-color="#8B5CF6" />
+    </linearGradient>
+    <filter id="shadow" x="70" y="62" width="372" height="410" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#02040D" flood-opacity="0.42" />
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#background)" />
+  <circle cx="54" cy="102" r="90" fill="#12D8D0" opacity="0.2" />
+  <circle cx="465" cy="408" r="120" fill="#FB5DA8" opacity="0.22" />
+  <path d="M68 352C128 444 203 474 304 456C387 441 432 380 452 302" fill="none" stroke="#FFB224" stroke-width="18" stroke-linecap="round" opacity="0.65" />
+  <g filter="url(#shadow)">
+    <rect x="104" y="74" width="304" height="350" rx="70" fill="#FFF9EB" />
+    <rect x="145" y="126" width="222" height="92" rx="28" fill="#11172E" />
+    <path d="M176 172H230M282 151V193M258 172H306M330 153V191" fill="none" stroke="url(#display)" stroke-width="16" stroke-linecap="round" />
+    <circle cx="171" cy="278" r="31" fill="#17C9D4" />
+    <path d="M157 278H185" stroke="#07162D" stroke-width="10" stroke-linecap="round" />
+    <circle cx="256" cy="278" r="31" fill="#8B5CF6" />
+    <path d="M244 266L268 290M268 266L244 290" stroke="#FFF9EB" stroke-width="9" stroke-linecap="round" />
+    <circle cx="341" cy="278" r="31" fill="#FB5DA8" />
+    <path d="M327 278H355M341 264V292" stroke="#FFF9EB" stroke-width="9" stroke-linecap="round" />
+    <circle cx="171" cy="356" r="31" fill="#FFB224" />
+    <circle cx="171" cy="347" r="5" fill="#11172E" />
+    <circle cx="171" cy="365" r="5" fill="#11172E" />
+    <path d="M158 356H184" stroke="#11172E" stroke-width="8" stroke-linecap="round" />
+    <rect x="225" y="325" width="147" height="62" rx="31" fill="#11172E" />
+    <path d="M259 347H338M259 365H338" stroke="#FFF9EB" stroke-width="9" stroke-linecap="round" />
+  </g>
+</svg>
