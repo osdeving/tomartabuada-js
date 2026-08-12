@@ -1,9 +1,9 @@
-import { createMultiplicationPuzzle } from "./buildMultiplicationPuzzle";
+import { createMultiplicationPuzzle } from "./buildMultiplicationPuzzle.js";
 
 const OPENING_MESSAGE = "Escolha um caminho útil e atire no resultado certo.";
 
-export function createPuzzleSession(config) {
-  let puzzle = createMultiplicationPuzzle(config);
+export function createPuzzleSession(config, fixedValues) {
+  let puzzle = createMultiplicationPuzzle(config, fixedValues);
   let activePathId = null;
   let activeStepIndex = 0;
   let feedback = {
@@ -76,7 +76,7 @@ export function createPuzzleSession(config) {
       return { kind: "good", completedPuzzle: false };
     },
     advancePuzzle() {
-      puzzle = createMultiplicationPuzzle(config);
+      puzzle = createMultiplicationPuzzle(config, fixedValues);
       activePathId = null;
       activeStepIndex = 0;
       feedback = {
@@ -87,12 +87,15 @@ export function createPuzzleSession(config) {
     getSnapshot() {
       const activePath = getActivePath();
       const currentStep = activePath?.steps[activeStepIndex] ?? null;
+      const onlyOpeningStep = !activePath && puzzle.paths.length === 1
+        ? puzzle.paths[0].steps[0] ?? null
+        : null;
 
       return {
         id: puzzle.id,
         feedback,
         problemDisplay: puzzle.problemDisplay,
-        currentPrompt: currentStep?.prompt ?? null,
+        currentPrompt: currentStep?.prompt ?? onlyOpeningStep?.prompt ?? null,
         openingPrompts: activePath ? [] : puzzle.paths.map((path) => path.steps[0].prompt),
         activePathLabel: activePath?.label ?? null,
         paths: puzzle.paths.map((path) => buildPathSnapshot(path, activePathId, activeStepIndex)),

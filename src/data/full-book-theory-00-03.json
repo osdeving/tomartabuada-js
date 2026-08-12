@@ -26,7 +26,7 @@
         "conhecer a tabuada básica",
         "reconhecer dezenas e centenas redondas"
       ],
-      "summary": "Uma abertura deliberadamente leve: o leitor aprende resultados rápidos para ganhar confiança, conhece a ideia de arredondar e compensar e recebe amostras das técnicas de porcentagem, calendário, divisão, memória e mágica desenvolvidas depois.",
+      "summary": "Comece com resultados rápidos para ganhar confiança, conheça a ideia de arredondar e compensar e experimente técnicas de porcentagem, calendário, divisão, memória e padrões numéricos.",
       "groupId": "quadrado",
       "theoryTopicIds": [
         "c01-vezes-11",
@@ -43,7 +43,7 @@
           "id": "livro-c00-l01-vezes-11",
           "order": 1,
           "title": "Multiplicar dois dígitos por 11",
-          "summary": "Conserve os algarismos das pontas e coloque a soma deles no meio. Quando essa soma tiver dois algarismos, escreva a unidade no meio e transporte a dezena para a ponta esquerda. O capítulo começa por esse truque porque ele produz uma vitória imediata e também introduz transporte sem conta longa.",
+          "summary": "Conserve os algarismos das pontas e coloque a soma deles no meio. Quando essa soma tiver dois algarismos, escreva a unidade no meio e transporte a dezena para a ponta esquerda. O truque produz uma vitória imediata e introduz transporte sem conta longa.",
           "whenToUse": [
             "quando um número de dois dígitos é multiplicado por 11",
             "como aquecimento para treinar soma de algarismos e transporte",
@@ -227,7 +227,7 @@
                   "explanation": "As pontas permanecem e entram duas somas adjacentes."
                 }
               ],
-              "conclusion": "O livro apresenta este caso apenas como prévia da extensão do padrão.",
+              "conclusion": "Este caso apenas antecipa a extensão do padrão.",
               "source": {
                 "printedPage": 4,
                 "pdfPage": 30
@@ -580,8 +580,8 @@
         {
           "id": "livro-c00-l04-subtracao-arredondada",
           "order": 4,
-          "title": "Prévia: subtrair um número redondo e devolver o excesso",
-          "summary": "Uma subtração incômoda fica curta quando o subtraendo é arredondado para cima. Subtraia o número redondo, determine quanto foi retirado a mais e some essa diferença de volta. O capítulo apresenta a ideia; os complementos só serão formalizados no capítulo seguinte.",
+          "title": "Subtraia um número redondo e devolva o excesso",
+          "summary": "Uma subtração incômoda fica curta quando o subtraendo é arredondado para cima. Subtraia o número redondo, determine quanto foi retirado a mais e some essa diferença de volta. Essa compensação prepara o uso sistemático de complementos em contas maiores.",
           "whenToUse": [
             "quando o subtraendo está perto de uma centena redonda",
             "quando a subtração direta exigiria vários empréstimos",
@@ -696,7 +696,7 @@
           "pitfalls": [
             "subtrair a correção outra vez em vez de somá-la",
             "arredondar para um número que torna a correção maior que a conta original",
-            "confundir a prévia com o método completo de complementos do capítulo 1"
+            "arredondar sem calcular exatamente quanto precisa ser devolvido"
           ],
           "memoryCue": "Tirou a mais? Devolva.",
           "tags": [
@@ -719,16 +719,16 @@
         {
           "id": "livro-c00-l05-leapfrog-previa",
           "order": 5,
-          "title": "Prévia: soma de dez termos do tipo Fibonacci",
-          "summary": "O livro mostra uma sequência em que cada termo é a soma dos dois anteriores e antecipa uma rotina de mágica: a soma dos dez termos pode ser obtida diretamente. Aqui o resultado é exibido, mas a regra e sua prova são deliberadamente reservadas ao capítulo 9.",
+          "title": "Soma de dez termos do tipo Fibonacci",
+          "summary": "Em uma sequência na qual cada termo é a soma dos dois anteriores, a soma dos dez primeiros termos é onze vezes o sétimo termo. Assim, uma coluna longa pode virar uma única multiplicação por 11.",
           "whenToUse": [
             "para reconhecer sequências em que cada termo soma os dois anteriores",
             "como motivação para procurar estrutura antes de somar uma coluna",
-            "como prévia, sem substituir a explicação completa do capítulo 9"
+            "quando houver exatamente dez termos encadeados pela mesma recorrência"
           ],
-          "whyItWorks": "O capítulo 0 não demonstra a identidade. Ele apenas sinaliza que os termos não são independentes e que essa dependência permite substituir dez adições por uma relação estrutural, posteriormente provada no livro.",
+          "whyItWorks": "Se os dois primeiros termos são a e b, o sétimo é 5a+8b. A soma dos dez primeiros é 55a+88b, exatamente 11(5a+8b).",
           "algorithm": {
-            "title": "Reconhecer, conferir e adiar a regra",
+            "title": "Encontre o sétimo termo e multiplique por 11",
             "steps": [
               {
                 "order": 1,
@@ -742,21 +742,22 @@
               },
               {
                 "order": 3,
-                "action": "Registre o resultado apresentado",
-                "detail": "A soma indicada pelo livro é 935; a técnica geral ainda não é ensinada nesta página.",
-                "expression": "9+5+14+19+33+52+85+137+222+359=935"
+                "action": "Localize o sétimo termo",
+                "detail": "Conte desde o início da sequência; no exemplo, o sétimo termo é 85.",
+                "expression": "7º termo = 85"
               },
               {
                 "order": 4,
-                "action": "Observe a razão final",
-                "detail": "O quociente 359÷222 começa por 1,61, outra conexão que será retomada depois."
+                "action": "Multiplique por 11",
+                "detail": "Use o atalho de ×11 para obter a soma dos dez termos.",
+                "expression": "85×11=935"
               }
             ]
           },
           "workedExamples": [
             {
               "id": "livro-c00-l05-ex01",
-              "question": "Qual é a soma apresentada para 9, 5, 14, 19, 33, 52, 85, 137, 222 e 359?",
+              "question": "Qual é a soma de 9, 5, 14, 19, 33, 52, 85, 137, 222 e 359?",
               "answer": "935",
               "steps": [
                 {
@@ -765,17 +766,17 @@
                 },
                 {
                   "expression": "Σ dos 10 termos = 935",
-                  "explanation": "Este é o resultado revelado na abertura; a derivação fica para o capítulo de mágica."
+                  "explanation": "O sétimo termo é 85, e 85×11=935."
                 }
               ],
-              "conclusion": "O valor 935 é uma prévia, não uma autorização para inventar a regra que a página ainda não explica.",
+              "conclusion": "A relação com o sétimo termo substitui as dez adições: 85×11=935.",
               "source": {
                 "printedPage": 7,
                 "pdfPage": 33
               },
               "visualizacao": {
                 "tipo": "conta-armada",
-                "rotulo": "Coluna leapfrog da abertura",
+                "rotulo": "Soma de uma sequência recorrente",
                 "leitura": "Dez termos encadeados por somas sucessivas totalizam novecentos e trinta e cinco.",
                 "pagina": 7,
                 "largura": 8,
@@ -846,16 +847,16 @@
                   },
                   {
                     "ordem": 2,
-                    "narracao": "O livro antecipa o total 935."
+                    "narracao": "O total é 935."
                   }
                 ]
               }
             }
           ],
           "pitfalls": [
-            "apresentar como ensinada uma fórmula que o capítulo apenas promete explicar depois",
+            "usar a regra em uma sequência que não tenha exatamente dez termos",
             "incluir uma lista que não obedece à recorrência",
-            "confundir o quociente aproximado 1,61 com a soma 935"
+            "multiplicar por 11 um termo diferente do sétimo"
           ],
           "memoryCue": "Antes de somar tudo, procure como os termos nasceram.",
           "tags": [
@@ -1002,7 +1003,7 @@
           "id": "livro-c00-l07-primeiro-de-janeiro",
           "order": 7,
           "title": "Dia da semana de 1º de janeiro no século XXI",
-          "summary": "Para anos de 2000 a 2099, some aos dois últimos algarismos do ano a quarta parte inteira desse número e reduza por múltiplos de 7. Para 1º de janeiro de ano bissexto, diminua 1 da quarta parte antes de somar. O livro apresenta isso como uma versão curta do calendário completo.",
+          "summary": "Para anos de 2000 a 2099, some aos dois últimos algarismos do ano a quarta parte inteira desse número e reduza por múltiplos de 7. Para 1º de janeiro de ano bissexto, diminua 1 da quarta parte antes de somar. Essa é uma versão curta do cálculo de calendário completo.",
           "whenToUse": [
             "para encontrar o dia da semana de 1º de janeiro entre 2000 e 2099",
             "como introdução à aritmética modular de calendário",
@@ -1187,7 +1188,7 @@
         "reconhecer centenas, dezenas e unidades",
         "manter um resultado parcial curto na memória"
       ],
-      "summary": "Estabelece a gramática usada no restante do livro: calcular da esquerda para a direita, começar pelas casas mais significativas, decompor o segundo número e transformar empréstimos difíceis em compensações fáceis. A dificuldade cresce de duas casas para quatro e culmina em complementos.",
+      "summary": "Estabelece a base dos próximos capítulos: calcular da esquerda para a direita, começar pelas casas mais significativas, decompor o segundo número e transformar empréstimos difíceis em compensações fáceis. A dificuldade cresce de duas casas para quatro e culmina em complementos.",
       "groupId": "base",
       "theoryTopicIds": [
         "c01-esquerda-direita",
@@ -1202,7 +1203,7 @@
           "id": "livro-c01-l01-direcao-e-simplificacao",
           "order": 1,
           "title": "Por que calcular da esquerda para a direita",
-          "summary": "A fala, a leitura e a estimativa começam pelos algarismos mais significativos. No cálculo mental, produzir primeiro a ordem de grandeza reduz a carga de memória e permite transformar cada etapa em um problema menor. O princípio repetido pelo autor é simplificar antes de acelerar.",
+          "summary": "A fala, a leitura e a estimativa começam pelos algarismos mais significativos. No cálculo mental, produzir primeiro a ordem de grandeza reduz a carga de memória e permite transformar cada etapa em um problema menor. Simplifique antes de acelerar.",
           "whenToUse": [
             "em adições e subtrações mentais com duas ou mais casas",
             "quando uma estimativa inicial é mais valiosa que conhecer o último algarismo",
@@ -1466,7 +1467,7 @@
             "somar as unidades antes das dezenas",
             "esquecer o parcial enquanto calcula a última unidade",
             "reiniciar a conta quando surge transporte",
-            "tentar ocultar as etapas durante a fase de treino; o livro recomenda praticar em voz alta"
+            "tentar ocultar as etapas durante a fase de treino; pratique em voz alta"
           ],
           "memoryCue": "Dezenas primeiro; diga o parcial; unidades depois.",
           "tags": [
@@ -1490,7 +1491,7 @@
           "id": "livro-c01-l03-adicao-tres-e-quatro-digitos",
           "order": 3,
           "title": "Adição de três e quatro dígitos",
-          "summary": "A mesma decomposição passa por centenas, dezenas e unidades. O texto acrescenta três decisões: arredondar uma parcela próxima de um número redondo, trocar a ordem quando a segunda forma é nitidamente mais simples e aproveitar números cujas casas não nulas quase não se sobrepõem.",
+          "summary": "A mesma decomposição passa por centenas, dezenas e unidades. Tome três decisões: arredonde uma parcela próxima de um número redondo, troque a ordem quando a segunda forma for nitidamente mais simples e aproveite números cujas casas não nulas quase não se sobrepõem.",
           "whenToUse": [
             "em somas de três dígitos",
             "ao acrescentar três dígitos a um número de quatro dígitos",
@@ -1747,7 +1748,7 @@
           "id": "livro-c01-l04-emparelhamento-gauss",
           "order": 4,
           "title": "Emparelhar extremos: a ideia de Gauss",
-          "summary": "O quadro histórico mostra uma forma estrutural de somar uma sequência: alinhe o primeiro com o último, o segundo com o penúltimo e assim por diante. Quando todos os pares têm a mesma soma, basta multiplicar essa soma pela quantidade de pares.",
+          "summary": "Some uma sequência de forma estrutural: alinhe o primeiro com o último, o segundo com o penúltimo e assim por diante. Quando todos os pares têm a mesma soma, basta multiplicar essa soma pela quantidade de pares.",
           "whenToUse": [
             "em sequências aritméticas com termos igualmente espaçados",
             "quando o primeiro e o último, o segundo e o penúltimo formam somas iguais",
@@ -1983,7 +1984,7 @@
                   "explanation": "Devolvemos o excesso."
                 }
               ],
-              "conclusion": "O livro compara os dois caminhos e prefere −30+1 neste caso.",
+              "conclusion": "Entre os dois caminhos, −30+1 exige menos esforço neste caso.",
               "source": {
                 "printedPage": 22,
                 "pdfPage": 48
@@ -2543,7 +2544,7 @@
         "subtração por arredondamento e compensação",
         "manter um parcial curto enquanto calcula outro produto"
       ],
-      "summary": "Constrói a multiplicação mental por distributividade: primeiro 2×1, depois 3×1, com atenção crescente à memória e ao transporte. O capítulo termina convertendo quadrados de dois dígitos em um produto balanceado mais um pequeno quadrado e demonstra algebricamente por que os métodos funcionam. Traz 76 exercícios formais.",
+      "summary": "Constrói a multiplicação mental por distributividade: primeiro 2×1, depois 3×1, com atenção crescente à memória e ao transporte. Em seguida, converte quadrados de dois dígitos em um produto balanceado mais um pequeno quadrado e demonstra algebricamente por que os métodos funcionam. A prática inclui 76 exercícios.",
       "groupId": "tabuada",
       "theoryTopicIds": [
         "c01-esquerda-direita",
@@ -2560,7 +2561,7 @@
           "id": "livro-c02-l01-tabuada-e-direcao",
           "order": 1,
           "title": "Tabuada automática e direção esquerda→direita",
-          "summary": "O único pré-requisito declarado é dominar a tabuada até 10, de ida e de volta. A multiplicação mental seguirá a mesma direção da leitura: produtos das maiores casas primeiro. Isso também permite começar a dizer partes estáveis da resposta antes de terminar.",
+          "summary": "Domine a tabuada até 10, de ida e de volta. Faça a multiplicação mental na mesma direção da leitura: produtos das maiores casas primeiro. Isso também permite começar a dizer partes estáveis da resposta antes de terminar.",
           "whenToUse": [
             "antes de iniciar multiplicações 2×1 e 3×1",
             "quando um produto parcial ainda exige contagem consciente",
@@ -2618,7 +2619,7 @@
             "tentar compensar uma tabuada lenta com mais passos mentais",
             "saber a tabela apenas em ordem crescente",
             "começar por produtos grandes antes de recuperar fatos básicos sem esforço",
-            "interpretar a referência à tabuada como uma técnica nova que o livro não fornece"
+            "interpretar a referência à tabuada como uma técnica nova"
           ],
           "memoryCue": "A tabuada ocupa zero memória para que o parcial possa ocupar uma.",
           "tags": [
@@ -2840,7 +2841,7 @@
           "id": "livro-c02-l03-dois-por-um-arredondamento",
           "order": 3,
           "title": "2×1 por arredondamento e subtração",
-          "summary": "Quando o número de dois dígitos termina em 8 ou 9, pode ser mais simples arredondá-lo para a próxima dezena, multiplicar e subtrair o excesso multiplicado. O autor limita a recomendação a distâncias de 1 ou 2 e observa que decidir também tem custo.",
+          "summary": "Quando o número de dois dígitos termina em 8 ou 9, pode ser mais simples arredondá-lo para a próxima dezena, multiplicar e subtrair o excesso multiplicado. Prefira esse caminho para distâncias de 1 ou 2; avaliar muitas alternativas também consome atenção.",
           "whenToUse": [
             "quando o multiplicando termina em 8 ou 9",
             "quando a próxima dezena produz um produto imediato",
@@ -3554,7 +3555,7 @@
           "id": "livro-c02-l06-quadrados-dois-digitos",
           "order": 6,
           "title": "Quadrados de dois dígitos por equilíbrio",
-          "summary": "Afaste-se a mesma distância para baixo e para cima até que um dos fatores seja uma dezena redonda. Multiplique os fatores equilibrados e some o quadrado da distância. O livro deriva a ideia observando que produtos equidistantes do centro ficam abaixo do quadrado central por 1², 2², 3² e assim por diante.",
+          "summary": "Afaste-se a mesma distância para baixo e para cima até que um dos fatores seja uma dezena redonda. Multiplique os fatores equilibrados e some o quadrado da distância. Produtos equidistantes do centro ficam abaixo do quadrado central por 1², 2², 3² e assim por diante.",
           "whenToUse": [
             "para elevar mentalmente qualquer número de dois dígitos ao quadrado",
             "quando a dezena mais próxima está de 1 a 5 unidades",
@@ -3665,7 +3666,7 @@
                   "explanation": "Somamos 9."
                 }
               ],
-              "conclusion": "O livro também mostra 70×84+7², mas a distância 3 gera correção menor.",
+              "conclusion": "Também é possível usar 70×84+7², mas a distância 3 gera uma correção menor.",
               "source": {
                 "printedPage": 46,
                 "pdfPage": 72
@@ -3853,7 +3854,7 @@
           "id": "livro-c02-l07-por-que-funciona",
           "order": 7,
           "title": "Por que a distributiva e o quadrado balanceado funcionam",
-          "summary": "A seção teórica explicita que os atalhos são identidades, não coincidências. Sacos com moedas dão uma intuição concreta para distribuir um fator; a álgebra demonstra tanto a decomposição 2×1/3×1 quanto as duas formas equivalentes do método de quadrados.",
+          "summary": "Os atalhos são identidades, não coincidências. Sacos com moedas dão uma intuição concreta para distribuir um fator; a álgebra demonstra tanto a decomposição 2×1/3×1 quanto as duas formas equivalentes do método de quadrados.",
           "whenToUse": [
             "para justificar decomposições novas sem decorar regras isoladas",
             "quando se quer verificar se um atalho preserva exatamente o produto",
@@ -4031,7 +4032,7 @@
         "quadrados de dois dígitos",
         "tabuada e fatores de um dígito"
       ],
-      "summary": "Transforma a multiplicação 2×2 em uma escolha estratégica entre adição, subtração e fatoração. Depois aplica o quadrado balanceado a três dígitos e encerra com uma identidade exata para cubos de dois dígitos. O capítulo enfatiza que criatividade significa escolher o caminho de menor carga, não decorar uma única rotina. A página impressa 58 está ausente no PDF; os três exercícios de ×11 são confirmados apenas pelo gabarito.",
+      "summary": "Transforma a multiplicação 2×2 em uma escolha estratégica entre adição, subtração e fatoração. Depois aplica o quadrado balanceado a três dígitos e encerra com uma identidade exata para cubos de dois dígitos. Criatividade significa escolher o caminho de menor carga, não decorar uma única rotina. O atalho de ×11 também é retomado nos casos com e sem transporte.",
       "groupId": "quadrado",
       "theoryTopicIds": [
         "c01-vezes-11",
@@ -4263,16 +4264,16 @@
         {
           "id": "livro-c03-l02-vezes-11-lacuna",
           "order": 2,
-          "title": "×11 retomado e a página 58 ausente",
-          "summary": "A página 57 reapresenta o atalho de inserir a soma dos algarismos para casos sem transporte. A página impressa 58, que continuava a subseção e continha três exercícios, não está no arquivo. O gabarito da página 240 confirma apenas os enunciados 35×11, 48×11 e 94×11 e suas respostas; nenhuma explicação ausente é reconstruída.",
+          "title": "×11 retomado: casos com e sem transporte",
+          "summary": "Para multiplicar um número de dois dígitos por 11, mantenha os algarismos das pontas e coloque a soma deles no meio. Se a soma tiver dois dígitos, escreva a unidade no meio e transporte a dezena para a ponta esquerda.",
           "whenToUse": [
             "em produtos 2×2 nos quais um fator é 11",
             "como alternativa mais curta que o método da adição",
             "para reconhecer quando a soma central exige transporte"
           ],
-          "whyItWorks": "A identidade já apresentada no capítulo 0 continua válida: (10a+b)×11=100a+10(a+b)+b. A seção disponível mostra o caso sem transporte; o caso com transporte é sustentado pela técnica anterior e pelos resultados do gabarito, não por texto recuperado da página ausente.",
+          "whyItWorks": "A identidade (10a+b)×11=100a+10(a+b)+b preserva as pontas e coloca a+b na casa central. Quando a+b passa de 9, sua dezena é transportada para a esquerda.",
           "algorithm": {
-            "title": "Use o atalho já aprendido, com proveniência explícita",
+            "title": "Insira a soma central e transporte quando necessário",
             "steps": [
               {
                 "order": 1,
@@ -4287,12 +4288,12 @@
               {
                 "order": 3,
                 "action": "Transporte se necessário",
-                "detail": "Aplique o algoritmo documentado no capítulo 0; não atribua detalhes adicionais à página 58 ausente."
+                "detail": "Escreva a unidade da soma no meio e acrescente a dezena transportada à ponta esquerda."
               },
               {
                 "order": 4,
-                "action": "Rastreie o exercício",
-                "detail": "Para os três itens perdidos, cite o gabarito impresso 240/PDF 266 como evidência."
+                "action": "Confira pela distributiva",
+                "detail": "Se quiser verificar, compare o resultado com 10N+N."
               }
             ]
           },
@@ -4311,7 +4312,7 @@
                   "explanation": "Mantemos as pontas."
                 }
               ],
-              "conclusion": "A página 57 compara o atalho à decomposição 10×42+1×42.",
+              "conclusion": "O atalho produz o mesmo resultado que a decomposição 10×42+1×42.",
               "source": {
                 "printedPage": 57,
                 "pdfPage": 84
@@ -4364,25 +4365,25 @@
               "steps": [
                 {
                   "expression": "9+4=13",
-                  "explanation": "O gabarito confirma uma soma central com transporte."
+                  "explanation": "A soma central tem dois dígitos e exige transporte."
                 },
                 {
                   "expression": "9+1=10; unidade central=3; ponta=4",
-                  "explanation": "Aplicamos o algoritmo de transporte já documentado no capítulo 0."
+                  "explanation": "Escrevemos 3 no meio e transportamos 1 para a esquerda."
                 },
                 {
                   "expression": "94×11=1034",
-                  "explanation": "Resposta confirmada na seção de soluções."
+                  "explanation": "A distributiva também produz 940+94=1034."
                 }
               ],
-              "conclusion": "Este exercício pertence à página impressa 58 ausente; sua existência e resposta vêm do gabarito, não de uma página principal recuperada.",
+              "conclusion": "Em 94×11, transporte 1 para o 9, mantenha 3 no meio e preserve o 4 à direita.",
               "source": {
                 "printedPage": 240,
                 "pdfPage": 266
               },
               "visualizacao": {
                 "tipo": "conta-armada",
-                "rotulo": "Exercício perdido 94 vezes 11, recuperado pelo gabarito",
+                "rotulo": "94 vezes 11 com transporte",
                 "leitura": "Nove mais quatro são treze; escreva três no meio, transporte um e obtenha mil e trinta e quatro.",
                 "pagina": 240,
                 "largura": 8,
@@ -4417,7 +4418,7 @@
                 "passos": [
                   {
                     "ordem": 1,
-                    "narracao": "Leia o exercício confirmado pelo gabarito."
+                    "narracao": "Comece por 94 vezes 11."
                   },
                   {
                     "ordem": 2,
@@ -4432,18 +4433,18 @@
             }
           ],
           "pitfalls": [
-            "afirmar o conteúdo textual da página 58, que não está no PDF",
-            "confundir PDF 83 com página impressa 58; PDF 83 é uma duplicata indevida da impressa 216",
-            "citar página 58/PDF 84; PDF 84 é a página impressa 57",
-            "não distinguir explicação primária de exercício recuperado pelo gabarito"
+            "esquecer o transporte quando a soma central passa de 9",
+            "escrever a soma de dois dígitos inteira no meio do resultado",
+            "alterar a unidade da direita durante o transporte",
+            "concatenar os algarismos sem conferir o valor posicional"
           ],
-          "memoryCue": "A técnica existe; a página 58 não. Para os exercícios perdidos, cite a resposta.",
+          "memoryCue": "Pontas preservadas; soma no meio; dezena vai para a esquerda.",
           "tags": [
             "multiplicacao",
             "vezes-11",
             "transporte",
-            "lacuna-editorial",
-            "gabarito"
+            "soma-central",
+            "com-transporte"
           ],
           "theoryTopicIds": [
             "c01-vezes-11"
@@ -4678,7 +4679,7 @@
                 },
                 {
                   "expression": "6840−152=6688",
-                  "explanation": "O livro mostra tanto −200+48 quanto uma leitura por complementos."
+                  "explanation": "É possível usar tanto −200+48 quanto uma leitura por complementos."
                 }
               ],
               "conclusion": "Complementos reduzem a carga da última subtração, mas o valor retirado continua sendo 152.",
@@ -5019,7 +5020,7 @@
                   "explanation": "49 é um quadrado de fator pequeno."
                 }
               ],
-              "conclusion": "O livro apresenta os três caminhos; a subtração ou a fatoração tende a impor menos soma final que a adição.",
+              "conclusion": "Entre os três caminhos, a subtração ou a fatoração tende a exigir menos soma final que a adição.",
               "source": {
                 "printedPage": 69,
                 "pdfPage": 95
@@ -5405,7 +5406,7 @@
           "id": "livro-c03-l07-cubos-dois-digitos",
           "order": 7,
           "title": "Cubos de dois dígitos por três fatores equilibrados",
-          "summary": "Escolha d como a distância até a dezena mais próxima. Multiplique os três fatores A−d, A e A+d e depois some d²×A. O método reaproveita 2×2, fatoração, produtos próximos e memória; o livro mostra vários caminhos equivalentes dentro de um único cubo.",
+          "summary": "Escolha d como a distância até a dezena mais próxima. Multiplique os três fatores A−d, A e A+d e depois some d²×A. O método reaproveita 2×2, fatoração, produtos próximos e memória; vários caminhos equivalentes podem resolver um mesmo cubo.",
           "whenToUse": [
             "para calcular exatamente o cubo de um número de dois dígitos",
             "quando o número está próximo de uma dezena",
@@ -5562,7 +5563,7 @@
                 },
                 {
                   "expression": "92×96=8832; ×100=883200",
-                  "explanation": "O livro exibe várias maneiras de achar 8832; a escolha é parte da técnica."
+                  "explanation": "Há várias maneiras de achar 8832; escolher a mais simples faz parte da técnica."
                 },
                 {
                   "expression": "4²×96=16×96=1536",

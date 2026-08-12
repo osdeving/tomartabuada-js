@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "descricao": "Detalhamento em pt-BR das Lectures 9 a 12 de calculo-mental-dicas.pdf. A organização preserva a progressão do livro: memória fonética, cálculo de calendários, multiplicação avançada e integração das técnicas. Foram incorporadas explicações, observações didáticas, instruções de treino e esclarecimentos das soluções; as páginas informadas são as páginas impressas no livro. Nos exemplos do sistema Major, palavras inglesas do original são mantidas quando a correspondência depende exatamente de sua pronúncia, acompanhadas de orientação para criar equivalentes pessoais em português.",
+  "descricao": "Técnicas avançadas organizadas em progressão: memória fonética, cálculo de calendários, multiplicação avançada e integração de métodos. Palavras inglesas são mantidas no sistema Major quando a correspondência depende exatamente da pronúncia, sempre com orientação para criar equivalentes pessoais em português.",
   "capitulos": [
     {
       "capituloId": "capitulo-09",
@@ -14,7 +14,7 @@
           "paginas": [58, 60, 128, 129],
           "resumo": "O sistema Major associa cada algarismo a um grupo de sons consonantais: 1=t/d, 2=n, 3=m, 4=r, 5=l, 6=ch/sh/j, 7=k/g forte, 8=f/v, 9=p/b e 0=s/z. Vogais e os sons de h, w e y não carregam valor numérico e podem ser usados para formar palavras pronunciáveis.",
           "quandoUsar": [
-            "Ao transformar uma sequência abstrata de dígitos em material verbal e visual.",
+            "Ao transformar uma sequência abstrata de dígitos em representações verbais e visuais.",
             "Ao decodificar uma palavra-mnemônico para recuperar o número original.",
             "Como preparação para memorizar datas, telefones, listas e resultados parciais de contas grandes."
           ],
@@ -23,7 +23,7 @@
             "titulo": "Tabela fonética básica",
             "passos": [
               { "ordem": 1, "acao": "Memorize por som", "detalhe": "Aprenda os dez pares ou grupos fonéticos, sem depender da grafia.", "expressao": "0=s/z; 1=t/d; 2=n; 3=m; 4=r; 5=l; 6=ch/sh/j; 7=k/g; 8=f/v; 9=p/b" },
-              { "ordem": 2, "acao": "Ignore sons neutros", "detalhe": "Desconsidere vogais e, no código apresentado no livro, h, w e y." },
+              { "ordem": 2, "acao": "Ignore sons neutros", "detalhe": "Desconsidere vogais, h, w e y." },
               { "ordem": 3, "acao": "Leia a pronúncia", "detalhe": "Registre uma consoante pronunciada uma vez apenas uma vez, ainda que apareça duplicada na escrita." },
               { "ordem": 4, "acao": "Converta na ordem", "detalhe": "Troque cada som relevante pelo algarismo correspondente e preserve a sequência." },
               { "ordem": 5, "acao": "Faça a volta", "detalhe": "Decodifique a palavra sem olhar a resposta para confirmar que o caminho é reversível." }
@@ -32,11 +32,11 @@
           "exemplosResolvidos": [
             {
               "id": "c09-d01-ex01",
-              "enunciado": "Decodifique NEWS pelo sistema Major do original em inglês",
+              "enunciado": "Decodifique NEWS pelo sistema Major usando a pronúncia inglesa",
               "resposta": "20",
               "etapas": [
                 { "expressao": "N → 2", "explicacao": "O som de n representa 2." },
-                { "expressao": "W → sem valor", "explicacao": "W é um dos sons neutros do código apresentado." },
+                { "expressao": "W → sem valor", "explicacao": "W é um dos sons neutros deste código." },
                 { "expressao": "S → 0", "explicacao": "O som de s representa 0." },
                 { "expressao": "2, 0 → 20", "explicacao": "A ordem dos sons relevantes recupera o número." }
               ],
@@ -45,7 +45,7 @@
             },
             {
               "id": "c09-d01-ex02",
-              "enunciado": "Decodifique PHONETIC pelo sistema Major do original em inglês",
+              "enunciado": "Decodifique PHONETIC pelo sistema Major usando a pronúncia inglesa",
               "resposta": "8217",
               "etapas": [
                 { "expressao": "PH/F → 8", "explicacao": "O som de f corresponde a 8." },
@@ -92,7 +92,7 @@
           "exemplosResolvidos": [
             {
               "id": "c09-d02-ex01",
-              "enunciado": "Transforme 491 em uma palavra pelo exemplo original",
+              "enunciado": "Transforme 491 em uma palavra usando o sistema Major em inglês",
               "resposta": "RABBIT, REPEAT ou ORBIT são alternativas válidas em inglês",
               "etapas": [
                 { "expressao": "4 → R", "explicacao": "O primeiro som obrigatório é r." },
@@ -105,7 +105,7 @@
             },
             {
               "id": "c09-d02-ex02",
-              "enunciado": "Converta PARTY em número pelo exemplo original",
+              "enunciado": "Converta PARTY em número usando a pronúncia inglesa",
               "resposta": "941",
               "etapas": [
                 { "expressao": "P → 9", "explicacao": "P fornece o primeiro dígito." },
@@ -156,7 +156,7 @@
               "resposta": "Uma cena de Jackson como sujeito TOUGH com uma KNIFE",
               "etapas": [
                 { "expressao": "1828 → t/d-f/v-n-f/v", "explicacao": "Os sons obrigatórios podem ser distribuídos em duas palavras." },
-                { "expressao": "TOUGH + KNIFE", "explicacao": "No exemplo inglês do livro, as palavras recuperam os sons de 1828." },
+                { "expressao": "TOUGH + KNIFE", "explicacao": "Em inglês, essas palavras recuperam os sons de 1828." },
                 { "expressao": "Jackson na cena", "explicacao": "A personagem histórica impede que o ano fique sem contexto." }
               ],
               "conclusao": "O evento chama a cena; a cena devolve 1828.",
@@ -167,7 +167,7 @@
               "enunciado": "Lembrar que a Revolução Russa ocorreu em 1917",
               "resposta": "Lenin vira TOP DOG na cena sugerida",
               "etapas": [
-                { "expressao": "TOP DOG → 1-9-1-7", "explicacao": "Os sons t, p, d e g codificam 1917 no exemplo original." },
+                { "expressao": "TOP DOG → 1-9-1-7", "explicacao": "Os sons t, p, d e g codificam 1917 na pronúncia inglesa." },
                 { "expressao": "Lenin como TOP DOG", "explicacao": "A imagem liga a frase diretamente à revolução." }
               ],
               "conclusao": "Uma associação excêntrica pode ser mais útil que uma frase historicamente literal.",
@@ -224,11 +224,11 @@
               "resposta": "Converter 314159265358979323846264 em uma frase curta de imagens encadeadas",
               "etapas": [
                 { "expressao": "314159265358979323846264", "explicacao": "Trate a sequência como cobertura completa, não como dígitos avulsos." },
-                { "expressao": "palavras longas", "explicacao": "O exemplo do livro usa poucas palavras que, juntas, cobrem todos os sons numéricos." },
+                { "expressao": "palavras longas", "explicacao": "Use poucas palavras que, juntas, cubram todos os sons numéricos." },
                 { "expressao": "frase em ordem", "explicacao": "As palavras formam uma pequena narrativa para preservar a sequência." },
                 { "expressao": "frase → 24 dígitos", "explicacao": "A checagem final deve reconstruir exatamente o número original." }
               ],
-              "conclusao": "A meta não é decorar a frase do livro, mas aprender a compactar uma sequência em imagens próprias.",
+              "conclusao": "A meta é aprender a compactar uma sequência em imagens próprias, não decorar uma frase pronta.",
               "origem": { "pagina": 59 }
             },
             {
@@ -237,7 +237,7 @@
               "resposta": "Quebrar o número em palavras foneticamente válidas e uni-las a uma cena da Casa Branca",
               "etapas": [
                 { "expressao": "202 | 456 | 1414", "explicacao": "Uma divisão inicial organiza a busca por palavras." },
-                { "expressao": "palavras → cena presidencial", "explicacao": "As sugestões da solução ligam os blocos a personagens e objetos visualizáveis." },
+                { "expressao": "palavras → cena presidencial", "explicacao": "Ligue os blocos a personagens e objetos fáceis de visualizar." },
                 { "expressao": "cena → 2024561414", "explicacao": "A decodificação confirma cada bloco e sua ordem." }
               ],
               "conclusao": "O contexto do dono do telefone serve de cola para o código.",
@@ -259,7 +259,7 @@
           "ordem": 5,
           "titulo": "Use palavras-gancho para listas numeradas",
           "paginas": [59, 60, 62, 130, 131],
-          "resumo": "No sistema de ganchos, cada posição recebe uma palavra concreta produzida pelo sistema Major. Para recordar o item de uma lista, imagine o objeto associado interagindo com o gancho daquele número. O livro sugere, em inglês, tea, knee, moo, ear, oil, shoe, key, foe, pie e dice para 1 a 10 e recomenda criar um conjunto pessoal.",
+          "resumo": "No sistema de ganchos, cada posição recebe uma palavra concreta produzida pelo sistema Major. Para recordar o item de uma lista, imagine o objeto associado interagindo com o gancho daquele número. Em inglês, tea, knee, moo, ear, oil, shoe, key, foe, pie e dice representam 1 a 10; crie um conjunto pessoal que funcione na sua pronúncia.",
           "quandoUsar": [
             "Em listas cuja posição também importa, como presidentes, elementos ou emendas.",
             "Quando você precisa responder tanto qual item ocupa uma posição quanto qual é a posição do item.",
@@ -282,7 +282,7 @@
               "enunciado": "Associar George Washington à posição 1",
               "resposta": "Imaginar Washington tomando tea, o gancho inglês de 1",
               "etapas": [
-                { "expressao": "1 → T/D → TEA", "explicacao": "No conjunto original, TEA representa o primeiro lugar." },
+                { "expressao": "1 → T/D → TEA", "explicacao": "Na lista em inglês, TEA representa o primeiro lugar." },
                 { "expressao": "Washington + chá", "explicacao": "A interação visual liga o primeiro presidente ao gancho." }
               ],
               "conclusao": "Ao pensar em 1, o gancho chama a cena com Washington.",
@@ -304,7 +304,7 @@
               "enunciado": "Ligar a 4ª emenda a buscas e apreensões",
               "resposta": "Use EAR como gancho inglês de 4 e imagine uma inspeção absurda no ouvido",
               "etapas": [
-                { "expressao": "4 → R → EAR", "explicacao": "EAR é o quarto gancho na lista original." },
+                { "expressao": "4 → R → EAR", "explicacao": "Na lista em inglês, EAR é o quarto gancho." },
                 { "expressao": "inspeção + EAR + apreensão", "explicacao": "A cena exagerada conecta o número ao conteúdo protegido pela emenda." }
               ],
               "conclusao": "O gancho fornece a posição e a ação fornece o significado.",
@@ -347,7 +347,7 @@
           "exemplosResolvidos": [
             {
               "id": "c09-d06-ex01",
-              "enunciado": "Diferenciar uma credencial ligada a uma conta Visa no exemplo do livro",
+              "enunciado": "Diferenciar uma credencial ligada a uma conta Visa",
               "resposta": "Anexar 80741, codificado pelos sons de VISA CARD",
               "etapas": [
                 { "expressao": "V-S-K-R-D", "explicacao": "Retire os sons sem valor e preserve os consonantais relevantes." },
@@ -551,7 +551,7 @@
               "etapas": [
                 { "expressao": "⌊74/4⌋=18", "explicacao": "Conte os bissextos." },
                 { "expressao": "74+18=92", "explicacao": "Some os deslocamentos." },
-                { "expressao": "92−91=1", "explicacao": "Retire 13 semanas; a solução também permite retirar 70 e depois 21." }
+                { "expressao": "92−91=1", "explicacao": "Retire 13 semanas; também é possível retirar 70 e depois 21." }
               ],
               "conclusao": "Escolha múltiplos de 7 mentalmente convenientes; o resto é o mesmo.",
               "origem": { "pagina": 133 }
@@ -687,7 +687,7 @@
           "ordem": 6,
           "titulo": "Inclua o código do século e respeite o calendário histórico",
           "paginas": [64, 65, 68, 135, 136, 137],
-          "resumo": "O deslocamento secular apresentado é 1900=1, 1800=3, 1700=5 e 1600=0. Some esse valor a ano + bissextos antes de reduzir por 7. O método descrito usa o calendário gregoriano; antes ou durante sua adoção gradual, o mesmo rótulo de data pode seguir o calendário juliano e produzir outro dia.",
+          "resumo": "Use os deslocamentos 1900=1, 1800=3, 1700=5 e 1600=0. Some o valor correspondente a ano + bissextos antes de reduzir por 7. A conta usa o calendário gregoriano; antes ou durante sua adoção gradual, a mesma data pode seguir o calendário juliano e produzir outro dia.",
           "quandoUsar": [
             "Em datas gregorianas dos séculos XVII a XX.",
             "Quando uma data histórica parece divergir entre fontes.",
@@ -698,7 +698,7 @@
             "titulo": "Data histórica com deslocamento secular",
             "passos": [
               { "ordem": 1, "acao": "Identifique o calendário", "detalhe": "Verifique se a região já adotava o gregoriano na data em questão." },
-              { "ordem": 2, "acao": "Escolha o século", "detalhe": "Use 0 para 1600, 5 para 1700, 3 para 1800 e 1 para 1900, conforme a tabela do livro." },
+              { "ordem": 2, "acao": "Escolha o século", "detalhe": "Use 0 para 1600, 5 para 1700, 3 para 1800 e 1 para 1900." },
               { "ordem": 3, "acao": "Calcule o ano", "detalhe": "Some os dois últimos dígitos, sua divisão inteira por 4 e o código secular; reduza por 7." },
               { "ordem": 4, "acao": "Complete a data", "detalhe": "Some mês e dia e reduza novamente por 7." },
               { "ordem": 5, "acao": "Declare a convenção", "detalhe": "Em fatos históricos próximos da transição, informe se o resultado é juliano ou gregoriano." }
@@ -734,7 +734,7 @@
             "Aplicar o código de 2000 a um século anterior sem compensação.",
             "Supor adoção universal do gregoriano desde 1582; ela foi gradual.",
             "Tratar o calendário juliano como se tivesse as exceções de 100 e 400.",
-            "Afirmar dias da semana da Antiguidade sem uma convenção histórica válida; o livro observa que a semana de sete dias nem sempre era usada."
+            "Afirmar dias da semana da Antiguidade sem uma convenção histórica válida; a semana de sete dias nem sempre era usada."
           ],
           "lembrete": "Antes da conta histórica, pergunte: qual século, qual calendário, qual lugar?",
           "tags": ["calendario", "seculos", "gregoriano", "juliano", "historia"],
@@ -893,7 +893,7 @@
               "resposta": "15.876",
               "etapas": [
                 { "expressao": "126−26=100; 126+26=152", "explicacao": "A estrutura principal reduz o quadrado a produto e correção." },
-                { "expressao": "100×152=15.200", "explicacao": "Diga mentalmente 15 mil e represente os 200 restantes com dois dedos, como sugere o livro." },
+                { "expressao": "100×152=15.200", "explicacao": "Diga mentalmente 15 mil e represente os 200 restantes com dois dedos." },
                 { "expressao": "26²=676", "explicacao": "Recupere com fluência o quadrado auxiliar." },
                 { "expressao": "15.200+676=15.876", "explicacao": "Recombine o parcial preservado com a correção." }
               ],
@@ -1015,9 +1015,9 @@
               "resposta": "5.499.025",
               "etapas": [
                 { "expressao": "2345−345=2000; 2345+345=2690", "explicacao": "Leve um fator ao milhar redondo." },
-                { "expressao": "2000×2690=5.380.000", "explicacao": "Obtenha o produto principal; 380 pode ser guardado como MOVIES no código original." },
+                { "expressao": "2000×2690=5.380.000", "explicacao": "Obtenha o produto principal; em inglês, MOVIES pode guardar 380." },
                 { "expressao": "345²=300×390+45²", "explicacao": "Reduza o quadrado auxiliar a uma centena." },
-                { "expressao": "117.000+2.025=119.025", "explicacao": "Conclua o quadrado auxiliar; 025 pode ser guardado como SNAIL no original." },
+                { "expressao": "117.000+2.025=119.025", "explicacao": "Conclua o quadrado auxiliar; em inglês, SNAIL pode guardar 025." },
                 { "expressao": "5.380.000+119.025=5.499.025", "explicacao": "Some os blocos e resolva o carry nos milhares." }
               ],
               "conclusao": "O algoritmo combina identidade algébrica, quadrado de três dígitos e memória fonética.",
@@ -1032,7 +1032,7 @@
                 { "expressao": "235²=55.225", "explicacao": "Use um quadrado de três dígitos já treinado." },
                 { "expressao": "1.470.000+55.225=1.525.225", "explicacao": "Some e trate a passagem de 470 para 525 milhares." }
               ],
-              "conclusao": "A solução recomenda anunciar apenas os milhões seguros e manter o bloco sujeito a carry em código.",
+              "conclusao": "Anuncie apenas os milhões seguros e mantenha em código o bloco ainda sujeito a transporte.",
               "origem": { "pagina": 138 }
             },
             {
@@ -1122,7 +1122,7 @@
           "ordem": 5,
           "titulo": "Aproxime cubos com a dezena vizinha",
           "paginas": [70, 74, 141],
-          "resumo": "Para x=z+d, com z uma dezena redonda próxima, o livro aproxima x³ por z×z×(z+3d). A expressão captura os dois primeiros termos relevantes da expansão e ignora correções menores; é rápida e costuma ficar perto do valor exato.",
+          "resumo": "Para x=z+d, com z uma dezena redonda próxima, aproxime x³ por z×z×(z+3d). A expressão captura os dois primeiros termos relevantes da expansão e ignora correções menores; é rápida e costuma ficar perto do valor exato.",
           "quandoUsar": [
             "Ao estimar o cubo de um número de dois dígitos.",
             "Quando a ordem de grandeza importa mais que a unidade exata.",
@@ -1148,7 +1148,7 @@
                 { "expressao": "43=40+3", "explicacao": "Use z=40 e d=3." },
                 { "expressao": "z+3d=40+9=49", "explicacao": "Ajuste o terceiro fator." },
                 { "expressao": "40×40×49=1600×49=78.400", "explicacao": "Calcule a estimativa." },
-                { "expressao": "43³=79.507", "explicacao": "O livro fornece o valor exato para mostrar a proximidade." }
+                { "expressao": "43³=79.507", "explicacao": "Compare com o valor exato para avaliar a proximidade." }
               ],
               "conclusao": "A aproximação erra por 1.107, cerca de 1,4% do valor exato.",
               "origem": { "pagina": 70 }
@@ -1181,7 +1181,7 @@
           "ordem": 6,
           "titulo": "Escolha a estratégia de 3×2 pela estrutura dos fatores",
           "paginas": [70, 71, 73, 140, 141],
-          "resumo": "O livro propõe uma ordem de preferência: ignore zeros finais temporariamente; procure fatorar o número de dois dígitos; se não der, tente fatorar o de três dígitos; por último, decomponha o de três dígitos e use a distributiva. Aproximadamente metade dos fatores de dois dígitos admite fatoração pequena útil.",
+          "resumo": "Siga esta ordem de preferência: ignore zeros finais temporariamente; procure fatorar o número de dois dígitos; se não der, tente fatorar o de três dígitos; por último, decomponha o de três dígitos e use a distributiva. Aproximadamente metade dos fatores de dois dígitos admite fatoração pequena útil.",
           "quandoUsar": [
             "Em produtos de três por dois dígitos.",
             "Quando há zeros, fatores pequenos, proximidade de número redondo ou uma decomposição evidente.",
@@ -1265,7 +1265,7 @@
           "ordem": 7,
           "titulo": "Complete a aproximação para obter cubos exatos",
           "paginas": [74, 75, 141, 142],
-          "resumo": "No material bônus, para x=z+d use (z+d)³=z[z(z+3d)+3d²]+d³. O início reaproveita a estimativa; depois acrescenta 3d² dentro do produto por z e d³ no final. Como d é um algarismo de −4 a 5 ao escolher a dezena mais próxima, as correções pertencem a listas curtas.",
+          "resumo": "Para obter o cubo exato de x=z+d, use (z+d)³=z[z(z+3d)+3d²]+d³. O início reaproveita a estimativa; depois acrescenta 3d² dentro do produto por z e d³ no final. Como d é um algarismo de −4 a 5 ao escolher a dezena mais próxima, as correções pertencem a listas curtas.",
           "quandoUsar": [
             "Ao calcular exatamente o cubo de um número de dois dígitos.",
             "Depois que a aproximação por z²(z+3d) estiver confortável.",
@@ -1346,7 +1346,7 @@
           "ordem": 1,
           "titulo": "Leia os números antes de escolher o método",
           "paginas": [76, 79, 80, 142, 143, 144],
-          "resumo": "A síntese do curso começa com uma pergunta estratégica: os números oferecem fatores pequenos, estão próximos, ficam perto de um redondo ou permitem trocar uma adição difícil por subtração fácil? O livro recomenda resolver um mesmo problema de mais de uma forma e abre a revisão com contas que pareciam muito difíceis antes do curso. Parte da revisão pede papel e somente a resposta final, lembrando que reconhecer quando usar um procedimento escrito também faz parte da escolha consciente do método.",
+          "resumo": "Comece com uma pergunta estratégica: os números oferecem fatores pequenos, estão próximos, ficam perto de um redondo ou permitem trocar uma adição difícil por subtração fácil? Resolva um mesmo problema de mais de uma forma e compare os caminhos. Reconhecer quando usar um procedimento escrito também faz parte da escolha consciente do método.",
           "quandoUsar": [
             "Antes de iniciar qualquer conta mental não trivial.",
             "Quando dois métodos parecem possíveis e você quer escolher o de menor carga.",
@@ -1458,7 +1458,7 @@
                 { "expressao": "líderes pequenos → produto líder menor", "explicacao": "Inícios pequenos favorecem a faixa de 7 dígitos." },
                 { "expressao": "Benford: P(1)>P(9)", "explicacao": "Em muitos conjuntos reais, os líderes não são equiprováveis." }
               ],
-              "conclusao": "O livro estima uma divisão próxima de 50–50 para esse cenário realista, em contraste com a intuição uniforme.",
+              "conclusao": "A divisão fica próxima de 50–50 nesse cenário realista, em contraste com a intuição uniforme.",
               "origem": { "pagina": 76 }
             }
           ],
@@ -1536,7 +1536,7 @@
           "ordem": 4,
           "titulo": "Quebre contas enormes até restarem técnicas conhecidas",
           "paginas": [77, 79, 80, 144],
-          "resumo": "O livro define cálculo mental avançado como simplificação constante. Um problema grande é decomposto em quadrados menores, produto cruzado, complementos e blocos guardados por mnemônicos. A habilidade de mestre é orquestrar métodos já aprendidos, não executar uma operação monolítica.",
+          "resumo": "Cálculo mental avançado exige simplificação constante. Decomponha um problema grande em quadrados menores, produto cruzado, complementos e blocos guardados por mnemônicos. A habilidade principal é coordenar métodos já aprendidos, não executar uma operação monolítica.",
           "quandoUsar": [
             "Em quadrados ou produtos muito maiores que os praticados diretamente.",
             "Quando a conta pode ser dividida em uma parte redonda e um resto pequeno.",
@@ -1557,7 +1557,7 @@
           "exemplosResolvidos": [
             {
               "id": "c12-d04-ex01",
-              "enunciado": "47.893² pela decomposição indicada no livro",
+              "enunciado": "47.893² por decomposição em blocos",
               "resposta": "2.293.739.449",
               "etapas": [
                 { "expressao": "47.893=47.000+893", "explicacao": "Separe dezenas de milhar de um resto de três dígitos." },
@@ -1717,7 +1717,7 @@
               "etapas": [
                 { "expressao": "11.235=11.000+235", "explicacao": "Separe o milhar redondo e o resto." },
                 { "expressao": "11.000²=121.000.000", "explicacao": "Calcule o quadrado principal." },
-                { "expressao": "2×11.000×235=5.170.000", "explicacao": "O livro sugere guardar 170 por código fonético e o 5 em dedos." },
+                { "expressao": "2×11.000×235=5.170.000", "explicacao": "Guarde 170 por código fonético e o 5 nos dedos." },
                 { "expressao": "235²=55.225", "explicacao": "Recupere o quadrado auxiliar das soluções anteriores." },
                 { "expressao": "121.000.000+5.170.000+55.225=126.225.225", "explicacao": "Some e trate a passagem de 170 para 225 milhares." }
               ],
@@ -1745,7 +1745,7 @@
               "etapas": [
                 { "expressao": "82.682=82.000+682", "explicacao": "Separe em milhar e resto." },
                 { "expressao": "82.000²=6.724.000.000", "explicacao": "Calcule o bloco principal." },
-                { "expressao": "2×82.000×682=111.848.000", "explicacao": "Obtenha o termo cruzado; a solução o divide em palavras fonéticas." },
+                { "expressao": "2×82.000×682=111.848.000", "explicacao": "Obtenha o termo cruzado e divida o parcial em palavras fonéticas." },
                 { "expressao": "682²=465.124", "explicacao": "Calcule o quadrado do resto." },
                 { "expressao": "848.000+465.124=1.313.124", "explicacao": "Detecte o carry de um milhão antes de pronunciar o bloco anterior." },
                 { "expressao": "6.724.000.000+111.848.000+465.124=6.836.313.124", "explicacao": "Integre todos os blocos." }
@@ -1770,7 +1770,7 @@
           "ordem": 7,
           "titulo": "Trate maestria como exploração, não como campeonato",
           "paginas": [77, 78, 79],
-          "resumo": "O capítulo encerra lembrando que um antigo desafio de recorde exigia extrair rapidamente a raiz 13ª de um número de 100 dígitos e que a marca passou a usar 200 dígitos; há ainda uma Copa Mundial de Cálculo Mental periódica. Esse não precisa ser o objetivo do aluno. O ganho duradouro é integrar aritmética, memória fonética e calendário, olhar números de outro modo e recuperar a confiança para explorar matemática além da aritmética.",
+          "resumo": "Um antigo desafio de recorde exigia extrair rapidamente a raiz 13ª de um número de 100 dígitos, e a marca passou a usar 200 dígitos; há ainda uma Copa Mundial de Cálculo Mental periódica. Esse não precisa ser o objetivo do aluno. O ganho duradouro é integrar aritmética, memória fonética e calendário, olhar números de outro modo e recuperar a confiança para explorar matemática além da aritmética.",
           "quandoUsar": [
             "Ao avaliar progresso sem se comparar apenas a recordistas.",
             "Quando uma revisão difícil provoca a impressão de que nada foi aprendido.",

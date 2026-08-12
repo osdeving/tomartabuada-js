@@ -70,7 +70,6 @@ export function WorkedCalculation({ visual }) {
           <span>Conta armada</span>
           <strong id={titleId}>{label}</strong>
         </div>
-        {visual.pagina ? <small>p. {visual.pagina}</small> : null}
       </figcaption>
 
       <div className="calculation-board__canvas" aria-hidden="true">

@@ -356,11 +356,11 @@ function App() {
 function adaptiveSetupMessage(state, groupId) {
   const group = getPracticeGroup(groupId);
   const relevant = state.attempts.filter((attempt) => group.sectionIds.includes(attempt.sectionId)).slice(0, 16);
-  if (!relevant.length) return "Começa leve, aprende seu ritmo e mistura exercícios reconhecíveis do livro.";
+  if (!relevant.length) return "Começa leve, aprende seu ritmo e mistura contas já estudadas com variações novas.";
   const accuracy = relevant.filter((attempt) => attempt.correct).length / relevant.length;
   if (accuracy < 0.62) return "Vou aliviar um pouco, reforçar padrões recorrentes e devolver confiança antes de subir.";
   if (accuracy > 0.88) return "Seu desempenho recente está forte; espere menos tempo e contas um passo mais difíceis.";
-  return "O nível atual está saudável. Vou alternar revisão, novidade e exemplos do livro.";
+  return "O nível atual está saudável. Vou alternar revisão, novidade e padrões já conhecidos.";
 }
 
 export default App;

@@ -80,10 +80,9 @@ export function SessionArena({
           <span className="difficulty-chip">Nível {session.difficultyLabel}</span>
           {question?.source === "book" ? (
             <span className="book-chip">
-              {question.sourceDocumentId === "calculo-mental-use-esse" ? "Livro completo" : "Material complementar"}
               {question.sourceChapterOrder != null || question.chapter != null
-                ? ` · cap. ${question.sourceChapterOrder ?? question.chapter}`
-                : ""}
+                ? `Capítulo ${question.sourceChapterOrder ?? question.chapter}`
+                : "Prática guiada"}
             </span>
           ) : null}
           <span className="timer-label">{Math.max(0, remainingMs / 1000).toFixed(1)}s</span>

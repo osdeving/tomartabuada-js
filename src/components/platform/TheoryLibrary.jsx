@@ -56,7 +56,6 @@ function WorkedExample({ example, index }) {
     <article className="worked-example">
       <header>
         <span>Exemplo resolvido {String(index + 1).padStart(2, "0")}</span>
-        {example.page ? <small>p. {example.page}</small> : null}
       </header>
       <div className="worked-example__problem">
         <strong>{example.question}</strong>
@@ -89,7 +88,7 @@ function ChapterProgression({ chapters, active, onSelect }) {
   const next = mainChapters[activeIndex + 1] ?? null;
 
   return (
-    <nav className="theory-progression" aria-label="Progressão do livro completo">
+    <nav className="theory-progression" aria-label="Progressão da trilha principal">
       {previous ? (
         <button type="button" onClick={() => onSelect(previous.id)}>
           <small>← Anterior · L{previous.sourceOrder}</small>
@@ -188,9 +187,6 @@ function TheoryLesson({ lesson, index, expandForSearch }) {
           ) : null}
         </div>
 
-        <footer className="theory-lesson__source">
-          Fonte: {lesson.sourceLabel ?? "material didático"}{lesson.pageLabel ? ` · ${lesson.pageLabel}` : ""}
-        </footer>
       </div>
     </details>
   );
@@ -251,11 +247,11 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
         <PageHeader
           eyebrow="Biblioteca"
           title="Aprenda o raciocínio, não só a resposta"
-          description="O livro completo virou uma trilha prática: explicação, conta armada, algoritmo mental e exemplos que avançam um passo por vez."
+          description="Siga uma trilha prática com explicações, contas armadas, algoritmos mentais e exemplos que avançam um passo por vez."
           actions={<TheorySearch query={query} onChange={(event) => setQuery(event.target.value)} />}
         />
         <div className="surface empty-library">
-          <strong>{chapters.length ? "Nenhuma dica corresponde à busca." : "Abrindo o livro completo…"}</strong>
+          <strong>{chapters.length ? "Nenhuma dica corresponde à busca." : "Abrindo a trilha principal…"}</strong>
           {!chapters.length ? <span className="library-loader" aria-hidden="true" /> : null}
           {chapters.length ? <button className="text-button" type="button" onClick={() => setQuery("")}>Limpar busca</button> : null}
         </div>
@@ -268,14 +264,14 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
       <PageHeader
         eyebrow="Biblioteca"
         title="Aprenda o raciocínio, não só a resposta"
-        description="O livro completo virou uma trilha prática: explicação, conta armada, algoritmo mental e exemplos que avançam um passo por vez."
+        description="Siga uma trilha prática com explicações, contas armadas, algoritmos mentais e exemplos que avançam um passo por vez."
         actions={<TheorySearch query={query} onChange={(event) => setQuery(event.target.value)} />}
       />
 
       <div className="theory-layout">
         <aside className="surface chapter-index" aria-label="Capítulos">
           <div className="chapter-index__heading">
-            <div><p className="eyebrow">Progressão</p><strong>{chapters.filter((chapter) => chapter.sourceKind === "full-book").length} capítulos do livro</strong></div>
+            <div><p className="eyebrow">Progressão</p><strong>{chapters.filter((chapter) => chapter.sourceKind === "full-book").length} capítulos principais</strong></div>
             <span>{chapters.reduce((total, chapter) => total + chapter.lessons.length, 0)} aulas</span>
           </div>
           <div className="chapter-index__list">
@@ -283,7 +279,7 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
               <div className="chapter-index__entry" key={chapter.id}>
                 {chapterIndex === 0 || filtered[chapterIndex - 1]?.sourceKind !== chapter.sourceKind ? (
                   <p className="chapter-index__source-label">
-                    {chapter.sourceKind === "full-book" ? "Trilha principal · livro completo" : "Técnicas complementares · guia do curso"}
+                    {chapter.sourceKind === "full-book" ? "Trilha principal" : "Técnicas complementares"}
                   </p>
                 ) : null}
                 <button
@@ -294,7 +290,7 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
                 >
                   <span>{chapter.sourceKind === "full-book" ? `L${chapter.sourceOrder}` : `C${String(chapter.order).padStart(2, "0")}`}</span>
                   <strong>{chapter.title}</strong>
-                  <small>{chapter.lessons.length} aulas · {chapter.sourceKind === "full-book" ? "Livro completo" : "Complemento"}</small>
+                  <small>{chapter.lessons.length} aulas · {chapter.sourceKind === "full-book" ? "Trilha principal" : "Complemento"}</small>
                 </button>
               </div>
             ))}
@@ -306,7 +302,7 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
           <header className="theory-reader__header">
             <div>
               <span className="chapter-pill">
-                {active.sourceKind === "full-book" ? `Livro · capítulo ${active.sourceOrder}` : `Complemento · capítulo ${String(active.order).padStart(2, "0")}`} · {active.difficultyLabel}
+                {active.sourceKind === "full-book" ? `Capítulo ${active.sourceOrder}` : `Complemento · capítulo ${String(active.order).padStart(2, "0")}`} · {active.difficultyLabel}
               </span>
               <h2 tabIndex="-1">{active.title}</h2>
               <p>{active.summary}</p>
@@ -363,7 +359,7 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
             {visibleExamples.length ? (
               <details className="theory-examples" open={showExampleSearchResults}>
                 <summary>
-                  <div><p className="eyebrow">Reconhecimento rápido</p><h3>Mais exemplos do material</h3></div>
+                  <div><p className="eyebrow">Reconhecimento rápido</p><h3>Mais exemplos</h3></div>
                   <span>{visibleExamples.length} exemplos <b aria-hidden="true">⌄</b></span>
                 </summary>
                 <div className="example-grid">
@@ -381,7 +377,6 @@ export function TheoryLibrary({ chapters, initialChapterId, initialLessonId, onP
           </div>
 
           <footer className="theory-reader__footer">
-            <span>Fonte: <strong>{active.sourceLabel ?? "Course Guidebook, 2011"}</strong>{active.pageLabel ? ` · ${active.pageLabel}` : ""}</span>
             <button className="button button--primary" type="button" onClick={() => onPractice(active)}>Reconhecer no treino →</button>
           </footer>
           <ChapterProgression active={active} chapters={chapters} onSelect={selectChapter} />

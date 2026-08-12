@@ -6,12 +6,23 @@ export function formatAddition(left, right) {
   return `${left} + ${right}`;
 }
 
+export function formatSubtraction(left, right) {
+  return `${left} − ${right}`;
+}
+
 export function formatDecomposition(value, parts) {
   if (parts.length <= 1) {
     return `${value}`;
   }
 
-  return `${value} (${parts.join(" + ")})`;
+  const expression = parts
+    .map((part, index) => {
+      if (index === 0) return `${part}`;
+      return part < 0 ? `− ${Math.abs(part)}` : `+ ${part}`;
+    })
+    .join(" ");
+
+  return `${value} (${expression})`;
 }
 
 export function buildProblemDisplay({ leftValue, rightValue, leftParts, rightParts }) {

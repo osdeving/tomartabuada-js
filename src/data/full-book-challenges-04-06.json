@@ -4723,7 +4723,7 @@
         "max": 2910.6,
         "target": 2646,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 2.500; exato 2.646."
+        "display": "Estimativa sugerida: 2.500; valor exato: 2.646."
       },
       "playable": true,
       "difficulty": 6,
@@ -4769,7 +4769,7 @@
         "max": 3511.2,
         "target": 3192,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 3.120; exato 3.192."
+        "display": "Estimativa sugerida: 3.120; valor exato: 3.192."
       },
       "playable": true,
       "difficulty": 6,
@@ -4815,7 +4815,7 @@
         "max": 8518.4,
         "target": 7744,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 7.740; exato 7.744."
+        "display": "Estimativa sugerida: 7.740; valor exato: 7.744."
       },
       "playable": true,
       "difficulty": 6,
@@ -4861,7 +4861,7 @@
         "max": 10079.3,
         "target": 9163,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 9.180; exato 9.163."
+        "display": "Estimativa sugerida: 9.180; valor exato: 9.163."
       },
       "playable": true,
       "difficulty": 6,
@@ -4907,7 +4907,7 @@
         "max": 33633.6,
         "target": 30576,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 31.000; exato 30.576."
+        "display": "Estimativa sugerida: 31.000; valor exato: 30.576."
       },
       "playable": true,
       "difficulty": 6,
@@ -4953,7 +4953,7 @@
         "max": 75210.3,
         "target": 68373,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 64.600; exato 68.373."
+        "display": "Estimativa sugerida: 64.600; valor exato: 68.373."
       },
       "playable": true,
       "difficulty": 6,
@@ -4999,7 +4999,7 @@
         "max": 147360.4,
         "target": 133964,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 133.300; exato 133.964."
+        "display": "Estimativa sugerida: 133.300; valor exato: 133.964."
       },
       "playable": true,
       "difficulty": 6,
@@ -5045,7 +5045,7 @@
         "max": 27581360.4,
         "target": 25073964,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 24.990.000; exato 25.073.964."
+        "display": "Estimativa sugerida: 24.990.000; valor exato: 25.073.964."
       },
       "playable": true,
       "difficulty": 6,
@@ -5091,7 +5091,7 @@
         "max": 1293370509.2,
         "target": 1175791372,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 1.155.000.000; exato 1.175.791.372."
+        "display": "Estimativa sugerida: 1.155.000.000; valor exato: 1.175.791.372."
       },
       "playable": true,
       "difficulty": 6,
@@ -5137,7 +5137,7 @@
         "max": 1222311788536.3,
         "target": 1111192535033,
         "tolerancePercent": 10,
-        "display": "Uma estimativa do gabarito é 1.100.000.000.000; exato 1.111.192.535.033."
+        "display": "Estimativa sugerida: 1.100.000.000.000; valor exato: 1.111.192.535.033."
       },
       "playable": true,
       "difficulty": 6,
@@ -5181,7 +5181,7 @@
         "type": "decimal-tolerance",
         "value": 4.123105625617661,
         "tolerance": 0.1,
-        "display": "Estimativa do gabarito 4,1; raiz 4,12."
+        "display": "Estimativa: 4,1; raiz: 4,12."
       },
       "playable": true,
       "difficulty": 6,
@@ -5225,7 +5225,7 @@
         "type": "decimal-tolerance",
         "value": 5.916079783099616,
         "tolerance": 0.11832159566199232,
-        "display": "Estimativa do gabarito 5,9; raiz 5,92."
+        "display": "Estimativa: 5,9; raiz: 5,92."
       },
       "playable": true,
       "difficulty": 6,
@@ -5269,7 +5269,7 @@
         "type": "decimal-tolerance",
         "value": 12.767145334803704,
         "tolerance": 0.25534290669607407,
-        "display": "Estimativa do gabarito 13,15; raiz 12,77."
+        "display": "Estimativa: 13,15; raiz: 12,77."
       },
       "playable": true,
       "difficulty": 6,
@@ -5313,7 +5313,7 @@
         "type": "decimal-tolerance",
         "value": 65.41406576570516,
         "tolerance": 1.3082813153141033,
-        "display": "Estimativa do gabarito 65,5; raiz 65,41."
+        "display": "Estimativa: 65,5; raiz: 65,41."
       },
       "playable": true,
       "difficulty": 6,
@@ -5357,7 +5357,7 @@
         "type": "decimal-tolerance",
         "value": 89.66047066572872,
         "tolerance": 1.7932094133145746,
-        "display": "Estimativa do gabarito 89,5; raiz 89,66."
+        "display": "Estimativa: 89,5; raiz: 89,66."
       },
       "playable": true,
       "difficulty": 6,
@@ -5681,7 +5681,7 @@
         },
         {
           "expression": "M=100.000·i·(1+i)^N/((1+i)^N−1)≈1.266,76",
-          "explanation": "Aplique a fórmula coerente; o gabarito arredonda para 1.267."
+          "explanation": "Aplique a fórmula e arredonde para 1.267."
         }
       ],
       "source": {
@@ -5704,7 +5704,7 @@
         "type": "decimal-tolerance",
         "value": 690.88,
         "tolerance": 10,
-        "display": "aproximadamente R$691; o gabarito estima R$693"
+        "display": "aproximadamente R$691"
       },
       "playable": true,
       "difficulty": 8,
@@ -5726,7 +5726,7 @@
         },
         {
           "expression": "M=30.000·i·(1+i)^48/((1+i)^48−1)≈690,88",
-          "explanation": "Cálculo independente consistente; o valor 693 do gabarito é uma aproximação."
+          "explanation": "A fórmula produz aproximadamente R$690,88."
         }
       ],
       "source": {
@@ -6025,7 +6025,7 @@
         "type": "decimal-tolerance",
         "value": 3.872983346207417,
         "tolerance": 0.01,
-        "display": "3,87 no gabarito; valor arredondado 3,87"
+        "display": "valor arredondado: 3,87"
       },
       "playable": true,
       "difficulty": 8,
@@ -6069,7 +6069,7 @@
         "type": "decimal-tolerance",
         "value": 22.40535650240808,
         "tolerance": 0.01,
-        "display": "22,40 no gabarito; valor arredondado 22,41"
+        "display": "valor arredondado: 22,41"
       },
       "playable": true,
       "difficulty": 8,
@@ -6113,7 +6113,7 @@
         "type": "decimal-tolerance",
         "value": 20.957099035887577,
         "tolerance": 0.01,
-        "display": "20,95 no gabarito; valor arredondado 20,96"
+        "display": "valor arredondado: 20,96"
       },
       "playable": true,
       "difficulty": 8,

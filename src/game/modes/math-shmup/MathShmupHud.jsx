@@ -99,7 +99,11 @@ function getNextPrompt(snapshot) {
     return snapshot.currentPrompt;
   }
 
-  if (snapshot.openingPrompts.length) {
+  if (snapshot.openingPrompts.length === 1) {
+    return snapshot.openingPrompts[0];
+  }
+
+  if (snapshot.openingPrompts.length > 1) {
     return "Escolha um primeiro resultado útil";
   }
 

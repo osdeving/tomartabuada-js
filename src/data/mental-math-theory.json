@@ -7,7 +7,7 @@
     "edicao": "The Great Courses, 2011",
     "idiomaOriginal": "en",
     "idiomaDosDados": "pt-BR",
-    "referenciaDePagina": "numeração impressa do livro (página do PDF menos 6)"
+    "referenciaDePagina": "numeração impressa (página do PDF menos 6)"
   },
   "contrato": {
     "colecao": "capitulos[]",
@@ -46,7 +46,7 @@
       "pagina": "number (numeração impressa)"
     }
   },
-  "descricao": "Teoria localizada e estruturada na ordem pedagógica integral dos 12 capítulos. Cada padrão aponta para as páginas e preserva os exemplos matemáticos do texto.",
+  "descricao": "Teoria estruturada em uma progressão pedagógica de 12 capítulos, com padrões e exemplos matemáticos acionáveis.",
   "principiosDoCurso": [
     "Praticar é indispensável: assistir ou ler as técnicas não substitui calcular.",
     "No cálculo mental, avance da esquerda para a direita e trabalhe primeiro com as maiores ordens.",
@@ -1919,7 +1919,7 @@
         "palavras-gancho",
         "mnemônicos"
       ],
-      "notaIdioma": "O código e os exercícios do livro são fonéticos em inglês; não se deve traduzir uma palavra sem recalcular seus sons consonantais.",
+      "notaIdioma": "O código e estes exercícios são fonéticos em inglês; não traduza uma palavra sem recalcular seus sons consonantais.",
       "secoes": [
         {
           "id": "c09-codigo",
@@ -2073,7 +2073,7 @@
               "id": "c09-ex-05",
               "prompt": "3,14159265358979323846264",
               "resposta": "My turtle Poncho will, my love, pick up my new mover Ginger.",
-              "resolucao": "A frase do livro codifica os primeiros 24 algarismos de π em inglês.",
+              "resolucao": "A frase codifica os primeiros 24 algarismos de π em inglês.",
               "origem": {
                 "documentoId": "calculo-mental-dicas",
                 "tipo": "exemplo",
@@ -2112,7 +2112,7 @@
               "id": "c09-ex-07",
               "prompt": "11, 12, 13 e 40",
               "resposta": "tot, tin, tomb e rose",
-              "resolucao": "Exemplos de ganchos de dois dígitos do autor.",
+              "resolucao": "Use ganchos de dois dígitos para representar cada posição.",
               "origem": {
                 "documentoId": "calculo-mental-dicas",
                 "tipo": "exemplo",
@@ -2140,7 +2140,7 @@
               "id": "c09-ex-09",
               "prompt": "VISA CARD",
               "resposta": "80.741",
-              "resolucao": "Exemplo do livro de anexar algarismos derivados do nome a uma senha.",
+              "resolucao": "Anexe algarismos derivados do nome a uma senha.",
               "origem": {
                 "documentoId": "calculo-mental-dicas",
                 "tipo": "exemplo",
@@ -2655,7 +2655,7 @@
               "id": "c12-ex-01",
               "prompt": "21 × 29",
               "resposta": "609",
-              "resolucao": "O livro propõe comparar adição, subtração, fatoração e números próximos para o mesmo produto.",
+              "resolucao": "Compare adição, subtração, fatoração e números próximos para o mesmo produto.",
               "origem": {
                 "documentoId": "calculo-mental-dicas",
                 "tipo": "exemplo",
@@ -2790,7 +2790,7 @@
               "id": "c12-ex-03",
               "prompt": "47.893²",
               "resposta": "2.293.740.449",
-              "resolucao": "Decomponha em 47.000² + 2×47.000×893 + 893², como indicado pelo texto.",
+              "resolucao": "Decomponha em 47.000² + 2×47.000×893 + 893².",
               "origem": {
                 "documentoId": "calculo-mental-dicas",
                 "tipo": "exemplo",

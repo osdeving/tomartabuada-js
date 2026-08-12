@@ -12,7 +12,7 @@ export function CampaignJourney({ campaign, onStartStage }) {
       <PageHeader
         eyebrow="Jornada guiada"
         title="Do aquecimento à maestria"
-        description="A sequência segue a progressão do material: cada capítulo adiciona uma camada e reduz um pouco a margem de tempo."
+        description="A sequência começa leve: cada capítulo adiciona uma camada e reduz um pouco a margem de tempo."
         actions={<span className="campaign-progress"><strong>{completed}</strong> / {CAMPAIGN_STAGES.length} capítulos</span>}
       />
 
@@ -58,4 +58,3 @@ export function CampaignJourney({ campaign, onStartStage }) {
     </div>
   );
 }
-
