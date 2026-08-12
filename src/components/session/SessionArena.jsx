@@ -1,7 +1,9 @@
 import { useEffect, useRef } from "react";
 import { MathExpression } from "../MathExpression";
 
-const KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "clear", "0", "backspace"];
+const INTEGER_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "clear", "0", "backspace"];
+const DECIMAL_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "backspace"];
+const STRUCTURED_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "separator", "0", "backspace"];
 
 export function SessionArena({
   answer,
@@ -17,11 +19,29 @@ export function SessionArena({
   session,
 }) {
   const arenaRef = useRef(null);
+  const pauseDialogRef = useRef(null);
+  const resumeButtonRef = useRef(null);
   const question = session.question;
 
   useEffect(() => {
-    arenaRef.current?.focus({ preventScroll: true });
+    if (paused) resumeButtonRef.current?.focus({ preventScroll: true });
+    else arenaRef.current?.focus({ preventScroll: true });
   }, [question?.id, paused]);
+
+  function trapPauseFocus(event) {
+    if (event.key !== "Tab") return;
+    const controls = [...(pauseDialogRef.current?.querySelectorAll("button:not(:disabled)") ?? [])];
+    if (!controls.length) return;
+    const first = controls[0];
+    const last = controls.at(-1);
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  }
 
   return (
     <main
@@ -55,14 +75,21 @@ export function SessionArena({
         <HudItem label="Pontos" value={session.score.toLocaleString("pt-BR")} />
       </section>
 
-      <section className="session-stage" aria-live="polite">
+      <section className="session-stage">
         <div className="question-source-row">
           <span className="difficulty-chip">Nível {session.difficultyLabel}</span>
-          {question?.source === "book" ? <span className="book-chip">Do livro · cap. {question.chapter ?? "—"}</span> : null}
+          {question?.source === "book" ? (
+            <span className="book-chip">
+              {question.sourceDocumentId === "calculo-mental-use-esse" ? "Livro completo" : "Material complementar"}
+              {question.sourceChapterOrder != null || question.chapter != null
+                ? ` · cap. ${question.sourceChapterOrder ?? question.chapter}`
+                : ""}
+            </span>
+          ) : null}
           <span className="timer-label">{Math.max(0, remainingMs / 1000).toFixed(1)}s</span>
         </div>
 
-        <div className="session-question" key={question?.id}>
+        <div className="session-question" key={question?.id} aria-live="polite" aria-atomic="true">
           <p>Resolva mentalmente</p>
           {question?.promptLatex ? (
             <MathExpression expression={question.promptLatex} displayMode className="session-question__math" />
@@ -76,7 +103,7 @@ export function SessionArena({
           <i />
         </div>
 
-        <div className="session-feedback-slot">
+        <div className="session-feedback-slot" aria-live="polite" aria-atomic="true">
           {feedback ? (
             <div className={`session-feedback session-feedback--${feedback.tone}`}>
               <strong>{feedback.title}</strong>
@@ -93,16 +120,32 @@ export function SessionArena({
         </div>
       </section>
 
-      <SessionKeypad disabled={Boolean(feedback) || paused} onAnswerKey={onAnswerKey} />
+      {question?.choices?.length ? (
+        <SessionChoices choices={question.choices} disabled={Boolean(feedback) || paused} onAnswerKey={onAnswerKey} />
+      ) : (
+        <SessionKeypad
+          acceptsDecimal={Boolean(question?.acceptsDecimal)}
+          answerType={question?.answerType}
+          disabled={Boolean(feedback) || paused}
+          onAnswerKey={onAnswerKey}
+        />
+      )}
 
       {paused ? (
-        <div className="pause-overlay" role="dialog" aria-modal="true" aria-labelledby="pause-title">
+        <div
+          ref={pauseDialogRef}
+          className="pause-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="pause-title"
+          onKeyDown={trapPauseFocus}
+        >
           <div className="pause-card">
             <span className="pause-card__icon" aria-hidden="true">Ⅱ</span>
             <p className="eyebrow">Respire</p>
             <h2 id="pause-title">Sessão pausada</h2>
             <p>Seu tempo está congelado. Volte quando estiver pronto para manter o foco.</p>
-            <button className="button button--primary button--large" type="button" onClick={onResume}>Continuar</button>
+            <button ref={resumeButtonRef} className="button button--primary button--large" type="button" onClick={onResume}>Continuar</button>
             <button className="button button--quiet" type="button" onClick={onExit}>Encerrar e salvar</button>
           </div>
         </div>
@@ -111,20 +154,57 @@ export function SessionArena({
   );
 }
 
-function SessionKeypad({ disabled, onAnswerKey }) {
+function SessionKeypad({ acceptsDecimal, answerType, disabled, onAnswerKey }) {
+  const keys = ["rational", "quotient-remainder"].includes(answerType)
+    ? STRUCTURED_KEYS
+    : acceptsDecimal ? DECIMAL_KEYS : INTEGER_KEYS;
   return (
     <div className="session-keypad" aria-label="Teclado numérico">
-      {KEYS.map((key) => (
+      {keys.map((key) => (
         <button
           key={key}
           className={`session-key${key === "clear" || key === "backspace" ? " session-key--utility" : ""}`}
           type="button"
           disabled={disabled}
-          aria-label={key === "clear" ? "Limpar" : key === "backspace" ? "Apagar" : key}
+          aria-label={key === "clear"
+            ? "Limpar"
+            : key === "backspace"
+              ? "Apagar"
+              : key === "."
+                ? "Vírgula decimal"
+                : key === "separator"
+                  ? answerType === "rational" ? "Barra da fração" : "Separar quociente e resto"
+                  : key}
           onPointerDown={(event) => event.preventDefault()}
           onClick={() => onAnswerKey(key)}
         >
-          {key === "clear" ? "limpar" : key === "backspace" ? "⌫" : key}
+          {key === "clear"
+            ? "limpar"
+            : key === "backspace"
+              ? "⌫"
+              : key === "."
+                ? ","
+                : key === "separator" ? answerType === "rational" ? "/" : "R" : key}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function SessionChoices({ choices, disabled, onAnswerKey }) {
+  return (
+    <div className={`session-choices${choices.length > 4 ? " session-choices--compact" : ""}`} aria-label="Opções de resposta">
+      {choices.map((choice, index) => (
+        <button
+          key={String(choice.value)}
+          type="button"
+          disabled={disabled}
+          aria-label={`${index + 1}. ${choice.label}`}
+          onPointerDown={(event) => event.preventDefault()}
+          onClick={() => onAnswerKey(`choice:${choice.value}`)}
+        >
+          <kbd aria-hidden="true">{index + 1}</kbd>
+          <span>{choice.label}</span>
         </button>
       ))}
     </div>

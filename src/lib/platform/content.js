@@ -1,49 +1,75 @@
-import challengeData from "../../data/mental-math-challenges.json";
-import theoryDetails0104 from "../../data/theory-details-01-04.json";
-import theoryDetails0508 from "../../data/theory-details-05-08.json";
-import theoryDetails0912 from "../../data/theory-details-09-12.json";
 import theoryData from "../../data/mental-math-theory.json";
 import theoryTopicLessons from "../../data/theory-topic-lessons.json";
 import { getPresets } from "../academy/content";
 import { getPracticeFacts } from "../academy/facts/index";
 import { createQuestionFromFact } from "../academy/facts/shared";
 import { selectNextChallenge } from "../adaptive";
+import { numericAnswerFromContract } from "./answers";
 import { getPracticeGroup } from "./experience";
 
 const CATALOG_SAMPLE_SIZE = 320;
-const bookCandidates = challengeData.desafios
-  .filter(isNumericBookChallenge)
-  .map(normalizeBookChallenge);
 const generatedCatalogCache = new Map();
-const detailedTheoryByChapter = new Map(
-  [theoryDetails0104, theoryDetails0508, theoryDetails0912]
-    .flatMap((source) => source.capitulos)
-    .map((chapter) => [chapter.capituloId, chapter]),
-);
+let theoryChaptersPromise = null;
+let bookCandidatesPromise = null;
+const PRIMARY_BOOK_DOCUMENT_ID = "calculo-mental-use-esse";
 
 export const CONTENT_METADATA = {
-  source: challengeData.source,
-  totalBookExercises: challengeData.estatisticas.total,
-  playableBookExercises: challengeData.estatisticas.jogaveis,
-  numericBookExercises: bookCandidates.length,
+  source: "Course Guidebook, 2011 + Secrets of Mental Math, 2006",
+  totalBookExercises: 1_057,
+  playableBookExercises: 1_012,
+  numericBookExercises: 772,
+  adaptiveBookExercises: 874,
   chapterCount: theoryData.capitulos.length,
 };
 
-export const THEORY_CHAPTERS = theoryData.capitulos.map((chapter) =>
-  normalizeTheoryChapter(chapter, detailedTheoryByChapter.get(chapter.id)),
+export const THEORY_INDEX = theoryData.capitulos.flatMap((chapter) =>
+  chapter.secoes.map((topic) => {
+    const topicTags = [...new Set((topic.exemplos ?? []).flatMap((example) => example.tags ?? []))];
+    const patternKeys = [...new Set([...(chapter.padroes ?? []), ...topicTags])];
+    return {
+      id: topic.id,
+      title: topic.titulo,
+      patternKeys,
+      sectionIds: inferSectionIds(patternKeys),
+      skillPrefixes: inferSkillPrefixes(patternKeys),
+    };
+  }),
 );
 
-export const THEORY_INDEX = THEORY_CHAPTERS.flatMap((chapter) =>
-  chapter.topics.map((topic) => ({
-    id: topic.id,
-    title: topic.title,
-    patternKeys: [...new Set([...(chapter.patterns ?? []), ...(topic.tags ?? [])])],
-    sectionIds: inferSectionIds([...(chapter.patterns ?? []), ...(topic.tags ?? [])]),
-    skillPrefixes: inferSkillPrefixes([...(chapter.patterns ?? []), ...(topic.tags ?? [])]),
-  })),
-);
+export function loadTheoryChapters() {
+  if (theoryChaptersPromise) return theoryChaptersPromise;
+  theoryChaptersPromise = Promise.all([
+    import("../../data/theory-details-01-04.json"),
+    import("../../data/theory-details-05-08.json"),
+    import("../../data/theory-details-09-12.json"),
+    import("../../data/full-book-theory-00-03.json"),
+    import("../../data/full-book-theory-04-06.json"),
+    import("../../data/full-book-theory-07-09.json"),
+  ]).then((modules) => {
+    const [details0104, details0508, details0912, fullBook0003, fullBook0406, fullBook0709] = modules.map((module) => module.default);
+    const detailedTheoryByChapter = new Map(
+      [details0104, details0508, details0912]
+        .flatMap((source) => source.capitulos)
+        .map((chapter) => [chapter.capituloId, chapter]),
+    );
+    const fullBookChapters = [fullBook0003, fullBook0406, fullBook0709]
+      .flatMap((source) => source.chapters ?? []);
 
-export function selectAdaptiveQuestion({
+    return [
+      ...fullBookChapters.map(normalizeFullBookChapter),
+      ...theoryData.capitulos.map((chapter) => ({
+        ...normalizeTheoryChapter(chapter, detailedTheoryByChapter.get(chapter.id)),
+        sourceKind: "guidebook",
+      })),
+    ];
+  }).catch((error) => {
+    theoryChaptersPromise = null;
+    throw error;
+  });
+  return theoryChaptersPromise;
+}
+
+export async function selectAdaptiveQuestion({
   attempts = [],
   baselineAttempts = [],
   chapterOrder = null,
@@ -53,21 +79,39 @@ export function selectAdaptiveQuestion({
   recentQuestionIds = [],
   sectionPool = null,
   responseScale = 1,
+  theoryTopicIds = null,
+  allowedSectionIds = null,
+  sourceChapterOrder = null,
 }) {
+  const bookCandidates = await loadBookCandidates();
   const group = getPracticeGroup(groupId);
   const allowedSections = sectionPool?.length
     ? [...new Set(sectionPool.map(([sectionId]) => sectionId))]
-    : group.sectionIds;
+    : allowedSectionIds?.length
+      ? [...new Set(allowedSectionIds)]
+      : group.sectionIds;
   const generatedCandidates = buildGeneratedCatalog(sectionPool, allowedSections)
+    .filter((candidate) => !theoryTopicIds?.length || theoryTopicIds.includes(candidate.theoryTopicId))
     .filter((candidate) => Math.abs(candidate.difficulty - currentDifficulty) <= 2);
   const relevantBookCandidates = bookCandidates.filter((candidate) => {
     if (!allowedSections.includes(candidate.sectionId)) return false;
     if (chapterOrder != null && candidate.chapter !== chapterOrder) return false;
+    if (sourceChapterOrder != null && (
+      candidate.sourceDocumentId !== PRIMARY_BOOK_DOCUMENT_ID
+      || candidate.sourceChapterOrder !== sourceChapterOrder
+    )) return false;
+    if (theoryTopicIds?.length && !theoryTopicIds.includes(candidate.theoryTopicId)) return false;
     return Math.abs(candidate.difficulty - currentDifficulty) <= 1;
   });
-  const fallbackBookCandidates = chapterOrder == null
-    ? bookCandidates.filter((candidate) => allowedSections.includes(candidate.sectionId))
-    : bookCandidates.filter((candidate) => candidate.chapter === chapterOrder);
+  const fallbackBookCandidates = bookCandidates.filter((candidate) =>
+    allowedSections.includes(candidate.sectionId)
+    && (chapterOrder == null || candidate.chapter === chapterOrder)
+    && (sourceChapterOrder == null || (
+      candidate.sourceDocumentId === PRIMARY_BOOK_DOCUMENT_ID
+      && candidate.sourceChapterOrder === sourceChapterOrder
+    ))
+    && (!theoryTopicIds?.length || theoryTopicIds.includes(candidate.theoryTopicId)),
+  );
   const candidates = [
     ...sampleCandidates(generatedCandidates, 190),
     ...sampleCandidates(
@@ -75,9 +119,10 @@ export function selectAdaptiveQuestion({
       130,
     ),
   ].filter((candidate) => !recentQuestionIds.includes(candidate.id));
-  const fallbackCandidates = candidates.length
-    ? candidates
-    : [...generatedCandidates, ...relevantBookCandidates].slice(0, CATALOG_SAMPLE_SIZE);
+  const contextualCandidates = sourceChapterOrder != null && (relevantBookCandidates.length || fallbackBookCandidates.length)
+    ? [...relevantBookCandidates, ...fallbackBookCandidates]
+    : [...generatedCandidates, ...relevantBookCandidates];
+  const fallbackCandidates = candidates.length ? candidates : contextualCandidates.slice(0, CATALOG_SAMPLE_SIZE);
   const result = selectNextChallenge(fallbackCandidates, {
     attempts,
     baselineAttempts,
@@ -92,22 +137,314 @@ export function selectAdaptiveQuestion({
   return materializeQuestion(result.challenge, result.plan, responseScale);
 }
 
-export function getTheoryChapter(chapterId) {
-  return THEORY_CHAPTERS.find((chapter) => chapter.id === chapterId) ?? THEORY_CHAPTERS[0];
+export function preloadPracticeContent() {
+  return loadBookCandidates();
 }
 
-export function getTheoryChapterForTopic(topicId) {
-  return THEORY_CHAPTERS.find((chapter) => chapter.topics.some((topic) => topic.id === topicId)) ?? null;
+function loadBookCandidates() {
+  if (bookCandidatesPromise) return bookCandidatesPromise;
+  bookCandidatesPromise = Promise.all([
+    import("../../data/mental-math-challenges.json"),
+    import("../../data/full-book-challenges-01-03.json"),
+    import("../../data/full-book-challenges-04-06.json"),
+    import("../../data/full-book-challenges-08-09.json"),
+  ])
+    .then(([guide, fullBook0103, fullBook0406, fullBook0809]) => [
+      ...guide.default.desafios
+        .filter(isNumericBookChallenge)
+        .map(normalizeBookChallenge),
+      ...[fullBook0103.default, fullBook0406.default, fullBook0809.default]
+        .flatMap((file) => file.challenges)
+        .filter(isPlayableFullBookChallenge)
+        .map(normalizeFullBookChallenge),
+    ])
+    .catch((error) => {
+      bookCandidatesPromise = null;
+      throw error;
+    });
+  return bookCandidatesPromise;
 }
 
-export function getTheoryTargetForTopic(topicId) {
-  const chapter = getTheoryChapterForTopic(topicId);
+function isPlayableFullBookChallenge(item) {
+  if (!item.playable) return false;
+  return [
+    "exact-number",
+    "decimal-tolerance",
+    "quotient-remainder",
+    "rational",
+    "boolean",
+    "enum",
+    "relative-range",
+  ].includes(item.answer?.type);
+}
+
+function normalizeFullBookChallenge(item) {
+  const grading = normalizeFullBookAnswer(item.answer);
+  const prompt = localizePrompt(item.prompt);
+  const promptLatex = isMathOnlyPrompt(prompt) ? toLatex(prompt) : null;
+  const answerDigits = grading.inputValue.replace(/[^0-9]/g, "").length;
+
+  return {
+    id: item.id,
+    questionId: item.id,
+    sectionId: item.sectionId,
+    groupId: item.sectionId,
+    skillKey: `${PRIMARY_BOOK_DOCUMENT_ID}:${item.sourceChapterOrder}:${item.exerciseSetId}:${item.exerciseNumber}`,
+    patternKey: item.exerciseSetId,
+    patternTags: item.tags ?? [],
+    theoryTopicId: item.theoryTopicId,
+    relatedTheoryTopicIds: item.relatedTheoryTopicIds ?? [],
+    source: "book",
+    sourceId: item.id,
+    sourceDocumentId: PRIMARY_BOOK_DOCUMENT_ID,
+    difficulty: Math.max(1, Math.min(10, Number(item.difficulty) || 1)),
+    responseWindowMs: fullBookResponseWindow(item, answerDigits),
+    chapter: canonicalChapterOrderForTopic(item.theoryTopicId),
+    sourceChapterOrder: item.sourceChapterOrder,
+    page: item.source.promptPrintedPage,
+    prompt,
+    promptLatex,
+    answer: grading.expected,
+    answerDisplay: grading.display,
+    answerInput: grading.inputValue,
+    answerType: item.answer.type,
+    answerSpec: item.answer,
+    choices: grading.choices,
+    acceptsDecimal: grading.acceptsDecimal,
+    tolerance: grading.tolerance,
+    hint: item.exerciseSetTitle,
+    breakdown: (item.solutionSteps ?? [])
+      .map((step) => [step.expression, step.explanation].filter(Boolean).join(" — "))
+      .join(" "),
+  };
+}
+
+function normalizeFullBookAnswer(answer) {
+  if (answer.type === "quotient-remainder") {
+    const quotient = Number(answer.quotient);
+    const remainder = Number(answer.remainder);
+    return {
+      expected: `${quotient}|${remainder}`,
+      display: answer.display ?? `${quotient}, resto ${remainder}`,
+      inputValue: `${quotient}|${remainder}`,
+      acceptsDecimal: false,
+      tolerance: 0,
+      choices: null,
+    };
+  }
+  if (answer.type === "rational") {
+    const numerator = Number(answer.numerator);
+    const denominator = Number(answer.denominator);
+    return {
+      expected: `${numerator}/${denominator}`,
+      display: answer.display ?? `${numerator}/${denominator}`,
+      inputValue: `${numerator}/${denominator}`,
+      acceptsDecimal: false,
+      tolerance: 0,
+      choices: null,
+    };
+  }
+  if (answer.type === "boolean") {
+    return {
+      expected: Boolean(answer.value),
+      display: answer.display ?? (answer.value ? "Sim" : "Não"),
+      inputValue: answer.value ? "true" : "false",
+      acceptsDecimal: false,
+      tolerance: 0,
+      choices: [
+        { value: true, label: "Sim" },
+        { value: false, label: "Não" },
+      ],
+    };
+  }
+  if (answer.type === "enum") {
+    return {
+      expected: String(answer.value),
+      display: answer.display ?? String(answer.value),
+      inputValue: String(answer.value),
+      acceptsDecimal: false,
+      tolerance: 0,
+      choices: (answer.options ?? []).map((value) => ({ value, label: enumAnswerLabel(value) })),
+    };
+  }
+  if (answer.type === "relative-range") {
+    const target = Number(answer.target ?? answer.value);
+    return {
+      expected: target,
+      display: answer.display ?? String(target),
+      inputValue: String(target),
+      acceptsDecimal: !Number.isInteger(target),
+      tolerance: 0,
+      choices: null,
+    };
+  }
+
+  const value = Number(answer.value);
+  return {
+    expected: value,
+    display: answer.display ?? String(value),
+    inputValue: String(value),
+    acceptsDecimal: answer.type === "decimal-tolerance" || !Number.isInteger(value),
+    tolerance: answer.type === "decimal-tolerance" ? Number(answer.tolerance) || 0.001 : 0.000001,
+    choices: null,
+  };
+}
+
+function enumAnswerLabel(value) {
+  if (value === "data-invalida") return "Data inválida";
+  return String(value).replace(/^./, (character) => character.toLocaleUpperCase("pt-BR"));
+}
+
+function canonicalChapterOrderForTopic(topicId) {
+  return theoryData.capitulos.find((chapter) => chapter.secoes.some((section) => section.id === topicId))?.ordem ?? null;
+}
+
+function fullBookResponseWindow(item, digits) {
+  const base = 7_000 + Math.max(0, Number(item.difficulty) - 1) * 1_100;
+  return Math.max(6_000, Math.min(30_000, base + Math.max(0, digits - 2) * 650));
+}
+
+export async function getTheoryChapter(chapterId) {
+  const chapters = await loadTheoryChapters();
+  return chapters.find((chapter) => chapter.id === chapterId) ?? chapters[0];
+}
+
+export async function getTheoryChapterForTopic(topicId) {
+  const chapters = await loadTheoryChapters();
+  const fullBookMatch = bestFullBookTheoryMatch(chapters, topicId);
+  const canonicalTheoryChapters = chapters.filter((chapter) => chapter.sourceKind === "guidebook");
+  return fullBookMatch?.chapter
+    ?? canonicalTheoryChapters.find((chapter) => chapter.topics.some((topic) => topic.id === topicId))
+    ?? null;
+}
+
+export async function getTheoryTargetForTopic(topicId) {
+  const chapters = await loadTheoryChapters();
+  const fullBookMatch = bestFullBookTheoryMatch(chapters, topicId);
+  if (fullBookMatch) {
+    return { chapterId: fullBookMatch.chapter.id, lessonId: fullBookMatch.lesson.id };
+  }
+  const chapter = chapters.find((candidate) =>
+    candidate.sourceKind === "guidebook" && candidate.topics.some((topic) => topic.id === topicId),
+  );
   if (!chapter) return null;
   const topic = chapter.topics.find((item) => item.id === topicId);
   return {
     chapterId: chapter.id,
     lessonId: topic?.relatedLessonId ?? chapter.lessons[0]?.id ?? null,
   };
+}
+
+function bestFullBookTheoryMatch(chapters, topicId) {
+  return chapters
+    .filter((chapter) => chapter.sourceKind === "full-book")
+    .flatMap((chapter) => chapter.lessons
+      .filter((lesson) => lesson.theoryTopicIds.includes(topicId))
+      .map((lesson) => ({ chapter, lesson })))
+    .sort((left, right) => theoryLessonScore(right.lesson, topicId) - theoryLessonScore(left.lesson, topicId))[0]
+    ?? null;
+}
+
+function theoryLessonScore(lesson, topicId) {
+  const isPreview = /\bprévia\b|\bprevia\b/i.test(lesson.title);
+  return (lesson.theoryTopicIds[0] === topicId ? 20 : 0)
+    + lesson.algorithm.steps.length * 4
+    + lesson.workedExamples.length * 10
+    - (isPreview ? 100 : 0);
+}
+
+function normalizeFullBookChapter(rawChapter) {
+  const lessons = (rawChapter.lessons ?? []).map((lesson, index) => normalizeFullBookLesson(lesson, index));
+  const theoryTopicIds = [...new Set([
+    ...(rawChapter.theoryTopicIds ?? []),
+    ...lessons.flatMap((lesson) => lesson.theoryTopicIds),
+  ])];
+  const headerSearchText = buildSearchIndex([
+    rawChapter.title,
+    rawChapter.originalTitle,
+    rawChapter.summary,
+    rawChapter.prerequisites,
+  ]);
+  const topicSearchText = buildSearchIndex(lessons.flatMap((lesson) => [lesson.title, lesson.tags]));
+  const sectionIds = fullBookPracticeSections(rawChapter);
+  const groupId = mapSectionsToGroup(sectionIds);
+
+  return {
+    id: rawChapter.id,
+    order: Number(rawChapter.order) + 1,
+    sourceOrder: Number(rawChapter.order),
+    title: rawChapter.title,
+    originalTitle: rawChapter.originalTitle,
+    summary: rawChapter.summary,
+    difficulty: rawChapter.difficulty,
+    difficultyLabel: difficultyLabel(rawChapter.difficulty),
+    prerequisites: rawChapter.prerequisites ?? [],
+    patterns: lessons.flatMap((lesson) => lesson.tags),
+    lessons,
+    workedExampleCount: lessons.reduce((total, lesson) => total + lesson.workedExamples.length, 0),
+    algorithmStepCount: lessons.reduce((total, lesson) => total + lesson.algorithm.steps.length, 0),
+    topics: theoryTopicIds.map((id, index) => ({ id, order: index + 1, title: id, tags: [] })),
+    theoryTopicIds,
+    examples: [],
+    sectionIds,
+    groupId,
+    pageLabel: pageLabel(rawChapter.printedPages),
+    sourceKind: "full-book",
+    sourceLabel: "Livro completo · Three Rivers Press, 2006",
+    headerSearchText,
+    topicSearchText,
+    searchText: buildSearchIndex([headerSearchText, topicSearchText, ...lessons.map((lesson) => lesson.searchText)]),
+  };
+}
+
+function fullBookPracticeSections(rawChapter) {
+  return ({
+    0: ["tricks"],
+    1: ["adicao", "subtracao"],
+    2: ["tabuada", "quadrado"],
+    3: ["tricks", "tabuada", "quadrado"],
+    4: ["divisao"],
+    5: ["adicao", "subtracao", "divisao", "tricks", "quadrado"],
+    6: ["adicao", "subtracao", "quadrado", "tricks"],
+    7: ["tricks"],
+    8: ["quadrado", "tabuada"],
+    9: ["tricks"],
+  })[Number(rawChapter.order)] ?? ["tricks"];
+}
+
+function normalizeFullBookLesson(rawLesson, lessonIndex) {
+  const lesson = normalizeDetailedLesson({
+    id: rawLesson.id,
+    ordem: rawLesson.order,
+    titulo: rawLesson.title,
+    resumo: rawLesson.summary,
+    quandoUsar: rawLesson.whenToUse,
+    porQueFunciona: rawLesson.whyItWorks,
+    algoritmo: {
+      titulo: rawLesson.algorithm?.title,
+      passos: (rawLesson.algorithm?.steps ?? []).map((step) => ({
+        ordem: step.order,
+        acao: step.action,
+        detalhe: step.detail,
+        expressao: step.expression,
+      })),
+    },
+    exemplosResolvidos: (rawLesson.workedExamples ?? []).map((example) => ({
+      id: example.id,
+      enunciado: example.question,
+      resposta: example.answer,
+      etapas: (example.steps ?? []).map((step) => ({ expressao: step.expression, explicacao: step.explanation })),
+      conclusao: example.conclusion,
+      origem: { pagina: example.source?.printedPage },
+      visualizacao: example.visualizacao,
+    })),
+    armadilhas: rawLesson.pitfalls,
+    lembrete: rawLesson.memoryCue,
+    tags: rawLesson.tags,
+    origem: { documentoId: "calculo-mental-use-esse", paginas: rawLesson.source?.printedPages },
+  }, lessonIndex);
+
+  return { ...lesson, theoryTopicIds: rawLesson.theoryTopicIds ?? [] };
 }
 
 function buildGeneratedCatalog(sectionPool, allowedSections) {
@@ -172,16 +509,23 @@ function normalizeBookChallenge(item) {
     theoryTopicId: closestTheoryTopic(item.capituloId, item.tags),
     source: "book",
     sourceId: item.id,
+    sourceDocumentId: item.origem.documentoId,
     difficulty,
     responseWindowMs: bookResponseWindow(item, answer),
     chapter: item.capituloOrdem,
+    sourceChapterOrder: item.capituloOrdem,
     chapterId: item.capituloId,
     page: item.origem.pagina,
     prompt: localizePrompt(item.prompt),
     promptLatex,
     answer,
     answerDisplay: normalizeAnswerDisplay(item.resposta, answer),
+    answerInput: String(answer),
+    answerType: "exact-number",
+    answerSpec: item.resposta,
+    choices: null,
     acceptsDecimal: !Number.isInteger(answer),
+    tolerance: 0.000001,
     hint: item.instrucao,
     breakdown: `${item.instrucao} Exercício ${item.exercicio} do capítulo ${item.capituloOrdem}.`,
   };
@@ -200,7 +544,12 @@ function materializeQuestion(challenge, plan, responseScale) {
       promptLatex: challenge.promptLatex,
       answer: challenge.answer,
       answerDisplay: challenge.answerDisplay,
+      answerInput: challenge.answerInput,
+      answerType: challenge.answerType ?? "exact-number",
+      answerSpec: challenge.answerSpec ?? null,
+      choices: challenge.choices ?? null,
       acceptsDecimal: challenge.acceptsDecimal,
+      tolerance: challenge.tolerance,
       hint: challenge.hint,
       breakdown: challenge.breakdown,
       solutionLatex: challenge.promptLatex
@@ -208,7 +557,9 @@ function materializeQuestion(challenge, plan, responseScale) {
         : null,
       source: "book",
       sourceId: challenge.sourceId,
+      sourceDocumentId: challenge.sourceDocumentId,
       chapter: challenge.chapter,
+      sourceChapterOrder: challenge.sourceChapterOrder,
       page: challenge.page,
     };
   } else {
@@ -216,7 +567,12 @@ function materializeQuestion(challenge, plan, responseScale) {
       ...createQuestionFromFact(challenge.fact),
       source: "generated",
       sourceId: challenge.id,
+      sourceDocumentId: "generated",
       answerDisplay: String(challenge.fact.answer),
+      answerInput: String(challenge.fact.answer),
+      answerType: "exact-number",
+      answerSpec: null,
+      choices: null,
       acceptsDecimal: false,
     };
   }
@@ -349,6 +705,7 @@ function normalizeDetailedLesson(rawLesson, lessonIndex) {
     })),
     conclusion: example.conclusao ?? example.conclusion ?? "",
     page: example.origem?.pagina ?? example.source?.page ?? null,
+    visual: example.visualizacao ?? example.visual ?? null,
   }));
   const pages = rawLesson.origem?.paginas ?? rawLesson.source?.pages ?? rawLesson.paginas ?? rawLesson.pages ?? [];
   const lesson = {
@@ -367,6 +724,9 @@ function normalizeDetailedLesson(rawLesson, lessonIndex) {
     memoryCue: rawLesson.lembrete ?? rawLesson.memoryCue ?? "",
     tags: rawLesson.tags ?? [],
     pageLabel: pageLabel(pages),
+    sourceLabel: rawLesson.origem?.documentoId === "calculo-mental-use-esse"
+      ? "Secrets of Mental Math, 2006"
+      : "Course Guidebook, 2011",
   };
   return {
     ...lesson,
@@ -382,6 +742,19 @@ function normalizeDetailedLesson(rawLesson, lessonIndex) {
         example.answer,
         example.conclusion,
         example.steps.flatMap((step) => [step.expression, step.explanation]),
+        example.visual
+          ? [
+              example.visual.rotulo,
+              example.visual.leitura,
+              example.visual.inicio,
+              example.visual.resultado,
+              (example.visual.etapas ?? example.visual.passos ?? []).flatMap((step) => [
+                step.expressao,
+                step.rotulo,
+                step.narracao,
+              ]),
+            ]
+          : null,
       ]),
       lesson.pitfalls,
       lesson.memoryCue,
@@ -469,14 +842,11 @@ function localizePrompt(prompt) {
 }
 
 function normalizedNumericAnswer(response) {
-  const displayNumber = Number(String(response.exibicao ?? "").replace(/[^0-9,.-]/g, "").replace(",", "."));
-  if (Number.isFinite(displayNumber)) return displayNumber;
-  return Number(Number(response.valor).toFixed(8));
+  return numericAnswerFromContract(response);
 }
 
 function normalizeAnswerDisplay(response, answer) {
-  const raw = String(response.exibicao ?? answer).replace(/[^0-9,.-]/g, "").replace(",", ".");
-  return raw && Number.isFinite(Number(raw)) ? raw : String(Number(answer.toFixed(8)));
+  return String(response.exibicao ?? answer).trim() || String(answer);
 }
 
 function mapBookSection(tags = []) {
