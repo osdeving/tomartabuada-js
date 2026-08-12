@@ -1,0 +1,1938 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "id": "calculo-mental-use-esse",
+    "titulo": "Secrets of Mental Math",
+    "autores": ["Arthur Benjamin", "Michael Shermer"],
+    "edicao": "Three Rivers Press, 2006",
+    "idiomaOriginal": "en",
+    "idiomaDosDados": "pt-BR",
+    "paginationNote": "Página PDF geralmente = impressa + 26; PDF 83 é duplicata indevida da impressa 216 e a impressa 58 está ausente."
+  },
+  "chapters": [
+    {
+      "id": "livro-capitulo-04",
+      "order": 4,
+      "title": "Dividir e conquistar: divisão mental",
+      "originalTitle": "Divide and Conquer: Mental Division",
+      "difficulty": 6,
+      "printedPages": [80, 107],
+      "pdfPages": [106, 133],
+      "prerequisites": [
+        "Tabuada de multiplicação automatizada",
+        "Subtração mental por blocos e complementos",
+        "Leitura de valor posicional da esquerda para a direita"
+      ],
+      "summary": "A divisão é tratada como simplificação progressiva: primeiro se prevê o tamanho do quociente, depois se retiram múltiplos posicionais. O capítulo avança para divisores de dois dígitos, reescala por fatores comuns, conversão de frações em decimais, testes de divisibilidade e operações com frações.",
+      "groupId": "divisao",
+      "theoryTopicIds": ["c04-divisao-basica", "c04-divisao-dois-digitos", "c04-fracoes"],
+      "lessons": [
+        {
+          "id": "livro-c04-l01-divisao-um-digito",
+          "order": 1,
+          "title": "Divisão por um dígito em blocos posicionais",
+          "summary": "Antes de calcular, determine quantos dígitos o quociente terá. Em seguida retire, da esquerda para a direita, o maior múltiplo conveniente do divisor em centenas, dezenas e unidades, dizendo ou guardando cada parcela do quociente.",
+          "whenToUse": [
+            "Em divisões inteiras por um algarismo, com ou sem resto.",
+            "Quando o dividendo é grande demais para manter uma divisão escolar inteira na memória.",
+            "Para produzir quociente e resto sem escrever parciais extensos."
+          ],
+          "whyItWorks": "Cada retirada preserva a igualdade dividendo = divisor × quociente parcial + resto. Como os múltiplos são escolhidos por ordem posicional, as parcelas do quociente podem ser fixadas sem voltar atrás.",
+          "algorithm": {
+            "title": "Retire centenas, dezenas e unidades",
+            "steps": [
+              {"order": 1, "action": "Preveja a magnitude", "detail": "Compare o dividendo com divisor×10, ×100, ×1000 e assim por diante para saber quantas casas terá o quociente."},
+              {"order": 2, "action": "Escolha o primeiro bloco", "detail": "Use o maior múltiplo posicional do divisor que não ultrapassa o valor atual.", "expression": "d×(q·10^k) ≤ N"},
+              {"order": 3, "action": "Subtraia", "detail": "Retire esse produto e fixe a parcela correspondente do quociente."},
+              {"order": 4, "action": "Repita no resto", "detail": "A nova divisão é menor; continue até o resto ficar abaixo do divisor."},
+              {"order": 5, "action": "Apresente o resultado", "detail": "Some as parcelas do quociente e informe o resto como inteiro ou como fração do divisor.", "expression": "N÷d=q+r/d"}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l01-ex-179-7",
+              "question": "Calcule 179 ÷ 7.",
+              "answer": "25, resto 4; ou 25 4/7",
+              "steps": [
+                {"expression": "7×10<179<7×100", "explanation": "O quociente tem dois dígitos."},
+                {"expression": "7×20=140; 179−140=39", "explanation": "Fixe vinte no quociente e reduza a conta."},
+                {"expression": "7×5=35; 39−35=4", "explanation": "Cinco é a maior unidade possível; quatro é o resto."}
+              ],
+              "conclusion": "O problema grande virou 39÷7 depois que a dezena do quociente ficou segura.",
+              "source": {"printedPage": 81, "pdfPage": 107},
+              "visualizacao": {
+                "tipo": "divisao-longa",
+                "rotulo": "179 dividido por 7 em dois blocos",
+                "leitura": "Leia de cima para baixo: cada etapa retira um múltiplo de 7 e acrescenta uma parcela ao quociente.",
+                "pagina": 81,
+                "dividendo": "179",
+                "divisor": "7",
+                "quociente": "25",
+                "resposta": "25, resto 4",
+                "passos": [
+                  {"ordem": 1, "subtrair": "7×20=140", "resto": "39", "recuo": "20", "narracao": "Retire 140 de 179 e guarde vinte no quociente."},
+                  {"ordem": 2, "subtrair": "7×5=35", "resto": "4", "recuo": "5", "narracao": "Retire 35 do resto e acrescente cinco; quatro já é menor que sete."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c04-l01-ex-947-4",
+              "question": "Calcule 947 ÷ 4.",
+              "answer": "236, resto 3; ou 236 3/4",
+              "steps": [
+                {"expression": "4×200=800", "explanation": "O quociente está na casa das centenas."},
+                {"expression": "947−800=147; 4×30=120", "explanation": "Depois de retirar duzentos grupos, cabem mais trinta."},
+                {"expression": "147−120=27; 4×6=24", "explanation": "As seis unidades deixam resto três."}
+              ],
+              "conclusion": "As parcelas 200+30+6 formam 236, e 4×236+3=947.",
+              "source": {"printedPage": 83, "pdfPage": 109},
+              "visualizacao": {
+                "tipo": "divisao-longa",
+                "rotulo": "947 dividido por 4 por ordens",
+                "leitura": "As retiradas percorrem centenas, dezenas e unidades.",
+                "pagina": 83,
+                "dividendo": "947",
+                "divisor": "4",
+                "quociente": "236",
+                "resposta": "236, resto 3",
+                "passos": [
+                  {"ordem": 1, "subtrair": "4×200=800", "resto": "147", "recuo": "200", "narracao": "Fixe a centena do quociente."},
+                  {"ordem": 2, "subtrair": "4×30=120", "resto": "27", "recuo": "30", "narracao": "Fixe as três dezenas."},
+                  {"ordem": 3, "subtrair": "4×6=24", "resto": "3", "recuo": "6", "narracao": "Fixe as unidades e encerre com resto três."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": [
+            "Começar a dividir sem saber a ordem de grandeza pode deslocar o quociente uma casa.",
+            "Uma parcela do quociente só pode ser anunciada quando o múltiplo correspondente não ultrapassa o resto atual.",
+            "O resto final precisa ser menor que o divisor."
+          ],
+          "memoryCue": "Magnitude primeiro; depois retire blocos cada vez menores.",
+          "tags": ["divisao", "um-digito", "quociente", "resto", "valor-posicional"],
+          "theoryTopicIds": ["c04-divisao-basica"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [80, 81, 82, 83, 84], "pdfPages": [106, 107, 108, 109, 110]}
+        },
+        {
+          "id": "livro-c04-l02-reescala-divisor-cinco",
+          "order": 2,
+          "title": "Troque divisão por 5 por divisão por 10",
+          "summary": "Quando o divisor é 5, dobrar dividendo e divisor cria uma divisão por 10. A transformação mantém o quociente e costuma produzir imediatamente uma resposta decimal.",
+          "whenToUse": ["Quando o divisor é 5.", "Quando uma resposta decimal é mais útil que quociente e resto."],
+          "whyItWorks": "Multiplicar dividendo e divisor pelo mesmo número não muda a razão. Como 5×2=10, a vírgula substitui uma divisão longa.",
+          "algorithm": {
+            "title": "Dobre e mova a vírgula",
+            "steps": [
+              {"order": 1, "action": "Dobre o dividendo", "detail": "Multiplique o número a dividir por dois."},
+              {"order": 2, "action": "Transforme o divisor", "detail": "Registre que 5×2 virou 10.", "expression": "N/5=(2N)/10"},
+              {"order": 3, "action": "Divida por dez", "detail": "Desloque a vírgula uma casa para a esquerda."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l02-ex-2196-5",
+              "question": "Calcule 2196 ÷ 5 sem divisão longa.",
+              "answer": "439,2",
+              "steps": [
+                {"expression": "2196×2=4392", "explanation": "Dobre o dividendo."},
+                {"expression": "4392÷10=439,2", "explanation": "O divisor também foi dobrado, de 5 para 10."}
+              ],
+              "conclusion": "A resposta equivale a 439 com resto 1, isto é, 439 1/5.",
+              "source": {"printedPage": 84, "pdfPage": 110},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Reescala para divisor 10",
+                "leitura": "A mesma razão é reescrita com divisor dez.",
+                "pagina": 84,
+                "inicio": "2196÷5",
+                "resultado": "439,2",
+                "passos": [
+                  {"ordem": 1, "expressao": "2196÷5=(2196×2)÷(5×2)", "narracao": "Multiplique os dois termos pelo mesmo fator."},
+                  {"ordem": 2, "expressao": "4392÷10=439,2", "narracao": "Finalize movendo a vírgula."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": ["Dobrar apenas o dividendo altera o valor da divisão.", "Quociente com resto e notação decimal são formas diferentes da mesma resposta; não misture o resto 1 com 0,1."],
+          "memoryCue": "Divisor 5: dobre em cima para criar 10 embaixo.",
+          "tags": ["divisao", "divisor-5", "reescala", "decimal"],
+          "theoryTopicIds": ["c04-divisao-basica", "c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [83, 84], "pdfPages": [109, 110]}
+        },
+        {
+          "id": "livro-c04-l03-regra-do-polegar",
+          "order": 3,
+          "title": "Regra do polegar para guardar dígitos",
+          "summary": "Os dedos funcionam como memória externa. De zero a cinco usa-se a quantidade de dedos; de seis a nove, o polegar toca mínimo, anelar, médio ou indicador. Em quocientes longos, uma mão guarda centenas e a outra dezenas enquanto a unidade é calculada.",
+          "whenToUse": ["Em divisões cujo quociente tem três ou mais dígitos.", "Quando se deseja falar a resposta inteira somente no fim.", "Como apoio transitório antes de memorizar parciais maiores por outros métodos."],
+          "whyItWorks": "A técnica desloca duas casas do quociente da memória de trabalho verbal para posições táteis distintas, reduzindo interferência enquanto o resto é processado.",
+          "algorithm": {
+            "title": "Codifique duas casas nas mãos",
+            "steps": [
+              {"order": 1, "action": "Associe 6 a 9", "detail": "Polegar no mínimo representa 6; no anelar, 7; no médio, 8; no indicador, 9."},
+              {"order": 2, "action": "Guarde a centena", "detail": "Use a mão esquerda para a primeira casa ainda não pronunciada."},
+              {"order": 3, "action": "Guarde a dezena", "detail": "Use a mão direita para a casa seguinte."},
+              {"order": 4, "action": "Calcule a unidade", "detail": "Ao chegar à última casa, leia esquerda, direita, unidade e resto."},
+              {"order": 5, "action": "Antecipe milhares", "detail": "Se houver quatro casas, diga a casa dos milhares e use as mãos para as duas seguintes."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l03-ex-4579-6",
+              "question": "Calcule 4579 ÷ 6 guardando o quociente nas mãos.",
+              "answer": "763, resto 1; ou 763 1/6",
+              "steps": [
+                {"expression": "6×700=4200; resto 379", "explanation": "Guarde 7 na mão esquerda: polegar no anelar."},
+                {"expression": "6×60=360; resto 19", "explanation": "Guarde 6 na mão direita: polegar no mínimo."},
+                {"expression": "6×3=18; resto 1", "explanation": "Leia 7, 6, 3 e o resto um."}
+              ],
+              "conclusion": "O gesto não calcula; ele protege os dígitos já obtidos enquanto a divisão continua.",
+              "source": {"printedPage": 85, "pdfPage": 111}
+            }
+          ],
+          "pitfalls": ["A posição dos dedos precisa ser treinada antes de ser usada sob pressão.", "A técnica guarda casas, mas não substitui a estimativa correta de cada múltiplo.", "Em quociente de quatro dígitos, não tente guardar todas as casas: pronuncie o milhar."],
+          "memoryCue": "6 mínimo, 7 anelar, 8 médio, 9 indicador.",
+          "tags": ["divisao", "memoria-de-trabalho", "dedos", "quociente"],
+          "theoryTopicIds": ["c04-divisao-basica"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [84, 85, 86], "pdfPages": [110, 111, 112]}
+        },
+        {
+          "id": "livro-c04-l04-divisao-dois-digitos",
+          "order": 4,
+          "title": "Divisão por dois dígitos",
+          "summary": "A estrutura continua sendo a mesma da divisão por um dígito, mas a escolha do múltiplo exige estimar o divisor inteiro. Teste primeiro dezenas do quociente, retire o produto e conclua a divisão menor.",
+          "whenToUse": ["Quando o divisor tem dois dígitos e o quociente esperado é curto.", "Quando produtos divisor×dezenas podem ser calculados mentalmente."],
+          "whyItWorks": "A divisão é decomposta pela distributiva: se q=10a+b, então divisor×q=divisor×10a+divisor×b. Cada retirada deixa um problema equivalente menor.",
+          "algorithm": {
+            "title": "Estime a dezena, retire e finalize",
+            "steps": [
+              {"order": 1, "action": "Conte as casas", "detail": "Compare com divisor×10 e divisor×100."},
+              {"order": 2, "action": "Teste a dezena", "detail": "Procure o maior múltiplo de dez que ainda cabe."},
+              {"order": 3, "action": "Retire o produto", "detail": "Subtraia divisor×dezena do dividendo."},
+              {"order": 4, "action": "Resolva a unidade", "detail": "Encontre o maior múltiplo do divisor menor ou igual ao resto."},
+              {"order": 5, "action": "Confira", "detail": "Valide por divisor×quociente+resto=dividendo."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l04-ex-597-14",
+              "question": "Calcule 597 ÷ 14.",
+              "answer": "42, resto 9; ou 42 9/14",
+              "steps": [
+                {"expression": "14×40=560", "explanation": "Quarenta cabe; cinquenta passaria."},
+                {"expression": "597−560=37", "explanation": "A conta restante é 37÷14."},
+                {"expression": "14×2=28; 37−28=9", "explanation": "Acrescente duas unidades e registre o resto."}
+              ],
+              "conclusion": "14×42+9=597.",
+              "source": {"printedPage": 87, "pdfPage": 113},
+              "visualizacao": {
+                "tipo": "divisao-longa",
+                "rotulo": "597 dividido por 14",
+                "leitura": "Primeiro fixe quarenta; depois resolva o resto como uma divisão curta.",
+                "pagina": 87,
+                "dividendo": "597",
+                "divisor": "14",
+                "quociente": "42",
+                "resposta": "42, resto 9",
+                "passos": [
+                  {"ordem": 1, "subtrair": "14×40=560", "resto": "37", "recuo": "40", "narracao": "Quarenta grupos deixam trinta e sete."},
+                  {"ordem": 2, "subtrair": "14×2=28", "resto": "9", "recuo": "2", "narracao": "Mais dois grupos deixam resto nove."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c04-l04-ex-9467-13",
+              "question": "Calcule 9467 ÷ 13.",
+              "answer": "728, resto 3; ou 728 3/13",
+              "steps": [
+                {"expression": "13×700=9100; resto 367", "explanation": "Fixe as centenas."},
+                {"expression": "13×20=260; resto 107", "explanation": "Fixe as dezenas."},
+                {"expression": "13×8=104; resto 3", "explanation": "Finalize as unidades."}
+              ],
+              "conclusion": "A progressão 700, 20, 8 evita manter uma tabuada extensa de 13 de uma vez.",
+              "source": {"printedPage": 90, "pdfPage": 116},
+              "visualizacao": {
+                "tipo": "divisao-longa",
+                "rotulo": "9467 dividido por 13",
+                "leitura": "O quociente é construído por centenas, dezenas e unidades.",
+                "pagina": 90,
+                "dividendo": "9467",
+                "divisor": "13",
+                "quociente": "728",
+                "resposta": "728, resto 3",
+                "passos": [
+                  {"ordem": 1, "subtrair": "13×700=9100", "resto": "367", "recuo": "700", "narracao": "Setecentas parcelas cabem com segurança."},
+                  {"ordem": 2, "subtrair": "13×20=260", "resto": "107", "recuo": "20", "narracao": "Retire duas dezenas de parcelas."},
+                  {"ordem": 3, "subtrair": "13×8=104", "resto": "3", "recuo": "8", "narracao": "Oito unidades completam o quociente."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": ["Aproximar o divisor por apenas seu primeiro algarismo pode superestimar o quociente.", "Não esqueça de multiplicar o divisor inteiro pela dezena escolhida.", "O resto de uma etapa pode ainda comportar várias unidades do divisor."],
+          "memoryCue": "Divisor inteiro, quociente por blocos.",
+          "tags": ["divisao", "dois-digitos", "quociente", "resto", "decomposicao"],
+          "theoryTopicIds": ["c04-divisao-dois-digitos"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [87, 88, 89, 90], "pdfPages": [113, 114, 115, 116]}
+        },
+        {
+          "id": "livro-c04-l05-overshooting",
+          "order": 5,
+          "title": "Aproveite um palpite que passou",
+          "summary": "Se o múltiplo tentado excede o dividendo por pouco, ele ainda revela o quociente correto: reduza uma unidade e obtenha o resto por complemento em relação ao divisor.",
+          "whenToUse": ["Quando divisor×palpite fica pouco acima do dividendo.", "Quando o complemento até o divisor é mais fácil que uma nova multiplicação."],
+          "whyItWorks": "Se N=d(q+1)−e, então N=dq+(d−e). Portanto o quociente é uma unidade menor e o resto é o divisor menos o excesso.",
+          "algorithm": {
+            "title": "Desça uma unidade e complemente",
+            "steps": [
+              {"order": 1, "action": "Meça o excesso", "detail": "Calcule quanto divisor×palpite ultrapassou o dividendo.", "expression": "e=d·p−N"},
+              {"order": 2, "action": "Reduza o palpite", "detail": "O quociente inteiro é p−1."},
+              {"order": 3, "action": "Ache o resto", "detail": "Subtraia o excesso do divisor.", "expression": "r=d−e"},
+              {"order": 4, "action": "Valide o intervalo", "detail": "Confirme 0≤r<d."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l05-ex-491-62",
+              "question": "Calcule 491 ÷ 62 usando o produto 62×8.",
+              "answer": "7, resto 57; ou 7 57/62",
+              "steps": [
+                {"expression": "62×8=496", "explanation": "O palpite oito passa por cinco."},
+                {"expression": "q=8−1=7", "explanation": "Desça uma unidade no quociente."},
+                {"expression": "r=62−5=57", "explanation": "Ao remover um grupo de 62, o excesso cinco vira complemento cinquenta e sete."}
+              ],
+              "conclusion": "O esforço de calcular 62×8 não foi perdido: ele entrega quociente e resto.",
+              "source": {"printedPage": 89, "pdfPage": 115},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Correção de um palpite alto",
+                "leitura": "O excesso em relação a oito grupos é convertido no resto de sete grupos.",
+                "pagina": 89,
+                "inicio": "491÷62",
+                "resultado": "7, resto 57",
+                "passos": [
+                  {"ordem": 1, "expressao": "62×8=496=491+5", "narracao": "Oitavo grupo ultrapassa o alvo por cinco."},
+                  {"ordem": 2, "expressao": "491=62×7+(62−5)", "narracao": "Retire um grupo inteiro e transforme o excesso em complemento."},
+                  {"ordem": 3, "expressao": "491=62×7+57", "narracao": "Leia quociente sete e resto cinquenta e sete."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c04-l05-ex-380-39",
+              "question": "Calcule 380 ÷ 39 a partir de 39×10.",
+              "answer": "9, resto 29; ou 9 29/39",
+              "steps": [
+                {"expression": "39×10=390", "explanation": "Dez grupos passam por dez."},
+                {"expression": "q=9; r=39−10=29", "explanation": "Reduza uma unidade e complemente o excesso."}
+              ],
+              "conclusion": "39×9+29=380.",
+              "source": {"printedPage": 89, "pdfPage": 115}
+            }
+          ],
+          "pitfalls": ["O atalho só é direto quando o palpite passou por menos que um divisor.", "O resto é divisor menos excesso, não apenas o excesso.", "Se o produto não passou, use a subtração normal."],
+          "memoryCue": "Passou por e: desça um e use divisor−e como resto.",
+          "tags": ["divisao", "overshooting", "complemento", "resto"],
+          "theoryTopicIds": ["c04-divisao-dois-digitos"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [88, 89, 90], "pdfPages": [114, 115, 116]}
+        },
+        {
+          "id": "livro-c04-l06-simplificar-razao",
+          "order": 6,
+          "title": "Simplifique dividendo e divisor pelo mesmo fator",
+          "summary": "Antes de dividir, procure fatores comuns. Pares podem ser reduzidos pela metade repetidamente; finais zero permitem retirar dez; finais cinco podem ser dobrados antes de retirar dez. O quociente não muda, mas o resto precisa ser interpretado como fração.",
+          "whenToUse": ["Quando ambos os termos são pares ou compartilham outro fator evidente.", "Quando ambos terminam em zero ou cinco.", "Quando o divisor transformado cai numa tabuada mais familiar."],
+          "whyItWorks": "Para fator não nulo k, N/d=(N/k)/(d/k). O resto numérico muda com a escala, mas a fração resto/divisor continua equivalente.",
+          "algorithm": {
+            "title": "Cancele fatores antes de dividir",
+            "steps": [
+              {"order": 1, "action": "Procure um fator comum", "detail": "Teste primeiro 2, 10 e fatores reconhecidos pela tabuada."},
+              {"order": 2, "action": "Reduza os dois termos", "detail": "Divida dividendo e divisor pelo mesmo fator; repita se ainda ajudar."},
+              {"order": 3, "action": "Trate finais cinco", "detail": "Se ambos acabam em 5, dobre ambos e então retire um fator 10."},
+              {"order": 4, "action": "Resolva a conta simples", "detail": "Use a divisão por um dígito ou outro divisor amigável."},
+              {"order": 5, "action": "Preserve a fração", "detail": "Apresente a parte residual como resto/divisor na escala reduzida."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l06-ex-858-16",
+              "question": "Simplifique e calcule 858 ÷ 16.",
+              "answer": "53 5/8",
+              "steps": [
+                {"expression": "858/16=429/8", "explanation": "Divida os dois termos por dois."},
+                {"expression": "429÷8=53, resto 5", "explanation": "A conta reduzida é de um dígito."},
+                {"expression": "5/8=10/16", "explanation": "A fração residual confirma a equivalência com a escala original."}
+              ],
+              "conclusion": "Escrever apenas resto 5 para a conta original seria incorreto; o resultado está em forma fracionária.",
+              "source": {"printedPage": 91, "pdfPage": 117},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Cancelamento de fator dois",
+                "leitura": "A razão é reduzida antes da divisão efetiva.",
+                "pagina": 91,
+                "inicio": "858÷16",
+                "resultado": "53 5/8",
+                "passos": [
+                  {"ordem": 1, "expressao": "858/16=429/8", "narracao": "Cancele o fator comum dois."},
+                  {"ordem": 2, "expressao": "429=8×53+5", "narracao": "Resolva a conta reduzida."},
+                  {"ordem": 3, "expressao": "429/8=53 5/8", "narracao": "Mantenha o resíduo como fração."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c04-l06-ex-475-35",
+              "question": "Calcule 475 ÷ 35 usando os finais cinco.",
+              "answer": "13 4/7",
+              "steps": [
+                {"expression": "475/35=950/70=95/7", "explanation": "Dobre ambos e retire o fator dez."},
+                {"expression": "95÷7=13, resto 4", "explanation": "A divisão final usa divisor sete."}
+              ],
+              "conclusion": "A cadeia converte um divisor 35 em 7 sem alterar a razão.",
+              "source": {"printedPage": 92, "pdfPage": 118},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Finais cinco viram divisor sete",
+                "leitura": "Dobre para criar zeros e depois cancele dez.",
+                "pagina": 92,
+                "inicio": "475÷35",
+                "resultado": "13 4/7",
+                "passos": [
+                  {"ordem": 1, "expressao": "475/35=950/70", "narracao": "Dobre dividendo e divisor."},
+                  {"ordem": 2, "expressao": "950/70=95/7", "narracao": "Cancele dez."},
+                  {"ordem": 3, "expressao": "95/7=13 4/7", "narracao": "Resolva a divisão amigável."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": ["Nunca reduza apenas um lado da razão.", "Após reduzir, o resto isolado não está na escala original; use uma fração.", "Dividir por um fator grande de uma só vez pode ser mais difícil que reduzir por dois repetidamente."],
+          "memoryCue": "Cancele junto; relate o resto como fração.",
+          "tags": ["divisao", "fator-comum", "simplificacao", "fracoes", "reescala"],
+          "theoryTopicIds": ["c04-divisao-dois-digitos", "c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [90, 91, 92, 93], "pdfPages": [116, 117, 118, 119]}
+        },
+        {
+          "id": "livro-c04-l07-decimalizacao-familias",
+          "order": 7,
+          "title": "Decimalização por famílias conhecidas",
+          "summary": "Memorize as frações unitárias de meios a onze avos e derive numeradores maiores por multiplicação. Sétimos formam um ciclo de seis algarismos cuja rotação é identificada pelos primeiros centésimos.",
+          "whenToUse": ["Ao converter frações com denominadores de 2 a 11.", "Quando uma fração pode ser simplificada até uma família conhecida.", "Para reconhecer rapidamente decimais periódicos."],
+          "whyItWorks": "Frações com o mesmo denominador escalam linearmente pelo numerador. Nos sétimos, os restos da divisão percorrem um ciclo, por isso os mesmos seis algarismos reaparecem em rotações diferentes.",
+          "algorithm": {
+            "title": "Reduza, reconheça a família e escale",
+            "steps": [
+              {"order": 1, "action": "Simplifique", "detail": "Cancele fatores comuns antes de decimalizar."},
+              {"order": 2, "action": "Reconheça o denominador", "detail": "Use valores memorizados para 2, 3, 4, 5, 6, 8, 9, 10 e 11."},
+              {"order": 3, "action": "Trate sétimos", "detail": "Parta de 1/7=0,142857… e use 0,14×numerador para localizar o início da rotação."},
+              {"order": 4, "action": "Escale pelo numerador", "detail": "Multiplique o decimal unitário ou escolha a rotação correspondente."},
+              {"order": 5, "action": "Marque repetição", "detail": "Diferencie decimal finito de período infinito."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l07-ex-2-7",
+              "question": "Converta 2/7 em decimal.",
+              "answer": "0,285714…",
+              "steps": [
+                {"expression": "1/7=0,142857…", "explanation": "Recupere o ciclo básico."},
+                {"expression": "2×0,14≈0,28", "explanation": "O resultado começa em 28."},
+                {"expression": "0,285714…", "explanation": "Gire o ciclo 142857 para começar por 28."}
+              ],
+              "conclusion": "O numerador escolhe o ponto de entrada no mesmo ciclo de seis dígitos.",
+              "source": {"printedPage": 96, "pdfPage": 122}
+            },
+            {
+              "id": "livro-c04-l07-ex-14-24",
+              "question": "Converta 14/24 em decimal.",
+              "answer": "0,5833…",
+              "steps": [
+                {"expression": "14/24=7/12", "explanation": "Cancele o fator dois."},
+                {"expression": "7/12=6/12+1/12=0,5+0,0833…", "explanation": "Decomponha em frações conhecidas."},
+                {"expression": "7/12=0,5833…", "explanation": "Some as partes."}
+              ],
+              "conclusion": "A solução do exercício combina simplificação e decomposição, sem divisão longa completa.",
+              "source": {"printedPage": 98, "pdfPage": 124}
+            }
+          ],
+          "pitfalls": ["Não confunda 1/6=0,1666… com 1/7.", "Nos sétimos, não multiplique apenas um prefixo arredondado se for preciso dar o período exato.", "O traço de repetição pertence ao período, não necessariamente a todos os dígitos decimais."],
+          "memoryCue": "Sétimos reciclam 142857; o numerador escolhe onde começar.",
+          "tags": ["fracoes", "decimalizacao", "periodicos", "setimos", "reconhecimento"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [93, 94, 95, 96, 97, 98], "pdfPages": [119, 120, 121, 122, 123, 124]}
+        },
+        {
+          "id": "livro-c04-l08-decimalizacao-transformacoes",
+          "order": 8,
+          "title": "Transforme denominadores difíceis em conhecidos",
+          "summary": "Frações acima de onze avos ainda podem revelar um denominador conhecido. Reduza pela metade mesmo com numerador ímpar, multiplique finais 5 por dois e finais 25 ou 75 por quatro, ou pare uma divisão quando o resto virar uma fração memorizada.",
+          "whenToUse": ["Quando o denominador termina em 5, 25 ou 75.", "Quando reduzir os dois termos expõe sétimos, oitavos, nonos ou décimos.", "No meio de uma divisão decimal cujo resto forma uma fração conhecida."],
+          "whyItWorks": "Reescalar numerador e denominador preserva a fração. Também é válido separar uma parte decimal já calculada e substituir apenas o resto por seu decimal conhecido.",
+          "algorithm": {
+            "title": "Procure uma fração de destino",
+            "steps": [
+              {"order": 1, "action": "Inspecione o denominador", "detail": "Se for par, teste metade; se terminar em 5, dobre; se terminar em 25 ou 75, multiplique por quatro."},
+              {"order": 2, "action": "Reescale os dois termos", "detail": "Aceite numerador decimal intermediário quando isso revelar uma família conhecida."},
+              {"order": 3, "action": "Inicie a divisão se necessário", "detail": "Calcule apenas até o resto corresponder a uma fração memorizada."},
+              {"order": 4, "action": "Complete pelo padrão", "detail": "Anexe o decimal conhecido sem continuar mecanicamente."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l08-ex-29-45",
+              "question": "Converta 29/45 em decimal.",
+              "answer": "0,6444…",
+              "steps": [
+                {"expression": "29/45=58/90=5,8/9", "explanation": "Dobre e depois divida por dez para expor nonos."},
+                {"expression": "5,8/9=0,6444…", "explanation": "A divisão entra no padrão repetitivo de nonos."}
+              ],
+              "conclusion": "O denominador 45 foi convertido em 9, uma família conhecida.",
+              "source": {"printedPage": 97, "pdfPage": 123}
+            },
+            {
+              "id": "livro-c04-l08-ex-3-16",
+              "question": "Converta 3/16 em decimal interrompendo a divisão no momento certo.",
+              "answer": "0,1875",
+              "steps": [
+                {"expression": "3/16=0,1+14/160", "explanation": "A primeira casa decimal deixa uma parte equivalente a 14/16 na escala seguinte."},
+                {"expression": "14/16=7/8=0,875", "explanation": "O resto se reduz a uma fração memorizada."},
+                {"expression": "3/16=0,1875", "explanation": "Use os dígitos de 7/8 após a primeira casa."}
+              ],
+              "conclusion": "Reconhecer o resto evita prolongar a divisão.",
+              "source": {"printedPage": 98, "pdfPage": 124}
+            }
+          ],
+          "pitfalls": ["Ao reduzir pela metade um numerador ímpar, mantenha o meio decimal corretamente.", "Multiplicar por quatro denominadores 25 ou 75 exige multiplicar também o numerador.", "Ao completar uma divisão por padrão, respeite a posição decimal já alcançada."],
+          "memoryCue": "Não termine a divisão à força: transforme até reconhecer.",
+          "tags": ["fracoes", "decimalizacao", "reescala", "denominadores-amigaveis"],
+          "theoryTopicIds": ["c04-fracoes", "c04-divisao-dois-digitos"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [96, 97, 98], "pdfPages": [122, 123, 124]}
+        },
+        {
+          "id": "livro-c04-l09-divisibilidade-basica",
+          "order": 9,
+          "title": "Divisibilidade por 2, 3, 4, 5, 6, 8, 9 e 11",
+          "summary": "Os testes locais usam os últimos dígitos quando a base decimal é múltipla do divisor; os testes por soma usam a equivalência das potências de dez módulo 3 ou 9; o teste de 11 alterna sinais porque as potências de dez alternam entre +1 e −1.",
+          "whenToUse": ["Antes de simplificar uma fração ou fatorar um produto.", "Para decidir rapidamente se uma divisão será exata.", "Como filtro antes de métodos de multiplicação avançada."],
+          "whyItWorks": "Para 4 e 8, centenas ou milhares inteiros já são divisíveis e apenas o sufixo importa. Para 3 e 9, cada potência de dez vale 1 no módulo. Para 11, elas alternam 1 e −1.",
+          "algorithm": {
+            "title": "Escolha o teste pelo divisor",
+            "steps": [
+              {"order": 1, "action": "Teste o final", "detail": "Por 2: último algarismo par; por 5: final 0 ou 5; por 4: dois últimos dígitos; por 8: três últimos."},
+              {"order": 2, "action": "Some os algarismos", "detail": "Por 3 ou 9, a soma precisa ser múltipla do divisor."},
+              {"order": 3, "action": "Combine condições", "detail": "Por 6, exija simultaneamente paridade e divisibilidade por 3."},
+              {"order": 4, "action": "Alterne sinais", "detail": "Por 11, some e subtraia algarismos alternadamente; o resultado deve ser zero ou múltiplo de 11."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l09-ex-57852",
+              "question": "Quais testes rápidos mostram fatores de 57.852?",
+              "answer": "É divisível por 2, 3, 4, 6 e 9; não por 5 ou 8.",
+              "steps": [
+                {"expression": "final 2", "explanation": "É par, então passa no teste de 2."},
+                {"expression": "52=4×13", "explanation": "Os dois últimos dígitos passam no teste de 4."},
+                {"expression": "5+7+8+5+2=27", "explanation": "A soma passa em 3 e 9; com a paridade, também em 6."},
+                {"expression": "852 não é múltiplo de 8", "explanation": "Falha no teste de 8; o final não é 0 nem 5."}
+              ],
+              "conclusion": "Cada teste examina somente a informação necessária.",
+              "source": {"printedPage": 99, "pdfPage": 125}
+            },
+            {
+              "id": "livro-c04-l09-ex-53867-11",
+              "question": "53.867 é divisível por 11?",
+              "answer": "Sim",
+              "steps": [
+                {"expression": "5−3+8−6+7=11", "explanation": "A soma alternada é um múltiplo de onze."}
+              ],
+              "conclusion": "O gabarito confirma que 53.867 passa no teste.",
+              "source": {"printedPage": 101, "pdfPage": 127}
+            }
+          ],
+          "pitfalls": ["Divisibilidade por 8 usa os três últimos dígitos, não a soma deles.", "Passar em 3 e ser ímpar não basta para passar em 6.", "No teste de 11, trocar todos os sinais apenas muda o sinal do resultado e não a conclusão."],
+          "memoryCue": "Final para 2,4,5,8; soma para 3,6,9; alternância para 11.",
+          "tags": ["divisibilidade", "fatores", "modulo", "soma-de-algarismos"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [98, 99, 100, 101, 102], "pdfPages": [124, 125, 126, 127, 128]}
+        },
+        {
+          "id": "livro-c04-l10-divisibilidade-sete-geral",
+          "order": 10,
+          "title": "Crie zeros para testar 7 e outros divisores ímpares",
+          "summary": "Para 7 — e, em geral, para divisores ímpares que não terminam em 5 — some ou subtraia um múltiplo do divisor que faça o número terminar em zero; elimine o zero e repita até chegar a um caso reconhecível.",
+          "whenToUse": ["Para testar divisibilidade por 7, 13, 17 e outros ímpares sem final 5.", "Quando um múltiplo pequeno do divisor ajusta facilmente a unidade até zero."],
+          "whyItWorks": "Somar ou subtrair um múltiplo do divisor preserva a classe de divisibilidade. Depois de obter final zero, dividir por dez também preserva a divisibilidade porque dez é coprimo com esses divisores.",
+          "algorithm": {
+            "title": "Ajuste, apague o zero e repita",
+            "steps": [
+              {"order": 1, "action": "Escolha um múltiplo", "detail": "Ache um múltiplo pequeno do divisor cuja unidade complete a unidade atual até zero."},
+              {"order": 2, "action": "Some ou subtraia", "detail": "Prefira a operação que produza um número menor ou mais simples."},
+              {"order": 3, "action": "Elimine o zero", "detail": "Divida o resultado por dez."},
+              {"order": 4, "action": "Repita", "detail": "Continue até reconhecer um múltiplo ou uma falha clara."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l10-ex-5292-7",
+              "question": "Teste se 5.292 é divisível por 7.",
+              "answer": "Sim",
+              "steps": [
+                {"expression": "5292−42=5250→525", "explanation": "Subtraia seis vezes sete e apague o zero."},
+                {"expression": "525+35=560→56", "explanation": "Some cinco vezes sete e apague o zero."},
+                {"expression": "56=7×8", "explanation": "O número final é múltiplo de sete."}
+              ],
+              "conclusion": "Como cada transformação preservou divisibilidade, 5.292 também é múltiplo de sete.",
+              "source": {"printedPage": 100, "pdfPage": 126},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Teste de 7 criando zeros",
+                "leitura": "Cada ajuste usa um múltiplo de sete e cada seta remove um zero final.",
+                "pagina": 100,
+                "inicio": "5292",
+                "resultado": "divisível por 7",
+                "passos": [
+                  {"ordem": 1, "expressao": "5292−42=5250→525", "narracao": "Crie e remova um zero."},
+                  {"ordem": 2, "expressao": "525+35=560→56", "narracao": "Repita com outro múltiplo de sete."},
+                  {"ordem": 3, "expressao": "56=7×8", "narracao": "Reconheça o múltiplo final."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c04-l10-ex-13855-17",
+              "question": "Teste se 13.855 é divisível por 17.",
+              "answer": "Sim",
+              "steps": [
+                {"expression": "13855+85=13940→1394", "explanation": "Some cinco vezes dezessete para criar zero."},
+                {"expression": "1394−34=1360→136", "explanation": "Subtraia duas vezes dezessete."},
+                {"expression": "136+34=170→17", "explanation": "Chegue ao próprio divisor."}
+              ],
+              "conclusion": "A solução do gabarito mostra que o mesmo processo não é exclusivo do sete.",
+              "source": {"printedPage": 102, "pdfPage": 128}
+            }
+          ],
+          "pitfalls": ["Não elimine um zero antes de garantir que o ajuste foi múltiplo do divisor.", "O método geral exige que dez seja coprimo com o divisor; não o aplique diretamente a pares ou finais 5.", "Escolher múltiplos grandes demais torna a cadeia mais difícil sem ganho."],
+          "memoryCue": "Ajuste por um múltiplo, faça zero, corte zero.",
+          "tags": ["divisibilidade", "sete", "dezessete", "criar-zero", "fatores"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [100, 101, 102], "pdfPages": [126, 127, 128]}
+        },
+        {
+          "id": "livro-c04-l11-multiplicar-dividir-fracoes",
+          "order": 11,
+          "title": "Multiplique e divida frações",
+          "summary": "Na multiplicação, numeradores e denominadores são multiplicados separadamente. Na divisão, inverta a segunda fração e transforme a operação em multiplicação; depois simplifique.",
+          "whenToUse": ["Em produtos de proporções.", "Ao dividir uma quantidade fracionária por outra.", "Como base para simplificação e aritmética de frações."],
+          "whyItWorks": "O produto (a/b)(c/d)=ac/bd decorre da multiplicação de razões. Dividir por c/d equivale a multiplicar pelo inverso d/c porque (c/d)(d/c)=1.",
+          "algorithm": {
+            "title": "Multiplique direto ou use o recíproco",
+            "steps": [
+              {"order": 1, "action": "Identifique a operação", "detail": "Em produto, mantenha as duas frações; em divisão, inverta apenas a segunda."},
+              {"order": 2, "action": "Multiplique numeradores", "detail": "Calcule o novo topo."},
+              {"order": 3, "action": "Multiplique denominadores", "detail": "Calcule o novo fundo."},
+              {"order": 4, "action": "Simplifique", "detail": "Cancele fatores comuns antes ou depois do produto."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l11-ex-produto",
+              "question": "Calcule (2/3)×(4/5).",
+              "answer": "8/15",
+              "steps": [
+                {"expression": "2×4=8", "explanation": "Multiplique os numeradores."},
+                {"expression": "3×5=15", "explanation": "Multiplique os denominadores."}
+              ],
+              "conclusion": "Oito e quinze não têm fator comum maior que um.",
+              "source": {"printedPage": 102, "pdfPage": 128}
+            },
+            {
+              "id": "livro-c04-l11-ex-divisao",
+              "question": "Calcule (2/5)÷(1/2).",
+              "answer": "4/5",
+              "steps": [
+                {"expression": "(2/5)÷(1/2)=(2/5)×(2/1)", "explanation": "Inverta somente a segunda fração."},
+                {"expression": "(2×2)/(5×1)=4/5", "explanation": "Multiplique os termos correspondentes."}
+              ],
+              "conclusion": "A resposta do exercício confirma a regra do recíproco.",
+              "source": {"printedPage": 103, "pdfPage": 129}
+            }
+          ],
+          "pitfalls": ["Na divisão, não inverta a primeira fração.", "Não some numeradores ou denominadores durante um produto.", "Denominador zero nunca é permitido."],
+          "memoryCue": "Dividir por fração: mantenha a primeira, inverta a segunda, multiplique.",
+          "tags": ["fracoes", "multiplicacao", "divisao", "reciproco"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [102, 103], "pdfPages": [128, 129]}
+        },
+        {
+          "id": "livro-c04-l12-equivalencia-simplificacao-fracoes",
+          "order": 12,
+          "title": "Construa frações equivalentes e simplifique",
+          "summary": "Multiplicar ou dividir numerador e denominador pelo mesmo fator produz uma representação equivalente. Use isso tanto para reduzir ao menor denominador quanto para criar um denominador-alvo.",
+          "whenToUse": ["Antes de somar ou subtrair frações.", "Para comparar representações.", "Quando um exercício pede denominador específico."],
+          "whyItWorks": "Multiplicar a fração por k/k equivale a multiplicar por um. Dividir ambos os termos por um fator comum desfaz essa mesma transformação.",
+          "algorithm": {
+            "title": "Aplique o mesmo fator em cima e embaixo",
+            "steps": [
+              {"order": 1, "action": "Defina o objetivo", "detail": "Decida se quer reduzir ou alcançar um denominador comum."},
+              {"order": 2, "action": "Escolha o fator", "detail": "Para reduzir, use um divisor comum; para ampliar, use o quociente entre o alvo e o denominador atual."},
+              {"order": 3, "action": "Aplique aos dois termos", "detail": "Multiplique ou divida numerador e denominador pelo mesmo valor."},
+              {"order": 4, "action": "Confira a razão", "detail": "Verifique por produto cruzado se necessário."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l12-ex-denominador-12",
+              "question": "Escreva 5/6 com denominador 12.",
+              "answer": "10/12",
+              "steps": [
+                {"expression": "12÷6=2", "explanation": "O denominador precisa ser dobrado."},
+                {"expression": "(5×2)/(6×2)=10/12", "explanation": "Dobre também o numerador."}
+              ],
+              "conclusion": "As duas frações representam a mesma razão.",
+              "source": {"printedPage": 104, "pdfPage": 130}
+            },
+            {
+              "id": "livro-c04-l12-ex-reduzir-24-36",
+              "question": "Simplifique 24/36.",
+              "answer": "2/3",
+              "steps": [
+                {"expression": "mdc(24,36)=12", "explanation": "Doze é um fator comum conveniente."},
+                {"expression": "(24÷12)/(36÷12)=2/3", "explanation": "Reduza os dois termos."}
+              ],
+              "conclusion": "O gabarito apresenta a forma reduzida 2/3.",
+              "source": {"printedPage": 104, "pdfPage": 130}
+            }
+          ],
+          "pitfalls": ["Alterar apenas numerador ou denominador muda a fração.", "Uma fração equivalente não precisa ter termos menores; o objetivo define ampliar ou reduzir.", "Simplifique novamente se os novos termos ainda compartilham fator."],
+          "memoryCue": "O mesmo fator em cima e embaixo mantém o valor.",
+          "tags": ["fracoes", "equivalencia", "simplificacao", "denominador-comum"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [103, 104], "pdfPages": [129, 130]}
+        },
+        {
+          "id": "livro-c04-l13-somar-subtrair-fracoes",
+          "order": 13,
+          "title": "Some e subtraia frações com denominadores iguais ou diferentes",
+          "summary": "Com denominadores iguais, opere apenas os numeradores. Com denominadores diferentes, substitua as parcelas por frações equivalentes de denominador comum; então opere e simplifique.",
+          "whenToUse": ["Em somas e diferenças de quantidades fracionárias.", "Depois de dominar equivalência e simplificação."],
+          "whyItWorks": "O denominador define o tamanho das partes. Só é possível somar ou retirar diretamente quando as partes têm o mesmo tamanho; frações equivalentes convertem as parcelas para uma unidade comum.",
+          "algorithm": {
+            "title": "Uniformize as partes antes de operar",
+            "steps": [
+              {"order": 1, "action": "Compare denominadores", "detail": "Se já forem iguais, preserve-os e opere os numeradores."},
+              {"order": 2, "action": "Ache um denominador comum", "detail": "Prefira o menor múltiplo comum quando for simples."},
+              {"order": 3, "action": "Converta as frações", "detail": "Aplique o fator necessário a numerador e denominador."},
+              {"order": 4, "action": "Some ou subtraia", "detail": "Opere os numeradores e mantenha o denominador comum."},
+              {"order": 5, "action": "Simplifique", "detail": "Reduza a resposta e, se desejado, converta fração imprópria em número misto."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c04-l13-ex-soma",
+              "question": "Calcule 1/3 + 2/5.",
+              "answer": "11/15",
+              "steps": [
+                {"expression": "1/3=5/15; 2/5=6/15", "explanation": "Converta ambas para denominador quinze."},
+                {"expression": "5/15+6/15=11/15", "explanation": "Some os numeradores."}
+              ],
+              "conclusion": "O denominador comum representa partes do mesmo tamanho.",
+              "source": {"printedPage": 106, "pdfPage": 132}
+            },
+            {
+              "id": "livro-c04-l13-ex-subtracao",
+              "question": "Calcule 2/3 − 5/8.",
+              "answer": "1/24",
+              "steps": [
+                {"expression": "2/3=16/24; 5/8=15/24", "explanation": "Use denominador comum vinte e quatro."},
+                {"expression": "16/24−15/24=1/24", "explanation": "Subtraia os numeradores."}
+              ],
+              "conclusion": "O resultado pequeno faz sentido porque as frações originais eram próximas.",
+              "source": {"printedPage": 107, "pdfPage": 133}
+            }
+          ],
+          "pitfalls": ["Nunca some ou subtraia denominadores diretamente.", "Uma diferença pode gerar numerador negativo; preserve o sinal em vez de trocar a ordem sem perceber.", "Frações impróprias são válidas e não precisam ser forçadas a menores que um."],
+          "memoryCue": "Partes do mesmo tamanho primeiro; numeradores depois.",
+          "tags": ["fracoes", "adicao", "subtracao", "denominador-comum"],
+          "theoryTopicIds": ["c04-fracoes"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [104, 105, 106, 107], "pdfPages": [130, 131, 132, 133]}
+        }
+      ]
+    },
+    {
+      "id": "livro-capitulo-05",
+      "order": 5,
+      "title": "Bom o bastante: a arte da estimativa",
+      "originalTitle": "Good Enough: The Art of Guesstimation",
+      "difficulty": 6,
+      "printedPages": [108, 130],
+      "pdfPages": [134, 156],
+      "prerequisites": [
+        "Adição, subtração, multiplicação e divisão mental por blocos",
+        "Quadrados de dois dígitos e frações usuais",
+        "Leitura de milhares, milhões e bilhões"
+      ],
+      "summary": "Estimar não é chutar: é trocar uma conta cara por outra controlável, preservar a ordem de grandeza e saber em que direção e por quanto a aproximação pode errar. O capítulo aplica essa disciplina às quatro operações, raízes, percentuais, impostos, juros e prestações.",
+      "groupId": "misto",
+      "theoryTopicIds": ["c05-ordem-grandeza", "c05-percentuais", "c05-prestacao", "c05-raiz", "c07-numeros-proximos"],
+      "lessons": [
+        {
+          "id": "livro-c05-l01-estimar-adicoes",
+          "order": 1,
+          "title": "Arredonde adições com precisão escolhida",
+          "summary": "Escolha a casa até a qual a resposta precisa ser útil, arredonde cada parcela e some os números simples. Centenas costumam dar erro relativo muito menor que milhares; em valores enormes, notação em milhões torna a memória leve.",
+          "whenToUse": ["Para conferir rapidamente um total.", "Quando os algarismos finais não influenciam a decisão.", "Quando uma soma exata excede a memória de trabalho."],
+          "whyItWorks": "O erro total é a soma dos pequenos ajustes feitos em cada parcela. Ao escolher uma casa menor, o limite absoluto do erro diminui; compará-lo com o tamanho da resposta produz o erro relativo.",
+          "algorithm": {
+            "title": "Defina a resolução e some os arredondados",
+            "steps": [
+              {"order": 1, "action": "Defina a finalidade", "detail": "Decida se a resposta precisa de milhares, centenas ou outra resolução."},
+              {"order": 2, "action": "Arredonde cada parcela", "detail": "Use o múltiplo mais próximo da casa escolhida."},
+              {"order": 3, "action": "Some os números simples", "detail": "Mantenha a unidade escolhida explícita: mil, milhão ou bilhão."},
+              {"order": 4, "action": "Avalie o erro", "detail": "Se necessário, compare aproximação e valor exato pela razão erro/valor."},
+              {"order": 5, "action": "Refine", "detail": "Se o intervalo for largo demais, repita com uma casa adicional."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l01-ex-8367-5819",
+              "question": "Estime 8.367 + 5.819 e refine a aproximação.",
+              "answer": "14.000 aos milhares; 14.200 às centenas; exato 14.186",
+              "steps": [
+                {"expression": "8.000+6.000=14.000", "explanation": "O primeiro passe usa milhares."},
+                {"expression": "8.400+5.800=14.200", "explanation": "O segundo passe usa centenas."},
+                {"expression": "|14.200−14.186|=14", "explanation": "A estimativa refinada erra menos de 0,1%."}
+              ],
+              "conclusion": "A mesma conta oferece respostas de custo e precisão diferentes.",
+              "source": {"printedPage": 110, "pdfPage": 136},
+              "visualizacao": {
+                "tipo": "conta-armada",
+                "rotulo": "Soma arredondada às centenas",
+                "leitura": "Compare a conta original com as parcelas arredondadas antes de somar.",
+                "pagina": 110,
+                "parcelas": ["8.367→8.400", "5.819→5.800"],
+                "operador": "+",
+                "resposta": "≈14.200",
+                "passos": [
+                  {"ordem": 1, "expressao": "8.367≈8.400", "narracao": "A primeira parcela sobe trinta e três."},
+                  {"ordem": 2, "expressao": "5.819≈5.800", "narracao": "A segunda desce dezenove."},
+                  {"ordem": 3, "expressao": "8.400+5.800=14.200", "narracao": "Some os arredondados."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l01-ex-mercado",
+              "question": "Estime a coluna de compras 2,67; 1,95; 7,35; 9,21; 0,49; 11,21; 0,12; 6,14; 8,31 arredondando a R$0,50.",
+              "answer": "R$47,00; total exato R$47,35",
+              "steps": [
+                {"expression": "2,50+2,00+7,50+9,00+0,50", "explanation": "Arredonde cada preço para zero, cinquenta centavos ou real inteiro."},
+                {"expression": "+11,00+0,00+6,00+8,50=47,00", "explanation": "Mantenha um total corrente simples."}
+              ],
+              "conclusion": "A solução do exercício fica a trinta e cinco centavos do total real.",
+              "source": {"printedPage": 253, "pdfPage": 279}
+            }
+          ],
+          "pitfalls": ["Arredondar todas as parcelas na mesma direção pode acumular viés.", "Não informe precisão de centavos para uma conta arredondada a centenas ou milhares.", "Erro absoluto pequeno nem sempre significa erro relativo pequeno em totais pequenos."],
+          "memoryCue": "Escolha a casa, arredonde, some e refine só se precisar.",
+          "tags": ["estimativa", "adicao", "arredondamento", "erro-relativo", "compras"],
+          "theoryTopicIds": ["c05-ordem-grandeza"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [108, 109, 110, 111, 128, 253], "pdfPages": [134, 135, 136, 137, 154, 279]}
+        },
+        {
+          "id": "livro-c05-l02-estimar-subtracoes",
+          "order": 2,
+          "title": "Estime diferenças sem perder o sinal nem a escala",
+          "summary": "Arredonde minuendo e subtraendo para a mesma casa. Em diferenças, um arredondamento grosseiro pode representar grande parte da resposta; por isso, teste centenas ou o terceiro algarismo quando os números forem próximos.",
+          "whenToUse": ["Para conferir uma diferença calculada.", "Quando os operandos têm muitos dígitos.", "Quando se deseja um limite prático em vez de centavos exatos."],
+          "whyItWorks": "A diferença estimada sofre o erro do primeiro arredondamento menos o erro do segundo. Quando os operandos quase se cancelam, esse erro pode ser grande em proporção à resposta, exigindo mais precisão.",
+          "algorithm": {
+            "title": "Arredonde os dois termos na mesma resolução",
+            "steps": [
+              {"order": 1, "action": "Antecipe o tamanho da diferença", "detail": "Observe se os números estão próximos; quanto maior o cancelamento, mais uma casa pode ser necessária."},
+              {"order": 2, "action": "Arredonde ambos", "detail": "Use a mesma casa posicional."},
+              {"order": 3, "action": "Subtraia", "detail": "Calcule a diferença dos valores simples."},
+              {"order": 4, "action": "Compare resoluções", "detail": "Se a resposta mudar demais ao refinar, prefira o segundo passe."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l02-ex-8367-5819",
+              "question": "Estime 8.367 − 5.819.",
+              "answer": "2.000 aos milhares; 2.600 às centenas; exato 2.548",
+              "steps": [
+                {"expression": "8.000−6.000=2.000", "explanation": "O arredondamento a milhares é rápido, mas perde bastante informação."},
+                {"expression": "8.400−5.800=2.600", "explanation": "Às centenas, o erro cai para 52."},
+                {"expression": "52/2.548≈2%", "explanation": "A solução refinada tem erro relativo de cerca de dois por cento."}
+              ],
+              "conclusion": "Em subtração, a proximidade dos operandos torna a resolução especialmente importante.",
+              "source": {"printedPage": 112, "pdfPage": 138},
+              "visualizacao": {
+                "tipo": "conta-armada",
+                "rotulo": "Diferença arredondada às centenas",
+                "leitura": "Os dois termos são aproximados na mesma casa antes da subtração.",
+                "pagina": 112,
+                "parcelas": ["8.367→8.400", "5.819→5.800"],
+                "operador": "−",
+                "resposta": "≈2.600",
+                "passos": [
+                  {"ordem": 1, "expressao": "8.367≈8.400", "narracao": "Arredonde o minuendo."},
+                  {"ordem": 2, "expressao": "5.819≈5.800", "narracao": "Arredonde o subtraendo na mesma resolução."},
+                  {"ordem": 3, "expressao": "8.400−5.800=2.600", "narracao": "Subtraia os valores simples."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": ["Arredondar em casas diferentes distorce a comparação.", "Se a diferença é pequena perante os operandos, milhares podem ser grosseiros demais.", "Preserve a ordem: estimar B−A em vez de A−B troca o sinal."],
+          "memoryCue": "Quanto mais os termos se cancelam, mais uma casa importa.",
+          "tags": ["estimativa", "subtracao", "arredondamento", "erro-relativo"],
+          "theoryTopicIds": ["c05-ordem-grandeza"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [111, 112, 129, 254], "pdfPages": [137, 138, 155, 280]}
+        },
+        {
+          "id": "livro-c05-l03-estimar-divisoes",
+          "order": 3,
+          "title": "Fixe primeiro a ordem de grandeza do quociente",
+          "summary": "Em divisão aproximada, a posição do primeiro algarismo vale mais que suas casas finais. Arredonde dividendo e divisor, compare produtos por potências de dez e só então refine o resto ou a fração.",
+          "whenToUse": ["Em razões com números muito grandes.", "Para converter grandezas, custos por unidade ou taxas diárias.", "Para rejeitar resultados com vírgula deslocada."],
+          "whyItWorks": "Multiplicar divisor por 10, 100, 1000 etc. delimita a potência de dez do quociente. Remover zeros equivalentes simplifica a razão sem alterar a escala quando eles são recolocados corretamente.",
+          "algorithm": {
+            "title": "Magnitude, arredondamento e refinamento",
+            "steps": [
+              {"order": 1, "action": "Teste potências de dez", "detail": "Compare divisor×10^k com o dividendo para localizar o quociente."},
+              {"order": 2, "action": "Arredonde os termos", "detail": "Escolha prefixos que formem uma divisão conhecida."},
+              {"order": 3, "action": "Divida os prefixos", "detail": "Calcule o primeiro algarismo e, se útil, uma fração simples."},
+              {"order": 4, "action": "Restaure a escala", "detail": "Recoloque milhares ou outras unidades retiradas."},
+              {"order": 5, "action": "Faça uma checagem reversa", "detail": "Multiplique a estimativa pelo divisor arredondado."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l03-ex-57867-6",
+              "question": "Estime 57.867 ÷ 6.",
+              "answer": "Aproximadamente 9.667; exato 9.644,5",
+              "steps": [
+                {"expression": "57.867≈58.000", "explanation": "Arredonde o dividendo."},
+                {"expression": "6×9.000=54.000", "explanation": "O quociente está nos nove mil."},
+                {"expression": "58−54=4; 4/6≈0,667", "explanation": "Refine a parte restante na escala de milhares."},
+                {"expression": "9,667 mil≈9.667", "explanation": "Restaure a unidade."}
+              ],
+              "conclusion": "A colocação do nove na casa dos milhares é a decisão crítica.",
+              "source": {"printedPage": 113, "pdfPage": 139},
+              "visualizacao": {
+                "tipo": "divisao-longa",
+                "rotulo": "Estimativa de 57.867 por 6",
+                "leitura": "A visualização usa o dividendo arredondado e registra o quociente aproximado.",
+                "pagina": 113,
+                "dividendo": "58.000",
+                "divisor": "6",
+                "quociente": "≈9.667",
+                "resposta": "≈9.667",
+                "passos": [
+                  {"ordem": 1, "subtrair": "6×9.000=54.000", "resto": "4.000", "recuo": "9.000", "narracao": "Fixe nove milhares."},
+                  {"ordem": 2, "subtrair": "6×667≈4.002", "resto": "≈−2", "recuo": "≈667", "narracao": "Use dois terços de mil para completar a aproximação."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l03-ex-luz",
+              "question": "Estime 92.960.130 ÷ 186.282, o tempo em segundos de uma viagem de luz aproximada.",
+              "answer": "Aproximadamente 500 segundos; exato aproximado 499,02",
+              "steps": [
+                {"expression": "92.960.130≈93.000.000; 186.282≈186.000", "explanation": "Use três algarismos significativos."},
+                {"expression": "93.000÷186=500", "explanation": "Cancele três zeros de ambos os termos e reconheça 186×5=930."}
+              ],
+              "conclusion": "A reescala preserva a magnitude e produz uma estimativa quase exata.",
+              "source": {"printedPage": 114, "pdfPage": 140}
+            }
+          ],
+          "pitfalls": ["Cancelar zeros que não são fatores comuns muda a razão.", "Um primeiro algarismo correto na casa errada ainda é uma resposta desastrosa.", "Arredondar o divisor perto de zero pode amplificar muito o erro."],
+          "memoryCue": "Primeiro onde fica o quociente; depois quanto ele vale.",
+          "tags": ["estimativa", "divisao", "ordem-de-grandeza", "escala"],
+          "theoryTopicIds": ["c05-ordem-grandeza"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [112, 113, 114, 129, 254], "pdfPages": [138, 139, 140, 155, 280]}
+        },
+        {
+          "id": "livro-c05-l04-estimar-multiplicacoes",
+          "order": 4,
+          "title": "Ajuste fatores em sentidos opostos",
+          "summary": "Arredondar ambos livremente simplifica o produto, mas ajustar os fatores pelo mesmo valor em sentidos opostos costuma conservar melhor o resultado. Aproximar os fatores entre si tende a superestimar; afastá-los tende a subestimar.",
+          "whenToUse": ["Em produtos de dois ou mais dígitos cujo valor exato não é necessário.", "Para antecipar a direção do erro.", "Como primeiro passo antes de um método de números próximos."],
+          "whyItWorks": "Para fatores x e y, (x+d)(y−d)=xy+d(y−x)−d². Quando o maior sobe e o menor desce, eles se afastam e o produto cai; quando se aproximam, o produto sobe. O termo de erro cresce com o ajuste.",
+          "algorithm": {
+            "title": "Crie um fator redondo sem deslocar demais o produto",
+            "steps": [
+              {"order": 1, "action": "Escolha um alvo redondo", "detail": "Leve um fator a múltiplo de 10, 100 ou outra base fácil."},
+              {"order": 2, "action": "Compense no outro", "detail": "Aplique aproximadamente o mesmo ajuste no sentido oposto."},
+              {"order": 3, "action": "Multiplique", "detail": "Resolva o produto simplificado."},
+              {"order": 4, "action": "Preveja o viés", "detail": "Fatores mais próximos produzem estimativa alta; mais afastados, baixa."},
+              {"order": 5, "action": "Expresse a escala", "detail": "Em números enormes, calcule os prefixos e nomeie milhões ou bilhões."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l04-ex-88-54",
+              "question": "Estime 88×54 com ajuste compensado.",
+              "answer": "4.680; exato 4.752",
+              "steps": [
+                {"expression": "88→90; 54→52", "explanation": "Some dois ao maior e subtraia dois do menor."},
+                {"expression": "90×52=4.680", "explanation": "O produto vira uma conta simples por nove e zero."},
+                {"expression": "erro=72≈1,5%", "explanation": "Como os fatores se afastaram, a estimativa ficou baixa."}
+              ],
+              "conclusion": "O ajuste oposto é bem melhor que 90×50=4.500.",
+              "source": {"printedPage": 114, "pdfPage": 140},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Ajuste oposto dos fatores",
+                "leitura": "Um fator sobe dois enquanto o outro desce dois.",
+                "pagina": 114,
+                "inicio": "88×54",
+                "resultado": "≈4.680",
+                "passos": [
+                  {"ordem": 1, "expressao": "88×54≈90×52", "narracao": "Arredonde em sentidos opostos."},
+                  {"ordem": 2, "expressao": "90×52=4.680", "narracao": "Calcule o produto amigável."},
+                  {"ordem": 3, "expressao": "4.680<4.752", "narracao": "Fatores afastados indicam estimativa baixa."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l04-ex-grande",
+              "question": "Estime 28.657.493×13.864.",
+              "answer": "Aproximadamente 406 bilhões",
+              "steps": [
+                {"expression": "28.657.493≈29 milhões; 13.864≈14 mil", "explanation": "Conserve dois algarismos significativos."},
+                {"expression": "29×14=406", "explanation": "Resolva o produto pequeno."},
+                {"expression": "milhão×mil=bilhão", "explanation": "Restaure a escala: 406 bilhões."}
+              ],
+              "conclusion": "Nomear a unidade evita contar zeros mentalmente.",
+              "source": {"printedPage": 117, "pdfPage": 143}
+            }
+          ],
+          "pitfalls": ["O ajuste oposto não conserva exatamente o produto; continua sendo estimativa.", "Quanto maior o deslocamento, maior tende a ser o erro.", "Fatores iguais afastados artificialmente geram subestimativa, como no primeiro passo de um quadrado."],
+          "memoryCue": "Aproximou os fatores: alto. Afastou: baixo.",
+          "tags": ["estimativa", "multiplicacao", "ajustes-opostos", "erro", "numeros-proximos"],
+          "theoryTopicIds": ["c05-ordem-grandeza", "c07-numeros-proximos"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [114, 115, 116, 117, 129, 254, 255], "pdfPages": [140, 141, 142, 143, 155, 280, 281]}
+        },
+        {
+          "id": "livro-c05-l05-raiz-dividir-media",
+          "order": 5,
+          "title": "Aproxime raízes por dividir e tirar a média",
+          "summary": "Escolha um palpite g próximo da raiz, calcule N/g e tire a média dos dois. Como g e N/g ficam em lados opostos da raiz, a média contrai o intervalo e geralmente entrega boa precisão em uma iteração.",
+          "whenToUse": ["Para raízes quadradas não exatas.", "Quando se conhece um quadrado próximo.", "Para estimativa decimal sem calculadora."],
+          "whyItWorks": "Se g está abaixo de √N, então N/g está acima, e vice-versa. A atualização (g+N/g)/2 é uma iteração do método babilônico e aproxima os dois limites rapidamente.",
+          "algorithm": {
+            "title": "Palpite, quociente, média",
+            "steps": [
+              {"order": 1, "action": "Enquadre a raiz", "detail": "Ache quadrados consecutivos ou um quadrado próximo de N."},
+              {"order": 2, "action": "Escolha g", "detail": "Prefira um valor que torne N/g simples."},
+              {"order": 3, "action": "Divida", "detail": "Calcule o parceiro N/g com a precisão desejada."},
+              {"order": 4, "action": "Faça a média", "detail": "Use (g+N/g)/2 como novo palpite."},
+              {"order": 5, "action": "Refine se preciso", "detail": "Repita com o novo palpite ou use a correção pelo erro quadrático."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l05-ex-raiz-19",
+              "question": "Estime √19 começando em 4.",
+              "answer": "4,375 na primeira iteração; valor aproximado real 4,359",
+              "steps": [
+                {"expression": "4²=16<19<25=5²", "explanation": "A raiz está entre quatro e cinco."},
+                {"expression": "19/4=4,75", "explanation": "O parceiro do palpite fica acima da raiz."},
+                {"expression": "(4+4,75)/2=4,375", "explanation": "A média estreita o intervalo."}
+              ],
+              "conclusion": "Uma única média já erra por cerca de dezesseis milésimos.",
+              "source": {"printedPage": 118, "pdfPage": 144},
+              "visualizacao": {
+                "tipo": "raiz-armada",
+                "rotulo": "Raiz de 19 por dividir e fazer a média",
+                "leitura": "As tentativas aproximam a raiz a partir de um quadrado conhecido.",
+                "pagina": 118,
+                "radicando": "19",
+                "raiz": "≈4,375",
+                "passos": [
+                  {"ordem": 1, "expressao": "4²=16", "comparacao": "16<19<25", "alvo": "g=4", "narracao": "Escolha quatro como palpite inicial."},
+                  {"ordem": 2, "expressao": "19÷4=4,75", "comparacao": "4<√19<4,75", "alvo": "parceiro=4,75", "narracao": "Divida o radicando pelo palpite."},
+                  {"ordem": 3, "expressao": "(4+4,75)÷2=4,375", "comparacao": "4,375≈√19", "alvo": "4,375", "narracao": "Tire a média dos limites."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l05-ex-raiz-87",
+              "question": "Estime √87 começando em 9.",
+              "answer": "Aproximadamente 9,33",
+              "steps": [
+                {"expression": "9²=81<87<100=10²", "explanation": "A raiz começa por nove."},
+                {"expression": "87/9≈9,66", "explanation": "Calcule o parceiro."},
+                {"expression": "(9+9,66)/2≈9,33", "explanation": "A média coincide com a raiz arredondada a centésimos."}
+              ],
+              "conclusion": "Um palpite inicial perto do alvo reduz o custo da divisão e o erro.",
+              "source": {"printedPage": 118, "pdfPage": 144}
+            }
+          ],
+          "pitfalls": ["A média deve ser entre g e N/g, não entre g² e N.", "Um palpite muito distante ainda funciona, mas pode exigir nova iteração.", "A primeira aproximação tende a ficar um pouco acima da raiz quando parte de um quadrado vizinho."],
+          "memoryCue": "A raiz mora entre o palpite e N dividido pelo palpite.",
+          "tags": ["raiz-quadrada", "estimativa", "media", "metodo-babilonico"],
+          "theoryTopicIds": ["c05-raiz"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [117, 118, 119, 120, 121, 130, 255], "pdfPages": [143, 144, 145, 146, 147, 156, 281]}
+        },
+        {
+          "id": "livro-c05-l06-raiz-correcao-escala",
+          "order": 6,
+          "title": "Corrija a raiz pelo erro e controle a escala",
+          "summary": "Se g² está perto de N, corrija g por aproximadamente (N−g²)/(2g). Para números grandes, determine primeiro quantos dígitos a raiz terá agrupando a magnitude em pares e escolha um quadrado de referência na escala correta.",
+          "whenToUse": ["Quando um quadrado conhecido está muito perto do radicando.", "Para refinar uma estimativa sem executar N/g completo.", "Em raízes de três a oito dígitos."],
+          "whyItWorks": "Perto de g, (g+h)²=g²+2gh+h². Ignorando o termo pequeno h², o erro N−g² é corrigido por h≈(N−g²)/(2g). Cada par de casas do radicando corresponde a uma casa da raiz.",
+          "algorithm": {
+            "title": "Use erro sobre o dobro do palpite",
+            "steps": [
+              {"order": 1, "action": "Determine a escala", "detail": "Números de 3–4 dígitos têm raiz de 2; 5–6, raiz de 3; 7–8, raiz de 4 dígitos."},
+              {"order": 2, "action": "Escolha g", "detail": "Use um quadrado próximo na escala correta."},
+              {"order": 3, "action": "Calcule o erro", "detail": "Faça e=N−g², com sinal."},
+              {"order": 4, "action": "Divida pelo dobro", "detail": "Aplique h≈e/(2g)."},
+              {"order": 5, "action": "Corrija", "detail": "Use g+h; se o erro ainda importar, repita."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l06-ex-raiz-679",
+              "question": "Estime √679 usando 25².",
+              "answer": "Aproximadamente 26,08; refinado para 26,06",
+              "steps": [
+                {"expression": "25²=625; e=679−625=54", "explanation": "O palpite está abaixo do alvo."},
+                {"expression": "h≈54/(2×25)=54/50=1,08", "explanation": "Converta o erro quadrático em correção linear."},
+                {"expression": "25+1,08=26,08", "explanation": "Primeira correção."},
+                {"expression": "26²=676; 3/52≈0,06", "explanation": "Um segundo quadrado conhecido refina para 26,06."}
+              ],
+              "conclusion": "A correção evita dividir 679 por um palpite com muitas casas.",
+              "source": {"printedPage": 119, "pdfPage": 145},
+              "visualizacao": {
+                "tipo": "raiz-armada",
+                "rotulo": "Correção linear de √679",
+                "leitura": "Cada tentativa mede o erro do quadrado e o divide pelo dobro do palpite.",
+                "pagina": 119,
+                "radicando": "679",
+                "raiz": "≈26,06",
+                "passos": [
+                  {"ordem": 1, "expressao": "25²=625", "comparacao": "625<679", "alvo": "erro 54", "narracao": "Comece por vinte e cinco."},
+                  {"ordem": 2, "expressao": "25+54/50=26,08", "comparacao": "26,08²≈680,17", "alvo": "26,08", "narracao": "Aplique erro dividido pelo dobro do palpite."},
+                  {"ordem": 3, "expressao": "26+3/52≈26,06", "comparacao": "26²=676", "alvo": "26,06", "narracao": "Refine a partir do quadrado de vinte e seis."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l06-ex-raiz-grande",
+              "question": "Estime √593.472.",
+              "answer": "Aproximadamente 770,5; valor aproximado real 770,37",
+              "steps": [
+                {"expression": "700²=490.000; 800²=640.000", "explanation": "A raiz tem três dígitos e está mais perto de oitocentos."},
+                {"expression": "593.472/800≈741", "explanation": "Calcule o parceiro do palpite."},
+                {"expression": "(800+741)/2=770,5", "explanation": "A média dá uma aproximação a décimos."}
+              ],
+              "conclusion": "Escolher oitocentos, em vez de setecentos, melhora muito a primeira média.",
+              "source": {"printedPage": 120, "pdfPage": 146}
+            }
+          ],
+          "pitfalls": ["Use o sinal do erro: se g²>N, a correção deve ser negativa.", "O termo h² foi ignorado; a fórmula é aproximação, não identidade exata.", "Não confunda quantidade de dígitos do radicando com a da raiz."],
+          "memoryCue": "Erro do quadrado dividido pelo dobro do palpite.",
+          "tags": ["raiz-quadrada", "estimativa", "correcao-linear", "escala", "newton"],
+          "theoryTopicIds": ["c05-raiz", "c05-ordem-grandeza"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [118, 119, 120, 121], "pdfPages": [144, 145, 146, 147]}
+        },
+        {
+          "id": "livro-c05-l07-gorjetas-percentuais",
+          "order": 7,
+          "title": "Gorjetas de 10%, 15%, 20% e 25%",
+          "summary": "Dez por cento vem de dividir por dez; vinte é o dobro; quinze pode ser 10%+5%, a média de 10% e 20%, ou multiplicação por 15 seguida de divisão por 100; vinte e cinco é um quarto do valor.",
+          "whenToUse": ["Em gorjetas, descontos e acréscimos cotidianos.", "Quando uma taxa pode ser formada por percentuais de referência."],
+          "whyItWorks": "Percentuais são frações do total: 10%=1/10, 20%=2/10, 15%=10%+metade de 10% e 25%=1/4. As diferentes rotas são equivalentes e permitem escolher a de menor esforço.",
+          "algorithm": {
+            "title": "Parta de uma taxa de referência",
+            "steps": [
+              {"order": 1, "action": "Calcule 10%", "detail": "Divida o valor por dez."},
+              {"order": 2, "action": "Monte 20%", "detail": "Dobre a parcela de dez por cento."},
+              {"order": 3, "action": "Monte 15%", "detail": "Some 10% com metade dele; alternativamente tire a média entre 10% e 20%."},
+              {"order": 4, "action": "Monte 25%", "detail": "Divida o valor por quatro, cortando ao meio duas vezes."},
+              {"order": 5, "action": "Escolha a rota", "detail": "Prefira a decomposição que produza divisões exatas ou simples."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l07-ex-15-67",
+              "question": "Calcule 15% de R$67.",
+              "answer": "R$10,05",
+              "steps": [
+                {"expression": "10% de 67=6,70", "explanation": "Mova a vírgula uma casa."},
+                {"expression": "5% de 67=3,35", "explanation": "Tome a metade de 10%."},
+                {"expression": "6,70+3,35=10,05", "explanation": "Some as parcelas."}
+              ],
+              "conclusion": "O texto também mostra que a média entre R$6,70 e R$13,40 entrega o mesmo valor.",
+              "source": {"printedPage": 123, "pdfPage": 149},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Quinze por cento como dez mais cinco",
+                "leitura": "A taxa é decomposta em uma parcela-base e sua metade.",
+                "pagina": 123,
+                "inicio": "15% de R$67",
+                "resultado": "R$10,05",
+                "passos": [
+                  {"ordem": 1, "expressao": "67÷10=6,70", "narracao": "Calcule dez por cento."},
+                  {"ordem": 2, "expressao": "6,70÷2=3,35", "narracao": "Calcule cinco por cento."},
+                  {"ordem": 3, "expressao": "6,70+3,35=10,05", "narracao": "Recombine quinze por cento."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l07-ex-25-74",
+              "question": "Calcule 25% de R$74.",
+              "answer": "R$18,50",
+              "steps": [
+                {"expression": "74÷2=37", "explanation": "Primeira metade."},
+                {"expression": "37÷2=18,50", "explanation": "Segunda metade produz um quarto."}
+              ],
+              "conclusion": "O gabarito usa exatamente a divisão ao meio duas vezes.",
+              "source": {"printedPage": 256, "pdfPage": 282}
+            }
+          ],
+          "pitfalls": ["15% não é 10% mais metade do valor original; é 10% mais metade da parcela de 10%.", "Ao multiplicar diretamente por 15, divida o produto por 100.", "25% é um quarto, não um quinto."],
+          "memoryCue": "10 divide por 10; 20 dobra; 15 soma metade; 25 corta duas vezes.",
+          "tags": ["percentuais", "gorjeta", "dez-por-cento", "quinze-por-cento", "vinte-cinco-por-cento"],
+          "theoryTopicIds": ["c05-percentuais"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [122, 123, 130, 256], "pdfPages": [148, 149, 156, 282]}
+        },
+        {
+          "id": "livro-c05-l08-impostos-fracionarios",
+          "order": 8,
+          "title": "Imposto inteiro mais ajuste fracionário",
+          "summary": "Calcule primeiro a parte inteira da taxa e trate os décimos ou quartos adicionais como centavos por dólar, ou como uma fração do imposto-base. Para uma taxa A+B%, o divisor mágico D satisfaz A/D=B.",
+          "whenToUse": ["Em taxas como 6,5%, 7,25%, 7,75% ou 6,375%.", "Quando a parte inteira da porcentagem é fácil de calcular.", "Quando uma estimativa de poucos centavos é suficiente."],
+          "whyItWorks": "A porcentagem é aditiva: (A+B)% do valor = A% do valor + B% do valor. Como B%/A%=B/A, a parcela extra pode ser obtida dividindo o imposto-base por A/B.",
+          "algorithm": {
+            "title": "Calcule a base e derive o ajuste",
+            "steps": [
+              {"order": 1, "action": "Separe a taxa", "detail": "Escreva parte inteira A e fração B."},
+              {"order": 2, "action": "Calcule A%", "detail": "Multiplique o valor por A e divida por cem."},
+              {"order": 3, "action": "Calcule B%", "detail": "Use diretamente a fração do valor ou divida a parcela A% por D=A/B."},
+              {"order": 4, "action": "Arredonde D se convier", "detail": "Registre se o ajuste virou aproximação e em qual direção."},
+              {"order": 5, "action": "Some", "detail": "Recombine base e ajuste."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l08-ex-6-5-58",
+              "question": "Calcule 6,5% de R$58.",
+              "answer": "R$3,77",
+              "steps": [
+                {"expression": "6% de 58=58×6/100=3,48", "explanation": "Calcule a taxa inteira."},
+                {"expression": "0,5% de 58=0,29", "explanation": "Metade de cinquenta e oito vira vinte e nove centavos."},
+                {"expression": "3,48+0,29=3,77", "explanation": "Some o ajuste."}
+              ],
+              "conclusion": "Dividir R$3,48 por doze daria aproximadamente R$0,29 para a mesma correção.",
+              "source": {"printedPage": 124, "pdfPage": 150}
+            },
+            {
+              "id": "livro-c05-l08-ex-7-75-124",
+              "question": "Calcule 7,75% de R$124.",
+              "answer": "R$9,61 exatos; cerca de R$9,64 pelo divisor 9",
+              "steps": [
+                {"expression": "7% de 124=8,68", "explanation": "Forme a base."},
+                {"expression": "0,25% de 124=0,31; 0,75%=0,93", "explanation": "Calcule um quarto por cento e triplique."},
+                {"expression": "8,68+0,93=9,61", "explanation": "Resultado exato."},
+                {"expression": "8,68/9≈0,96", "explanation": "Como 7/9≈0,777, o divisor nove cria uma leve superestimativa do ajuste 0,75%."}
+              ],
+              "conclusion": "O método geral permite optar entre exatidão e uma divisão mental mais leve.",
+              "source": {"printedPage": 125, "pdfPage": 151},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Taxa fracionária por base e ajuste",
+                "leitura": "Sete por cento é a base; três quartos por cento entram como correção.",
+                "pagina": 125,
+                "inicio": "7,75% de R$124",
+                "resultado": "R$9,61",
+                "passos": [
+                  {"ordem": 1, "expressao": "124×7%=8,68", "narracao": "Calcule a parte inteira da taxa."},
+                  {"ordem": 2, "expressao": "124×0,25%=0,31", "narracao": "Obtenha um quarto por cento."},
+                  {"ordem": 3, "expressao": "3×0,31=0,93", "narracao": "Monte três quartos por cento."},
+                  {"ordem": 4, "expressao": "8,68+0,93=9,61", "narracao": "Some base e ajuste."}
+                ]
+              }
+            }
+          ],
+          "pitfalls": ["O divisor mágico atua sobre o imposto-base, não sobre o valor da compra.", "Arredondar D troca cálculo exato por estimativa; declare isso.", "0,5% corresponde a meio centavo por real, não a cinquenta por cento."],
+          "memoryCue": "Taxa quebrada = taxa inteira + fração controlada.",
+          "tags": ["percentuais", "impostos", "taxa-fracionaria", "divisor-magico", "estimativa"],
+          "theoryTopicIds": ["c05-percentuais"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [123, 124, 125], "pdfPages": [149, 150, 151]}
+        },
+        {
+          "id": "livro-c05-l09-regras-70-110",
+          "order": 9,
+          "title": "Regras de 70 e 110 para crescimento composto",
+          "summary": "Divida 70 pela taxa anual percentual para estimar anos de duplicação e 110 pela taxa para triplicação. Para quadruplicar, aplique dois tempos de duplicação.",
+          "whenToUse": ["Para comparar investimentos de taxa aproximadamente constante.", "Para estimar duplicação, triplicação ou quadruplicação sem exponenciação."],
+          "whyItWorks": "Os tempos vêm de aproximações logarítmicas do crescimento (1+r)^t. Os números 70 e 110 aproximam 100·ln2 e 100·ln3 para taxas percentuais usuais.",
+          "algorithm": {
+            "title": "Divida a constante pela taxa",
+            "steps": [
+              {"order": 1, "action": "Identifique a meta", "detail": "Use 70 para dobrar e 110 para triplicar."},
+              {"order": 2, "action": "Divida pela taxa", "detail": "A taxa deve estar em porcentagem anual, como 7 e não 0,07."},
+              {"order": 3, "action": "Arredonde o tempo", "detail": "O resultado é estimativo; use anos inteiros quando apropriado."},
+              {"order": 4, "action": "Componha metas", "detail": "Para quadruplicar, some dois tempos de duplicação."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l09-ex-dobrar-5",
+              "question": "Quanto tempo leva para dobrar a 5% ao ano?",
+              "answer": "Cerca de 14 anos",
+              "steps": [
+                {"expression": "70÷5=14", "explanation": "Aplique a regra de setenta."},
+                {"expression": "1.000×1,05^14≈1.979,93", "explanation": "A verificação do livro fica muito perto do dobro."}
+              ],
+              "conclusion": "A regra estima tempo, não garante rendimento ou condições financeiras.",
+              "source": {"printedPage": 126, "pdfPage": 152}
+            },
+            {
+              "id": "livro-c05-l09-ex-triplicar-7",
+              "question": "Quanto tempo leva para triplicar a 7% ao ano?",
+              "answer": "Cerca de 16 anos",
+              "steps": [
+                {"expression": "110÷7≈15,7", "explanation": "Aplique a regra de cento e dez."},
+                {"expression": "≈16 anos", "explanation": "O gabarito arredonda para o ano inteiro seguinte."}
+              ],
+              "conclusion": "Para quadruplicar a 7%, duas duplicações de dez anos dão cerca de vinte anos.",
+              "source": {"printedPage": 256, "pdfPage": 282}
+            }
+          ],
+          "pitfalls": ["Não use 0,05 no lugar de 5 no divisor.", "As regras supõem capitalização composta e taxa estável.", "Triplicar não é uma duplicação e meia; use 110 ou cálculo logarítmico."],
+          "memoryCue": "70 dobra, 110 triplica.",
+          "tags": ["percentuais", "juros-compostos", "regra-de-70", "regra-de-110", "tempo"],
+          "theoryTopicIds": ["c05-percentuais"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [125, 126, 130, 256], "pdfPages": [151, 152, 156, 282]}
+        },
+        {
+          "id": "livro-c05-l10-prestacoes",
+          "order": 10,
+          "title": "Delimite e estime prestações de empréstimo",
+          "summary": "Construa primeiro uma faixa plausível: principal dividido pelo número de meses é um piso sem juros; somar os juros do primeiro mês produz um teto simples, pois os juros caem com o saldo. Para maior precisão, use a fórmula de amortização com taxa mensal.",
+          "whenToUse": ["Para conferir propostas de financiamento.", "Para obter rapidamente limites inferior e superior de uma prestação.", "Para validar um resultado de calculadora financeira."],
+          "whyItWorks": "A parte média de principal é P/N. O primeiro juro Pi é o maior juro mensal de um empréstimo amortizado; portanto P/N+Pi é um limite superior simples. A fórmula exata distribui principal e juros em pagamentos iguais.",
+          "algorithm": {
+            "title": "Piso, teto e fórmula de amortização",
+            "steps": [
+              {"order": 1, "action": "Converta o prazo", "detail": "Calcule N=anos×12 meses."},
+              {"order": 2, "action": "Ache o piso", "detail": "Divida o principal por N, ignorando juros.", "expression": "piso=P/N"},
+              {"order": 3, "action": "Ache o juro inicial", "detail": "Converta a taxa anual em mensal i e calcule P×i."},
+              {"order": 4, "action": "Monte o teto", "detail": "Some piso e juro inicial."},
+              {"order": 5, "action": "Refine", "detail": "Se necessário, use M=P·i·(1+i)^N/((1+i)^N−1)."},
+              {"order": 6, "action": "Valide", "detail": "A prestação refinada deve cair entre o piso e o teto simples."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c05-l10-ex-360000",
+              "question": "Estime a prestação de R$360.000 a 6% ao ano por 30 anos.",
+              "answer": "Faixa simples de R$1.000 a R$2.800; estimativa refinada de cerca de R$2.160 por mês",
+              "steps": [
+                {"expression": "N=30×12=360", "explanation": "Converta o prazo."},
+                {"expression": "P/N=360.000/360=1.000", "explanation": "Piso sem juros."},
+                {"expression": "i=6%/12=0,5%; P·i=1.800", "explanation": "Juro do primeiro mês."},
+                {"expression": "teto=1.000+1.800=2.800", "explanation": "O saldo e os juros cairão depois do primeiro mês."},
+                {"expression": "(1,005)^360≈6,02; M≈1.800×6,02/5,02≈2.160", "explanation": "A fórmula de pagamentos iguais produz valor dentro da faixa."}
+              ],
+              "conclusion": "A estimativa mental cria um teste de sanidade antes da fórmula exponencial.",
+              "source": {"printedPage": 127, "pdfPage": 153},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Faixa e refinamento da prestação",
+                "leitura": "O principal por mês fornece o piso; o primeiro juro amplia até o teto; a fórmula refina.",
+                "pagina": 127,
+                "inicio": "P=R$360.000; 6% a.a.; 360 meses",
+                "resultado": "M≈R$2.160/mês",
+                "passos": [
+                  {"ordem": 1, "expressao": "360.000÷360=1.000", "narracao": "Calcule o piso sem juros."},
+                  {"ordem": 2, "expressao": "360.000×0,005=1.800", "narracao": "Calcule o maior juro mensal."},
+                  {"ordem": 3, "expressao": "1.000+1.800=2.800", "narracao": "Obtenha um teto simples."},
+                  {"ordem": 4, "expressao": "M≈2.160", "narracao": "Refine com a fórmula de amortização."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c05-l10-ex-100000",
+              "question": "Estime a prestação de R$100.000 a 9% ao ano por 10 anos.",
+              "answer": "Aproximadamente R$1.267 por mês",
+              "steps": [
+                {"expression": "i=0,09/12=0,0075; N=120", "explanation": "Converta taxa e prazo."},
+                {"expression": "P·i=750; (1,0075)^120≈2,451", "explanation": "Prepare a fórmula."},
+                {"expression": "M≈750×2,451/1,451≈1.267", "explanation": "Resultado apresentado no gabarito."}
+              ],
+              "conclusion": "A resposta deve ser tratada como estimativa baseada na aproximação da potência.",
+              "source": {"printedPage": 256, "pdfPage": 282}
+            }
+          ],
+          "pitfalls": ["Taxa anual precisa ser convertida em taxa mensal compatível.", "Somar todos os juros como se o saldo nunca caísse superestima o custo.", "A fórmula impressa do exemplo do automóvel apresenta inconsistência tipográfica no expoente do denominador; use N de forma coerente no numerador e denominador.", "Taxas, tarifas e seguros reais podem não estar incluídos."],
+          "memoryCue": "Principal por meses é piso; juro inicial somado dá teto; fórmula fica entre eles.",
+          "tags": ["prestacao", "emprestimo", "juros", "amortizacao", "limites"],
+          "theoryTopicIds": ["c05-prestacao", "c05-percentuais"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [126, 127, 128, 130, 256], "pdfPages": [152, 153, 154, 156, 282]}
+        }
+      ]
+    },
+    {
+      "id": "livro-capitulo-06",
+      "order": 6,
+      "title": "Matemática no quadro: cálculo com papel e lápis",
+      "originalTitle": "Math for the Board: Pencil-and-Paper Math",
+      "difficulty": 8,
+      "printedPages": [131, 150],
+      "pdfPages": [157, 176],
+      "prerequisites": [
+        "Adição e subtração em coluna",
+        "Tabuada e transportes de dezenas",
+        "Estimativa de raízes e valor posicional",
+        "Distributiva em multiplicações"
+      ],
+      "summary": "O papel é usado como apoio mínimo, não como depósito de parciais. O capítulo começa com hábitos de soma, subtração e conferência modular, recupera um algoritmo exato de raiz quadrada e culmina no criss-cross, que produz multiplicações de qualquer tamanho em uma única linha.",
+      "groupId": "quadrado",
+      "theoryTopicIds": ["c06-papel", "c06-criss-cross", "c06-prova-nove", "c05-raiz"],
+      "lessons": [
+        {
+          "id": "livro-c06-l01-colunas-soma",
+          "order": 1,
+          "title": "Some colunas ouvindo apenas totais correntes",
+          "summary": "Percorra as colunas da direita para a esquerda e os números de cima para baixo. Em vez de recitar cada parcela, mantenha somente o total corrente; escreva a unidade, transporte as dezenas e confira repetindo a soma de baixo para cima.",
+          "whenToUse": ["Em colunas longas de valores inteiros ou monetários.", "Quando papel está disponível, mas rapidez e baixa carga verbal são desejadas.", "Para produzir uma primeira conferência independente."],
+          "whyItWorks": "A soma é associativa, então a ordem vertical pode ser invertida sem alterar o total. Repetir em ordem contrária modifica a sequência de estados mentais e reduz a chance de reproduzir exatamente o mesmo lapso.",
+          "algorithm": {
+            "title": "Total corrente, transporte e ordem reversa",
+            "steps": [
+              {"order": 1, "action": "Alinhe as casas", "detail": "Unidades, dezenas, centenas e casas decimais precisam ficar na mesma coluna."},
+              {"order": 2, "action": "Comece à direita", "detail": "Some de cima para baixo ouvindo somente os totais acumulados."},
+              {"order": 3, "action": "Registre e transporte", "detail": "Escreva a unidade do total e leve as dezenas à próxima coluna."},
+              {"order": 4, "action": "Avance à esquerda", "detail": "Inclua o transporte no novo total corrente."},
+              {"order": 5, "action": "Confira ao contrário", "detail": "Refaça cada coluna de baixo para cima."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l01-ex-coluna-8651",
+              "question": "Some 4.328, 884, 620, 1.477, 617 e 725.",
+              "answer": "8.651",
+              "steps": [
+                {"expression": "8+4+0+7+7+5: 8,12,12,19,26,31", "explanation": "Na coluna das unidades, escreva 1 e transporte 3."},
+                {"expression": "3+2+8+2+7+1+2=25", "explanation": "Na coluna seguinte, o transporte entra primeiro; escreva 5 e leve 2."},
+                {"expression": "continue até 8.651", "explanation": "Prossiga pelas casas restantes."},
+                {"expression": "5+7+7+0+4+8=31", "explanation": "A conferência começa pela mesma coluna em ordem vertical inversa."}
+              ],
+              "conclusion": "As duas ordens chegam a 8.651 com sequências mentais diferentes.",
+              "source": {"printedPage": 132, "pdfPage": 158},
+              "visualizacao": {
+                "tipo": "conta-armada",
+                "rotulo": "Coluna de seis parcelas",
+                "leitura": "As parcelas são alinhadas à direita e somadas coluna por coluna.",
+                "pagina": 132,
+                "parcelas": ["4.328", "884", "620", "1.477", "617", "725"],
+                "operador": "+",
+                "resposta": "8.651",
+                "passos": [
+                  {"ordem": 1, "expressao": "unidades=31", "narracao": "Escreva um e transporte três."},
+                  {"ordem": 2, "expressao": "dezenas com transporte=25", "narracao": "Escreva cinco e transporte dois."},
+                  {"ordem": 3, "expressao": "centenas e milhares→8.651", "narracao": "Conclua as casas da esquerda."},
+                  {"ordem": 4, "expressao": "refaça de baixo para cima", "narracao": "Use ordem reversa como conferência."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l01-ex-exercicio",
+              "question": "Some 672, 1.367, 107, 7.845, 358, 210 e 916.",
+              "answer": "11.475",
+              "steps": [
+                {"expression": "672+1.367+107+7.845+358+210+916=11.475", "explanation": "A resposta consta no gabarito."},
+                {"expression": "raiz digital das parcelas=9; raiz digital de 11.475=9", "explanation": "A prova dos nove oferece uma segunda checagem."}
+              ],
+              "conclusion": "O exercício combina execução, ordem reversa e checksum modular.",
+              "source": {"printedPage": 256, "pdfPage": 282}
+            }
+          ],
+          "pitfalls": ["Desalinhar casas decimais invalida toda a coluna.", "Recitar parcelas e totais ao mesmo tempo aumenta interferência; retenha só o total corrente.", "Obter o mesmo resultado em ordem reversa aumenta confiança, mas não constitui prova absoluta."],
+          "memoryCue": "Ouça o total, escreva a unidade, carregue o resto.",
+          "tags": ["papel", "adicao", "colunas", "transporte", "conferencia"],
+          "theoryTopicIds": ["c06-papel"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [131, 132, 133, 149, 256], "pdfPages": [157, 158, 159, 175, 282]}
+        },
+        {
+          "id": "livro-c06-l02-prova-dos-nove",
+          "order": 2,
+          "title": "Use raízes digitais como prova dos nove",
+          "summary": "Reduza cada número somando seus algarismos até sobrar uma casa. Na adição, some as reduções das parcelas; na multiplicação, multiplique as reduções dos fatores. A redução do resultado precisa coincidir.",
+          "whenToUse": ["Para detectar erros em adição, subtração ou multiplicação.", "Depois de uma conta longa no papel.", "Como checksum rápido antes de aceitar uma resposta."],
+          "whyItWorks": "Cada potência de dez deixa resto um na divisão por nove, então um número e a soma de seus algarismos têm o mesmo resto módulo nove. Operações corretas preservam essa equivalência.",
+          "algorithm": {
+            "title": "Reduza operandos e resultado módulo nove",
+            "steps": [
+              {"order": 1, "action": "Reduza cada operando", "detail": "Some algarismos repetidamente; múltiplos positivos de nove podem ser representados por 9."},
+              {"order": 2, "action": "Repita a operação", "detail": "Some, subtraia ou multiplique as raízes digitais conforme a conta original."},
+              {"order": 3, "action": "Reduza novamente", "detail": "Leve o checksum calculado a um algarismo."},
+              {"order": 4, "action": "Reduza a resposta", "detail": "Calcule a raiz digital do resultado escrito."},
+              {"order": 5, "action": "Compare", "detail": "Divergência prova erro; coincidência apenas aprova o teste."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l02-ex-soma-8651",
+              "question": "Cheque por noves a soma que resultou em 8.651.",
+              "answer": "Checksum 2 dos dois lados",
+              "steps": [
+                {"expression": "4328→8; 884→2; 620→8; 1477→1; 617→5; 725→5", "explanation": "Reduza cada parcela."},
+                {"expression": "8+2+8+1+5+5=29→11→2", "explanation": "Reduza a soma dos checksums."},
+                {"expression": "8651→8+6+5+1=20→2", "explanation": "A resposta produz o mesmo checksum."}
+              ],
+              "conclusion": "O resultado passa na prova, mas um erro múltiplo de nove ainda poderia escapar.",
+              "source": {"printedPage": 134, "pdfPage": 160},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Checksum da soma",
+                "leitura": "Cada parcela vira uma raiz digital; as raízes são somadas e comparadas à resposta.",
+                "pagina": 134,
+                "inicio": "4.328+884+620+1.477+617+725",
+                "resultado": "checksum 2=checksum de 8.651",
+                "passos": [
+                  {"ordem": 1, "expressao": "[8,2,8,1,5,5]", "narracao": "Reduza as seis parcelas."},
+                  {"ordem": 2, "expressao": "29→2", "narracao": "Some e reduza os checksums."},
+                  {"ordem": 3, "expressao": "8.651→20→2", "narracao": "Compare com o checksum da resposta."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l02-ex-produto-853-762",
+              "question": "Cheque 853×762=649.986 pela prova dos nove.",
+              "answer": "Checksum 6 dos dois lados",
+              "steps": [
+                {"expression": "853→16→7; 762→15→6", "explanation": "Reduza os fatores."},
+                {"expression": "7×6=42→6", "explanation": "Checksum esperado."},
+                {"expression": "649986→42→6", "explanation": "O produto escrito coincide."}
+              ],
+              "conclusion": "A checagem acompanha naturalmente o criss-cross.",
+              "source": {"printedPage": 142, "pdfPage": 168}
+            }
+          ],
+          "pitfalls": ["Coincidência não prova correção: há cerca de uma chance em nove de um erro passar.", "Um múltiplo de nove tem resto zero, embora a convenção de raiz digital possa exibir 9.", "Faça a operação entre checksums antes da redução final; não apenas compare operandos isolados."],
+          "memoryCue": "Diferiu: erro certo. Coincidiu: só passou no filtro.",
+          "tags": ["prova-dos-nove", "raiz-digital", "modulo-9", "checksum", "conferencia"],
+          "theoryTopicIds": ["c06-prova-nove"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [133, 134, 141, 142, 145], "pdfPages": [159, 160, 167, 168, 171]}
+        },
+        {
+          "id": "livro-c06-l03-subtracao-papel",
+          "order": 3,
+          "title": "Confira subtrações por soma e por módulo nove",
+          "summary": "No papel, subtraia da direita para a esquerda. Depois some diferença e subtraendo para recuperar o minuendo. Na prova dos nove, subtraia os checksums; se o resultado for negativo ou zero na convenção usada, some nove antes de comparar.",
+          "whenToUse": ["Em diferenças longas ou monetárias.", "Quando empréstimos entre casas elevam o risco de erro.", "Para obter duas conferências independentes."],
+          "whyItWorks": "A operação inversa verifica A−B=C por B+C=A. Modularmente, o checksum deve satisfazer checksum(A)−checksum(B)≡checksum(C) mod 9.",
+          "algorithm": {
+            "title": "Subtraia, reverta e reduza",
+            "steps": [
+              {"order": 1, "action": "Alinhe e subtraia", "detail": "Trabalhe da direita para a esquerda, registrando empréstimos."},
+              {"order": 2, "action": "Faça a soma inversa", "detail": "Some resposta e subtraendo; deve retornar ao número superior."},
+              {"order": 3, "action": "Reduza os termos", "detail": "Calcule as raízes digitais dos três números."},
+              {"order": 4, "action": "Subtraia módulo nove", "detail": "Se a diferença modular for negativa ou zero na representação 1–9, some nove."},
+              {"order": 5, "action": "Compare", "detail": "Cheque a raiz digital esperada contra a resposta."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l03-ex-65717-38491",
+              "question": "Calcule e confira 65.717−38.491.",
+              "answer": "27.226",
+              "steps": [
+                {"expression": "65.717−38.491=27.226", "explanation": "Faça a subtração em coluna."},
+                {"expression": "27.226+38.491=65.717", "explanation": "A operação inversa recompõe o minuendo."},
+                {"expression": "65.717→8; 38.491→7; 8−7=1; 27.226→1", "explanation": "Os checksums também coincidem."}
+              ],
+              "conclusion": "Soma inversa e módulo nove testam aspectos diferentes da conta.",
+              "source": {"printedPage": 135, "pdfPage": 161},
+              "visualizacao": {
+                "tipo": "conta-armada",
+                "rotulo": "Subtração com dupla conferência",
+                "leitura": "A conta é verificada pela operação inversa e por raízes digitais.",
+                "pagina": 135,
+                "parcelas": ["65.717", "38.491"],
+                "operador": "−",
+                "resposta": "27.226",
+                "passos": [
+                  {"ordem": 1, "expressao": "65.717−38.491=27.226", "narracao": "Subtraia da direita para a esquerda."},
+                  {"ordem": 2, "expressao": "27.226+38.491=65.717", "narracao": "Confira pela soma inversa."},
+                  {"ordem": 3, "expressao": "8−7=1=checksum(27.226)", "narracao": "Confira também módulo nove."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l03-ex-negativo-modular",
+              "question": "Como checar 42.689−18.764=23.925 quando a diferença dos checksums é negativa?",
+              "answer": "Some 9: 2−8+9=3, que coincide com 23.925→3",
+              "steps": [
+                {"expression": "42.689→2; 18.764→8", "explanation": "Reduza os operandos."},
+                {"expression": "2−8=−6; −6+9=3", "explanation": "Normalize o resultado modular."},
+                {"expression": "23.925→21→3", "explanation": "A resposta coincide."}
+              ],
+              "conclusion": "Somar nove muda a representação, não a classe modular.",
+              "source": {"printedPage": 135, "pdfPage": 161}
+            }
+          ],
+          "pitfalls": ["A prova modular não substitui a soma inversa.", "Ao normalizar diferença negativa, some nove, não troque simplesmente o sinal.", "Em valores decimais, ignore a vírgula somente para o checksum, mantendo o alinhamento na conta real."],
+          "memoryCue": "Diferença + subtraendo deve voltar ao topo.",
+          "tags": ["papel", "subtracao", "prova-dos-nove", "operacao-inversa", "modulo-9"],
+          "theoryTopicIds": ["c06-papel", "c06-prova-nove"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [134, 135, 150, 256, 257], "pdfPages": [160, 161, 176, 282, 283]}
+        },
+        {
+          "id": "livro-c06-l04-raiz-exata-papel",
+          "order": 4,
+          "title": "Extraia raízes no papel por pares de algarismos",
+          "summary": "Agrupe o radicando em pares a partir da vírgula. Escolha o primeiro dígito pela maior raiz quadrada que cabe no primeiro grupo; subtraia o quadrado, baixe o próximo par, dobre a raiz parcial e procure o maior dígito x tal que o número formado pelo dobro seguido de x, multiplicado por x, caiba no resto.",
+          "whenToUse": ["Para obter casas sucessivas de uma raiz sem calculadora.", "Para raízes de inteiros ou decimais.", "Para reconhecer exatamente uma raiz perfeita quando o resto zera."],
+          "whyItWorks": "Ao ampliar uma raiz parcial q com um dígito x, o novo quadrado é (10q+x)²=100q²+(20q+x)x. Depois de baixar duas casas, a parcela ainda desconhecida é precisamente testada por (20q+x)x.",
+          "algorithm": {
+            "title": "Agrupe em pares, dobre e teste o próximo dígito",
+            "steps": [
+              {"order": 1, "action": "Separe pares", "detail": "Agrupe algarismos de dois em dois para os dois lados da vírgula; complete com pares de zeros para mais precisão."},
+              {"order": 2, "action": "Escolha a primeira raiz", "detail": "No primeiro grupo, tome o maior dígito cujo quadrado não ultrapassa o valor."},
+              {"order": 3, "action": "Subtraia e baixe um par", "detail": "Retire o quadrado e anexe os próximos dois algarismos ao resto."},
+              {"order": 4, "action": "Dobre a raiz parcial", "detail": "Ignore a vírgula e escreva 2q seguido de uma lacuna."},
+              {"order": 5, "action": "Teste x", "detail": "Escolha o maior dígito x para o qual (20q+x)x não ultrapassa o resto."},
+              {"order": 6, "action": "Repita", "detail": "Subtraia o produto, baixe outro par e continue até a precisão desejada ou resto zero."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l04-ex-raiz-19-exata",
+              "question": "Extraia √19 pelo algoritmo no papel.",
+              "answer": "4,358…",
+              "steps": [
+                {"expression": "4²=16≤19", "explanation": "Quatro é o primeiro dígito; sobra três e baixa-se 00, formando 300."},
+                {"expression": "83×3=249≤300<84×4=336", "explanation": "Dobre 4 para 8 e escolha 3; a raiz parcial é 4,3."},
+                {"expression": "300−249=51→5100; 865×5=4325", "explanation": "Dobre 43 para 86 e escolha 5."},
+                {"expression": "5100−4325=775→77500; 8708×8=69664", "explanation": "Dobre 435 para 870 e escolha 8."}
+              ],
+              "conclusion": "Cada novo par baixado produz exatamente uma nova casa decimal da raiz.",
+              "source": {"printedPage": 136, "pdfPage": 162},
+              "visualizacao": {
+                "tipo": "raiz-armada",
+                "rotulo": "Extração decimal de √19",
+                "leitura": "Os pares 19|00|00|00 liberam uma casa da raiz por tentativa.",
+                "pagina": 136,
+                "radicando": "19,000000",
+                "raiz": "4,358",
+                "passos": [
+                  {"ordem": 1, "expressao": "4²=16", "comparacao": "16≤19<25", "alvo": "primeiro dígito 4", "narracao": "Subtraia dezesseis e baixe o primeiro par de zeros."},
+                  {"ordem": 2, "expressao": "83×3=249", "comparacao": "249≤300<336=84×4", "alvo": "próximo dígito 3", "narracao": "Dobre quatro e teste a unidade anexada."},
+                  {"ordem": 3, "expressao": "865×5=4.325", "comparacao": "4.325≤5.100<5.196=866×6", "alvo": "próximo dígito 5", "narracao": "Dobre quarenta e três e repita."},
+                  {"ordem": 4, "expressao": "8708×8=69.664", "comparacao": "69.664≤77.500<78.381=8709×9", "alvo": "próximo dígito 8", "narracao": "Dobre quatrocentos e trinta e cinco e escolha oito."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l04-ex-raiz-1089",
+              "question": "Extraia √10,89.",
+              "answer": "3,3 exatamente",
+              "steps": [
+                {"expression": "3²=9; 10−9=1; baixe 89→189", "explanation": "A raiz começa por três."},
+                {"expression": "63×3=189", "explanation": "Dobre três para seis, anexe e multiplique pelo novo dígito três."},
+                {"expression": "resto 0", "explanation": "Sem pares restantes, a raiz é exata."}
+              ],
+              "conclusion": "Resto zero identifica um quadrado perfeito na precisão disponível.",
+              "source": {"printedPage": 138, "pdfPage": 164},
+              "visualizacao": {
+                "tipo": "raiz-armada",
+                "rotulo": "Raiz exata de 10,89",
+                "leitura": "Os grupos 10|89 produzem as casas 3|3.",
+                "pagina": 138,
+                "radicando": "10,89",
+                "raiz": "3,3",
+                "passos": [
+                  {"ordem": 1, "expressao": "3²=9", "comparacao": "9≤10<16", "alvo": "3", "narracao": "Escolha o primeiro dígito e baixe o par oitenta e nove."},
+                  {"ordem": 2, "expressao": "63×3=189", "comparacao": "189=189", "alvo": "3", "narracao": "O produto consome todo o resto."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l04-ex-raiz-361",
+              "question": "Calcule √361 usando a técnica do exercício.",
+              "answer": "19 exatamente",
+              "steps": [
+                {"expression": "1²=1; 3−1=2; baixe 61→261", "explanation": "Como há três algarismos, o primeiro grupo é 3."},
+                {"expression": "29×9=261", "explanation": "Dobre a raiz parcial 1, anexe 9 e multiplique por 9."}
+              ],
+              "conclusion": "O gabarito encerra com resto zero.",
+              "source": {"printedPage": 257, "pdfPage": 283}
+            }
+          ],
+          "pitfalls": ["Baixe sempre dois algarismos; baixar apenas um quebra a identidade decimal.", "Ao dobrar, ignore temporariamente a vírgula da raiz parcial.", "O mesmo x ocupa a lacuna e multiplica o número formado.", "O cabeçalho do exercício chama a técnica de estimativa, mas a instrução pede raiz exata; trate como algoritmo exato por dígitos."],
+          "memoryCue": "Par de casas, dobro da raiz, mesmo dígito na lacuna e no multiplicador.",
+          "tags": ["papel", "raiz-quadrada", "algoritmo-exato", "pares-de-algarismos", "dobro"],
+          "theoryTopicIds": ["c06-papel", "c05-raiz"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [135, 136, 137, 138, 150, 257], "pdfPages": [161, 162, 163, 164, 176, 283]}
+        },
+        {
+          "id": "livro-c06-l05-criss-cross-dois-digitos",
+          "order": 5,
+          "title": "Criss-cross 2×2 em uma única linha",
+          "summary": "Escreva o produto da direita para a esquerda. Multiplique primeiro as unidades, depois some os dois produtos cruzados e, por fim, multiplique as dezenas, sempre incorporando o transporte anterior.",
+          "whenToUse": ["Em multiplicações de dois por dois dígitos no papel.", "Quando se deseja evitar linhas de produtos parciais.", "Como base visual para criss-cross de qualquer tamanho."],
+          "whyItWorks": "Para (10a+b)(10c+d), as diagonais são bd nas unidades, ad+bc nas dezenas e ac nas centenas, exatamente a distributiva agrupada por potência de dez.",
+          "algorithm": {
+            "title": "Direita, cruz, esquerda",
+            "steps": [
+              {"order": 1, "action": "Multiplique as unidades", "detail": "Escreva a unidade do produto e transporte as dezenas."},
+              {"order": 2, "action": "Cruze", "detail": "Some transporte, dezena superior×unidade inferior e unidade superior×dezena inferior."},
+              {"order": 3, "action": "Registre e transporte", "detail": "Escreva a unidade dessa soma."},
+              {"order": 4, "action": "Finalize à esquerda", "detail": "Some o transporte ao produto das dezenas e escreva todo o valor restante."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l05-ex-47-34",
+              "question": "Calcule 47×34 pelo criss-cross.",
+              "answer": "1.598",
+              "steps": [
+                {"expression": "7×4=28", "explanation": "Escreva 8 e transporte 2."},
+                {"expression": "2+4×4+7×3=39", "explanation": "Escreva 9 e transporte 3."},
+                {"expression": "3+4×3=15", "explanation": "Escreva 15 à esquerda."}
+              ],
+              "conclusion": "O produto completo aparece em uma linha, sem registrar 47×4 e 47×30 separadamente.",
+              "source": {"printedPage": 139, "pdfPage": 165},
+              "visualizacao": {
+                "tipo": "criss-cross",
+                "rotulo": "47 por 34",
+                "leitura": "Índices começam em zero e percorrem cada número da esquerda para a direita; as etapas avançam da diagonal direita para a esquerda.",
+                "pagina": 139,
+                "superior": "47",
+                "inferior": "34",
+                "resultado": "1598",
+                "passos": [
+                  {"ordem": 1, "conexoes": [[1, 1]], "expressao": "7×4=28", "resultado": "8", "transporte": 2, "narracao": "Escreva oito e carregue dois."},
+                  {"ordem": 2, "conexoes": [[0, 1], [1, 0]], "expressao": "2+4×4+7×3=39", "resultado": "9", "transporte": 3, "narracao": "Some os cruzamentos, escreva nove e carregue três."},
+                  {"ordem": 3, "conexoes": [[0, 0]], "expressao": "3+4×3=15", "resultado": "15", "transporte": 0, "narracao": "Escreva todo o valor restante à esquerda."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l05-ex-54-37",
+              "question": "Calcule 54×37 pelo criss-cross.",
+              "answer": "1.998",
+              "steps": [
+                {"expression": "4×7=28", "explanation": "Escreva oito e transporte dois."},
+                {"expression": "2+5×7+4×3=49", "explanation": "Escreva nove e transporte quatro."},
+                {"expression": "4+5×3=19", "explanation": "Finalize com dezenove."}
+              ],
+              "conclusion": "A resposta e o checksum 9 aparecem no gabarito.",
+              "source": {"printedPage": 257, "pdfPage": 283}
+            }
+          ],
+          "pitfalls": ["O cálculo e a escrita avançam da direita para a esquerda.", "Inclua o transporte antes de somar a diagonal seguinte.", "No último passo, escreva o valor inteiro restante, não apenas sua unidade."],
+          "memoryCue": "Unidades, cruzamentos, dezenas — sempre com o transporte.",
+          "tags": ["criss-cross", "papel", "multiplicacao", "dois-por-dois", "distributiva"],
+          "theoryTopicIds": ["c06-criss-cross"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [138, 139, 140, 150, 257], "pdfPages": [164, 165, 166, 176, 283]}
+        },
+        {
+          "id": "livro-c06-l06-criss-cross-diagonais",
+          "order": 6,
+          "title": "Amplie o criss-cross para 3×3 e formatos retangulares",
+          "summary": "Em três dígitos, as diagonais contêm 1, 2, 3, 2 e 1 produtos. Some todos os pares de dígitos cuja posição total corresponde à mesma casa decimal. Em 3×2, preencha mentalmente uma centena zero no fator menor e use a mesma geometria.",
+          "whenToUse": ["Em produtos 3×3 ou 3×2 no papel.", "Quando se quer uma regra única para tamanhos diferentes.", "Para conectar o algoritmo visual à distributiva por casas."],
+          "whyItWorks": "Cada diagonal reúne coeficientes da mesma potência de dez no produto de dois polinômios posicionais. O transporte converte dezenas excedentes para a diagonal seguinte.",
+          "algorithm": {
+            "title": "Varra diagonais de soma posicional constante",
+            "steps": [
+              {"order": 1, "action": "Alinhe os fatores", "detail": "Complete o fator menor com zeros à esquerda se necessário."},
+              {"order": 2, "action": "Comece no canto direito", "detail": "Multiplique as duas unidades."},
+              {"order": 3, "action": "Expanda a diagonal", "detail": "A cada passo à esquerda, inclua todos os pares cuja soma dos índices posicionais seja a da casa atual."},
+              {"order": 4, "action": "Contraia após o centro", "detail": "Reduza o número de conexões simetricamente."},
+              {"order": 5, "action": "Propague transportes", "detail": "Escreva uma casa por etapa e carregue o restante; na última, escreva tudo."},
+              {"order": 6, "action": "Confira", "detail": "Use a prova dos nove."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l06-ex-853-762",
+              "question": "Calcule 853×762 pelo criss-cross.",
+              "answer": "649.986",
+              "steps": [
+                {"expression": "3×2=6", "explanation": "Primeira diagonal."},
+                {"expression": "2×5+6×3=28", "explanation": "Escreva oito e transporte dois."},
+                {"expression": "2+2×8+7×3+6×5=69", "explanation": "Diagonal central com três produtos; escreva nove, transporte seis."},
+                {"expression": "6+6×8+7×5=89", "explanation": "Contraia para dois produtos; escreva nove, transporte oito."},
+                {"expression": "8+8×7=64", "explanation": "Finalize à esquerda."}
+              ],
+              "conclusion": "A sequência de conexões 1–2–3–2–1 cobre exatamente os nove produtos elementares.",
+              "source": {"printedPage": 141, "pdfPage": 167},
+              "visualizacao": {
+                "tipo": "criss-cross",
+                "rotulo": "853 por 762",
+                "leitura": "Índices zero-based da esquerda para a direita; as diagonais são processadas da unidade à maior casa.",
+                "pagina": 141,
+                "superior": "853",
+                "inferior": "762",
+                "resultado": "649986",
+                "passos": [
+                  {"ordem": 1, "conexoes": [[2, 2]], "expressao": "3×2=6", "resultado": "6", "transporte": 0, "narracao": "Escreva seis."},
+                  {"ordem": 2, "conexoes": [[1, 2], [2, 1]], "expressao": "5×2+3×6=28", "resultado": "8", "transporte": 2, "narracao": "Escreva oito e carregue dois."},
+                  {"ordem": 3, "conexoes": [[0, 2], [1, 1], [2, 0]], "expressao": "2+8×2+5×6+3×7=69", "resultado": "9", "transporte": 6, "narracao": "Some a diagonal central."},
+                  {"ordem": 4, "conexoes": [[0, 1], [1, 0]], "expressao": "6+8×6+5×7=89", "resultado": "9", "transporte": 8, "narracao": "Contraia a diagonal."},
+                  {"ordem": 5, "conexoes": [[0, 0]], "expressao": "8+8×7=64", "resultado": "64", "transporte": 0, "narracao": "Finalize com sessenta e quatro."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l06-ex-846-37",
+              "question": "Calcule 846×37 tratando 37 como 037.",
+              "answer": "31.302",
+              "steps": [
+                {"expression": "7×6=42", "explanation": "Escreva dois e transporte quatro."},
+                {"expression": "4+7×4+3×6=50", "explanation": "Escreva zero e transporte cinco."},
+                {"expression": "5+7×8+0×6+3×4=73", "explanation": "A diagonal central inclui o zero de preenchimento."},
+                {"expression": "7+3×8+0×4=31; 3+0×8=3", "explanation": "Finalize as duas diagonais restantes."}
+              ],
+              "conclusion": "O zero transforma o formato retangular no mesmo algoritmo 3×3.",
+              "source": {"printedPage": 143, "pdfPage": 169}
+            }
+          ],
+          "pitfalls": ["Não pule conexões na diagonal central.", "Zeros de preenchimento não mudam o produto, mas mantêm a geometria correta.", "A soma deve incluir o transporte antes dos produtos da nova diagonal."],
+          "memoryCue": "Expande até o centro, contrai depois: 1–2–3–2–1.",
+          "tags": ["criss-cross", "tres-por-tres", "tres-por-dois", "diagonais", "distributiva"],
+          "theoryTopicIds": ["c06-criss-cross"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [140, 141, 142, 143], "pdfPages": [166, 167, 168, 169]}
+        },
+        {
+          "id": "livro-c06-l07-criss-cross-grande",
+          "order": 7,
+          "title": "Criss-cross de cinco, dez ou mais dígitos",
+          "summary": "Para n×n, há 2n−1 diagonais e n² multiplicações elementares. O número de conexões cresce de 1 até n e volta a 1. O procedimento é idêntico; a dificuldade prática passa a ser controlar somas e transportes.",
+          "whenToUse": ["Em multiplicações grandes feitas no papel com uma linha de resposta.", "Como demonstração avançada após domínio de 2×2 e 3×3.", "Quando se deseja um algoritmo uniforme independente do tamanho."],
+          "whyItWorks": "O criss-cross é a convolução dos vetores de algarismos. Cada produto de algarismos aparece uma única vez na diagonal correspondente à sua potência de dez, e os transportes normalizam os coeficientes para base dez.",
+          "algorithm": {
+            "title": "Generalize a varredura diagonal",
+            "steps": [
+              {"order": 1, "action": "Conte as etapas", "detail": "Para n dígitos em cada fator, prepare 2n−1 diagonais."},
+              {"order": 2, "action": "Expanda conexões", "detail": "Use 1,2,…,n produtos até a diagonal central."},
+              {"order": 3, "action": "Contraia conexões", "detail": "Depois use n−1,…,2,1 produtos."},
+              {"order": 4, "action": "Normalize cada soma", "detail": "Escreva a unidade e transporte as dezenas; no último passo, escreva tudo."},
+              {"order": 5, "action": "Cheque modularmente", "detail": "Use provas dos nove e, se a conta justificar, dos onze."},
+              {"order": 6, "action": "Respeite o limite humano", "detail": "O método escala matematicamente, mas somas centrais muito longas exigem treino e papel visível."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l07-ex-42867-52049",
+              "question": "Calcule 42.867×52.049 pelo criss-cross.",
+              "answer": "2.231.184.483",
+              "steps": [
+                {"expression": "conexões por etapa: 1,2,3,4,5,4,3,2,1", "explanation": "Nove diagonais cobrem vinte e cinco produtos."},
+                {"expression": "somas com transporte: 63,88,104,74,98,71,51,23,22", "explanation": "De cada soma, escreva a unidade e leve o restante, exceto na última."},
+                {"expression": "22|3|1|1|8|4|4|8|3", "explanation": "Leia os blocos produzidos da esquerda para a direita."}
+              ],
+              "conclusion": "A sequência recompõe 2.231.184.483 em uma única linha.",
+              "source": {"printedPage": 145, "pdfPage": 171},
+              "visualizacao": {
+                "tipo": "criss-cross",
+                "rotulo": "42.867 por 52.049",
+                "leitura": "Índices zero-based da esquerda para a direita; cada etapa lista os pares conectados na diagonal processada da direita para a esquerda.",
+                "pagina": 145,
+                "superior": "42867",
+                "inferior": "52049",
+                "resultado": "2231184483",
+                "passos": [
+                  {"ordem": 1, "conexoes": [[4, 4]], "expressao": "7×9=63", "resultado": "3", "transporte": 6, "narracao": "Escreva três e carregue seis."},
+                  {"ordem": 2, "conexoes": [[3, 4], [4, 3]], "expressao": "6+6×9+7×4=88", "resultado": "8", "transporte": 8, "narracao": "Duas conexões."},
+                  {"ordem": 3, "conexoes": [[2, 4], [3, 3], [4, 2]], "expressao": "8+8×9+6×4+7×0=104", "resultado": "4", "transporte": 10, "narracao": "Três conexões."},
+                  {"ordem": 4, "conexoes": [[1, 4], [2, 3], [3, 2], [4, 1]], "expressao": "10+2×9+8×4+6×0+7×2=74", "resultado": "4", "transporte": 7, "narracao": "Quatro conexões."},
+                  {"ordem": 5, "conexoes": [[0, 4], [1, 3], [2, 2], [3, 1], [4, 0]], "expressao": "7+4×9+2×4+8×0+6×2+7×5=98", "resultado": "8", "transporte": 9, "narracao": "Diagonal central com cinco conexões."},
+                  {"ordem": 6, "conexoes": [[0, 3], [1, 2], [2, 1], [3, 0]], "expressao": "9+4×4+2×0+8×2+6×5=71", "resultado": "1", "transporte": 7, "narracao": "Comece a contrair."},
+                  {"ordem": 7, "conexoes": [[0, 2], [1, 1], [2, 0]], "expressao": "7+4×0+2×2+8×5=51", "resultado": "1", "transporte": 5, "narracao": "Três conexões."},
+                  {"ordem": 8, "conexoes": [[0, 1], [1, 0]], "expressao": "5+4×2+2×5=23", "resultado": "3", "transporte": 2, "narracao": "Duas conexões."},
+                  {"ordem": 9, "conexoes": [[0, 0]], "expressao": "2+4×5=22", "resultado": "22", "transporte": 0, "narracao": "Escreva vinte e dois à esquerda."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l07-ex-dez-por-dez",
+              "question": "Qual é o resultado do exemplo 2.766.829.451×4.425.575.216?",
+              "answer": "12.244.811.845.244.486.416",
+              "steps": [
+                {"expression": "19 diagonais", "explanation": "Dez dígitos exigem 2×10−1 etapas."},
+                {"expression": "1+2+…+10+…+2+1=100 produtos", "explanation": "Todas as cem multiplicações de algarismos são distribuídas pelas diagonais."},
+                {"expression": "12.244.811.845.244.486.416", "explanation": "O livro apresenta a sequência completa de transportes e o produto final."}
+              ],
+              "conclusion": "O exemplo demonstra escalabilidade matemática, embora o próprio texto o trate como exibição sem utilidade prática.",
+              "source": {"printedPage": 149, "pdfPage": 175}
+            }
+          ],
+          "pitfalls": ["A diagonal central pode produzir transporte de dois ou mais dígitos.", "Em contas grandes, perder uma conexão desloca todas as casas seguintes.", "Escalabilidade matemática não elimina limites de atenção; domine tamanhos menores antes.", "Não confunda a ordem de escrita da resposta, direita para esquerda, com a leitura final."],
+          "memoryCue": "Para n dígitos: 2n−1 diagonais e n² produtos.",
+          "tags": ["criss-cross", "cinco-por-cinco", "dez-por-dez", "diagonais", "transporte", "avancado"],
+          "theoryTopicIds": ["c06-criss-cross"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [143, 144, 145, 147, 148, 149, 150, 257], "pdfPages": [169, 170, 171, 173, 174, 175, 176, 283]}
+        },
+        {
+          "id": "livro-c06-l08-prova-dos-onze",
+          "order": 8,
+          "title": "Faça a prova dos onze e combine verificações",
+          "summary": "Reduza cada número alternando subtração e adição dos algarismos da direita para a esquerda. Normalize valores negativos somando onze e aplique a operação original aos resíduos. Combinada à prova dos nove, a chance aproximada de um erro aleatório escapar cai para uma em noventa e nove.",
+          "whenToUse": ["Para uma segunda verificação de contas longas.", "Em produtos criss-cross com muitos transportes.", "Quando a confiabilidade adicional compensa alguns segundos de cálculo."],
+          "whyItWorks": "Como 10≡−1 módulo 11, as potências de dez alternam +1 e −1. A soma alternada dos algarismos representa, portanto, o mesmo resíduo do número na divisão por onze.",
+          "algorithm": {
+            "title": "Alterne da direita e compare módulo onze",
+            "steps": [
+              {"order": 1, "action": "Ignore separadores", "detail": "Retire vírgulas e pontos apenas para o checksum."},
+              {"order": 2, "action": "Comece à direita", "detail": "Some o último algarismo, subtraia o anterior e continue alternando."},
+              {"order": 3, "action": "Normalize", "detail": "Se o resultado for negativo, some onze até obter um representante conveniente."},
+              {"order": 4, "action": "Repita a operação", "detail": "Some, subtraia ou multiplique os resíduos dos operandos."},
+              {"order": 5, "action": "Compare a resposta", "detail": "Divergência denuncia erro; coincidência aprova mais um filtro."},
+              {"order": 6, "action": "Combine com noves", "detail": "Use ambas quando a conta justificar dupla proteção."}
+            ]
+          },
+          "workedExamples": [
+            {
+              "id": "livro-c06-l08-ex-adicao",
+              "question": "Cheque 234,87+58,61=293,48 pela prova dos onze.",
+              "answer": "Resíduo 0 dos dois lados",
+              "steps": [
+                {"expression": "234,87→7−8+4−3+2=2", "explanation": "Reduza o primeiro termo da direita para a esquerda."},
+                {"expression": "58,61→1−6+8−5=−2→9", "explanation": "Normalize somando onze."},
+                {"expression": "2+9=11→0", "explanation": "Checksum esperado da soma."},
+                {"expression": "293,48→8−4+3−9+2=0", "explanation": "A resposta coincide."}
+              ],
+              "conclusion": "Começar pela esquerda inverteria os sinais e pode confundir a normalização; o livro fixa a leitura pela direita.",
+              "source": {"printedPage": 145, "pdfPage": 171},
+              "visualizacao": {
+                "tipo": "cadeia",
+                "rotulo": "Checksum módulo onze de uma soma",
+                "leitura": "Os algarismos são alternados da direita para a esquerda.",
+                "pagina": 145,
+                "inicio": "234,87+58,61=293,48",
+                "resultado": "0=0 módulo 11",
+                "passos": [
+                  {"ordem": 1, "expressao": "23487→7−8+4−3+2=2", "narracao": "Reduza o primeiro operando."},
+                  {"ordem": 2, "expressao": "5861→1−6+8−5=−2→9", "narracao": "Reduza e normalize o segundo."},
+                  {"ordem": 3, "expressao": "2+9=11→0", "narracao": "Calcule o checksum esperado."},
+                  {"ordem": 4, "expressao": "29348→8−4+3−9+2=0", "narracao": "Compare com a resposta."}
+                ]
+              }
+            },
+            {
+              "id": "livro-c06-l08-ex-produto",
+              "question": "Cheque 853×762=649.986 pela prova dos onze.",
+              "answer": "Resíduo 7 dos dois lados",
+              "steps": [
+                {"expression": "853→3−5+8=6; 762→2−6+7=3", "explanation": "Reduza os fatores."},
+                {"expression": "6×3=18→7", "explanation": "Dezoito deixa resíduo sete módulo onze."},
+                {"expression": "649986→6−8+9−9+4−6=−4→7", "explanation": "O produto coincide."}
+              ],
+              "conclusion": "Junto à prova dos nove, o produto passa por dois checksums independentes.",
+              "source": {"printedPage": 147, "pdfPage": 173}
+            }
+          ],
+          "pitfalls": ["A alternância deve começar no último algarismo e ignorar separadores decimais.", "Resultado coincidente ainda não prova a conta.", "A estimativa de uma chance em 99 pressupõe a combinação dos filtros; não trate como garantia absoluta.", "Normalize resíduos negativos sem perder sua equivalência módulo onze."],
+          "memoryCue": "Onze alterna sinais porque dez vale menos um.",
+          "tags": ["prova-dos-onze", "modulo-11", "checksum", "conferencia", "criss-cross"],
+          "theoryTopicIds": ["c06-prova-nove"],
+          "source": {"documentId": "calculo-mental-use-esse", "printedPages": [145, 146, 147], "pdfPages": [171, 172, 173]}
+        }
+      ]
+    }
+  ]
+}
