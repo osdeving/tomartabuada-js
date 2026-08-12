@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "descricao": "Detalhamento localizado e parafraseado das aulas 5 a 8 de calculo-mental-dicas.pdf. A ordem acompanha a progressão do livro; as páginas são as impressas no rodapé. Além da exposição principal, foram incorporadas instruções entre blocos de exercícios e, quando esclarecem o algoritmo ou uma exceção, etapas comentadas do gabarito.",
+  "descricao": "Técnicas intermediárias organizadas em progressão, com instruções de treino, algoritmos, exceções e exemplos comentados.",
   "capitulos": [
     {
       "capituloId": "capitulo-05",
@@ -517,7 +517,7 @@
                   "explicacao": "Aplica-se a taxa inteira."
                 }
               ],
-              "conclusao": "O livro contrasta a estimativa com cerca de US$ 938 sem arredondamento.",
+              "conclusao": "Sem arredondamento, o resultado fica perto de US$ 938.",
               "origem": { "pagina": 36 }
             },
             {
@@ -617,7 +617,7 @@
           "ordem": 9,
           "titulo": "Prestação de empréstimo por limite inferior e superior",
           "paginas": [36, 37, 40, 111],
-          "resumo": "A parcela sem juros fornece um limite inferior. Somar a ela todos os juros do primeiro mês fornece uma estimativa superior, pois o saldo devedor e os juros diminuem ao longo do contrato. A fórmula exata aparece no gabarito como validação, com exponenciação delegada a calculadora.",
+          "resumo": "A parcela sem juros fornece um limite inferior. Somar a ela todos os juros do primeiro mês fornece uma estimativa superior, pois o saldo devedor e os juros diminuem ao longo do contrato. Use a fórmula exata apenas para validar a faixa, deixando a exponenciação para a calculadora.",
           "quandoUsar": [
             "Para avaliar rapidamente se uma prestação anunciada é plausível.",
             "Antes de usar fórmula financeira exata.",
@@ -640,7 +640,7 @@
               {
                 "ordem": 3,
                 "acao": "Converta a taxa anual em mensal",
-                "detalhe": "Na aproximação do livro, divida a taxa nominal por 12."
+                "detalhe": "Divida a taxa nominal por 12 para obter a aproximação mensal."
               },
               {
                 "ordem": 4,
@@ -708,7 +708,7 @@
                 },
                 {
                   "expressao": "M=P·i·(1+i)^m/((1+i)^m-1)≈359,40",
-                  "explicacao": "O gabarito usa a fórmula exata e confirma que o valor cai dentro da faixa mental."
+                  "explicacao": "A fórmula exata confirma que o valor cai dentro da faixa mental."
                 }
               ],
               "conclusao": "A faixa mental cumpre a função de validação antes da exponenciação financeira.",
@@ -902,7 +902,7 @@
           "ordem": 1,
           "titulo": "Adição no papel: direita para esquerda, total falado e conferência reversa",
           "paginas": [41, 44, 112],
-          "resumo": "Ao voltar ao papel, a aula recomenda a direção escolar da direita para a esquerda, verbalizando o total corrente. A soma é conferida repetindo a coluna na ordem oposta, de baixo para cima. O controle financeiro pessoal aparece como contexto para ganhar intimidade com números.",
+          "resumo": "No papel, calcule da direita para a esquerda e verbalize o total corrente. Confira a soma repetindo cada coluna na ordem oposta, de baixo para cima. Use contas financeiras cotidianas para ganhar intimidade com números.",
           "quandoUsar": [
             "Em colunas com muitas parcelas.",
             "Quando os transportes precisam ficar registrados.",
@@ -1066,7 +1066,7 @@
           "ordem": 3,
           "titulo": "Multiplicação criss-cross por diagonais posicionais",
           "paginas": [41, 43, 44, 113],
-          "resumo": "O método organiza a distributiva em diagonais da direita para a esquerda. Em dois por dois algarismos, multiplica-se primeiro unidades, depois somam-se os dois produtos cruzados, e por fim multiplicam-se as dezenas, sempre incorporando transportes. O mesmo princípio se estende a três ou mais algarismos. O glossário observa que a técnica já aparecia no Liber Abaci, de Leonardo de Pisa, em 1202.",
+          "resumo": "Organize a distributiva em diagonais da direita para a esquerda. Em dois por dois algarismos, multiplique primeiro as unidades, some os dois produtos cruzados e finalize com as dezenas, sempre incorporando transportes. O mesmo princípio se estende a três ou mais algarismos e já aparecia no Liber Abaci, de Leonardo de Pisa, em 1202.",
           "quandoUsar": [
             "Para multiplicação escrita compacta.",
             "Quando se quer registrar apenas a resposta e reter os parciais mentalmente.",
@@ -1131,7 +1131,7 @@
             }
           ],
           "armadilhas": [
-            "O corpo da aula explica a decomposição, mas não desenha todos os transportes; eles continuam obrigatórios.",
+            "Omitir transportes que não estão desenhados; eles continuam obrigatórios.",
             "Esquecer um dos dois produtos cruzados elimina uma parcela inteira da distributiva.",
             "A proposta compacta exige memória; em aprendizado, anotar parciais pode ser mais seguro antes de retirar esse apoio."
           ],
@@ -1338,7 +1338,7 @@
           "ordem": 6,
           "titulo": "Divisão védica por 9 por somas prefixais",
           "paginas": [42, 45, 114, 115],
-          "resumo": "A exposição relaciona dividir por 9 a multiplicar por 0,111..., lembrando o atalho de ×11, mas deixa a mecânica para os diagramas do gabarito. Neles, o quociente provisório é formado por somas prefixais; valores acima de 9 são transportados e o resto provisório é normalizado por múltiplos de 9.",
+          "resumo": "Dividir por 9 se relaciona a multiplicar por 0,111... e reaproveita o padrão de ×11. Forme o quociente provisório com somas prefixais, transporte os valores acima de 9 e normalize o resto provisório por múltiplos de 9.",
           "quandoUsar": [
             "Para divisão escrita por 9.",
             "Como ponte conceitual entre soma de algarismos e divisão védica geral.",
@@ -1429,7 +1429,7 @@
             }
           ],
           "armadilhas": [
-            "O corpo da aula nomeia a técnica, mas os passos operacionais precisam ser reconstruídos dos diagramas do gabarito.",
+            "Pular a sequência de somas prefixais e transportes que forma o quociente.",
             "Coeficientes prefixais podem superar 9 e exigem transporte posicional.",
             "Resto provisório igual ou maior que 9 precisa aumentar o quociente."
           ],
@@ -1631,7 +1631,7 @@
                 },
                 {
                   "expressao": "1.697,70→3",
-                  "explicacao": "A resposta também reduz a 3."
+                  "explicacao": "O valor também reduz a 3."
                 }
               ],
               "conclusao": "Duas verificações com estruturas diferentes dão evidência melhor que repetir mecanicamente a subtração.",
@@ -1641,7 +1641,7 @@
           "armadilhas": [
             "Usar apenas prova dos nove pode deixar passar respostas erradas.",
             "Repetir exatamente o mesmo procedimento tende a repetir o mesmo erro.",
-            "A divisão védica por 9 é cobrada antes de o corpo da aula explicar seus passos em detalhe; o gabarito precisa ser usado como apoio didático."
+            "Começar pelos casos mais difíceis antes de dominar somas prefixais, transportes e normalização do resto."
           ],
           "lembrete": "Faça por um método e confira por outro que possa falhar de maneira diferente.",
           "tags": ["progressao-didatica", "verificacao", "papel", "prova-dos-nove"],
@@ -1857,7 +1857,7 @@
           "ordem": 3,
           "titulo": "Fatoração: quebrar um fator e usar cada parcial imediatamente",
           "paginas": [46, 50, 118],
-          "resumo": "Fatorar um dos números substitui uma multiplicação de dois algarismos por uma sequência de produtos menores. O texto destaca que essa estratégia costuma aliviar a memória de trabalho, porque cada resultado parcial é usado logo na etapa seguinte.",
+          "resumo": "Fatorar um dos números substitui uma multiplicação de dois algarismos por uma sequência de produtos menores. Essa estratégia alivia a memória de trabalho porque cada resultado parcial é usado logo na etapa seguinte.",
           "quandoUsar": [
             "Quando um fator se decompõe em fatores pequenos, como 12 = 6 × 2, 28 = 7 × 4 ou 56 = 8 × 7.",
             "Quando a decomposição aciona um atalho já dominado, como multiplicar por 11.",
@@ -2674,7 +2674,7 @@
                   "explicacao": "O último agrupamento corrigido torna-se o resto."
                 }
               ],
-              "conclusao": "O exemplo do gabarito explicita todas as etapas que a exposição inicial descreve em prosa.",
+              "conclusao": "As compensações sucessivas conduzem ao quociente 41 e resto 26.",
               "origem": { "pagina": 122 }
             }
           ],
@@ -2897,7 +2897,7 @@
                   "explicacao": "4 é 2×2 e completa o resto."
                 }
               ],
-              "conclusao": "O gabarito expõe o multiplicador +2 como uma coluna recorrente de compensações.",
+              "conclusao": "O multiplicador +2 cria uma sequência recorrente de compensações.",
               "origem": { "pagina": 124 }
             }
           ],
@@ -3030,7 +3030,7 @@
           "ordem": 7,
           "titulo": "Alternativa para final 5: dobrar dividendo e divisor",
           "paginas": [56, 126],
-          "resumo": "Depois do bloco de multiplicadores positivos, o livro pede que dois casos terminados em 5 sejam refeitos dobrando ambos os números. O divisor passa a terminar em zero e pode ser reduzido a uma divisão curta menor.",
+          "resumo": "Em casos terminados em 5, dobre ambos os números. O divisor passa a terminar em zero e pode ser reduzido a uma divisão curta menor.",
           "quandoUsar": [
             "Com divisor terminado em 5.",
             "Quando o multiplicador védico +5 gera transportes grandes.",
@@ -3104,7 +3104,7 @@
           "ordem": 8,
           "titulo": "Progressão de treino e limites práticos do método védico",
           "paginas": [54, 55, 56, 57, 125, 126],
-          "resumo": "A prática começa pela divisão curta de um algarismo, compara curta e védica no divisor 9, passa por 11 a 19, introduz final 9 com transportes, amplia para multiplicadores positivos e encerra com multiplicadores negativos. Um comentário do gabarito alerta que correções grandes diante de divisor operacional pequeno podem tornar a técnica pior que a divisão curta. O glossário contextualiza a matemática védica como uma coleção de atalhos aritméticos e algébricos popularizada no século XX por Bharati Krishna Tirthaji.",
+          "resumo": "Comece pela divisão curta de um algarismo, compare-a com a divisão védica por 9, avance por divisores de 11 a 19, pratique finais 9 com transportes e só então use multiplicadores positivos e negativos. Se o divisor operacional for pequeno e as correções ficarem grandes, a divisão curta pode exigir menos esforço. A matemática védica reúne atalhos aritméticos e algébricos popularizados no século XX por Bharati Krishna Tirthaji.",
           "quandoUsar": [
             "Para estruturar a aprendizagem da técnica em ordem de carga crescente.",
             "Para decidir quando abandonar um atalho que está gerando transportes excessivos.",
@@ -3169,7 +3169,7 @@
                   "explicacao": "Seis divisores saem do resto e entram no quociente."
                 }
               ],
-              "conclusao": "O próprio gabarito observa que esse perfil pode ser resolvido com menos atrito por divisão curta.",
+              "conclusao": "Neste perfil, a divisão curta exige menos esforço.",
               "origem": { "pagina": 126 }
             }
           ],

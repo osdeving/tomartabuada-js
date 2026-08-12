@@ -5577,7 +5577,7 @@
         "answerKeyPdfPage": 266,
         "printedExpression": "4480 + 3² = 5625",
         "correctedExpression": "4480 + 3² = 4489",
-        "note": "O gabarito imprime o resultado final de 75² no item de 67²; a aritmética correta é 67²=4489."
+        "note": "Use o valor correto: 67²=4489."
       }
     },
     {

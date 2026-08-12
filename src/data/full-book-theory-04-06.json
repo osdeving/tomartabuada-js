@@ -447,7 +447,7 @@
                 {"expression": "7/12=6/12+1/12=0,5+0,0833…", "explanation": "Decomponha em frações conhecidas."},
                 {"expression": "7/12=0,5833…", "explanation": "Some as partes."}
               ],
-              "conclusion": "A solução do exercício combina simplificação e decomposição, sem divisão longa completa.",
+              "conclusion": "Simplificação e decomposição evitam uma divisão longa completa.",
               "source": {"printedPage": 98, "pdfPage": 124}
             }
           ],
@@ -541,7 +541,7 @@
               "steps": [
                 {"expression": "5−3+8−6+7=11", "explanation": "A soma alternada é um múltiplo de onze."}
               ],
-              "conclusion": "O gabarito confirma que 53.867 passa no teste.",
+              "conclusion": "Como 5−3+8−6+7=11, 53.867 é divisível por 11.",
               "source": {"printedPage": 101, "pdfPage": 127}
             }
           ],
@@ -602,7 +602,7 @@
                 {"expression": "1394−34=1360→136", "explanation": "Subtraia duas vezes dezessete."},
                 {"expression": "136+34=170→17", "explanation": "Chegue ao próprio divisor."}
               ],
-              "conclusion": "A solução do gabarito mostra que o mesmo processo não é exclusivo do sete.",
+              "conclusion": "O mesmo processo também funciona com 17; ele não é exclusivo do sete.",
               "source": {"printedPage": 102, "pdfPage": 128}
             }
           ],
@@ -648,7 +648,7 @@
                 {"expression": "(2/5)÷(1/2)=(2/5)×(2/1)", "explanation": "Inverta somente a segunda fração."},
                 {"expression": "(2×2)/(5×1)=4/5", "explanation": "Multiplique os termos correspondentes."}
               ],
-              "conclusion": "A resposta do exercício confirma a regra do recíproco.",
+              "conclusion": "Multiplicar pelo recíproco preserva o quociente: (2/5)÷(1/2)=4/5.",
               "source": {"printedPage": 103, "pdfPage": 129}
             }
           ],
@@ -694,7 +694,7 @@
                 {"expression": "mdc(24,36)=12", "explanation": "Doze é um fator comum conveniente."},
                 {"expression": "(24÷12)/(36÷12)=2/3", "explanation": "Reduza os dois termos."}
               ],
-              "conclusion": "O gabarito apresenta a forma reduzida 2/3.",
+              "conclusion": "Dividir numerador e denominador por 12 produz a forma reduzida 2/3.",
               "source": {"printedPage": 104, "pdfPage": 130}
             }
           ],
@@ -822,7 +822,7 @@
                 {"expression": "2,50+2,00+7,50+9,00+0,50", "explanation": "Arredonde cada preço para zero, cinquenta centavos ou real inteiro."},
                 {"expression": "+11,00+0,00+6,00+8,50=47,00", "explanation": "Mantenha um total corrente simples."}
               ],
-              "conclusion": "A solução do exercício fica a trinta e cinco centavos do total real.",
+              "conclusion": "A estimativa fica a trinta e cinco centavos do total real.",
               "source": {"printedPage": 253, "pdfPage": 279}
             }
           ],
@@ -1159,7 +1159,7 @@
                 {"expression": "5% de 67=3,35", "explanation": "Tome a metade de 10%."},
                 {"expression": "6,70+3,35=10,05", "explanation": "Some as parcelas."}
               ],
-              "conclusion": "O texto também mostra que a média entre R$6,70 e R$13,40 entrega o mesmo valor.",
+              "conclusion": "A média entre R$6,70 e R$13,40 também entrega o mesmo valor.",
               "source": {"printedPage": 123, "pdfPage": 149},
               "visualizacao": {
                 "tipo": "cadeia",
@@ -1183,7 +1183,7 @@
                 {"expression": "74÷2=37", "explanation": "Primeira metade."},
                 {"expression": "37÷2=18,50", "explanation": "Segunda metade produz um quarto."}
               ],
-              "conclusion": "O gabarito usa exatamente a divisão ao meio duas vezes.",
+              "conclusion": "Dividir ao meio duas vezes produz exatamente 25% do valor.",
               "source": {"printedPage": 256, "pdfPage": 282}
             }
           ],
@@ -1280,7 +1280,7 @@
               "answer": "Cerca de 14 anos",
               "steps": [
                 {"expression": "70÷5=14", "explanation": "Aplique a regra de setenta."},
-                {"expression": "1.000×1,05^14≈1.979,93", "explanation": "A verificação do livro fica muito perto do dobro."}
+                {"expression": "1.000×1,05^14≈1.979,93", "explanation": "A verificação fica muito perto do dobro."}
               ],
               "conclusion": "A regra estima tempo, não garante rendimento ou condições financeiras.",
               "source": {"printedPage": 126, "pdfPage": 152}
@@ -1291,7 +1291,7 @@
               "answer": "Cerca de 16 anos",
               "steps": [
                 {"expression": "110÷7≈15,7", "explanation": "Aplique a regra de cento e dez."},
-                {"expression": "≈16 anos", "explanation": "O gabarito arredonda para o ano inteiro seguinte."}
+                {"expression": "≈16 anos", "explanation": "Arredonde para o ano inteiro seguinte."}
               ],
               "conclusion": "Para quadruplicar a 7%, duas duplicações de dez anos dão cerca de vinte anos.",
               "source": {"printedPage": 256, "pdfPage": 282}
@@ -1357,13 +1357,13 @@
               "steps": [
                 {"expression": "i=0,09/12=0,0075; N=120", "explanation": "Converta taxa e prazo."},
                 {"expression": "P·i=750; (1,0075)^120≈2,451", "explanation": "Prepare a fórmula."},
-                {"expression": "M≈750×2,451/1,451≈1.267", "explanation": "Resultado apresentado no gabarito."}
+                {"expression": "M≈750×2,451/1,451≈1.267", "explanation": "A aproximação produz uma prestação mensal de cerca de 1.267."}
               ],
               "conclusion": "A resposta deve ser tratada como estimativa baseada na aproximação da potência.",
               "source": {"printedPage": 256, "pdfPage": 282}
             }
           ],
-          "pitfalls": ["Taxa anual precisa ser convertida em taxa mensal compatível.", "Somar todos os juros como se o saldo nunca caísse superestima o custo.", "A fórmula impressa do exemplo do automóvel apresenta inconsistência tipográfica no expoente do denominador; use N de forma coerente no numerador e denominador.", "Taxas, tarifas e seguros reais podem não estar incluídos."],
+          "pitfalls": ["Taxa anual precisa ser convertida em taxa mensal compatível.", "Somar todos os juros como se o saldo nunca caísse superestima o custo.", "Use N de forma coerente nos expoentes do numerador e do denominador; expoentes diferentes tornam a fórmula inconsistente.", "Taxas, tarifas e seguros reais podem não estar incluídos."],
           "memoryCue": "Principal por meses é piso; juro inicial somado dá teto; fórmula fica entre eles.",
           "tags": ["prestacao", "emprestimo", "juros", "amortizacao", "limites"],
           "theoryTopicIds": ["c05-prestacao", "c05-percentuais"],
@@ -1385,7 +1385,7 @@
         "Estimativa de raízes e valor posicional",
         "Distributiva em multiplicações"
       ],
-      "summary": "O papel é usado como apoio mínimo, não como depósito de parciais. O capítulo começa com hábitos de soma, subtração e conferência modular, recupera um algoritmo exato de raiz quadrada e culmina no criss-cross, que produz multiplicações de qualquer tamanho em uma única linha.",
+      "summary": "Use o papel como apoio mínimo, não como depósito de parciais. Pratique soma, subtração e conferência modular; depois aplique um algoritmo exato de raiz quadrada e o criss-cross, que produz multiplicações de qualquer tamanho em uma única linha.",
       "groupId": "quadrado",
       "theoryTopicIds": ["c06-papel", "c06-criss-cross", "c06-prova-nove", "c05-raiz"],
       "lessons": [
@@ -1440,10 +1440,10 @@
               "question": "Some 672, 1.367, 107, 7.845, 358, 210 e 916.",
               "answer": "11.475",
               "steps": [
-                {"expression": "672+1.367+107+7.845+358+210+916=11.475", "explanation": "A resposta consta no gabarito."},
+                {"expression": "672+1.367+107+7.845+358+210+916=11.475", "explanation": "A soma dos sete termos é 11.475."},
                 {"expression": "raiz digital das parcelas=9; raiz digital de 11.475=9", "explanation": "A prova dos nove oferece uma segunda checagem."}
               ],
-              "conclusion": "O exercício combina execução, ordem reversa e checksum modular.",
+              "conclusion": "A execução em ordem reversa pode ser conferida com um checksum modular.",
               "source": {"printedPage": 256, "pdfPage": 282}
             }
           ],
@@ -1650,17 +1650,17 @@
             },
             {
               "id": "livro-c06-l04-ex-raiz-361",
-              "question": "Calcule √361 usando a técnica do exercício.",
+              "question": "Calcule √361 usando o algoritmo por dígitos.",
               "answer": "19 exatamente",
               "steps": [
                 {"expression": "1²=1; 3−1=2; baixe 61→261", "explanation": "Como há três algarismos, o primeiro grupo é 3."},
                 {"expression": "29×9=261", "explanation": "Dobre a raiz parcial 1, anexe 9 e multiplique por 9."}
               ],
-              "conclusion": "O gabarito encerra com resto zero.",
+              "conclusion": "O resto zero confirma que √361=19.",
               "source": {"printedPage": 257, "pdfPage": 283}
             }
           ],
-          "pitfalls": ["Baixe sempre dois algarismos; baixar apenas um quebra a identidade decimal.", "Ao dobrar, ignore temporariamente a vírgula da raiz parcial.", "O mesmo x ocupa a lacuna e multiplica o número formado.", "O cabeçalho do exercício chama a técnica de estimativa, mas a instrução pede raiz exata; trate como algoritmo exato por dígitos."],
+          "pitfalls": ["Baixe sempre dois algarismos; baixar apenas um quebra a identidade decimal.", "Ao dobrar, ignore temporariamente a vírgula da raiz parcial.", "O mesmo x ocupa a lacuna e multiplica o número formado.", "Não trate esta técnica como estimativa: o algoritmo por dígitos busca a raiz exata."],
           "memoryCue": "Par de casas, dobro da raiz, mesmo dígito na lacuna e no multiplicador.",
           "tags": ["papel", "raiz-quadrada", "algoritmo-exato", "pares-de-algarismos", "dobro"],
           "theoryTopicIds": ["c06-papel", "c05-raiz"],
@@ -1718,7 +1718,7 @@
                 {"expression": "2+5×7+4×3=49", "explanation": "Escreva nove e transporte quatro."},
                 {"expression": "4+5×3=19", "explanation": "Finalize com dezenove."}
               ],
-              "conclusion": "A resposta e o checksum 9 aparecem no gabarito.",
+              "conclusion": "O produto 1998 e seu checksum 9 passam na conferência.",
               "source": {"printedPage": 257, "pdfPage": 283}
             }
           ],
@@ -1855,9 +1855,9 @@
               "steps": [
                 {"expression": "19 diagonais", "explanation": "Dez dígitos exigem 2×10−1 etapas."},
                 {"expression": "1+2+…+10+…+2+1=100 produtos", "explanation": "Todas as cem multiplicações de algarismos são distribuídas pelas diagonais."},
-                {"expression": "12.244.811.845.244.486.416", "explanation": "O livro apresenta a sequência completa de transportes e o produto final."}
+                {"expression": "12.244.811.845.244.486.416", "explanation": "Esta é a sequência completa de transportes e o produto final."}
               ],
-              "conclusion": "O exemplo demonstra escalabilidade matemática, embora o próprio texto o trate como exibição sem utilidade prática.",
+              "conclusion": "A técnica escala matematicamente, embora contas desse tamanho tenham pouca utilidade prática.",
               "source": {"printedPage": 149, "pdfPage": 175}
             }
           ],
@@ -1896,7 +1896,7 @@
                 {"expression": "2+9=11→0", "explanation": "Checksum esperado da soma."},
                 {"expression": "293,48→8−4+3−9+2=0", "explanation": "A resposta coincide."}
               ],
-              "conclusion": "Começar pela esquerda inverteria os sinais e pode confundir a normalização; o livro fixa a leitura pela direita.",
+              "conclusion": "Começar pela esquerda inverteria os sinais e poderia confundir a normalização; faça a leitura pela direita.",
               "source": {"printedPage": 145, "pdfPage": 171},
               "visualizacao": {
                 "tipo": "cadeia",

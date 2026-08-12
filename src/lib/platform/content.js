@@ -14,7 +14,7 @@ let bookCandidatesPromise = null;
 const PRIMARY_BOOK_DOCUMENT_ID = "calculo-mental-use-esse";
 
 export const CONTENT_METADATA = {
-  source: "Course Guidebook, 2011 + Secrets of Mental Math, 2006",
+  source: "Trilhas de cálculo mental",
   totalBookExercises: 1_057,
   playableBookExercises: 1_012,
   numericBookExercises: 772,
@@ -390,7 +390,7 @@ function normalizeFullBookChapter(rawChapter) {
     groupId,
     pageLabel: pageLabel(rawChapter.printedPages),
     sourceKind: "full-book",
-    sourceLabel: "Livro completo · Three Rivers Press, 2006",
+    sourceLabel: "Trilha principal",
     headerSearchText,
     topicSearchText,
     searchText: buildSearchIndex([headerSearchText, topicSearchText, ...lessons.map((lesson) => lesson.searchText)]),
@@ -725,8 +725,8 @@ function normalizeDetailedLesson(rawLesson, lessonIndex) {
     tags: rawLesson.tags ?? [],
     pageLabel: pageLabel(pages),
     sourceLabel: rawLesson.origem?.documentoId === "calculo-mental-use-esse"
-      ? "Secrets of Mental Math, 2006"
-      : "Course Guidebook, 2011",
+      ? "Trilha principal"
+      : "Técnicas complementares",
   };
   return {
     ...lesson,

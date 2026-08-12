@@ -105,10 +105,12 @@ export function TrainingHub({ config, onChange, onOpenArcade, onStart, preview }
 
       <button className="arcade-link" type="button" onClick={onOpenArcade}>
         <span aria-hidden="true">▰</span>
-        <span><strong>Quer variar?</strong><small>Abra o protótipo arcade de multiplicação.</small></span>
+        <span>
+          <strong>Conheça também o Arcade da multiplicação</strong>
+          <small>Outro modo de praticar multiplicação: resolva desafios enquanto joga.</small>
+        </span>
         <span aria-hidden="true">→</span>
       </button>
     </div>
   );
 }
-

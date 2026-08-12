@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "descricao": "Detalhamento localizado para pt-BR das Lectures 1 a 4 de calculo-mental-dicas.pdf. As dicas preservam a progressão do livro, mas reorganizam a explicação em técnicas acionáveis, com algoritmos, intuição, casos especiais, orientações de treino e exemplos resolvidos. As páginas são as impressas no livro; quando uma solução esclarece o método, sua página também é indicada.",
+  "descricao": "Técnicas iniciais organizadas em uma progressão prática, com algoritmos, intuição, casos especiais, orientações de treino e exemplos resolvidos.",
   "capitulos": [
     {
       "capituloId": "capitulo-01",
@@ -12,7 +12,7 @@
           "ordem": 1,
           "titulo": "Treine em camadas: sequência, ordem normal e mistura",
           "paginas": [4, 8],
-          "resumo": "A velocidade não vem só de conhecer um truque. O livro recomenda praticar até a recuperação ser automática: primeiro conte pelos múltiplos, depois responda às contas em ordem e, por fim, misture a ordem. As tabelas maiores seguem a mesma progressão.",
+          "resumo": "A velocidade não vem só de conhecer um truque. Pratique até a recuperação ser automática: primeiro conte pelos múltiplos, depois responda às contas em ordem e, por fim, misture a ordem. As tabelas maiores seguem a mesma progressão.",
           "quandoUsar": [
             "Ao construir fluência de uma família da tabuada.",
             "Quando você acerta em sequência, mas trava quando as perguntas são misturadas.",
@@ -56,7 +56,7 @@
           "ordem": 2,
           "titulo": "Calcule mentalmente da esquerda para a direita",
           "paginas": [4, 7],
-          "resumo": "No papel é comum começar pelas unidades; de cabeça, o livro recomenda acompanhar a leitura do número e começar pela maior ordem. Em somas com blocos de grandezas diferentes, muitas respostas podem ser percebidas quase imediatamente.",
+          "resumo": "No papel é comum começar pelas unidades; de cabeça, acompanhe a leitura do número e comece pela maior ordem. Em somas com blocos de grandezas diferentes, muitas respostas podem ser percebidas quase imediatamente.",
           "quandoUsar": [
             "Em adições mentais.",
             "Quando as parcelas ocupam ordens diferentes, como milhares e dezenas.",
@@ -338,7 +338,7 @@
           "ordem": 8,
           "titulo": "Eleve números terminados em 5 ao quadrado",
           "paginas": [5, 10, 88, 89],
-          "resumo": "Remova mentalmente o 5 final, multiplique o prefixo pelo inteiro seguinte e anexe 25. O livro mostra a regra com dois e três dígitos e amplia o treino até números como 1005.",
+          "resumo": "Remova mentalmente o 5 final, multiplique o prefixo pelo inteiro seguinte e anexe 25. A regra vale para dois ou mais dígitos e alcança números como 1005.",
           "quandoUsar": [
             "Ao elevar ao quadrado qualquer inteiro terminado em 5.",
             "Quando o prefixo e seu sucessor são fáceis de multiplicar.",
@@ -492,7 +492,7 @@
           "ordem": 11,
           "titulo": "Multiplique dois números entre 10 e 19 por soma cruzada",
           "paginas": [6, 8, 10],
-          "resumo": "Some a unidade de um fator ao outro fator, multiplique essa soma por 10 e acrescente o produto das duas unidades. O livro usa esse domínio para ampliar tabelas e quadrados na faixa de 10 a 20.",
+          "resumo": "Some a unidade de um fator ao outro fator, multiplique essa soma por 10 e acrescente o produto das duas unidades. Use esse domínio para ampliar tabelas e quadrados na faixa de 10 a 20.",
           "quandoUsar": [
             "Quando ambos os fatores estão entre 10 e 19.",
             "Ao elevar números dessa faixa ao quadrado.",
@@ -642,7 +642,7 @@
           "ordem": 3,
           "titulo": "Reconheça somas de centenas e dezenas redondas",
           "paginas": [11, 15, 91],
-          "resumo": "Antes do algoritmo geral de três dígitos, o livro destaca casos quase imediatos: uma parcela múltipla de 100 altera as centenas; duas parcelas múltiplas de 10 podem ser somadas por centenas e dezenas. Esse tipo de leitura é útil em totais cotidianos.",
+          "resumo": "Antes do algoritmo geral de três dígitos, reconheça os casos quase imediatos: uma parcela múltipla de 100 altera as centenas; duas parcelas múltiplas de 10 podem ser somadas por centenas e dezenas. Esse tipo de leitura é útil em totais cotidianos.",
           "quandoUsar": [
             "Quando uma parcela é múltipla de 100.",
             "Quando as duas parcelas terminam em zero.",
@@ -778,7 +778,7 @@
                 { "expressao": "68+100−3 = 168−3", "explicacao": "Some e ajuste." },
                 { "expressao": "168−3 = 165", "explicacao": "Feche a conta." }
               ],
-              "conclusao": "O exercício recomenda comparar este caminho ao método direto.",
+              "conclusao": "Compare este caminho ao método direto e escolha o mais leve.",
               "origem": { "pagina": 91 }
             }
           ],
@@ -840,7 +840,7 @@
           "ordem": 7,
           "titulo": "Evite empréstimo subtraindo demais e devolvendo a diferença",
           "paginas": [11, 17, 93],
-          "resumo": "Quando a etapa final exigiria empréstimo, arredonde o subtraendo para cima, retire o número redondo e some de volta a diferença. Os exercícios pedem deliberadamente uma segunda solução por esse caminho.",
+          "resumo": "Quando a etapa final exigiria empréstimo, arredonde o subtraendo para cima, retire o número redondo e some de volta a diferença. Depois, resolva uma segunda vez por esse caminho para comparar o esforço.",
           "quandoUsar": [
             "Quando o subtraendo está perto de uma dezena redonda.",
             "Quando a subtração direta exigiria empréstimo.",
@@ -1225,7 +1225,7 @@
           "ordem": 1,
           "titulo": "Retire o apoio visual sem abandonar a verificação",
           "paginas": [21, 22, 23],
-          "resumo": "O capítulo trata multiplicações 2×1 e 3×1 como blocos essenciais de todo o restante. No início, ver a conta é aceitável; depois, o livro sugere mostrar apenas parte dela ou digitá-la na calculadora sem apertar igual até produzir uma resposta mental.",
+          "resumo": "Multiplicações 2×1 e 3×1 são blocos essenciais para as técnicas seguintes. No início, ver a conta é aceitável; depois, mostre apenas parte dela ou digite-a na calculadora sem apertar igual até produzir uma resposta mental.",
           "quandoUsar": [
             "Na transição de cálculo escrito para cálculo realmente mental.",
             "Quando os fatos da tabuada estão conhecidos, mas os operandos se perdem sem tela.",
@@ -1370,7 +1370,7 @@
           "ordem": 4,
           "titulo": "Entenda a distributiva como grupos divididos em partes",
           "paginas": [22, 23],
-          "resumo": "O livro não apresenta a distributiva apenas como fórmula: imagine vários sacos iguais, cada um com uma parte grande e outra pequena. Contar cada cor separadamente e somar preserva o mesmo total; um desenho pode tornar a decomposição concreta.",
+          "resumo": "Não trate a distributiva apenas como fórmula: imagine vários sacos iguais, cada um com uma parte grande e outra pequena. Contar cada cor separadamente e somar preserva o mesmo total; um desenho pode tornar a decomposição concreta.",
           "quandoUsar": [
             "Quando a fórmula distributiva parece abstrata.",
             "Ao explicar por que produtos parciais podem ser somados.",
@@ -1506,7 +1506,7 @@
               "enunciado": "679 × 5",
               "resposta": "3395",
               "etapas": [
-                { "expressao": "5×600 = 3000", "explicacao": "O livro sugere dizer este bloco." },
+                { "expressao": "5×600 = 3000", "explicacao": "Diga este bloco mentalmente." },
                 { "expressao": "5×70+5×9 = 350+45", "explicacao": "Calcule o restante." },
                 { "expressao": "3000+350+45 = 3395", "explicacao": "Complete a resposta." }
               ],
@@ -1619,7 +1619,7 @@
                 { "expressao": "14 = 7×2", "explicacao": "Fatore o segundo número." },
                 { "expressao": "43×7 = 301", "explicacao": "Primeiro caminho." },
                 { "expressao": "301×2 = 602", "explicacao": "Conclua." },
-                { "expressao": "43×2=86; 86×7=602", "explicacao": "A solução também compara a ordem inversa." }
+                { "expressao": "43×2=86; 86×7=602", "explicacao": "A ordem inversa produz o mesmo resultado." }
               ],
               "conclusao": "As duas ordens são corretas; escolha a que pesa menos na memória.",
               "origem": { "pagina": 102 }
@@ -1792,7 +1792,7 @@
           "ordem": 3,
           "titulo": "Multiplique dividendo e divisor pelo mesmo fator para criar uma divisão fácil",
           "paginas": [30, 32, 34, 106, 107],
-          "resumo": "O quociente não muda quando ambos os termos são multiplicados pelo mesmo número não nulo. O livro usa dobramentos sucessivos para transformar divisores 5, 12,5, 25 e 50 em 10 ou 100.",
+          "resumo": "O quociente não muda quando ambos os termos são multiplicados pelo mesmo número não nulo. Use dobramentos sucessivos para transformar divisores 5, 12,5, 25 e 50 em 10 ou 100.",
           "quandoUsar": [
             "Quando o divisor é 5, 25, 50, 12,5 ou outro número que chega facilmente a 10 ou 100.",
             "Quando há decimal no divisor.",
@@ -2008,7 +2008,7 @@
           "ordem": 7,
           "titulo": "Ataque 4÷2 dígitos por dezenas do quociente e complementos",
           "paginas": [31],
-          "resumo": "O autor considera um número de quatro dígitos dividido por um de dois dígitos próximo do limite mental para a maioria das pessoas. A estratégia continua a mesma, mas exige escolher uma grande dezena do quociente, reter o parcial e usar complementos para o resto.",
+          "resumo": "Dividir mentalmente um número de quatro dígitos por outro de dois dígitos exige escolher uma grande dezena do quociente, reter o parcial e usar complementos para encontrar o resto.",
           "quandoUsar": [
             "Em divisões mentais de quatro por dois dígitos.",
             "Quando um produto divisor×8 ou divisor×9 fornece rapidamente as dezenas do quociente.",
@@ -2110,7 +2110,7 @@
           "ordem": 9,
           "titulo": "Memorize um ciclo para todas as frações com denominador 7",
           "paginas": [31, 34, 107],
-          "resumo": "O bloco 142857 se repete em 1/7. As outras frações de sétimos usam os mesmos seis algarismos, começando em pontos diferentes do ciclo. O livro sugere imaginar os algarismos em círculo.",
+          "resumo": "O bloco 142857 se repete em 1/7. As outras frações de sétimos usam os mesmos seis algarismos, começando em pontos diferentes do ciclo. Imagine os algarismos em círculo.",
           "quandoUsar": [
             "Ao converter 1/7 a 6/7 em decimal.",
             "Quando um cálculo maior termina numa fração de sétimos.",
@@ -2257,7 +2257,7 @@
               "enunciado": "O que há de especial em 2520?",
               "resposta": "É o menor inteiro positivo divisível por todos os números de 1 a 10",
               "etapas": [
-                { "expressao": "2520", "explicacao": "O exercício encerra o bloco reunindo os testes de divisibilidade." },
+                { "expressao": "2520", "explicacao": "Reúna os testes de divisibilidade neste número." },
                 { "expressao": "múltiplo de 1,2,3,4,5,6,7,8,9,10", "explicacao": "A propriedade combina todas as famílias pequenas." }
               ],
               "conclusao": "O número funciona como síntese dos testes praticados.",
@@ -2336,7 +2336,7 @@
           "ordem": 13,
           "titulo": "Teste o 7 retirando duas vezes o último algarismo",
           "paginas": [33, 103, 104, 105],
-          "resumo": "Separe o número em 10a+b, remova o algarismo final b e calcule a−2b. Repita até chegar a um múltiplo reconhecível de 7. O exercício também pede justificar algebricamente a equivalência nos dois sentidos.",
+          "resumo": "Separe o número em 10a+b, remova o algarismo final b e calcule a−2b. Repita até chegar a um múltiplo reconhecível de 7 e justifique algebricamente a equivalência nos dois sentidos.",
           "quandoUsar": [
             "Para testar divisibilidade por 7 sem divisão longa.",
             "Quando o método criar-zero seria mais demorado.",
@@ -2418,7 +2418,7 @@
                 { "expressao": "240/9 = 80/3", "explicacao": "Simplifique por 3." },
                 { "expressao": "80/3 = 26 2/3", "explicacao": "Converta em número misto." }
               ],
-              "conclusao": "80 °F correspondem a 26 2/3 °C pela fórmula usada no livro.",
+              "conclusao": "80 °F correspondem a 26 2/3 °C por essa fórmula.",
               "origem": { "pagina": 106 }
             },
             {

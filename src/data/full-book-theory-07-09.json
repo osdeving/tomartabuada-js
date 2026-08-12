@@ -26,7 +26,7 @@
         "Dominar quadrados de dois e três dígitos para aplicar os mnemônicos a resultados parciais.",
         "Aceitar criar imagens mentais exageradas, concretas e pessoais."
       ],
-      "summary": "O capítulo converte sequências abstratas de algarismos em sons, palavras e cenas. A progressão começa pela ideia geral de mnemônico, fixa o código fonético, exercita a conversão nos dois sentidos, amplia o método para sequências como π e termina usando palavras, dedos e histórias para preservar resultados intermediários de cálculos longos. A tabela e as frases originais dependem da pronúncia inglesa: nesta localização, elas são evidência do método, não modelos a traduzir literalmente; palavras em pt-BR precisam ser recodificadas som a som.",
+      "summary": "Sequências abstratas de algarismos podem ser convertidas em sons, palavras e cenas. A progressão começa pela ideia geral de mnemônico, fixa o código fonético, exercita a conversão nos dois sentidos, amplia o método para sequências como π e termina usando palavras, dedos e histórias para preservar resultados intermediários de cálculos longos. A tabela e as frases em inglês dependem da pronúncia inglesa: demonstram o método, mas não devem ser traduzidas literalmente; palavras em pt-BR precisam ser recodificadas som a som.",
       "groupId": "memoria-numerica",
       "theoryTopicIds": [
         "c09-codigo",
@@ -40,7 +40,7 @@
           "id": "livro-c07-l01-mnemonicos-com-significado",
           "order": 1,
           "title": "Troque algarismos abstratos por imagens com significado",
-          "summary": "O autor ressalta que não depende de uma memória extraordinária: emprega um sistema treinável. Um mnemônico melhora a codificação e a recuperação ao converter dados opacos em palavras e imagens. A frase inglesa da tartaruga Pancho é apresentada antes da chave para fazer o leitor experimentar primeiro a retenção de uma cena; ela codifica 24 algarismos de π.",
+          "summary": "Não é preciso ter uma memória extraordinária: o sistema é treinável. Um mnemônico melhora a codificação e a recuperação ao converter dados opacos em palavras e imagens. A frase inglesa da tartaruga Pancho permite experimentar primeiro a retenção de uma cena e codifica 24 algarismos de π.",
           "whenToUse": [
             "Ao memorizar datas, telefones ou identificadores numéricos.",
             "Quando um cálculo longo produz um parcial que precisa sobreviver a outra operação.",
@@ -89,7 +89,7 @@
                   "explanation": "Como a chave é fonética inglesa, uma tradução portuguesa comum não preservaria necessariamente os mesmos algarismos."
                 }
               ],
-              "conclusion": "Use a frase original apenas para compreender o mecanismo; para pt-BR, crie e valide uma frase nova pela pronúncia local.",
+              "conclusion": "Use a frase em inglês apenas para compreender o mecanismo; para pt-BR, crie e valide uma frase nova pela pronúncia local.",
               "source": {
                 "printedPage": 152,
                 "pdfPage": 178
@@ -169,7 +169,7 @@
           "id": "livro-c07-l02-codigo-fonetico",
           "order": 2,
           "title": "Código fonético: os algarismos vivem nos sons consonantais",
-          "summary": "O código original associa 1 a t/d, 2 a n, 3 a m, 4 a r, 5 a l, 6 a j/ch/sh, 7 a k/g duro, 8 a f/v, 9 a p/b e 0 a z/s. Letras reunidas no mesmo algarismo têm articulação semelhante. O livro oferece pistas visuais — número de hastes de t, d, n e m, o r final de four, o L feito com cinco dedos, J parecido com 6, dois 7 formando K, f cursivo parecido com 8, 9 como p/b e zero começando por z — além do nome artificial “Tony Marloshkovips”. Em pt-BR deve valer a pronúncia, não a ortografia nem a tabela de palavras inglesa.",
+          "summary": "O código associa 1 a t/d, 2 a n, 3 a m, 4 a r, 5 a l, 6 a j/ch/sh, 7 a k/g duro, 8 a f/v, 9 a p/b e 0 a z/s. Letras reunidas no mesmo algarismo têm articulação semelhante. Use pistas visuais: o número de hastes de t, d, n e m; o r final de four; o L feito com cinco dedos; J parecido com 6; dois 7 formando K; f cursivo parecido com 8; 9 como p/b; e zero começando por z. O nome artificial “Tony Marloshkovips” ajuda a lembrar a ordem. Em pt-BR, vale a pronúncia, não a ortografia nem uma tabela de palavras inglesa.",
           "whenToUse": [
             "Antes de criar qualquer palavra-gancho numérica.",
             "Ao decodificar um mnemônico para conferir se nenhum algarismo sumiu.",
@@ -213,7 +213,7 @@
                   "explanation": "A ordem dos sons precisa permanecer m-n."
                 },
                 {
-                  "explanation": "No original inglês aparecem man, moon e money; cada opção precisa ser julgada pela pronúncia, não pelas letras."
+                  "explanation": "Em inglês, man, moon e money são opções possíveis; cada uma precisa ser julgada pela pronúncia, não pelas letras."
                 },
                 {
                   "expression": "mourn→342; melon→352; mint→321",
@@ -275,7 +275,7 @@
           ],
           "pitfalls": [
             "Contar letras mudas ou ignorar sons que de fato são pronunciados.",
-            "Tratar g suave e g duro como a mesma classe: no original, o g de Ginger soa como j e vale 6; g duro vale 7.",
+            "Tratar g suave e g duro como a mesma classe: em inglês, o g de Ginger soa como j e vale 6; g duro vale 7.",
             "Supor que duas consoantes escritas sempre geram dois dígitos; a decisão é pelo número de sons."
           ],
           "memoryCue": "O ouvido codifica; a grafia só ajuda.",
@@ -299,13 +299,13 @@
           "id": "livro-c07-l03-palavras-numeros",
           "order": 3,
           "title": "Treine nos dois sentidos: número gera opções, palavra gera uma leitura",
-          "summary": "A lista original 1–100 serve como inspiração, não como vocabulário obrigatório. Um número pode admitir muitas palavras, enquanto uma palavra bem pronunciada devolve uma sequência determinada. Os exercícios 42, 74, 67, 86, 93, 10, 55, 826, 951, 620 e 367 exploram liberdade criativa; os exercícios dog, oven, cart, fossil, banana, garage, pencil, Mudd, multiplication, Cleveland e Ohio testam a decodificação única. Como são palavras inglesas, as respostas documentam a tabela original e não devem ser transplantadas para pt-BR sem nova análise sonora.",
+          "summary": "Uma lista de palavras de 1 a 100 em inglês serve como inspiração, não como vocabulário obrigatório. Um número pode admitir muitas palavras, enquanto uma palavra bem pronunciada devolve uma sequência determinada. Pratique a codificação com 42, 74, 67, 86, 93, 10, 55, 826, 951, 620 e 367; depois teste a decodificação de dog, oven, cart, fossil, banana, garage, pencil, Mudd, multiplication, Cleveland e Ohio. Como são palavras inglesas, precisam ser reanalisadas som a som antes de qualquer adaptação para pt-BR.",
           "whenToUse": [
             "Para ganhar velocidade antes de guardar resultados durante contas.",
             "Ao montar um repertório pessoal de palavras para blocos frequentes.",
             "Para auditar se uma palavra escolhida preserva todos os dígitos."
           ],
-          "whyItWorks": "Codificar força busca criativa; decodificar força precisão. Alternar os dois exercícios transforma uma tabela decorada em habilidade automática.",
+          "whyItWorks": "Codificar força busca criativa; decodificar força precisão. Alternar os dois sentidos transforma uma tabela decorada em habilidade automática.",
           "algorithm": {
             "title": "Prática reversível",
             "steps": [
@@ -334,12 +334,12 @@
           "workedExamples": [
             {
               "id": "livro-c07-ex-lista-numeros",
-              "question": "Como o original exercita 42, 826 e 367?",
-              "answer": "Oferece várias palavras inglesas para 42 e 826, e “magic” para 367.",
+              "question": "Como 42, 826 e 367 podem ser codificados em inglês?",
+              "answer": "42 e 826 admitem várias palavras em inglês; “magic” codifica 367.",
               "steps": [
                 {
                   "expression": "42 → r-n",
-                  "explanation": "O livro sugere rain, rhino, Reno, ruin e urn; as vogais mudam, a sequência sonora relevante permanece."
+                  "explanation": "Rain, rhino, Reno, ruin e urn funcionam porque as vogais mudam, mas a sequência sonora relevante permanece."
                 },
                 {
                   "expression": "826 → f/v-n-j/ch/sh",
@@ -347,7 +347,7 @@
                 },
                 {
                   "expression": "367 → m-j/ch/sh-k/g duro",
-                  "explanation": "Magic funciona pela pronúncia inglesa adotada no texto."
+                  "explanation": "Magic funciona pela pronúncia inglesa."
                 }
               ],
               "conclusion": "Em pt-BR, preserve o padrão de sons, não as sugestões lexicais inglesas.",
@@ -358,7 +358,7 @@
             },
             {
               "id": "livro-c07-ex-decodificacao-palavras",
-              "question": "Quais respostas o livro dá para dog, pencil, multiplication e Ohio?",
+              "question": "Quais códigos correspondem a dog, pencil, multiplication e Ohio?",
               "answer": "17; 9.205; 35.195.762; e nenhum algarismo para Ohio na pronúncia usada.",
               "steps": [
                 {
@@ -375,7 +375,7 @@
                 },
                 {
                   "expression": "Ohio → ∅",
-                  "explanation": "Na pronúncia inglesa do autor, há somente sons livres, sem classe numérica."
+                  "explanation": "Na pronúncia inglesa, há somente sons livres, sem classe numérica."
                 }
               ],
               "conclusion": "A decodificação é determinada pela pronúncia do exemplo; outra língua ou sotaque pode exigir outra resposta.",
@@ -412,7 +412,7 @@
           "id": "livro-c07-l04-sequencias-longas",
           "order": 4,
           "title": "Encadeie blocos para datas, telefones e sequências longas",
-          "summary": "O livro estende a frase inicial de π de 24 para 60 e depois 100 algarismos. Explica que w pode ser livre, que g suave em Ginger entra na classe 6 e que a reversão exata é o teste do mnemônico. A caixa sobre Alexander Craig Aitken acrescenta outra estratégia: agrupar 50 algarismos em ritmo, recuperar em estado relaxado e manter a prática, pois o uso de calculadora teria reduzido sua fluência mental.",
+          "summary": "A frase inicial de π pode ser estendida de 24 para 60 e depois 100 algarismos. O w pode ser livre, o g suave em Ginger entra na classe 6 e a reversão exata é o teste do mnemônico. Outra estratégia é agrupar 50 algarismos em ritmo, recuperá-los em estado relaxado e manter a prática para preservar a fluência mental.",
           "whenToUse": [
             "Em números maiores do que uma única palavra consegue representar.",
             "Ao memorizar uma sequência em blocos e precisar retomá-la no meio.",
@@ -452,7 +452,7 @@
           "workedExamples": [
             {
               "id": "livro-c07-ex-pi-100",
-              "question": "Como o livro passa de 24 para 100 algarismos de π?",
+              "question": "Como passar de 24 para 100 algarismos de π?",
               "answer": "Anexa novas frases inglesas, cada uma segmentada por blocos fonéticos, e recita o conjunto com fluidez.",
               "steps": [
                 {
@@ -499,7 +499,7 @@
           "id": "livro-c07-l05-parciais-de-calculo",
           "order": 5,
           "title": "Guarde parciais com palavra e dedos enquanto calcula",
-          "summary": "Em quadrados de três dígitos, o parcial de milhares é codificado por uma palavra e os três algarismos finais podem ser apoiados nos dedos. O livro não considera os dedos trapaça: são memória externa mínima. O objetivo é liberar a atenção para o quadrado menor sem perder o primeiro produto.",
+          "summary": "Em quadrados de três dígitos, codifique o parcial de milhares por uma palavra e apoie os três algarismos finais nos dedos. Os dedos funcionam como memória externa mínima e liberam a atenção para o quadrado menor sem perder o primeiro produto.",
           "whenToUse": [
             "Ao quadrar três ou mais dígitos por fatores balanceados.",
             "Quando um resultado intermediário precisa permanecer intacto durante outro cálculo.",
@@ -543,7 +543,7 @@
                 },
                 {
                   "expression": "300×384=115.200",
-                  "explanation": "No original, 115 vira “title” e 200 fica representado por dois dedos."
+                  "explanation": "Em inglês, 115 pode virar “title”; 200 fica representado por dois dedos."
                 },
                 {
                   "expression": "42²=1.764",
@@ -601,7 +601,7 @@
                 },
                 {
                   "expression": "246×300=73.800",
-                  "explanation": "No original, 73 vira “gum” e oito dedos preservam 800."
+                  "explanation": "Em inglês, 73 pode virar “gum”; oito dedos preservam 800."
                 },
                 {
                   "expression": "27²=729",
@@ -652,7 +652,7 @@
           "pitfalls": [
             "Criar uma palavra sem lembrar a escala do bloco, por exemplo milhares versus unidades.",
             "Ocupar os dedos com muitos dígitos; eles devem guardar apenas um sufixo simples.",
-            "Usar a palavra inglesa da página numa pronúncia portuguesa e esperar o mesmo número."
+            "Usar uma palavra inglesa com pronúncia portuguesa sem revalidar o número."
           ],
           "memoryCue": "A palavra segura o prefixo; os dedos seguram o resto.",
           "tags": [
@@ -677,7 +677,7 @@
           "id": "livro-c07-l06-palavras-incomuns",
           "order": 6,
           "title": "Quando não houver uma palavra perfeita, componha uma pista estranha",
-          "summary": "Nem todo bloco de três algarismos produz imediatamente uma palavra simples. O texto autoriza combinações ou palavras sem sentido, como as inglesas “no fudge” para 286 e “jam-off” para 638. O critério não é elegância: é ser mais recuperável do que os algarismos durante uma conta longa.",
+          "summary": "Nem todo bloco de três algarismos produz imediatamente uma palavra simples. Admita combinações ou expressões sem sentido, como “no fudge” para 286 e “jam-off” para 638 na pronúncia inglesa. O critério não é elegância: é ser mais recuperável do que os algarismos durante uma conta longa.",
           "whenToUse": [
             "Quando a busca por uma palavra comum demora e interrompe o cálculo.",
             "Para blocos de três ou mais algarismos com poucas opções naturais.",
@@ -716,12 +716,12 @@
               "answer": "Criar uma combinação curta ou palavra inventada, desde que reversível.",
               "steps": [
                 {
-                  "expression": "286 → no fudge (original inglês)",
+                  "expression": "286 → no fudge (em inglês)",
                   "explanation": "A combinação reparte o bloco em sons mais fáceis de imaginar."
                 },
                 {
-                  "expression": "638 → jam-off (original inglês)",
-                  "explanation": "A palavra nonsense é distinta e, para o autor, preserva os sons."
+                  "expression": "638 → jam-off (em inglês)",
+                  "explanation": "A expressão sem sentido é distinta e preserva os sons na pronúncia inglesa."
                 },
                 {
                   "explanation": "Em pt-BR, substitua as expressões por equivalentes recodificados; não traduza as palavras."
@@ -760,7 +760,7 @@
           "id": "livro-c07-l07-historia-dezesseis-digitos",
           "order": 7,
           "title": "Ligue palavras numa história para lembrar dezesseis algarismos",
-          "summary": "O capítulo encerra com uma demonstração de memória. A sequência 1,2,9,7,3,6,2,7,9,3,3,2,8,2,6,1 vira os blocos 12, 97, 362, 793, 32 e 8261; no inglês do livro, eles evocam tiny, book, machine, kaboom, moon e finished. A narrativa mostra um pequeno livro posto numa máquina, que explode e lança o narrador à Lua. O caráter ridículo é deliberado.",
+          "summary": "A sequência 1,2,9,7,3,6,2,7,9,3,3,2,8,2,6,1 vira os blocos 12, 97, 362, 793, 32 e 8261. Associe cada bloco a uma imagem e encadeie tudo numa narrativa absurda: o segundo objeto entra numa máquina, ela explode e lança o narrador à Lua. O caráter ridículo torna a cena mais fácil de recordar.",
           "whenToUse": [
             "Ao memorizar muitos blocos que precisam ser devolvidos na ordem exata.",
             "Em demonstrações de memória ou treino de recuperação serial.",
@@ -803,13 +803,13 @@
                   "explanation": "Os dezesseis algarismos viram seis unidades."
                 },
                 {
-                  "explanation": "No original inglês, as palavras são tiny, book, machine, kaboom, moon e finished."
+                  "explanation": "Em inglês, um encadeamento possível usa tiny, book, machine, kaboom, moon e finished."
                 },
                 {
-                  "explanation": "Um pequeno livro entra numa máquina; ela explode e lança a pessoa à Lua, onde a história termina."
+                  "explanation": "O segundo objeto entra numa máquina; ela explode e lança a pessoa à Lua, onde a história termina."
                 },
                 {
-                  "explanation": "Na localização, crie seis imagens portuguesas que decodifiquem os mesmos blocos."
+                  "explanation": "Em pt-BR, crie seis imagens que decodifiquem os mesmos blocos."
                 }
               ],
               "conclusion": "A sequência é recuperada caminhando pela cadeia causal, não repetindo dezesseis itens separados.",
@@ -904,7 +904,7 @@
         "Fatoração, arredondamento, complementos e estimativa de ordem de grandeza.",
         "Código fonético suficientemente automático para guardar parciais."
       ],
-      "summary": "Este é o ápice técnico do livro. A dificuldade cresce de 4×1 e quadrados de quatro dígitos para produtos 3×2, quadrados de cinco dígitos, produtos 3×3 e, por fim, 5×5. A regra organizadora não é aplicar sempre o mesmo algoritmo: observe os operandos, resolva primeiro o trecho mais trabalhoso, procure fatoração ou proximidade, antecipe transportes e use palavras apenas para preservar blocos. Os exercícios do capítulo reaparecem nas soluções impressas 258–270 com contas completas e, em vários casos, mais de um caminho.",
+      "summary": "Este é o ápice técnico da trilha. A dificuldade cresce de 4×1 e quadrados de quatro dígitos para produtos 3×2, quadrados de cinco dígitos, produtos 3×3 e, por fim, 5×5. Não aplique sempre o mesmo algoritmo: observe os operandos, resolva primeiro o trecho mais trabalhoso, procure fatoração ou proximidade, antecipe transportes e use palavras apenas para preservar blocos. Os exemplos incluem contas completas e, em vários casos, mais de um caminho.",
       "groupId": "multiplicacao-avancada",
       "theoryTopicIds": [
         "c02-complementos",
@@ -928,7 +928,7 @@
           "id": "livro-c08-l01-preparo-quatro-por-um",
           "order": 1,
           "title": "Prepare o terreno: transforme 4×1 em dois blocos menores",
-          "summary": "A abertura reafirma as duas premissas do livro: quase qualquer pessoa pode aprender cálculo mental e todo problema grande deve ser reduzido a problemas já dominados. Como o capítulo ensinará mais por ilustrações do que por narração passo a passo, ele começa revisando 4×1: separe milhares/centenas do final de dois dígitos, multiplique cada bloco pelo algarismo e some.",
+          "summary": "Quase qualquer pessoa pode aprender cálculo mental, e todo problema grande deve ser reduzido a problemas já dominados. Comece revisando 4×1: separe milhares e centenas do final de dois dígitos, multiplique cada bloco pelo algarismo e some.",
           "whenToUse": [
             "Antes de quadrados de quatro dígitos, cujo produto principal vira um 4×1.",
             "Sempre que um número de quatro ou cinco dígitos multiplicado por um algarismo parecer monolítico.",
@@ -1095,7 +1095,7 @@
           "id": "livro-c08-l02-quadrados-quatro-digitos",
           "order": 2,
           "title": "Quadrados de quatro dígitos: balanceie no milhar mais próximo",
-          "summary": "O número é deslocado igualmente para baixo e para cima até que um fator seja um milhar redondo: x²=(x−d)(x+d)+d². O produto principal é um 4×1; o quadrado de d é uma técnica já aprendida. O texto ensina a falar milhões antes do fim quando o carry já pode ser limitado, guardar os milhares por código fonético e recuperar os últimos dois algarismos pelo quadrado da terminação original. Se o número está perto do próximo milhar, o complemento da cauda encontra rapidamente o deslocamento.",
+          "summary": "Desloque o número igualmente para baixo e para cima até que um fator seja um milhar redondo: x²=(x−d)(x+d)+d². O produto principal é um 4×1; o quadrado de d é uma técnica já aprendida. Anuncie os milhões antes do fim quando o carry já puder ser limitado, guarde os milhares por código fonético e recupere os últimos dois algarismos pelo quadrado da terminação de x. Se o número está perto do próximo milhar, o complemento da cauda encontra rapidamente o deslocamento.",
           "whenToUse": [
             "Ao quadrar um número de quatro dígitos mentalmente.",
             "Quando um milhar próximo deixa um dos fatores terminado em três zeros.",
@@ -1144,7 +1144,7 @@
                 },
                 {
                   "expression": "4.000×4.534=18.136.000",
-                  "explanation": "O bloco 136 pode ser guardado por palavra; no original, “damage”."
+                  "explanation": "O bloco 136 pode ser guardado por uma palavra; em inglês, “damage”."
                 },
                 {
                   "expression": "267²=(267−33)(267+33)+33²=234×300+1.089=71.289",
@@ -1210,7 +1210,7 @@
                 },
                 {
                   "expression": "70.896.000+185.761=71.081.761",
-                  "explanation": "O carry antecipado está confirmado."
+                  "explanation": "O carry cabe na faixa estimada."
                 }
               ],
               "conclusion": "8.431² é 71.081.761; a estimativa permite dizer “71 milhões” antes de concluir.",
@@ -1309,12 +1309,12 @@
             },
             {
               "id": "livro-c08-ex-solucao-1234-quadrado",
-              "question": "Resolva o primeiro exercício: 1.234².",
+              "question": "Calcule 1.234².",
               "answer": "1.522.756",
               "steps": [
                 {
                   "expression": "1.234±234 → 1.000 e 1.468",
-                  "explanation": "O gabarito balanceia no milhar inferior."
+                  "explanation": "Balanceie no milhar inferior."
                 },
                 {
                   "expression": "1.000×1.468=1.468.000",
@@ -1322,14 +1322,14 @@
                 },
                 {
                   "expression": "234²=54.756",
-                  "explanation": "O gabarito mostra também 234±34 → 200 e 268, mais 34²."
+                  "explanation": "Também é possível usar 234±34 → 200 e 268, mais 34²."
                 },
                 {
                   "expression": "1.468.000+54.756=1.522.756",
                   "explanation": "Soma final."
                 }
               ],
-              "conclusion": "A solução confirma a técnica aninhada em dois níveis.",
+              "conclusion": "A técnica aninhada funciona em dois níveis.",
               "source": {
                 "printedPage": 258,
                 "pdfPage": 284
@@ -1348,7 +1348,7 @@
             "quadrado-balanceado",
             "carry",
             "mnemônico",
-            "solucao-do-livro"
+            "solucao-completa"
           ],
           "theoryTopicIds": [
             "c11-quadrados-quatro",
@@ -1366,7 +1366,7 @@
           "id": "livro-c08-l03-tres-por-dois-fatoracao",
           "order": 3,
           "title": "3×2 por fatoração: procure a rota sem somas",
-          "summary": "Antes de calcular, o autor recomenda alguns segundos de inspeção. Mais da metade dos números de dois dígitos se decompõe em fatores até 11; se o multiplicador não ajudar, investigue o número de três dígitos. A melhor sequência transforma 3×2 em uma corrente de produtos por um algarismo, evitando armazenar e somar parciais. Divisibilidade por 9 e 11 abre rotas pouco óbvias.",
+          "summary": "Antes de calcular, reserve alguns segundos para inspecionar os operandos. Mais da metade dos números de dois dígitos se decompõe em fatores até 11; se o multiplicador não ajudar, investigue o número de três dígitos. A melhor sequência transforma 3×2 em uma corrente de produtos por um algarismo, evitando armazenar e somar parciais. Divisibilidade por 9 e 11 abre rotas pouco óbvias.",
           "whenToUse": [
             "Quando um dos operandos possui fatores pequenos convenientes.",
             "Quando se quer minimizar memória de trabalho e evitar uma soma final.",
@@ -1394,7 +1394,7 @@
               {
                 "order": 4,
                 "action": "Confirme a magnitude",
-                "detail": "Estime o produto original para detectar deslocamento de casas."
+                "detail": "Estime o produto inicial para detectar deslocamento de casas."
               }
             ]
           },
@@ -1543,12 +1543,12 @@
             },
             {
               "id": "livro-c08-ex-solucao-858x15",
-              "question": "Resolva o exercício 858×15.",
+              "question": "Calcule 858×15.",
               "answer": "12.870",
               "steps": [
                 {
                   "expression": "15=5×3",
-                  "explanation": "O gabarito escolhe fatorar."
+                  "explanation": "Fatore 15 em 5×3."
                 },
                 {
                   "expression": "858×5=4.290",
@@ -1559,7 +1559,7 @@
                   "explanation": "Segundo fator."
                 }
               ],
-              "conclusion": "A solução evita somar dois parciais.",
+              "conclusion": "A fatoração evita somar dois parciais.",
               "source": {
                 "printedPage": 259,
                 "pdfPage": 285
@@ -1577,7 +1577,7 @@
             "fatoracao",
             "associatividade",
             "divisibilidade",
-            "solucao-do-livro"
+            "solucao-completa"
           ],
           "theoryTopicIds": [
             "c11-tres-por-dois",
@@ -1595,7 +1595,7 @@
           "id": "livro-c08-l04-tres-por-dois-adicao",
           "order": 4,
           "title": "3×2 por adição: arredonde para baixo e some a cauda",
-          "summary": "Quando não há fatoração cômoda, decomponha um operando como dezena/centena redonda mais uma cauda. Em geral quebra-se o número de três dígitos, mas um multiplicador terminado em 1 ou 2 pode ser ainda melhor. O texto alerta que este método exige segurar um parcial de cinco dígitos durante outra multiplicação, por isso deve ser comparado com alternativas.",
+          "summary": "Quando não há fatoração cômoda, decomponha um operando como dezena ou centena redonda mais uma cauda. Em geral quebra-se o número de três dígitos, mas um multiplicador terminado em 1 ou 2 pode ser ainda melhor. Este método exige segurar um parcial de cinco dígitos durante outra multiplicação, por isso compare-o com as alternativas antes de começar.",
           "whenToUse": [
             "Quando uma decomposição aditiva produz cauda 1, 2 ou outro produto curto.",
             "Quando a parte redonda possui fatores convenientes.",
@@ -1639,7 +1639,7 @@
                 },
                 {
                   "expression": "720×37=26.640",
-                  "explanation": "O livro trata 72 como 9×8."
+                  "explanation": "Trate 72 como 9×8."
                 },
                 {
                   "expression": "1×37=37",
@@ -1647,10 +1647,10 @@
                 },
                 {
                   "expression": "26.640+37=26.677",
-                  "explanation": "Finalize. O texto observa que fatorar 721=103×7 talvez seja ainda melhor."
+                  "explanation": "Finalize; antes de escolher esta rota, compare-a com a fatoração 721=103×7."
                 }
               ],
-              "conclusion": "721×37 é 26.677; comparar métodos faz parte da solução.",
+          "conclusion": "721×37 é 26.677; compare os métodos antes de executar a conta.",
               "source": {
                 "printedPage": 172,
                 "pdfPage": 198
@@ -1768,7 +1768,7 @@
                 },
                 {
                   "expression": "835×60=50.100",
-                  "explanation": "O produto 6×5 gera o zero extra mencionado no texto."
+                  "explanation": "O produto 6×5 gera o zero extra do parcial redondo."
                 },
                 {
                   "expression": "835×2=1.670; 50.100+1.670=51.770",
@@ -1811,7 +1811,7 @@
           "id": "livro-c08-l05-tres-por-dois-subtracao",
           "order": 5,
           "title": "3×2 por subtração: arredonde para cima e escolha a correção menor",
-          "summary": "O método subtrativo é preferível quando subir à próxima dezena, centena ou milhar deixa uma correção pequena. O autor compara 758×43 por adição e subtração e escolhe subtrair 86 em vez de somar 344, embora a multiplicação principal seja ligeiramente mais trabalhosa. Perto de 100 ou 1.000, complementos permitem efetuar a correção pelos últimos dígitos.",
+          "summary": "O método subtrativo é preferível quando subir à próxima dezena, centena ou milhar deixa uma correção pequena. Em 758×43, compare as duas rotas e prefira subtrair 86 a somar 344, embora a multiplicação principal seja ligeiramente mais trabalhosa. Perto de 100 ou 1.000, complementos permitem efetuar a correção pelos últimos dígitos.",
           "whenToUse": [
             "Quando o número está pouco abaixo de uma dezena, centena ou milhar conveniente.",
             "Quando a correção negativa final é menor que a alternativa positiva.",
@@ -1859,7 +1859,7 @@
                 },
                 {
                   "expression": "32.680−86=32.594",
-                  "explanation": "O livro prefere subtrair 86 a usar 750+8 e depois somar 344."
+                  "explanation": "Subtrair 86 exige menos esforço do que usar 750+8 e depois somar 344."
                 }
               ],
               "conclusion": "758×43 é 32.594; a melhor rota minimiza o esforço total, não uma etapa isolada.",
@@ -1984,7 +1984,7 @@
                 },
                 {
                   "expression": "44.160−736=43.424",
-                  "explanation": "O livro ilustra subtrair 1.000 e devolver o complemento 264."
+                  "explanation": "Subtraia 1.000 e devolva o complemento 264."
                 }
               ],
               "conclusion": "736×59 é 43.424.",
@@ -1995,12 +1995,12 @@
             },
             {
               "id": "livro-c08-ex-solucao-796x19",
-              "question": "Resolva o exercício 796×19.",
+              "question": "Calcule 796×19.",
               "answer": "15.124",
               "steps": [
                 {
                   "expression": "796=800−4",
-                  "explanation": "O gabarito escolhe a centena superior."
+                  "explanation": "Use a centena superior."
                 },
                 {
                   "expression": "800×19=15.200",
@@ -2011,7 +2011,7 @@
                   "explanation": "Correção."
                 }
               ],
-              "conclusion": "A solução usa a menor correção disponível.",
+              "conclusion": "A rota usa a menor correção disponível.",
               "source": {
                 "printedPage": 259,
                 "pdfPage": 285
@@ -2029,7 +2029,7 @@
             "metodo-da-subtracao",
             "complementos",
             "conta-armada",
-            "solucao-do-livro"
+            "solucao-completa"
           ],
           "theoryTopicIds": [
             "c11-tres-por-dois",
@@ -2047,7 +2047,7 @@
           "id": "livro-c08-l06-quadrados-cinco-digitos",
           "order": 6,
           "title": "Quadrados de cinco dígitos: resolva primeiro o cruzado 3×2",
-          "summary": "Escreva x=A+b, com A em milhares: x²=A²+2Ab+b². Embora a fórmula sugira outra ordem, o autor começa por 2Ab porque o 3×2 é a parte mais exigente. Depois calcula o quadrado do bloco alto em milhões, antecipa carry olhando uma estimativa de b², calcula b² e combina os blocos. Mnemônicos guardam os três algarismos intermediários; os últimos dois podem ser reconstruídos pelo quadrado da terminação original.",
+          "summary": "Escreva x=A+b, com A em milhares: x²=A²+2Ab+b². Comece por 2Ab, porque o 3×2 é a parte mais exigente. Depois calcule o quadrado do bloco alto em milhões, antecipe o carry com uma estimativa de b², calcule b² e combine os blocos. Mnemônicos guardam os três algarismos intermediários; os últimos dois podem ser reconstruídos pelo quadrado da terminação de x.",
           "whenToUse": [
             "Ao quadrar números de cinco dígitos depois de dominar 3×2.",
             "Quando o resultado precisa ser anunciado por bilhões, milhões e milhares.",
@@ -2096,7 +2096,7 @@
                 },
                 {
                   "expression": "46×792×2.000=72.864.000",
-                  "explanation": "792×46=(800−8)×46=36.432; dobre. O original guarda 864 como “Fisher”."
+                  "explanation": "792×46=(800−8)×46=36.432; dobre. Em inglês, 864 pode ser guardado como “Fisher”."
                 },
                 {
                   "expression": "46²×1.000.000=2.116.000.000",
@@ -2180,7 +2180,7 @@
                 },
                 {
                   "expression": "2×43.326×1.000=86.652.000",
-                  "explanation": "No original, 652 fica em “Julian”."
+                  "explanation": "Em inglês, 652 pode ser guardado como “Julian”."
                 },
                 {
                   "expression": "83² milhões=6.889.000.000",
@@ -2255,12 +2255,12 @@
             },
             {
               "id": "livro-c08-ex-solucao-45795-quadrado",
-              "question": "Resolva o exercício 45.795².",
+              "question": "Calcule 45.795².",
               "answer": "2.097.182.025",
               "steps": [
                 {
                   "expression": "795×45=(800−5)×45=35.775",
-                  "explanation": "O gabarito resolve primeiro o 3×2."
+                  "explanation": "Resolva primeiro o 3×2."
                 },
                 {
                   "expression": "2×35.775×1.000=71.550.000",
@@ -2272,10 +2272,10 @@
                 },
                 {
                   "expression": "2.025.000.000+71.550.000+632.025=2.097.182.025",
-                  "explanation": "Soma final do gabarito."
+                  "explanation": "Faça a soma final."
                 }
               ],
-              "conclusion": "A solução reaplica exatamente a ordem difícil-primeiro.",
+              "conclusion": "A ordem mantém a parte mais difícil no início.",
               "source": {
                 "printedPage": 262,
                 "pdfPage": 288
@@ -2295,7 +2295,7 @@
             "mnemônico",
             "carry",
             "conta-armada",
-            "solucao-do-livro"
+            "solucao-completa"
           ],
           "theoryTopicIds": [
             "c11-quadrados-quatro",
@@ -2408,7 +2408,7 @@
                 "passos": [
                   {
                     "ordem": 1,
-                    "narracao": "Comece pelo produto original."
+                    "narracao": "Comece pelo produto proposto."
                   },
                   {
                     "ordem": 2,
@@ -2536,7 +2536,7 @@
             "Quando os desvios têm produto mais simples que uma multiplicação completa.",
             "Depois de considerar metade/dobro para aproximar os fatores."
           ],
-          "whyItWorks": "Ao expandir os fatores, z²+za+zb vira z(z+a+b); resta apenas ab. A soma do par transformado é igual à soma original, o que fornece uma verificação rápida.",
+          "whyItWorks": "Ao expandir os fatores, z²+za+zb vira z(z+a+b); resta apenas ab. A soma do par transformado é igual à soma dos operandos iniciais, o que fornece uma verificação rápida.",
           "algorithm": {
             "title": "Método dos números próximos",
             "steps": [
@@ -2563,7 +2563,7 @@
               {
                 "order": 5,
                 "action": "Cheque a soma",
-                "detail": "A soma dos dois fatores do produto principal deve igualar a soma original."
+                "detail": "A soma dos dois fatores do produto principal deve igualar a soma dos operandos iniciais."
               }
             ]
           },
@@ -2826,7 +2826,7 @@
           "id": "livro-c08-l09-tres-por-tres-adicao",
           "order": 9,
           "title": "3×3 por adição: use somente quando a parte alta coopera",
-          "summary": "Se os métodos anteriores falharem, quebre um fator em um múltiplo de dez mais a unidade. Procure dois dígitos iniciais fatoráveis ou um zero no meio. O autor considera essas contas cansativas e mostra explicitamente que 656×427, embora resolvível por 420+7, é melhor por 427=61×7. Um método é válido sem ser a melhor escolha.",
+          "summary": "Se os métodos anteriores falharem, quebre um fator em um múltiplo de dez mais a unidade. Procure dois dígitos iniciais fatoráveis ou um zero no meio. Essas contas podem ser cansativas: 656×427, embora resolvível por 420+7, fica melhor com 427=61×7. Um método pode ser válido sem ser a melhor escolha.",
           "whenToUse": [
             "Quando a parte alta de um fator se decompõe facilmente.",
             "Quando um operando tem zero no meio, como 308.",
@@ -2951,14 +2951,14 @@
                 },
                 {
                   "expression": "427=61×7",
-                  "explanation": "O autor prefere fatorar."
+                  "explanation": "A fatoração oferece a rota mais curta."
                 },
                 {
                   "expression": "656×61=40.016; 40.016×7=280.112",
                   "explanation": "A cadeia é mais leve."
                 }
               ],
-              "conclusion": "656×427 é 280.112; o exemplo ensina seleção, não apenas execução.",
+              "conclusion": "656×427 é 280.112; selecionar a melhor rota importa tanto quanto executá-la.",
               "source": {
                 "printedPage": 189,
                 "pdfPage": 215
@@ -2979,7 +2979,7 @@
                 },
                 {
                   "expression": "219.600+5.856=225.456",
-                  "explanation": "Finalize. O texto também mostra como metade/dobro pode criar 732×308 a partir de outros produtos."
+                  "explanation": "Finalize; metade e dobro também podem transformar outros produtos em 732×308."
                 }
               ],
               "conclusion": "732×308 é 225.456.",
@@ -3003,7 +3003,7 @@
                 },
                 {
                   "expression": "739×3=2.217; 325.160+2.217=327.377",
-                  "explanation": "O livro soma primeiro 2.100 e depois 117 para aliviar a conta."
+                  "explanation": "Some primeiro 2.100 e depois 117 para aliviar a conta."
                 }
               ],
               "conclusion": "739×443 é 327.377.",
@@ -3042,7 +3042,7 @@
           "id": "livro-c08-l10-tres-por-tres-subtracao",
           "order": 10,
           "title": "3×3 por subtração: aproxime uma centena e retire pouco",
-          "summary": "Quando um fator está logo abaixo de uma dezena redonda dentro das centenas, arredonde-o para cima. O livro escolhe 720−1 e 540−2; o produto pela parte redonda é fatorável e a correção é um múltiplo pequeno do outro operando.",
+          "summary": "Quando um fator está logo abaixo de uma dezena redonda dentro das centenas, arredonde-o para cima. Use 720−1 e 540−2: o produto pela parte redonda é fatorável e a correção é um múltiplo pequeno do outro operando.",
           "whenToUse": [
             "Quando um fator termina perto de 20, 40, 60 ou 80 e a parte arredondada é fatorável.",
             "Quando subtrair uma ou duas cópias do outro número é mais simples que uma cauda positiva.",
@@ -3203,7 +3203,7 @@
           "id": "livro-c08-l11-quando-tudo-falha",
           "order": 11,
           "title": "Quando tudo falhar: decomponha 3×3 em três parciais controlados",
-          "summary": "O método genérico divide um operando em centenas e os dois últimos dígitos; o outro, quando útil, também é repartido. A conta vira 3×1, 2×1 e 2×2, acumuladas à medida que surgem. É confiável, porém exigente, sobretudo sem os operandos visíveis. Nas demonstrações, o autor mantém o problema escrito e usa código fonético e dedos para o parcial antes da última soma.",
+          "summary": "O método genérico divide um operando em centenas e os dois últimos dígitos; o outro, quando útil, também é repartido. A conta vira 3×1, 2×1 e 2×2, acumuladas à medida que surgem. É confiável, porém exigente, sobretudo sem os operandos visíveis. Mantenha o problema escrito e use código fonético e dedos para preservar o parcial antes da última soma.",
           "whenToUse": [
             "Quando fatoração, proximidade, adição e subtração não oferecem vantagem.",
             "Quando os operandos podem permanecer visíveis.",
@@ -3252,7 +3252,7 @@
                 },
                 {
                   "expression": "27×800=21.600; subtotal=447.100",
-                  "explanation": "O original guarda 447 como “our rug” e a centena nos dedos."
+                  "explanation": "Em inglês, 447 pode ser guardado como “our rug”; mantenha a centena nos dedos."
                 },
                 {
                   "expression": "27×51=1.377",
@@ -3328,7 +3328,7 @@
               "steps": [
                 {
                   "expression": "9×673=6.057; 6×23=138",
-                  "explanation": "Forme 6.195 e escale por 100, obtendo 619.500; no original, 619 vira “shut up”."
+                  "explanation": "Forme 6.195 e escale por 100, obtendo 619.500; em inglês, 619 pode virar “shut up”."
                 },
                 {
                   "expression": "73×23=1.679",
@@ -3374,7 +3374,7 @@
           "id": "livro-c08-l12-cinco-por-cinco",
           "order": 12,
           "title": "5×5: combine dois cruzados 3×2, milhões 2×2 e cauda 3×3",
-          "summary": "O maior desafio do livro separa cada operando em um bloco de dois dígitos de milhares e uma cauda de três. A expansão possui quatro termos: 2×2 em milhões, dois cruzados 3×2 em milhares e 3×3 final. O autor resolve primeiro os cruzados, guarda sua soma por mnemônico, calcula o bloco de bilhões/milhões, olha adiante para carries e fecha com o 3×3. Se os operandos não estiverem visíveis, quatro mnemônicos adicionais são necessários; isso é apresentado como desafio opcional, não requisito para treino comum.",
+          "summary": "No maior desafio, separe cada operando em um bloco de dois dígitos de milhares e uma cauda de três. A expansão possui quatro termos: 2×2 em milhões, dois cruzados 3×2 em milhares e o 3×3 final. Resolva primeiro os cruzados, guarde sua soma por mnemônico, calcule o bloco de bilhões e milhões, antecipe os transportes e feche com o 3×3. Se os operandos não estiverem visíveis, use quatro mnemônicos adicionais. Trate essa variação como desafio opcional, não como requisito para o treino comum.",
           "whenToUse": [
             "Depois de dominar 2×2, 3×2, 3×3 e código fonético.",
             "Como desafio máximo de integração, preferencialmente com os operandos escritos.",
@@ -3424,7 +3424,7 @@
               "steps": [
                 {
                   "expression": "52×639=33.228; 27×196=5.292",
-                  "explanation": "Resolva os cruzados; o original guarda 33.228 como “Mom, no knife”."
+                  "explanation": "Resolva os cruzados; em inglês, 33.228 pode ser guardado como “Mom, no knife”."
                 },
                 {
                   "expression": "33.228+5.292=38.520",
@@ -3512,7 +3512,7 @@
                 },
                 {
                   "expression": "43.213+37.710=80.923",
-                  "explanation": "O original codifica 80.923 como “Face Panama”."
+                  "explanation": "Em inglês, 80.923 pode ser codificado como “Face Panama”."
                 },
                 {
                   "expression": "79×45 milhões=3.555.000.000",
@@ -3630,7 +3630,7 @@
         "Quadrados de dois dígitos e cubos de 1 a 10 para extrações rápidas.",
         "Redução módulo 7 para o cálculo de calendários."
       ],
-      "summary": "O capítulo usa efeitos de palco como porta de entrada para álgebra, congruências, recorrências, quadrados mágicos e padrões de potências. Os truques de número secreto, 1089, dígito ausente, soma 2247 e parte dos quadrados mágicos são performáticos: servem para compreender invariantes, não como desafios de resposta aleatória do usuário. Raízes de cubos/quadrados perfeitos e cálculo do dia da semana são habilidades treináveis, desde que suas precondições sejam explícitas. A seção final de calendário é prática, traz códigos de dia, mês, ano e século, trata anos bissextos e alerta que datas históricas dependem do calendário adotado.",
+      "summary": "Efeitos de palco abrem caminho para álgebra, congruências, recorrências, quadrados mágicos e padrões de potências. Os truques de número secreto, 1089, dígito ausente, soma 2247 e parte dos quadrados mágicos são performáticos: servem para compreender invariantes, não como desafios de resposta aleatória. Raízes de cubos e quadrados perfeitos, além do cálculo do dia da semana, são habilidades treináveis quando suas precondições ficam explícitas. A parte de calendário traz códigos de dia, mês, ano e século, trata anos bissextos e exige atenção ao calendário adotado em cada contexto histórico.",
       "groupId": "magica-matematica-e-calendario",
       "theoryTopicIds": [
         "c01-vezes-11",
@@ -3652,7 +3652,7 @@
           "id": "livro-c09-l01-matematica-psiquica",
           "order": 1,
           "title": "Número secreto: a álgebra elimina a escolha inicial",
-          "summary": "O voluntário escolhe um número pequeno, dobra, soma 12, divide por 2 e subtrai o original. O resultado é sempre 6. O autor apresenta o efeito como motivação para aprender álgebra: representar o segredo por x torna visível o cancelamento. Se o valor somado for 18, o resultado será 9; em geral, somar um número par k produz k/2.",
+          "summary": "Escolha um número pequeno, dobre-o, some 12, divida por 2 e subtraia o número escolhido. O resultado é sempre 6. Represente o segredo por x para tornar o cancelamento visível. Se o valor somado for 18, o resultado será 9; em geral, somar um número par k produz k/2.",
           "whenToUse": [
             "Para introduzir variável, equivalência e cancelamento.",
             "Como demonstração performática curta, não como item adaptativo de resposta imprevisível.",
@@ -3833,7 +3833,7 @@
               {
                 "order": 2,
                 "action": "Reverta e subtraia",
-                "detail": "Subtraia o reverso do original."
+                "detail": "Subtraia o reverso do número escolhido."
               },
               {
                 "order": 3,
@@ -3980,7 +3980,7 @@
           "id": "livro-c09-l03-digito-ausente",
           "order": 3,
           "title": "Dígito ausente: complete a soma até o próximo múltiplo de 9",
-          "summary": "Como 1089 é múltiplo de 9, seu produto por qualquer inteiro também é. O voluntário diz todos os algarismos do resultado menos um; some os ditos e complete até o próximo múltiplo de 9. O livro oferece três forças alternativas: subtrair duas permutações dos mesmos seis algarismos; subtrair um número de quatro dígitos de seu reverso e multiplicar; ou multiplicar algarismos aleatórios até sete casas — esta última funciona apenas com probabilidade declarada de pelo menos 90%, não é garantida. Se a soma dita já é múltipla de 9, o dígito pode ser 0 ou 9 e a apresentação usa uma saída teatral, não matemática.",
+          "summary": "Como 1089 é múltiplo de 9, seu produto por qualquer inteiro também é. O voluntário diz todos os algarismos do resultado menos um; some os ditos e complete até o próximo múltiplo de 9. Há três alternativas: subtrair duas permutações dos mesmos seis algarismos; subtrair um número de quatro dígitos de seu reverso e multiplicar; ou multiplicar algarismos aleatórios até sete casas — esta última funciona em pelo menos 90% dos casos, mas não é garantida. Se a soma dita já é múltipla de 9, o dígito pode ser 0 ou 9 e a apresentação usa uma saída teatral, não matemática.",
           "whenToUse": [
             "Para praticar prova dos nove e invariância por permutação.",
             "Como demonstração performática com a ambiguidade 0/9 explicitada.",
@@ -4097,7 +4097,7 @@
                   "explanation": "As duas opções preservam o resíduo."
                 },
                 {
-                  "explanation": "O roteiro do livro usa perguntas teatrais para descobrir qual foi omitido; isso não adiciona informação matemática prévia."
+                  "explanation": "Use perguntas teatrais para descobrir qual foi omitido; isso não acrescenta informação matemática prévia."
                 }
               ],
               "conclusion": "Um sistema de treino deve aceitar 0/9 como ambíguo ou fornecer uma pista extra.",
@@ -4134,7 +4134,7 @@
           "id": "livro-c09-l04-adicao-salto",
           "order": 4,
           "title": "Adição salto-de-rã: a soma de dez linhas é onze vezes a sétima",
-          "summary": "Comece com dois números positivos e faça cada linha seguinte somar as duas anteriores. Depois de dez linhas, a soma total é 11 vezes a linha 7. A razão linha 10/linha 9 sempre começa por 1,61 para entradas positivas e se aproxima da razão áurea se a recorrência continuar. O livro prova a soma escrevendo cada linha em x e y e justifica o intervalo da razão pela propriedade da mediatriz de frações positivas.",
+          "summary": "Comece com dois números positivos e faça cada linha seguinte somar as duas anteriores. Depois de dez linhas, a soma total é 11 vezes a linha 7. A razão linha 10/linha 9 sempre começa por 1,61 para entradas positivas e se aproxima da razão áurea se a recorrência continuar. Para provar a soma, escreva cada linha em x e y; a propriedade da mediatriz de frações positivas justifica o intervalo da razão.",
           "whenToUse": [
             "Para estudar recorrências tipo Fibonacci e multiplicação por 11.",
             "Como efeito performático cuja matemática pode virar treino estruturado.",
@@ -4303,7 +4303,7 @@
           "id": "livro-c09-l05-quadrados-magicos",
           "order": 5,
           "title": "Quadrado mágico 4×4: desloque o modelo de soma 34",
-          "summary": "O modelo usa 1–16 numa disposição em que linhas, colunas, diagonais, quatro cantos, quatro centros e vários blocos 2×2 somam 34. Para produzir uma soma-alvo N>34, calcule N−34 e divida por 4: q é o primeiro número mágico e q+r o segundo. Some q às casas originais 1–12 e q+r às casas 13–16. Cada grupo relevante contém quatro incrementos q e exatamente uma das quatro casas especiais, por isso recebe o resto uma única vez. O capítulo também exibe um quadrado 3×3 com identidades de somas de quadrados, como curiosidade sem desenvolvimento da prova.",
+          "summary": "O modelo usa 1–16 numa disposição em que linhas, colunas, diagonais, quatro cantos, quatro centros e vários blocos 2×2 somam 34. Para produzir uma soma-alvo N>34, calcule N−34 e divida por 4: q é o primeiro número mágico e q+r o segundo. Some q às casas 1–12 e q+r às casas 13–16. Cada grupo relevante contém quatro incrementos q e exatamente uma das quatro casas especiais, por isso recebe o resto uma única vez. Um quadrado 3×3 também pode reunir identidades de somas de quadrados, como curiosidade sem desenvolvimento da prova.",
           "whenToUse": [
             "Para construir um quadrado 4×4 com soma solicitada acima de 34.",
             "Como demonstração performática de invariantes aditivos.",
@@ -4360,7 +4360,7 @@
                 },
                 {
                   "expression": "16+19+23+9=67",
-                  "explanation": "A primeira linha confirma o alvo; as demais estruturas também somam 67."
+                  "explanation": "A primeira linha soma 67; as demais estruturas também atingem o alvo."
                 }
               ],
               "conclusion": "A construção desloca o modelo sem destruir suas somas invariantes.",
@@ -4493,7 +4493,7 @@
           "id": "livro-c09-l06-raizes-cubicas-rapidas",
           "order": 6,
           "title": "Raiz cúbica rápida: magnitude dá a dezena, unidade dá a terminação",
-          "summary": "Memorize 1³ a 10³. Para um cubo perfeito de um número de dois dígitos, o bloco de milhares localiza a dezena da raiz e o último algarismo do cubo determina univocamente a unidade, porque os cubos de 0–9 terminam em dez dígitos distintos. O livro frisa a precondição: se o radicando não for cubo perfeito inteiro, o atalho pode produzir um palpite falso.",
+          "summary": "Memorize 1³ a 10³. Para um cubo perfeito de um número de dois dígitos, o bloco de milhares localiza a dezena da raiz e o último algarismo do cubo determina univocamente a unidade, porque os cubos de 0–9 terminam em dez dígitos distintos. Use o atalho somente quando o radicando for um cubo perfeito inteiro; caso contrário, ele pode produzir um palpite falso.",
           "whenToUse": [
             "Somente quando se sabe que o número é cubo perfeito de um inteiro de dois dígitos.",
             "Para treino de reconhecimento de cubos e magnitude.",
@@ -4827,7 +4827,7 @@
           "id": "livro-c09-l08-soma-surpreendente",
           "order": 8,
           "title": "A soma 2247: cartões preservam totais por coluna",
-          "summary": "Três conjuntos de nove cartões contêm números de quatro dígitos. Em qualquer cartão do conjunto A, os quatro algarismos somam 20; em B, 23; em C, 17. Três pessoas escolhem um cartão e dizem um algarismo por rodada; as quatro rodadas viram quatro números de três dígitos. Como as colunas totalizam 20, 23 e 17, a soma com transportes é sempre 2247. A lista integral dos cartões está nas páginas 212–213; o efeito depende dessa preparação e não deve ser tratado como soma verdadeiramente aleatória.",
+          "summary": "Monte três conjuntos de nove cartões com números de quatro dígitos. Em qualquer cartão do conjunto A, os quatro algarismos devem somar 20; em B, 23; em C, 17. Três pessoas escolhem um cartão e dizem um algarismo por rodada; as quatro rodadas viram quatro números de três dígitos. Como as colunas totalizam 20, 23 e 17, a soma com transportes é sempre 2247. O efeito depende dessa preparação e não deve ser tratado como soma verdadeiramente aleatória.",
           "whenToUse": [
             "Para demonstrar invariantes de soma por coluna e transporte.",
             "Como rotina de palco previamente preparada.",
@@ -4879,7 +4879,7 @@
                 },
                 {
                   "expression": "895+453+224+675=2.247",
-                  "explanation": "A previsão se confirma."
+                  "explanation": "O total é 2.247."
                 }
               ],
               "conclusion": "O total é 2.247 porque as somas ocultas dos três conjuntos são fixas.",
@@ -4963,7 +4963,7 @@
           "id": "livro-c09-l09-calendario-codigos-base",
           "order": 9,
           "title": "Dia da semana: some código do mês, data e código do ano",
-          "summary": "Os dias usam segunda=1, terça=2, quarta=3, quinta=4, sexta=5, sábado=6 e domingo=0 ou 7. Os códigos mensais comuns são jan 6, fev 2, mar 2, abr 5, mai 0, jun 3, jul 5, ago 1, set 4, out 6, nov 2, dez 4. Em ano bissexto, janeiro vira 5 e fevereiro 1. Os mnemônicos ingleses do livro — WINTER, APRIL/FOOLS, June bug etc. — não conservam necessariamente o código quando traduzidos; em pt-BR, memorize a tabela ou crie pistas locais verificadas. A conta central é mês+dia+ano, reduzida módulo 7.",
+          "summary": "Os dias usam segunda=1, terça=2, quarta=3, quinta=4, sexta=5, sábado=6 e domingo=0 ou 7. Os códigos mensais comuns são jan 6, fev 2, mar 2, abr 5, mai 0, jun 3, jul 5, ago 1, set 4, out 6, nov 2, dez 4. Em ano bissexto, janeiro vira 5 e fevereiro 1. Mnemônicos ingleses como WINTER, APRIL/FOOLS e June bug não conservam necessariamente o código quando traduzidos; em pt-BR, memorize a tabela ou crie pistas locais verificadas. A conta central é mês+dia+ano, reduzida módulo 7.",
           "whenToUse": [
             "Para calcular dias da semana de datas válidas.",
             "Como base para os códigos de ano e século seguintes.",
@@ -5110,7 +5110,7 @@
           "id": "livro-c09-l10-codigo-ano-bissexto",
           "order": 10,
           "title": "Código anual de 2000–2099: ano curto mais bissextos completos",
-          "summary": "Para 2000+x, o código é x+⌊x/4⌋, reduzido módulo 7. O quociente inteiro conta os dias extras acumulados por anos bissextos. O livro primeiro mostra a progressão anual — 2006 código 0, 2007 código 1, 2008 código 3 — e depois fornece a fórmula e uma tabela completa 2000–2099. Em janeiro e fevereiro do próprio ano bissexto, o ajuste ocorre no código do mês.",
+          "summary": "Para 2000+x, o código é x+⌊x/4⌋, reduzido módulo 7. O quociente inteiro conta os dias extras acumulados por anos bissextos. Observe a progressão anual: 2006 tem código 0, 2007 tem código 1 e 2008 tem código 3. A fórmula vale para toda a faixa de 2000 a 2099. Em janeiro e fevereiro do próprio ano bissexto, o ajuste ocorre no código do mês.",
           "whenToUse": [
             "Para qualquer data válida entre 2000 e 2099.",
             "Antes de acrescentar o deslocamento secular para outros séculos.",
@@ -5294,7 +5294,7 @@
           "id": "livro-c09-l11-seculos-calendario-historico",
           "order": 11,
           "title": "Séculos, adoção histórica e ciclo gregoriano de 400 anos",
-          "summary": "Para anos 1900 some 1 ao código-base; para 1800, some 3; para 1700 e 2100, some 5 (ou subtraia 2). A fórmula do livro é gregoriana. Inglaterra e colônias só a adotaram em 1752: 2 de setembro foi seguido por 14 de setembro. Anos divisíveis por 4 são bissextos, exceto séculos não divisíveis por 400; por isso 1600, 2000 e 2400 são bissextos, mas 1700, 1800, 1900 e 2100 não. O calendário gregoriano se repete a cada 400 anos. O gabarito da página 270 resolve os dez exercícios e inclui uma validação essencial: 31 de junho de 2468 não existe.",
+          "summary": "Para anos 1900, some 1 ao código-base; para 1800, some 3; para 1700 e 2100, some 5 (ou subtraia 2). Essa fórmula segue o calendário gregoriano. Inglaterra e colônias só o adotaram em 1752: 2 de setembro foi seguido por 14 de setembro. Anos divisíveis por 4 são bissextos, exceto séculos não divisíveis por 400; por isso 1600, 2000 e 2400 são bissextos, mas 1700, 1800, 1900 e 2100 não. O calendário gregoriano se repete a cada 400 anos. Valide também a própria data antes de calcular: 31 de junho de 2468 não existe.",
           "whenToUse": [
             "Para datas fora de 2000–2099.",
             "Ao lidar com datas históricas cuja região pode ter usado o calendário Juliano.",
@@ -5423,7 +5423,7 @@
                   "explanation": "Código 4 é quinta-feira."
                 },
                 {
-                  "explanation": "O texto adverte que a fórmula não vale automaticamente para datas inglesas anteriores à adoção, então o contexto histórico é parte do algoritmo."
+                  "explanation": "Para datas inglesas anteriores à adoção do calendário Gregoriano, verifique qual calendário civil estava em uso; o contexto histórico faz parte do algoritmo."
                 }
               ],
               "conclusion": "14/9/1752 foi quinta-feira; foi o dia seguinte a 2/9 naquele calendário civil.",
@@ -5434,7 +5434,7 @@
             },
             {
               "id": "livro-c09-ex-gabarito-dez-datas",
-              "question": "Quais são as respostas dos dez exercícios da página 221?",
+              "question": "Determine o dia da semana de 19/1/2007, 14/2/2012, 20/6/1993, 1/9/1983, 8/9/1954, 19/11/1863, 4/7/1776, 22/2/2222, 31/6/2468 e 1/1/2358.",
               "answer": "Sexta; terça; domingo; quinta; quarta; quinta; quinta; sexta; data inválida; quarta.",
               "steps": [
                 {
@@ -5463,14 +5463,14 @@
                 },
                 {
                   "expression": "31/6/2468 → inválida",
-                  "explanation": "Junho tem 30 dias; o gabarito observa que 30/6 seria sábado e o dia seguinte seria domingo."
+                  "explanation": "Junho tem 30 dias. Se a intenção fosse 30/6, seria sábado; o dia seguinte, 1/7, seria domingo."
                 },
                 {
                   "expression": "1/1/2358 → 3",
                   "explanation": "Quarta-feira."
                 }
               ],
-              "conclusion": "O gabarito prova que validar a data vem antes de qualquer soma modular.",
+              "conclusion": "Valide a data antes de qualquer soma modular.",
               "source": {
                 "printedPage": 270,
                 "pdfPage": 296
@@ -5492,7 +5492,7 @@
             "ciclo-de-400",
             "validacao-de-data",
             "habilidade-treinavel",
-            "solucao-do-livro"
+            "solucao-completa"
           ],
           "theoryTopicIds": [
             "c10-seculos",

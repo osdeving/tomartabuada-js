@@ -310,7 +310,7 @@ export function scoreChallenge(rawChallenge, context = {}) {
 
   if (challenge.source === "book" && bookRatio < config.bookChallengeShare) {
     weight *= 1.75;
-    reasons.push("mantém reconhecimento dos exemplos do livro");
+    reasons.push("mantém o reconhecimento de padrões já estudados");
   } else if (challenge.source !== "book" && bookRatio > config.bookChallengeShare + 0.12) {
     weight *= 1.3;
     reasons.push("equilibra exemplos conhecidos com variações novas");

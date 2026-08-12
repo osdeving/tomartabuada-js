@@ -7,7 +7,7 @@
     "edicao": "The Great Courses, 2011",
     "idiomaOriginal": "en",
     "idiomaDosDados": "pt-BR",
-    "referenciaDePagina": "numeração impressa do livro (página do PDF menos 6)"
+    "referenciaDePagina": "numeração impressa do material original (página do PDF menos 6)"
   },
   "contrato": {
     "colecao": "desafios[]",
@@ -125,11 +125,11 @@
       "pagina": "number (numeração impressa)"
     }
   },
-  "descricao": "Banco integral dos 598 exercícios numerados do livro. Itens discursivos e compostos permanecem no banco com jogavel=false; os demais trazem resposta estruturada para treino.",
+  "descricao": "Banco integral com 598 exercícios numerados. Itens discursivos e compostos permanecem no banco com jogavel=false; os demais trazem resposta estruturada para treino.",
   "observacoes": [
-    "O PDF-fonte está em inglês; títulos, instruções e enunciados contextuais foram localizados para português sem alterar números, método ou resposta.",
+    "Títulos, instruções e enunciados contextuais estão em português; números, métodos e respostas permanecem inalterados.",
     "O Sistema Maior do capítulo 9 depende dos sons do inglês; por isso as palavras de exercício e os exemplos de resposta permanecem em inglês, com instruções em português.",
-    "A página indicada é a numeração impressa no rodapé do livro, não o índice físico do arquivo PDF."
+    "A numeração interna preserva a rastreabilidade editorial dos dados."
   ],
   "estatisticas": {
     "total": 598,
@@ -177,7 +177,7 @@
       {
         "id": "tabelas",
         "titulo": "Tabelas de multiplicação",
-        "instrucao": "Preencha a tabela pedida; a ordem aleatória é o desafio extra sugerido no livro.",
+        "instrucao": "Preencha a tabela pedida; use uma ordem aleatória como desafio extra.",
         "inicio": 24,
         "fim": 26,
         "tags": [
@@ -438,7 +438,7 @@
       {
         "id": "contagem-poker",
         "titulo": "Aplicação: contagem de mãos de pôquer",
-        "instrucao": "Calcule os produtos usados nas contagens apresentadas pelo livro.",
+        "instrucao": "Calcule os produtos usados nas contagens apresentadas.",
         "inicio": 95,
         "fim": 98,
         "tags": [
@@ -543,7 +543,7 @@
       {
         "id": "numero-2520",
         "titulo": "Propriedade de 2520",
-        "instrucao": "Identifique a propriedade destacada pelo autor.",
+        "instrucao": "Identifique a propriedade em destaque.",
         "inicio": 27,
         "fim": 27,
         "tags": [
@@ -1791,7 +1791,7 @@
       "exercicio": 24,
       "grupoId": "tabelas",
       "grupoTitulo": "Tabelas de multiplicação",
-      "instrucao": "Preencha a tabela pedida; a ordem aleatória é o desafio extra sugerido no livro.",
+      "instrucao": "Preencha a tabela pedida; use uma ordem aleatória como desafio extra.",
       "prompt": "Preencha a tabuada padrão de 1 × 1 até 10 × 10 o mais rápido que puder.",
       "resposta": {
         "tipo": "tabela",
@@ -1843,7 +1843,7 @@
       "exercicio": 25,
       "grupoId": "tabelas",
       "grupoTitulo": "Tabelas de multiplicação",
-      "instrucao": "Preencha a tabela pedida; a ordem aleatória é o desafio extra sugerido no livro.",
+      "instrucao": "Preencha a tabela pedida; use uma ordem aleatória como desafio extra.",
       "prompt": "Preencha uma tabela com linhas de 2 a 9 e colunas de 11 a 19.",
       "resposta": {
         "tipo": "tabela",
@@ -1892,7 +1892,7 @@
       "exercicio": 26,
       "grupoId": "tabelas",
       "grupoTitulo": "Tabelas de multiplicação",
-      "instrucao": "Preencha a tabela pedida; a ordem aleatória é o desafio extra sugerido no livro.",
+      "instrucao": "Preencha a tabela pedida; use uma ordem aleatória como desafio extra.",
       "prompt": "Preencha a tabela de multiplicação com linhas e colunas de 11 a 19.",
       "resposta": {
         "tipo": "tabela",
@@ -8956,7 +8956,7 @@
       "exercicio": 95,
       "grupoId": "contagem-poker",
       "grupoTitulo": "Aplicação: contagem de mãos de pôquer",
-      "instrucao": "Calcule os produtos usados nas contagens apresentadas pelo livro.",
+      "instrucao": "Calcule os produtos usados nas contagens apresentadas.",
       "prompt": "10 × 4⁵ (quantidade de sequências no pôquer)",
       "resposta": {
         "tipo": "numero",
@@ -8985,7 +8985,7 @@
       "exercicio": 96,
       "grupoId": "contagem-poker",
       "grupoTitulo": "Aplicação: contagem de mãos de pôquer",
-      "instrucao": "Calcule os produtos usados nas contagens apresentadas pelo livro.",
+      "instrucao": "Calcule os produtos usados nas contagens apresentadas.",
       "prompt": "13 × 11 × 4 × 9 (quantidade de mãos de mesmo naipe)",
       "resposta": {
         "tipo": "numero",
@@ -9014,7 +9014,7 @@
       "exercicio": 97,
       "grupoId": "contagem-poker",
       "grupoTitulo": "Aplicação: contagem de mãos de pôquer",
-      "instrucao": "Calcule os produtos usados nas contagens apresentadas pelo livro.",
+      "instrucao": "Calcule os produtos usados nas contagens apresentadas.",
       "prompt": "13 × 48 (quantidade de quadras)",
       "resposta": {
         "tipo": "numero",
@@ -9043,7 +9043,7 @@
       "exercicio": 98,
       "grupoId": "contagem-poker",
       "grupoTitulo": "Aplicação: contagem de mãos de pôquer",
-      "instrucao": "Calcule os produtos usados nas contagens apresentadas pelo livro.",
+      "instrucao": "Calcule os produtos usados nas contagens apresentadas.",
       "prompt": "13 × 12 × 4 × 6 (quantidade de full houses)",
       "resposta": {
         "tipo": "numero",
@@ -9876,7 +9876,7 @@
       "exercicio": 27,
       "grupoId": "numero-2520",
       "grupoTitulo": "Propriedade de 2520",
-      "instrucao": "Identifique a propriedade destacada pelo autor.",
+      "instrucao": "Identifique a propriedade em destaque.",
       "prompt": "O que há de especial no número 2520?",
       "resposta": {
         "tipo": "texto",
@@ -10504,7 +10504,7 @@
       "grupoId": "problemas-fermi",
       "grupoTitulo": "Estimativas em contexto",
       "instrucao": "Use ordem de grandeza e os dados fornecidos.",
-      "prompt": "Um revisor encontra 40 erros, outro encontra 5 e 2 aparecem em ambas as listas. Estime o total de erros pelo método apresentado.",
+      "prompt": "Um revisor encontra 40 erros, outro encontra 5 e 2 aparecem em ambas as listas. Estime o total por captura e recaptura.",
       "resposta": {
         "tipo": "numero",
         "valor": 100,
