@@ -1,612 +1,294 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import {
-  SECTIONS,
-  STORAGE_KEY,
-  THEORY_TOPICS,
-  TRICK_LESSONS,
-  applyFactResult,
-  clampFlashcardIndex,
-  createPracticeQuestion,
-  findWeakestSectionId,
-  getDefaultPresetId,
-  getFlashcardDeck,
-  getFlashcardDecks,
-  getPresetById,
-  getPresets,
-  getSectionById,
-  getSectionPrimers,
-  gradeQuestion,
-  isPracticeSection,
-  isTabuadaHighlighted,
-  loadAppState,
-  recordSectionAttempt,
-  summarizeStats,
-} from "./lib/mathAcademy";
-import { MetricCard } from "./components/common/MetricCard";
-import { FlashcardsPanel } from "./components/panels/FlashcardsPanel";
-import { HeroPanel } from "./components/panels/HeroPanel";
-import { InsightsSidebar } from "./components/panels/InsightsSidebar";
-import { PracticeSetupPanel } from "./components/panels/PracticeSetupPanel";
-import { PracticeSupportPanel } from "./components/panels/PracticeSupportPanel";
-import { SectionStrip } from "./components/panels/SectionStrip";
-import { TheoryPanel } from "./components/panels/TheoryPanel";
-import { PracticeArena } from "./components/practice/PracticeArena";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { CampaignJourney } from "./components/platform/CampaignJourney";
+import { AppChrome } from "./components/platform/AppChrome";
+import { HomeDashboard } from "./components/platform/HomeDashboard";
+import { ReportsDashboard } from "./components/platform/ReportsDashboard";
+import { SettingsDrawer } from "./components/platform/SettingsDrawer";
+import { TheoryLibrary } from "./components/platform/TheoryLibrary";
+import { TrainingHub } from "./components/platform/TrainingHub";
+import { SessionArena } from "./components/session/SessionArena";
+import { SessionSummary } from "./components/session/SessionSummary";
 import { GameSection } from "./game/GameSection";
-
-const FLASHCARD_DECKS = getFlashcardDecks();
-const KEYPAD_ROWS = [
-  ["7", "8", "9"],
-  ["4", "5", "6"],
-  ["1", "2", "3"],
-  ["clear", "0", "backspace"],
-];
-
-function formatAccuracy(value) {
-  return value == null ? "novo" : `${Math.round(value * 100)}%`;
-}
+import { useTrainingSession } from "./hooks/useTrainingSession";
+import { buildHomeDashboard, buildReportsDashboard } from "./lib/platform/insights";
+import { getTheoryChapterForTopic, THEORY_CHAPTERS } from "./lib/platform/content";
+import { getPracticeGroup } from "./lib/platform/experience";
+import {
+  appendAttempt,
+  calculateSessionXp,
+  completeSession,
+  createPlatformState,
+  exportPlatformData,
+  loadPlatformState,
+  PLATFORM_STORAGE_KEY,
+  recordCampaignResult,
+  savePlatformState,
+  updatePlatformSettings,
+} from "./lib/platform/store";
 
 function App() {
   const initialStateRef = useRef(null);
-  const cueTimeoutRef = useRef(null);
-  const questionStartTimeRef = useRef(Date.now());
-  const recentSkillKeysRef = useRef([]);
+  if (!initialStateRef.current) initialStateRef.current = loadPlatformState();
 
-  if (!initialStateRef.current) {
-    initialStateRef.current = loadAppState();
-  }
+  const [platformState, setPlatformState] = useState(initialStateRef.current);
+  const [activeView, setActiveView] = useState("inicio");
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [summary, setSummary] = useState(null);
+  const [arcadeOpen, setArcadeOpen] = useState(false);
+  const [theoryChapterId, setTheoryChapterId] = useState(null);
+  const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
+  const [trainingConfig, setTrainingConfig] = useState(() => ({
+    modeId: initialStateRef.current.selectedModeId ?? "sparring",
+    groupId: initialStateRef.current.selectedGroupId ?? "misto",
+    questionCount: initialStateRef.current.settings.questionCount ?? 15,
+    campaignStage: null,
+    settings: initialStateRef.current.settings,
+  }));
+  const [shouldBeginSession, setShouldBeginSession] = useState(false);
 
-  const initialState = initialStateRef.current;
-  const lastStandardSectionIdRef = useRef(
-    initialState.activeSectionId !== "game" ? initialState.activeSectionId : "teoria",
-  );
-  const [appState, setAppState] = useState(initialState);
-  const [answer, setAnswer] = useState("");
-  const [feedback, setFeedback] = useState(null);
-  const [showHint, setShowHint] = useState(false);
-  const [questionCue, setQuestionCue] = useState({ tone: "", nonce: 0 });
-  const [question, setQuestion] = useState(() => {
-    if (!isPracticeSection(initialState.activeSectionId)) {
-      return null;
+  useEffect(() => savePlatformState(platformState), [platformState]);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = platformState.settings.theme;
+    document.documentElement.classList.toggle("reduce-motion", platformState.settings.reducedMotion);
+    const themeColor = getComputedStyle(document.documentElement).getPropertyValue("--browser-theme").trim();
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", themeColor || "#0c1024");
+  }, [platformState.settings.theme, platformState.settings.reducedMotion]);
+
+  useEffect(() => {
+    function captureInstallPrompt(event) {
+      event.preventDefault();
+      setDeferredInstallPrompt(event);
     }
 
-    const initialQuestion = buildPracticeQuestion(
-      initialState.activeSectionId,
-      initialState.selectedPresets[initialState.activeSectionId],
-      initialState.factProfiles,
-      recentSkillKeysRef.current,
-    );
+    window.addEventListener("beforeinstallprompt", captureInstallPrompt);
+    return () => window.removeEventListener("beforeinstallprompt", captureInstallPrompt);
+  }, []);
 
-    if (initialQuestion) {
-      recentSkillKeysRef.current = [initialQuestion.skillKey];
-    }
+  const handleAttempt = useCallback((attempt) => {
+    setPlatformState((current) => appendAttempt(current, attempt));
+  }, []);
 
-    return initialQuestion;
+  const handleSessionFinish = useCallback((sessionSummary, campaignStage) => {
+    const xpEarned = calculateSessionXp(sessionSummary);
+    const enrichedSummary = { ...sessionSummary, xpEarned };
+
+    setPlatformState((current) => {
+      let next = completeSession(current, enrichedSummary);
+      if (campaignStage) {
+        next = recordCampaignResult(next, campaignStage, enrichedSummary, enrichedSummary.stars);
+      }
+      return next;
+    });
+    setSummary(enrichedSummary);
+  }, []);
+
+  const trainingSession = useTrainingSession({
+    config: trainingConfig,
+    platformState,
+    onAttempt: handleAttempt,
+    onFinish: handleSessionFinish,
   });
 
-  const activeSection = getSectionById(appState.activeSectionId);
-  const activePresetId = isPracticeSection(activeSection.id)
-    ? appState.selectedPresets[activeSection.id]
-    : "";
-  const activePreset = isPracticeSection(activeSection.id)
-    ? getPresetById(activeSection.id, activePresetId) ?? getPresets(activeSection.id)[0]
-    : null;
-  const activeStats = isPracticeSection(activeSection.id)
-    ? appState.stats[activeSection.id]
-    : null;
-  const overallStats = summarizeStats(appState.stats);
-  const weakestSection = getSectionById(findWeakestSectionId(appState.stats));
-  const flashcardDeck = getFlashcardDeck(appState.flashcards.deckId);
-  const flashcardIndex = clampFlashcardIndex(
-    appState.flashcards.index,
-    flashcardDeck.cards.length,
-  );
-  const activeFlashcard = flashcardDeck.cards[flashcardIndex] ?? null;
-  const sectionsById = useMemo(
-    () => Object.fromEntries(SECTIONS.map((section) => [section.id, section])),
-    [],
-  );
-
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
+    if (!shouldBeginSession) return;
+    trainingSession.begin();
+    setSummary(null);
+    setShouldBeginSession(false);
+  }, [shouldBeginSession, trainingSession.begin]);
+
+  const homeDashboard = useMemo(() => buildHomeDashboard(platformState), [platformState]);
+  const reportsDashboard = useMemo(() => buildReportsDashboard(platformState), [platformState]);
+  const trainingPreview = useMemo(() => ({
+    groupMastery: Object.fromEntries(
+      reportsDashboard.groups.map((group) => [group.id, group.attempts ? `${group.mastery}% domínio` : "novo"]),
+    ),
+    adaptiveMessage: adaptiveSetupMessage(platformState, trainingConfig.groupId),
+  }), [platformState, reportsDashboard.groups, trainingConfig.groupId]);
+
+  function navigate(viewId, groupId = null) {
+    if (groupId) {
+      setTrainingConfig((current) => ({ ...current, groupId, campaignStage: null }));
     }
+    setActiveView(viewId);
+    window.scrollTo({ top: 0, behavior: platformState.settings.reducedMotion ? "auto" : "smooth" });
+  }
 
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
-  }, [appState]);
+  function updateTrainingConfig(patch) {
+    setTrainingConfig((current) => ({ ...current, ...patch, campaignStage: null, chapterOrder: null }));
+    setPlatformState((current) => ({
+      ...current,
+      selectedGroupId: patch.groupId ?? current.selectedGroupId,
+      selectedModeId: patch.modeId ?? current.selectedModeId,
+      settings: patch.questionCount
+        ? { ...current.settings, questionCount: patch.questionCount }
+        : current.settings,
+    }));
+  }
 
-  useEffect(
-    () => () => {
-      if (cueTimeoutRef.current) {
-        window.clearTimeout(cueTimeoutRef.current);
-      }
-    },
-    [],
-  );
+  function startSession(overrides = {}) {
+    setTrainingConfig((current) => ({
+      ...current,
+      ...overrides,
+      settings: platformState.settings,
+    }));
+    setShouldBeginSession(true);
+  }
 
-  useEffect(() => {
-    if (!isPracticeSection(activeSection.id)) {
-      return undefined;
-    }
-
-    function handleKeyDown(event) {
-      if (event.metaKey || event.ctrlKey || event.altKey) {
-        return;
-      }
-
-      if (/^\d$/.test(event.key)) {
-        event.preventDefault();
-        appendDigit(event.key);
-        return;
-      }
-
-      if (event.key === "Backspace") {
-        event.preventDefault();
-        backspace();
-        return;
-      }
-
-      if (event.key === "Escape") {
-        event.preventDefault();
-        clearAnswer();
-        return;
-      }
-
-      if (event.key === "Enter") {
-        event.preventDefault();
-        submitCurrentAnswer();
-      }
-    }
-
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSection.id, answer, feedback, question]);
-
-  function buildPracticeQuestion(sectionId, presetId, factProfiles, recentSkillKeys) {
-    const nextQuestion = createPracticeQuestion(sectionId, presetId, {
-      factProfiles,
-      excludeSkillKeys: recentSkillKeys,
+  function startCampaignStage(stage) {
+    startSession({
+      modeId: "campanha",
+      groupId: stage.groupId,
+      questionCount: stage.questionCount,
+      campaignStage: stage,
     });
-
-    return nextQuestion;
   }
 
-  function resetPracticeState(nextQuestion) {
-    setQuestion(nextQuestion);
-    setAnswer("");
-    setFeedback(null);
-    setShowHint(false);
-    setQuestionCue((current) => ({ ...current, tone: "" }));
-
-    if (nextQuestion) {
-      recentSkillKeysRef.current = [
-        nextQuestion.skillKey,
-        ...recentSkillKeysRef.current.filter(
-          (skillKey) => skillKey !== nextQuestion.skillKey,
-        ),
-      ].slice(0, 3);
-      questionStartTimeRef.current = Date.now();
-    }
-  }
-
-  function clearTransientFeedback() {
-    if (feedback?.kind && feedback.kind !== "resolved") {
-      setFeedback(null);
-    }
-  }
-
-  function triggerQuestionCue(tone) {
-    if (cueTimeoutRef.current) {
-      window.clearTimeout(cueTimeoutRef.current);
-    }
-
-    setQuestionCue((current) => ({
-      tone,
-      nonce: current.nonce + 1,
-    }));
-
-    cueTimeoutRef.current = window.setTimeout(() => {
-      setQuestionCue((current) => ({ ...current, tone: "" }));
-      cueTimeoutRef.current = null;
-    }, 420);
-  }
-
-  function commitAttempt(currentQuestion, isCorrect) {
-    const now = Date.now();
-    const responseTime = now - (questionStartTimeRef.current || now);
-    const nextFactProfiles = applyFactResult(appState.factProfiles, currentQuestion, {
-      isCorrect,
-      responseTimeMs: responseTime,
-      now,
+  function practiceTheoryChapter(chapter) {
+    startSession({
+      modeId: "sparring",
+      groupId: chapter.groupId,
+      questionCount: 12,
+      campaignStage: null,
+      chapterOrder: chapter.order,
     });
-    const historyEntry = {
-      id: `${currentQuestion.id}-${now}`,
-      skillKey: currentQuestion.skillKey,
-      sectionId: currentQuestion.sectionId,
-      sectionLabel: getSectionById(currentQuestion.sectionId).label,
-      prompt: currentQuestion.prompt,
-      promptLatex: currentQuestion.promptLatex,
-      solutionLatex: currentQuestion.solutionLatex,
-      answer: currentQuestion.answer,
-      correct: isCorrect,
-      responseTime,
-    };
-
-    setAppState((current) => ({
-      ...current,
-      stats: recordSectionAttempt(current.stats, currentQuestion.sectionId, isCorrect, now),
-      factProfiles: nextFactProfiles,
-      history: [historyEntry, ...current.history].slice(0, 12),
-    }));
-
-    return nextFactProfiles;
   }
 
-  function goToSection(sectionId, presetId = null) {
-    if (sectionId !== "game") {
-      lastStandardSectionIdRef.current = sectionId;
-    }
-
-    const nextPresetId =
-      presetId ?? appState.selectedPresets[sectionId] ?? getDefaultPresetId(sectionId);
-
-    setAppState((current) => ({
-      ...current,
-      activeSectionId: sectionId,
-      selectedPresets:
-        isPracticeSection(sectionId) && presetId
-          ? {
-              ...current.selectedPresets,
-              [sectionId]: nextPresetId,
-            }
-          : current.selectedPresets,
-      flashcards:
-        sectionId === "flashcards"
-          ? {
-              ...current.flashcards,
-              revealed: false,
-            }
-          : current.flashcards,
-    }));
-
-    if (sectionId === "game") {
-      return;
-    }
-
-    if (isPracticeSection(sectionId)) {
-      resetPracticeState(
-        buildPracticeQuestion(
-          sectionId,
-          nextPresetId,
-          appState.factProfiles,
-          recentSkillKeysRef.current,
-        ),
-      );
-      return;
-    }
-
-    resetPracticeState(null);
+  async function installApp() {
+    if (!deferredInstallPrompt) return;
+    await deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    setDeferredInstallPrompt(null);
   }
 
-  function exitGame() {
-    const nextSectionId = lastStandardSectionIdRef.current || "teoria";
-
-    setAppState((current) => ({
-      ...current,
-      activeSectionId: nextSectionId,
-    }));
+  function exportData() {
+    const blob = new Blob([exportPlatformData(platformState)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = `calculo-mental-${new Date().toISOString().slice(0, 10)}.json`;
+    anchor.click();
+    URL.revokeObjectURL(url);
   }
 
-  function selectPreset(sectionId, presetId) {
-    setAppState((current) => ({
-      ...current,
-      selectedPresets: {
-        ...current.selectedPresets,
-        [sectionId]: presetId,
-      },
-    }));
-
-    if (appState.activeSectionId === sectionId) {
-      resetPracticeState(
-        buildPracticeQuestion(
-          sectionId,
-          presetId,
-          appState.factProfiles,
-          recentSkillKeysRef.current,
-        ),
-      );
-    }
+  function resetProgress() {
+    const confirmed = window.confirm("Apagar todo o progresso, recordes e histórico deste navegador?");
+    if (!confirmed) return;
+    window.localStorage.removeItem(PLATFORM_STORAGE_KEY);
+    const next = createPlatformState();
+    initialStateRef.current = next;
+    setPlatformState(next);
+    setTrainingConfig({
+      modeId: "sparring",
+      groupId: "misto",
+      questionCount: 15,
+      campaignStage: null,
+      settings: next.settings,
+    });
+    setSettingsOpen(false);
   }
 
-  function nextQuestion() {
-    if (!isPracticeSection(activeSection.id)) {
-      return;
-    }
+  if (arcadeOpen) {
+    return <GameSection onExit={() => setArcadeOpen(false)} />;
+  }
 
-    resetPracticeState(
-      buildPracticeQuestion(
-        activeSection.id,
-        activePresetId,
-        appState.factProfiles,
-        recentSkillKeysRef.current,
-      ),
+  if (summary) {
+    return (
+      <SessionSummary
+        summary={summary}
+        onRetry={() => startSession()}
+        onReviewTheory={(topicId) => {
+          const chapter = getTheoryChapterForTopic(topicId);
+          setTheoryChapterId(chapter?.id ?? null);
+          setSummary(null);
+          navigate("teoria");
+        }}
+        onClose={() => {
+          setSummary(null);
+          navigate("relatorios");
+        }}
+      />
     );
   }
 
-  function appendDigit(digit) {
-    if (feedback?.kind === "resolved") {
-      return;
-    }
-
-    setAnswer((current) => (current.length >= 4 ? current : `${current}${digit}`));
-    clearTransientFeedback();
-  }
-
-  function clearAnswer() {
-    setAnswer("");
-    clearTransientFeedback();
-  }
-
-  function backspace() {
-    if (feedback?.kind === "resolved") {
-      return;
-    }
-
-    setAnswer((current) => current.slice(0, -1));
-    clearTransientFeedback();
-  }
-
-  function revealAnswer() {
-    if (!question) {
-      return;
-    }
-
-    setFeedback({
-      kind: "resolved",
-      tone: "neutral",
-      title: "Confira a correção.",
-      math: question.solutionLatex,
-      detail: question.breakdown,
-    });
-  }
-
-  function submitCurrentAnswer() {
-    if (!question) {
-      return;
-    }
-
-    if (feedback?.kind === "resolved") {
-      nextQuestion();
-      return;
-    }
-
-    if (!/^\d+$/.test(answer.trim())) {
-      setFeedback({
-        kind: "warning",
-        tone: "warning",
-        title: "Digite a resposta.",
-        detail: "Use o teclado do app ou o teclado físico do aparelho.",
-      });
-      return;
-    }
-
-    const result = gradeQuestion(question, answer.trim());
-    const nextFactProfiles = commitAttempt(question, result.isCorrect);
-
-    if (result.isCorrect) {
-      resetPracticeState(
-        buildPracticeQuestion(
-          activeSection.id,
-          activePresetId,
-          nextFactProfiles,
-          recentSkillKeysRef.current,
-        ),
-      );
-      return;
-    }
-
-    setAnswer("");
-    questionStartTimeRef.current = Date.now();
-    triggerQuestionCue("danger");
-    setFeedback({
-      kind: "retry",
-      ...result.feedback,
-    });
-  }
-
-  function submitPractice(event) {
-    event.preventDefault();
-    submitCurrentAnswer();
-  }
-
-  function handleKeypadPress(key) {
-    if (key === "clear") {
-      clearAnswer();
-      return;
-    }
-
-    if (key === "backspace") {
-      backspace();
-      return;
-    }
-
-    appendDigit(key);
-  }
-
-  function selectFlashcardDeck(deckId) {
-    const deck = getFlashcardDeck(deckId);
-
-    setAppState((current) => ({
-      ...current,
-      activeSectionId: "flashcards",
-      flashcards: {
-        deckId: deck.id,
-        index: 0,
-        revealed: false,
-      },
-    }));
-  }
-
-  function moveFlashcard(step) {
-    setAppState((current) => {
-      const deck = getFlashcardDeck(current.flashcards.deckId);
-
-      return {
-        ...current,
-        flashcards: {
-          ...current.flashcards,
-          index: clampFlashcardIndex(current.flashcards.index + step, deck.cards.length),
-          revealed: false,
-        },
-      };
-    });
-  }
-
-  function shuffleFlashcard() {
-    setAppState((current) => {
-      const deck = getFlashcardDeck(current.flashcards.deckId);
-
-      if (deck.cards.length <= 1) {
-        return current;
-      }
-
-      let nextIndex = current.flashcards.index;
-
-      while (nextIndex === current.flashcards.index) {
-        nextIndex = Math.floor(Math.random() * deck.cards.length);
-      }
-
-      return {
-        ...current,
-        flashcards: {
-          ...current.flashcards,
-          index: nextIndex,
-          revealed: false,
-        },
-      };
-    });
-  }
-
-  function toggleFlashcard() {
-    setAppState((current) => ({
-      ...current,
-      flashcards: {
-        ...current.flashcards,
-        revealed: !current.flashcards.revealed,
-      },
-    }));
-  }
-
-  const practiceMetrics = (
-    <div className="micro-metrics">
-      <MetricCard
-        label="Tentativas"
-        value={activeStats?.attempts ?? 0}
-        detail="nesta seção"
+  if (trainingSession.active && trainingSession.session) {
+    return (
+      <SessionArena
+        answer={trainingSession.answer}
+        feedback={trainingSession.feedback}
+        nudge={trainingSession.nudge}
+        onAnswerKey={trainingSession.handleAnswerKey}
+        onExit={trainingSession.exit}
+        onPause={trainingSession.pause}
+        onResume={trainingSession.resume}
+        paused={trainingSession.paused}
+        remainingMs={trainingSession.remainingMs}
+        remainingRatio={trainingSession.remainingRatio}
+        session={trainingSession.session}
       />
-      <MetricCard
-        label="Precisão"
-        value={formatAccuracy(
-          activeStats?.attempts ? activeStats.correct / activeStats.attempts : null,
-        )}
-        detail="acumulada"
-      />
-      <MetricCard
-        label="Streak"
-        value={activeStats?.currentStreak ?? 0}
-        detail={`melhor ${activeStats?.bestStreak ?? 0}`}
-      />
-    </div>
-  );
-
-  if (activeSection.id === "game") {
-    return <GameSection onExit={exitGame} />;
+    );
   }
 
   return (
-    <div className="app-shell">
-      <HeroPanel
-        overallStats={overallStats}
-        weakestSection={weakestSection}
-        onStart={() => goToSection("adicao", "misto-1-algarismo")}
-        onShowTheory={() => goToSection("teoria")}
-        onShowFlashcards={() => goToSection("flashcards")}
-        formatAccuracy={formatAccuracy}
-        sectionCount={SECTIONS.length}
-      />
-
-      <SectionStrip
-        sections={SECTIONS}
-        activeSectionId={activeSection.id}
-        onSelect={goToSection}
-      />
-
-      <div className="dashboard">
-        <main className="practice-column">
-          {activeSection.id === "teoria" ? (
-            <TheoryPanel topics={THEORY_TOPICS} onJumpToPractice={goToSection} />
-          ) : activeSection.id === "flashcards" ? (
-            <FlashcardsPanel
-              activeFlashcard={activeFlashcard}
-              decks={FLASHCARD_DECKS}
-              flashcardDeck={flashcardDeck}
-              flashcardIndex={flashcardIndex}
-              isRevealed={appState.flashcards.revealed}
-              onMove={moveFlashcard}
-              onSelectDeck={selectFlashcardDeck}
-              onShuffle={shuffleFlashcard}
-              onToggle={toggleFlashcard}
-            />
-          ) : (
-            <>
-              <PracticeSetupPanel
-                activePreset={activePreset}
-                activePresetId={activePresetId}
-                activeSection={activeSection}
-                presets={getPresets(activeSection.id)}
-                trickLessons={TRICK_LESSONS}
-                onSelectPreset={selectPreset}
-              />
-
-              <PracticeArena
-                activePreset={activePreset}
-                answer={answer}
-                cueNonce={questionCue.nonce}
-                cueTone={questionCue.tone}
-                feedback={feedback}
-                isResolved={feedback?.kind === "resolved"}
-                isWarning={feedback?.kind === "warning"}
-                keypadRows={KEYPAD_ROWS}
-                metrics={practiceMetrics}
-                question={question}
-                showHint={showHint}
-                onKeypadPress={handleKeypadPress}
-                onNextQuestion={nextQuestion}
-                onRevealAnswer={revealAnswer}
-                onSubmit={submitPractice}
-                onToggleHint={() => setShowHint((current) => !current)}
-              />
-
-              <PracticeSupportPanel
-                activePresetId={activePresetId}
-                activeSection={activeSection}
-                primers={getSectionPrimers(activeSection.id)}
-                isTabuadaHighlighted={isTabuadaHighlighted}
-              />
-            </>
-          )}
-        </main>
-
-        <InsightsSidebar
-          history={appState.history}
-          onGoToSection={goToSection}
-          sectionsById={sectionsById}
-          stats={appState.stats}
-          formatAccuracy={formatAccuracy}
+    <AppChrome
+      activeView={activeView}
+      onNavigate={navigate}
+      onOpenSettings={() => setSettingsOpen(true)}
+      profile={platformState.profile}
+    >
+      {activeView === "inicio" ? (
+        <HomeDashboard
+          dashboard={homeDashboard}
+          onNavigate={navigate}
+          onQuickStart={() => startSession({ modeId: "sparring", campaignStage: null, chapterOrder: null })}
+          selectedGroupId={trainingConfig.groupId}
         />
-      </div>
-    </div>
+      ) : activeView === "treinar" ? (
+        <TrainingHub
+          config={trainingConfig}
+          onChange={updateTrainingConfig}
+          onOpenArcade={() => setArcadeOpen(true)}
+          onStart={() => startSession({ chapterOrder: null })}
+          preview={trainingPreview}
+        />
+      ) : activeView === "campanha" ? (
+        <CampaignJourney campaign={platformState.campaign} onStartStage={startCampaignStage} />
+      ) : activeView === "teoria" ? (
+        <TheoryLibrary
+          chapters={THEORY_CHAPTERS}
+          initialChapterId={theoryChapterId}
+          onPractice={practiceTheoryChapter}
+        />
+      ) : (
+        <ReportsDashboard
+          report={reportsDashboard}
+          onTrainGroup={(groupId) => navigate("treinar", groupId)}
+        />
+      )}
+
+      {settingsOpen ? (
+        <SettingsDrawer
+          installAvailable={Boolean(deferredInstallPrompt)}
+          onClose={() => setSettingsOpen(false)}
+          onExport={exportData}
+          onInstall={installApp}
+          onReset={resetProgress}
+          onUpdate={(patch) => setPlatformState((current) => updatePlatformSettings(current, patch))}
+          settings={platformState.settings}
+        />
+      ) : null}
+    </AppChrome>
   );
+}
+
+function adaptiveSetupMessage(state, groupId) {
+  const group = getPracticeGroup(groupId);
+  const relevant = state.attempts.filter((attempt) => group.sectionIds.includes(attempt.sectionId)).slice(0, 16);
+  if (!relevant.length) return "Começa leve, aprende seu ritmo e mistura exercícios reconhecíveis do livro.";
+  const accuracy = relevant.filter((attempt) => attempt.correct).length / relevant.length;
+  if (accuracy < 0.62) return "Vou aliviar um pouco, reforçar padrões recorrentes e devolver confiança antes de subir.";
+  if (accuracy > 0.88) return "Seu desempenho recente está forte; espere menos tempo e contas um passo mais difíceis.";
+  return "O nível atual está saudável. Vou alternar revisão, novidade e exemplos do livro.";
 }
 
 export default App;
