@@ -261,7 +261,7 @@ function applyCampaignAttempt(state, attempt, rawCampaign) {
   const events = [{
     type: "stage-completed",
     stageId: stage.id,
-    message: `Capítulo “${stage.title}” concluído!`,
+    message: `Etapa “${stage.title}” concluída!`,
   }];
 
   if (campaignCompleted) {

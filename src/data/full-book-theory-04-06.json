@@ -23,7 +23,7 @@
         "Subtração mental por blocos e complementos",
         "Leitura de valor posicional da esquerda para a direita"
       ],
-      "summary": "A divisão é tratada como simplificação progressiva: primeiro se prevê o tamanho do quociente, depois se retiram múltiplos posicionais. O capítulo avança para divisores de dois dígitos, reescala por fatores comuns, conversão de frações em decimais, testes de divisibilidade e operações com frações.",
+      "summary": "Trate a divisão como simplificação progressiva: primeiro preveja o tamanho do quociente, depois retire múltiplos posicionais. Em seguida, avance para divisores de dois dígitos, reescala por fatores comuns, conversão de frações em decimais, testes de divisibilidade e operações com frações.",
       "groupId": "divisao",
       "theoryTopicIds": ["c04-divisao-basica", "c04-divisao-dois-digitos", "c04-fracoes"],
       "lessons": [
@@ -766,7 +766,7 @@
         "Quadrados de dois dígitos e frações usuais",
         "Leitura de milhares, milhões e bilhões"
       ],
-      "summary": "Estimar não é chutar: é trocar uma conta cara por outra controlável, preservar a ordem de grandeza e saber em que direção e por quanto a aproximação pode errar. O capítulo aplica essa disciplina às quatro operações, raízes, percentuais, impostos, juros e prestações.",
+      "summary": "Estimar não é chutar: é trocar uma conta cara por outra controlável, preservar a ordem de grandeza e saber em que direção e por quanto a aproximação pode errar. Aplique essa disciplina às quatro operações, raízes, percentuais, impostos, juros e prestações.",
       "groupId": "misto",
       "theoryTopicIds": ["c05-ordem-grandeza", "c05-percentuais", "c05-prestacao", "c05-raiz", "c07-numeros-proximos"],
       "lessons": [

@@ -1164,7 +1164,7 @@
           "ordem": 13,
           "titulo": "Automatize os parciais que a multiplicação vai exigir",
           "paginas": [20, 96],
-          "resumo": "O capítulo termina com somas e subtrações escolhidas porque surgirão dentro de multiplicações mentais. O objetivo não é aprender outro algoritmo, mas tornar rápida a atualização de um parcial grande por um ajuste pequeno.",
+          "resumo": "Treine somas e subtrações que surgem dentro de multiplicações mentais. O objetivo não é aprender outro algoritmo, mas tornar rápida a atualização de um parcial grande por um ajuste pequeno.",
           "quandoUsar": [
             "Antes de avançar para multiplicações 2×1 e 3×1.",
             "Quando você sabe produzir os produtos parciais, mas demora para reuni-los.",
@@ -1691,7 +1691,7 @@
           "ordem": 1,
           "titulo": "Leia a divisão como taxa e projeção",
           "paginas": [30],
-          "resumo": "O capítulo abre com uma aplicação de boliche: dividir um total parcial pelo número de rodadas produz uma média, que pode ser reescalada para projetar o total. Isso apresenta a divisão como interpretação de ritmo, não apenas algoritmo.",
+          "resumo": "Em uma aplicação de boliche, dividir um total parcial pelo número de rodadas produz uma média, que pode ser reescalada para projetar o total. Assim, a divisão funciona como interpretação de ritmo, não apenas como algoritmo.",
           "quandoUsar": [
             "Ao calcular média por período, rodada, litro ou unidade.",
             "Quando se quer projetar um resultado mantendo o ritmo atual.",
@@ -1848,7 +1848,7 @@
           "ordem": 4,
           "titulo": "Construa a divisão por dois dígitos com produtos 2×1",
           "paginas": [30, 33, 106, 107],
-          "resumo": "Estime quantas dezenas do divisor cabem no dividendo, use multiplicação rápida para retirar esse bloco e resolva o resto. A fluência 2×1 do capítulo anterior é o motor desta etapa.",
+          "resumo": "Estime quantas dezenas do divisor cabem no dividendo, use multiplicação rápida para retirar esse bloco e resolva o resto. A fluência 2×1 é o motor desta técnica.",
           "quandoUsar": [
             "Em dividendos de três ou quatro dígitos por divisor de dois dígitos.",
             "Quando os primeiros dígitos permitem estimar dezenas do quociente.",

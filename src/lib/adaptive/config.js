@@ -38,7 +38,7 @@ export const MODE_DEFINITIONS = Object.freeze({
   campaign: Object.freeze({
     id: "campaign",
     label: "Campanha",
-    description: "Capítulos progressivos com objetivos claros e desbloqueio por domínio.",
+    description: "Etapas progressivas com objetivos claros e desbloqueio por domínio.",
     defaultLives: null,
     scoreMultiplier: 1,
     weakSkillBias: 1.2,

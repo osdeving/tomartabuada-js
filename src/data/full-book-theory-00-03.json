@@ -1188,7 +1188,7 @@
         "reconhecer centenas, dezenas e unidades",
         "manter um resultado parcial curto na memória"
       ],
-      "summary": "Estabelece a base dos próximos capítulos: calcular da esquerda para a direita, começar pelas casas mais significativas, decompor o segundo número e transformar empréstimos difíceis em compensações fáceis. A dificuldade cresce de duas casas para quatro e culmina em complementos.",
+      "summary": "Estabelece uma base reutilizável: calcular da esquerda para a direita, começar pelas casas mais significativas, decompor o segundo número e transformar empréstimos difíceis em compensações fáceis. A dificuldade cresce de duas casas para quatro e culmina em complementos.",
       "groupId": "base",
       "theoryTopicIds": [
         "c01-esquerda-direita",
@@ -1207,7 +1207,7 @@
           "whenToUse": [
             "em adições e subtrações mentais com duas ou mais casas",
             "quando uma estimativa inicial é mais valiosa que conhecer o último algarismo",
-            "como direção padrão para multiplicação e divisão nos capítulos seguintes"
+            "como direção padrão para multiplicações e divisões mais avançadas"
           ],
           "whyItWorks": "Decompor por valor posicional preserva a igualdade, mas revela primeiro a parte mais importante do resultado. Cada bloco processado desaparece do problema restante, diminuindo a quantidade de algarismos que precisam permanecer ativos na memória.",
           "algorithm": {
@@ -5574,7 +5574,7 @@
                   "explanation": "Resultado final."
                 }
               ],
-              "conclusion": "O exemplo fecha o capítulo integrando adição, subtração, fatoração, quadrados e produtos próximos.",
+              "conclusion": "O exemplo integra adição, subtração, fatoração, quadrados e produtos próximos.",
               "source": {
                 "printedPage": 78,
                 "pdfPage": 104

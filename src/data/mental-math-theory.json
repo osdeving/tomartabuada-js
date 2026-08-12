@@ -46,7 +46,7 @@
       "pagina": "number (numeração impressa)"
     }
   },
-  "descricao": "Teoria estruturada em uma progressão pedagógica de 12 capítulos, com padrões e exemplos matemáticos acionáveis.",
+  "descricao": "Teoria estruturada em uma progressão pedagógica de técnicas, com padrões e exemplos matemáticos acionáveis.",
   "principiosDoCurso": [
     "Praticar é indispensável: assistir ou ler as técnicas não substitui calcular.",
     "No cálculo mental, avance da esquerda para a direita e trabalhe primeiro com as maiores ordens.",
@@ -400,7 +400,7 @@
         20
       ],
       "prerequisitos": [
-        "capítulo 1"
+        "fatos básicos e cálculo da esquerda para a direita"
       ],
       "objetivo": "Somar e subtrair um algarismo por vez, trocar transporte/empréstimo por ajustes e automatizar complementos.",
       "padroes": [
@@ -725,7 +725,7 @@
         29
       ],
       "prerequisitos": [
-        "capítulo 2",
+        "adição e subtração mental",
         "tabuada fluente"
       ],
       "objetivo": "Dominar produtos 2×1 e 3×1 como blocos de toda multiplicação mental e introduzir fatoração.",
@@ -906,7 +906,7 @@
         34
       ],
       "prerequisitos": [
-        "capítulo 3",
+        "multiplicação mental",
         "complementos"
       ],
       "objetivo": "Dividir mentalmente por um ou dois dígitos, simplificar, ultrapassar o quociente e converter frações.",
@@ -1128,7 +1128,7 @@
         40
       ],
       "prerequisitos": [
-        "capítulos 1 a 4"
+        "as quatro operações básicas"
       ],
       "objetivo": "Estimar por arredondamento e ordem de grandeza, calcular percentuais, juros e raízes aproximadas.",
       "padroes": [
@@ -1304,7 +1304,7 @@
         45
       ],
       "prerequisitos": [
-        "capítulo 5"
+        "estimativa e operações básicas"
       ],
       "objetivo": "Acelerar contas no papel, conferir por prova dos nove e multiplicar por criss-cross ou números próximos.",
       "padroes": [
@@ -1500,7 +1500,7 @@
       ],
       "prerequisitos": [
         "multiplicação 2×1 e 3×1",
-        "capítulo 6"
+        "cálculo escrito e verificação"
       ],
       "objetivo": "Escolher entre cinco estratégias para multiplicações 2×2 e elevar números de dois dígitos ao quadrado.",
       "padroes": [
@@ -2630,7 +2630,7 @@
         81
       ],
       "prerequisitos": [
-        "capítulos 1 a 11"
+        "técnicas fundamentais e avançadas"
       ],
       "objetivo": "Integrar as técnicas, reconhecer padrões em cubos perfeitos e decompor cálculos muito grandes.",
       "padroes": [
