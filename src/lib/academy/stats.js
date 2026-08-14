@@ -1,4 +1,4 @@
-import { PRACTICE_SECTION_IDS } from "./content";
+import { PRACTICE_SECTION_IDS } from "./content.js";
 
 export function createSectionStats() {
   return {

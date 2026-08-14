@@ -1,6 +1,7 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CampaignJourney } from "./components/platform/CampaignJourney";
 import { AppChrome } from "./components/platform/AppChrome";
+import { CommunityHub } from "./components/platform/CommunityHub";
 import { HomeDashboard } from "./components/platform/HomeDashboard";
 import { ReportsDashboard } from "./components/platform/ReportsDashboard";
 import { SettingsDrawer } from "./components/platform/SettingsDrawer";
@@ -9,6 +10,8 @@ import { TrainingHub } from "./components/platform/TrainingHub";
 import { SessionArena } from "./components/session/SessionArena";
 import { SessionSummary } from "./components/session/SessionSummary";
 import { useTrainingSession } from "./hooks/useTrainingSession";
+import { useCommunity } from "./hooks/useCommunity";
+import { selectActorPlatformState } from "./lib/platform/actorState.js";
 import { buildHomeDashboard, buildReportsDashboard } from "./lib/platform/insights";
 import { getTheoryTargetForTopic, loadTheoryChapters, preloadPracticeContent } from "./lib/platform/content";
 import { getPracticeGroup } from "./lib/platform/experience";
@@ -42,6 +45,7 @@ function App() {
   }
 
   const [platformState, setPlatformState] = useState(initialStateRef.current);
+  const community = useCommunity();
   const [activeView, setActiveView] = useState(() => startupIntentRef.current?.viewId ?? "inicio");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [summary, setSummary] = useState(null);
@@ -59,6 +63,9 @@ function App() {
   const [sessionConfig, setSessionConfig] = useState(null);
   const [sessionStartRequest, setSessionStartRequest] = useState(null);
   const [sessionStarting, setSessionStarting] = useState(false);
+  const [sessionActorId, setSessionActorId] = useState(null);
+  const [queuedDisputeId, setQueuedDisputeId] = useState(null);
+  const sessionCommunityContextRef = useRef(null);
   const sessionStartSequenceRef = useRef(0);
   const pendingSessionStartRef = useRef(null);
   const launchedSessionStartRef = useRef(null);
@@ -108,19 +115,60 @@ function App() {
 
   const handleSessionFinish = useCallback((sessionSummary, campaignStage) => {
     const xpEarned = calculateSessionXp(sessionSummary);
-    const enrichedSummary = { ...sessionSummary, xpEarned };
+    const communityContext = sessionCommunityContextRef.current;
+    const canCreditCommunity = Boolean(
+      communityContext?.userId
+      && communityContext.userId === sessionSummary.userId,
+    );
+    const communityContribution = canCreditCommunity
+      ? {
+          clanName: communityContext.clanName,
+          clanTag: communityContext.clanTag,
+          disputeId: communityContext.disputeId,
+          points: Math.max(0, Math.round(Number(sessionSummary.score) || 0)),
+          status: "pending",
+        }
+      : null;
+    const storedSummary = { ...sessionSummary, xpEarned };
+    const enrichedSummary = { ...storedSummary, communityContribution };
+
+    if (communityContext?.disputeId) {
+      setQueuedDisputeId((current) => current === communityContext.disputeId ? null : current);
+    }
 
     setPlatformState((current) => {
-      let next = completeSession(current, enrichedSummary);
+      if (storedSummary.id && current.sessions.some((session) => session.id === storedSummary.id)) {
+        return current;
+      }
+      let next = completeSession(current, storedSummary);
       if (campaignStage) {
-        next = recordCampaignResult(next, campaignStage, enrichedSummary, enrichedSummary.stars);
+        next = recordCampaignResult(next, campaignStage, storedSummary, storedSummary.stars);
       }
       return next;
     });
     setSummary(enrichedSummary);
-  }, []);
+
+    if (communityContribution) {
+      void creditCommunitySession(community.recordTrainingPoints, {
+        disputeId: communityContext.disputeId,
+        points: communityContribution.points,
+        sessionId: sessionSummary.id,
+      }).then((receipt) => {
+        setSummary((current) => current?.id === sessionSummary.id
+          ? {
+              ...current,
+              communityContribution: {
+                ...current.communityContribution,
+                ...receipt,
+              },
+            }
+          : current);
+      });
+    }
+  }, [community.recordTrainingPoints]);
 
   const trainingSession = useTrainingSession({
+    actorId: sessionActorId,
     config: sessionConfig ?? trainingConfig,
     platformState,
     onAttempt: handleAttempt,
@@ -149,14 +197,28 @@ function App() {
       });
   }, [sessionStartRequest, trainingSession.begin, trainingSession.cancelPendingBegin]);
 
-  const homeDashboard = useMemo(() => buildHomeDashboard(platformState), [platformState]);
-  const reportsDashboard = useMemo(() => buildReportsDashboard(platformState), [platformState]);
+  const actorPlatformState = useMemo(() => {
+    const actorState = selectActorPlatformState(platformState, community.currentUser?.id ?? null);
+    if (!community.currentUser) return actorState;
+    return {
+      ...actorState,
+      profile: {
+        ...actorState.profile,
+        displayName: community.currentUser.displayName,
+      },
+    };
+  }, [community.currentUser, platformState]);
+  const homeDashboard = useMemo(() => buildHomeDashboard(actorPlatformState), [actorPlatformState]);
+  const reportsDashboard = useMemo(() => buildReportsDashboard(actorPlatformState), [actorPlatformState]);
   const trainingPreview = useMemo(() => ({
     groupMastery: Object.fromEntries(
       reportsDashboard.groups.map((group) => [group.id, group.attempts ? `${group.mastery}% domínio` : "novo"]),
     ),
-    adaptiveMessage: adaptiveSetupMessage(platformState, trainingConfig.groupId),
-  }), [platformState, reportsDashboard.groups, trainingConfig.groupId]);
+    adaptiveMessage: adaptiveSetupMessage(actorPlatformState, trainingConfig.groupId),
+  }), [actorPlatformState, reportsDashboard.groups, trainingConfig.groupId]);
+  const queuedDispute = community.disputes.find((dispute) => (
+    dispute.id === queuedDisputeId && dispute.status === "active"
+  )) ?? null;
 
   function navigate(viewId, groupId = null) {
     cancelPendingSessionStart();
@@ -195,6 +257,12 @@ function App() {
 
   function startSession(overrides = {}) {
     if (pendingSessionStartRef.current) return;
+    const communityContext = buildSessionCommunityContext(
+      community.currentUser,
+      community.clans,
+      community.disputes,
+      queuedDisputeId,
+    );
     const effectiveConfig = {
       ...trainingConfigRef.current,
       ...overrides,
@@ -207,6 +275,8 @@ function App() {
     };
     sessionStartSequenceRef.current = request.id;
     pendingSessionStartRef.current = request;
+    sessionCommunityContextRef.current = communityContext;
+    setSessionActorId(communityContext?.userId ?? null);
     void trainingSession.unlockAudio(effectiveConfig);
     setSessionConfig(effectiveConfig);
     setSessionStartRequest(request);
@@ -228,6 +298,8 @@ function App() {
     launchedSessionStartRef.current = null;
     sessionStartSequenceRef.current += 1;
     trainingSession.cancelPendingBegin();
+    sessionCommunityContextRef.current = null;
+    setSessionActorId(null);
     setSessionConfig(null);
     setSessionStartRequest(null);
     setSessionStarting(false);
@@ -276,6 +348,25 @@ function App() {
     });
   }
 
+  function playCommunityDispute(dispute) {
+    setQueuedDisputeId(dispute.id);
+    navigate("treinar");
+  }
+
+  async function finishCommunityDispute(disputeId) {
+    const result = await community.finishDispute(disputeId);
+    if (queuedDisputeId === disputeId) setQueuedDisputeId(null);
+    return result;
+  }
+
+  async function logoutCommunity() {
+    const result = await community.logout();
+    setQueuedDisputeId(null);
+    sessionCommunityContextRef.current = null;
+    setSessionActorId(null);
+    return result;
+  }
+
   async function installApp() {
     if (!deferredInstallPrompt) return;
     await deferredInstallPrompt.prompt();
@@ -311,6 +402,9 @@ function App() {
     setSessionStarting(false);
     setActiveView("inicio");
     setSummary(null);
+    setQueuedDisputeId(null);
+    sessionCommunityContextRef.current = null;
+    setSessionActorId(null);
     setTheoryChapterId(null);
     setTheoryLessonId(null);
     setSettingsOpen(false);
@@ -370,7 +464,7 @@ function App() {
       activeView={activeView}
       onNavigate={navigate}
       onOpenSettings={() => setSettingsOpen(true)}
-      profile={platformState.profile}
+      profile={actorPlatformState.profile}
     >
       {activeView === "inicio" ? (
         <HomeDashboard
@@ -388,24 +482,54 @@ function App() {
           selectedGroupId={trainingConfig.groupId}
         />
       ) : activeView === "treinar" ? (
-        <TrainingHub
-          config={trainingConfig}
-          onChange={updateTrainingConfig}
-          onOpenArcade={() => {
-            cancelPendingSessionStart();
-            setArcadeOpen(true);
-          }}
-          onStart={() => startSession({
-            chapterOrder: null,
-            theoryTopicIds: null,
-            sectionIds: null,
-            sourceChapterOrder: null,
-          })}
-          preview={trainingPreview}
-          starting={sessionStarting}
-        />
+        <>
+          {queuedDispute ? (
+            <DisputeTrainingBanner
+              dispute={queuedDispute}
+              onCancel={() => setQueuedDisputeId(null)}
+            />
+          ) : null}
+          <TrainingHub
+            config={trainingConfig}
+            onChange={updateTrainingConfig}
+            onOpenArcade={() => {
+              cancelPendingSessionStart();
+              setArcadeOpen(true);
+            }}
+            onStart={() => startSession({
+              chapterOrder: null,
+              theoryTopicIds: null,
+              sectionIds: null,
+              sourceChapterOrder: null,
+            })}
+            preview={trainingPreview}
+            starting={sessionStarting}
+          />
+        </>
       ) : activeView === "campanha" ? (
-        <CampaignJourney campaign={platformState.campaign} onStartStage={startCampaignStage} />
+        <CampaignJourney campaign={actorPlatformState.campaign} onStartStage={startCampaignStage} />
+      ) : activeView === "clas" ? (
+        <CommunityHub
+          availableOpponents={community.availableOpponents}
+          clans={community.clans}
+          currentUser={community.currentUser}
+          demoAccounts={community.demoAccounts}
+          disputes={community.disputes}
+          error={community.error}
+          members={community.members}
+          onCreateDispute={community.createDispute}
+          onCreateTeam={community.createTeam}
+          onFinishDispute={finishCommunityDispute}
+          onLogin={community.login}
+          onLogout={logoutCommunity}
+          onPlayDispute={playCommunityDispute}
+          onRetry={community.refresh}
+          onSelectClan={community.selectClan}
+          selectedClanId={community.selectedClanId}
+          sourceLabel={community.sourceLabel}
+          status={community.status}
+          teams={community.teams}
+        />
       ) : activeView === "teoria" ? (
         <TheoryLibrary
           chapters={theoryChapters}
@@ -497,6 +621,74 @@ function isContextualTraining(config) {
     || config.sectionIds
     || config.sourceChapterOrder,
   );
+}
+
+function DisputeTrainingBanner({ dispute, onCancel }) {
+  return (
+    <aside className="surface community-training-banner" aria-live="polite">
+      <span className="community-versus" aria-hidden="true">VS</span>
+      <div>
+        <p className="eyebrow">Próxima sessão vale pela disputa</p>
+        <strong>{dispute.homeTeam?.name} × {dispute.awayTeam?.name}</strong>
+        <small>Os pontos desta rodada entram no seu clã e no placar do confronto.</small>
+      </div>
+      <button className="button button--quiet" type="button" onClick={onCancel}>Cancelar</button>
+    </aside>
+  );
+}
+
+function buildSessionCommunityContext(currentUser, clans, disputes, queuedDisputeId) {
+  if (!currentUser?.id) return null;
+  const clan = clans.find((candidate) => candidate.id === currentUser.clanId);
+  const dispute = disputes.find((candidate) => (
+    candidate.id === queuedDisputeId
+    && candidate.status === "active"
+    && (teamContainsUser(candidate.homeTeam, currentUser.id)
+      || teamContainsUser(candidate.awayTeam, currentUser.id))
+  ));
+
+  return {
+    userId: currentUser.id,
+    clanId: currentUser.clanId ?? null,
+    clanName: clan?.name ?? "seu clã",
+    clanTag: clan?.tag ?? null,
+    disputeId: dispute?.id ?? null,
+  };
+}
+
+async function creditCommunitySession(recordTrainingPoints, command) {
+  try {
+    const result = await recordTrainingPoints(command);
+    return {
+      counted: result?.created !== false,
+      disputeScored: Boolean(command.disputeId && result?.dispute),
+      status: "credited",
+    };
+  } catch (error) {
+    if (command.disputeId && ["DISPUTE_CLOSED", "FORBIDDEN", "NOT_FOUND"].includes(error?.code)) {
+      try {
+        const fallback = await recordTrainingPoints({
+          points: command.points,
+          sessionId: command.sessionId,
+        });
+        return {
+          counted: fallback?.created !== false,
+          disputeId: null,
+          disputeScored: false,
+          message: "O confronto já não aceitava rodadas; os pontos ainda foram somados ao clã.",
+          status: "credited",
+        };
+      } catch (fallbackError) {
+        return { message: fallbackError?.message, status: "failed" };
+      }
+    }
+    return { message: error?.message, status: "failed" };
+  }
+}
+
+function teamContainsUser(team, userId) {
+  const members = team?.memberIds ?? team?.members ?? [];
+  return members.some((member) => (typeof member === "object" ? member.id : member) === userId);
 }
 
 export default App;

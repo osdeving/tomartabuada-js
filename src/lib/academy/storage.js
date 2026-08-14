@@ -5,9 +5,9 @@ import {
   buildDefaultSelections,
   getFlashcardDeck,
   getPresets,
-} from "./content";
-import { normalizeFactProfiles } from "./profile";
-import { buildInitialStats, normalizeStats } from "./stats";
+} from "./content.js";
+import { normalizeFactProfiles } from "./profile.js";
+import { buildInitialStats, normalizeStats } from "./stats.js";
 
 export function clampFlashcardIndex(index, length) {
   if (!length) {
