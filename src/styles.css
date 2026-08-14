@@ -3267,6 +3267,14 @@ kbd {
   line-height: 1;
 }
 
+.session-question__math.is-long {
+  font-size: clamp(1.65rem, 7.5vw, 4.4rem);
+}
+
+.session-question__math.is-dense {
+  font-size: clamp(1.1rem, 4.8vw, 2.8rem);
+}
+
 .session-question__math .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
@@ -3296,6 +3304,14 @@ kbd {
   font: 700 clamp(2.15rem, 9vw, 4.8rem)/1 "Space Grotesk", sans-serif;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.04em;
+}
+
+.session-answer.is-long > span {
+  font-size: clamp(1.55rem, 6.5vw, 3.5rem);
+}
+
+.session-answer.is-dense > span {
+  font-size: clamp(1.05rem, 4.5vw, 2.4rem);
 }
 
 .session-answer.has-value {
@@ -3488,6 +3504,16 @@ kbd {
   color: var(--muted-strong);
   background: var(--surface-soft);
   font-size: 0.76rem;
+}
+
+.session-key--submit {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
+  color: white;
+  background: var(--accent-strong);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .pause-overlay {

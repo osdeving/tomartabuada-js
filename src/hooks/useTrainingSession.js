@@ -10,7 +10,6 @@ import { getCampaignStars } from "../lib/platform/campaign";
 import {
   answersMatch,
   displayAnswerInput,
-  isCompleteAnswer,
   normalizeUserAnswer,
   serializeUserAnswer,
 } from "../lib/platform/answers";
@@ -20,11 +19,15 @@ import {
 } from "../lib/platform/basicMemorization";
 import { selectAdaptiveQuestion, THEORY_INDEX } from "../lib/platform/content";
 import { getPracticeGroup, getSessionMode, getTimeProfile } from "../lib/platform/experience";
+import { FEATURE_FLAGS } from "../lib/platform/features";
+import {
+  INSANE_MIX_GROUP_ID,
+  selectInsaneMixQuestion,
+} from "../lib/platform/insaneMix";
+import { reduceAnswerInput } from "../lib/platform/sessionInput";
 
-const STRUCTURED_ANSWER_DELAY_MS = 700;
 const TIME_TICK_MS = 80;
 const UNTYPED_ANSWER_DELAY_MS = 1_350;
-const INCOMPLETE_NUMERIC_DELAY_MS = 950;
 
 export function useTrainingSession({ config, platformState, onAttempt, onFinish }) {
   const [runtime, setRuntime] = useState(null);
@@ -39,7 +42,6 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const questionStartRef = useRef(Date.now());
   const deadlineRef = useRef(null);
   const advanceTimeoutRef = useRef(null);
-  const answerSubmitTimeoutRef = useRef(null);
   const levelNoticeTimeoutRef = useRef(null);
   const finishedRef = useRef(false);
   const gradingRef = useRef(false);
@@ -51,6 +53,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   useEffect(() => { answerRef.current = answer; }, [answer]);
 
   const showLevelNotice = useCallback((question) => {
+    if (!FEATURE_FLAGS.sessionProgressNotices) return;
     const tierId = question?.memorization?.difficultyTier;
     const noticeId = question?.levelCue?.code ?? tierId;
     if (!question?.levelCue || !noticeId || announcedLevelNoticesRef.current.has(noticeId)) return;
@@ -64,7 +67,6 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   }, []);
 
   const begin = useCallback(async () => {
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
     finishedRef.current = false;
     gradingRef.current = false;
@@ -81,7 +83,9 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       : config.groupId;
     const difficulty = config.campaignStage
       ? Math.max(1, Math.min(10, config.campaignStage.order))
-      : inferStartingDifficulty(platformState.attempts, difficultyGroupId);
+      : config.groupId === INSANE_MIX_GROUP_ID
+        ? 1
+        : inferStartingDifficulty(platformState.attempts, difficultyGroupId);
     const groupIds = config.practiceKind === "memorization"
       ? [memorizationSectionId]
       : getPracticeGroup(config.groupId).sectionIds;
@@ -109,6 +113,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     deadlineRef.current = question.deadlineWindowMs == null
       ? null
       : startedAt + question.deadlineWindowMs;
+    answerRef.current = "";
     setNow(startedAt);
     setAnswer("");
     setFeedback(null);
@@ -130,6 +135,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
+    if (!runtime.sessionDeadline && deadlineRef.current == null) return undefined;
 
     const intervalId = window.setInterval(() => setNow(Date.now()), TIME_TICK_MS);
     return () => window.clearInterval(intervalId);
@@ -150,21 +156,22 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
 
   useEffect(() => () => {
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
   }, []);
 
   const gradeAnswer = useCallback((rawAnswer, timedOut = false) => {
     const current = runtimeRef.current;
     if (!current?.question || feedback || paused || finishedRef.current || gradingRef.current) return;
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     gradingRef.current = true;
 
     const question = current.question;
+    const answeredAt = Date.now();
+    const deadlineExpired = deadlineRef.current != null && answeredAt > deadlineRef.current;
+    const sessionExpired = current.sessionDeadline != null && answeredAt >= current.sessionDeadline;
+    const effectiveTimeout = timedOut || deadlineExpired || sessionExpired;
     const normalized = normalizeUserAnswer(rawAnswer, question);
     const serializedAnswer = serializeUserAnswer(normalized);
-    const correct = !timedOut && normalized != null && answersMatch(normalized, question);
-    const answeredAt = Date.now();
+    const correct = !effectiveTimeout && normalized != null && answersMatch(normalized, question);
     const responseTimeMs = Math.max(1, answeredAt - questionStartRef.current);
     const result = recordSessionAttempt(
       current.adaptiveSession,
@@ -178,7 +185,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         skillKey: question.skillKey,
         theoryTopicId: question.theoryTopicId,
         correct,
-        timedOut,
+        timedOut: effectiveTimeout,
         responseTimeMs,
         responseWindowMs: question.targetResponseMs ?? question.responseWindowMs,
         difficulty: question.difficulty,
@@ -194,6 +201,11 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
           memorizationDifficultyMode: config.memorization?.difficultyMode ?? "adaptive",
           memorizationDifficultyTier: config.memorization?.difficultyTier ?? "all",
           deadlineWindowMs: question.deadlineWindowMs ?? 0,
+          difficultyRating: Number(question.difficultyRating) || 0,
+          patternGroupId: question.patternGroupId ?? "",
+          generatorId: question.generatorId ?? "",
+          patternFeatures: (question.features ?? []).join("|"),
+          patternOperations: (question.operations ?? []).join("|"),
         },
         answerGiven: serializedAnswer,
         expectedAnswer: question.answer,
@@ -231,6 +243,11 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       deadlineWindowMs: question.deadlineWindowMs,
       memorizationOperation: question.memorization?.operation ?? config.memorization?.operationId ?? null,
       complexityBand: question.memorization?.difficultyTier ?? null,
+      difficultyRating: Number(question.difficultyRating) || null,
+      patternGroupId: question.patternGroupId ?? null,
+      generatorId: question.generatorId ?? null,
+      patternFeatures: question.features ?? question.patternTags ?? [],
+      patternOperations: question.operations ?? [],
       answerGiven: serializedAnswer,
       givenAnswer: serializedAnswer,
     };
@@ -239,12 +256,12 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     providePhysicalFeedback(correct, config.settings);
     setFeedback({
       tone: correct ? "success" : "danger",
-      title: timedOut ? "Tempo esgotado" : correct ? comboMessage?.message ?? correctMessage(result.event.combo) : "Quase — ajuste o padrão",
+      title: effectiveTimeout ? "Tempo esgotado" : correct ? comboMessage?.message ?? correctMessage(result.event.combo) : "Quase — ajuste o padrão",
       detail: correct
         ? `${formatTime(responseTimeMs)} · +${result.event.scoreDelta} pontos`
         : `Resposta: ${question.answerDisplay ?? question.answer}`,
     });
-    if (coachMessage) {
+    if (FEATURE_FLAGS.sessionProgressNotices && coachMessage) {
       setNudge({
         kind: coachMessage.type === "rest-suggestion" ? "rest" : "theory",
         title: coachMessage.type === "rest-suggestion" ? "Seu ritmo mudou." : "Este padrão está se repetindo.",
@@ -306,6 +323,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       deadlineRef.current = nextQuestion.deadlineWindowMs == null
         ? null
         : startedAt + nextQuestion.deadlineWindowMs;
+      answerRef.current = "";
       setNow(startedAt);
       setRuntime(updated);
       setAnswer("");
@@ -339,6 +357,12 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       } else if (event.key === "Backspace") {
         event.preventDefault();
         handleAnswerKey("backspace");
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        handleAnswerKey("submit");
+      } else if (event.key === "-") {
+        event.preventDefault();
+        handleAnswerKey("sign");
       } else if (event.key === "Escape") {
         event.preventDefault();
         handleAnswerKey("clear");
@@ -352,70 +376,15 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const handleAnswerKey = useCallback((key) => {
     const current = runtimeRef.current;
     if (!current?.question || feedback || paused) return;
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
-
-    if (key === "clear") {
-      setAnswer("");
-      answerRef.current = "";
-      return;
-    }
-    if (key === "backspace") {
-      const next = answerRef.current.slice(0, -1);
-      answerRef.current = next;
-      setAnswer(next);
-      return;
-    }
-    if (key.startsWith("choice:")) {
-      const selected = key.slice("choice:".length);
-      answerRef.current = selected;
-      setAnswer(displayAnswerInput(selected, current.question));
-      answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(selected, false), 40);
-      return;
-    }
-    if (key === "separator") {
-      const separator = current.question.answerType === "rational" ? "/" : "|";
-      if (!answerRef.current || answerRef.current.includes(separator)) return;
-      const next = `${answerRef.current}${separator}`;
-      answerRef.current = next;
-      setAnswer(displayAnswerInput(next, current.question));
-      return;
-    }
-    if (key === "." && (!current.question.acceptsDecimal || answerRef.current.includes("."))) return;
-
-    const structuredAnswer = ["rational", "quotient-remainder"].includes(current.question.answerType);
-    const expectedInput = String(current.question.answerInput ?? current.question.answerDisplay ?? current.question.answer);
-    const maxLength = structuredAnswer ? 16 : expectedInput.length;
-    const next = `${answerRef.current}${key}`.slice(0, Math.max(1, maxLength));
-    answerRef.current = next;
-    setAnswer(displayAnswerInput(next, current.question));
-
-    if (structuredAnswer) {
-      const separator = current.question.answerType === "rational" ? "/" : "|";
-      if (next.includes(separator) && !next.endsWith(separator)) {
-        const normalized = normalizeUserAnswer(next, current.question);
-        if (normalized != null && answersMatch(normalized, current.question)) {
-          answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(next, false), 40);
-        } else {
-          answerSubmitTimeoutRef.current = window.setTimeout(
-            () => gradeAnswer(next, false),
-            STRUCTURED_ANSWER_DELAY_MS,
-          );
-        }
-      }
-    } else if (isCompleteAnswer(next, current.question)) {
-      answerSubmitTimeoutRef.current = window.setTimeout(() => gradeAnswer(next, false), 40);
-    } else {
-      answerSubmitTimeoutRef.current = window.setTimeout(
-        () => gradeAnswer(next, false),
-        INCOMPLETE_NUMERIC_DELAY_MS,
-      );
-    }
+    const transition = reduceAnswerInput(answerRef.current, key, current.question);
+    answerRef.current = transition.value;
+    setAnswer(transition.value);
+    if (transition.submission) gradeAnswer(transition.value, false);
   }, [feedback, gradeAnswer, paused]);
 
   const pause = useCallback(() => {
     const current = runtimeRef.current;
     if (!current || paused) return;
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
     pausedAtRef.current = Date.now();
     const updated = { ...current, adaptiveSession: pausePracticeSession(current.adaptiveSession) };
     runtimeRef.current = updated;
@@ -438,16 +407,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     setRuntime(updated);
     setPaused(false);
     setNow(Date.now());
-    if (answerRef.current) {
-      const delay = isCompleteAnswer(answerRef.current, current.question)
-        ? 40
-        : INCOMPLETE_NUMERIC_DELAY_MS;
-      answerSubmitTimeoutRef.current = window.setTimeout(
-        () => gradeAnswer(answerRef.current, false),
-        delay,
-      );
-    }
-  }, [gradeAnswer, paused]);
+  }, [paused]);
 
   useEffect(() => {
     function pauseWhenHidden() {
@@ -461,7 +421,6 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     if (!providedRuntime || finishedRef.current) return;
     finishedRef.current = true;
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
-    if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
 
     const endedAt = Date.now();
     const finished = finishPracticeSession(providedRuntime.adaptiveSession, {
@@ -544,6 +503,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     };
     onFinish(summary, config.campaignStage);
     runtimeRef.current = null;
+    answerRef.current = "";
     setRuntime(null);
     setAnswer("");
     setFeedback(null);
@@ -554,8 +514,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     if (!current) return;
     if (!current.adaptiveSession.attempts.length) {
       if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
-      if (answerSubmitTimeoutRef.current) window.clearTimeout(answerSubmitTimeoutRef.current);
       runtimeRef.current = null;
+      answerRef.current = "";
       finishedRef.current = true;
       gradingRef.current = false;
       setRuntime(null);
@@ -593,7 +553,9 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     score: runtime.adaptiveSession.score,
     combo: runtime.adaptiveSession.currentCombo,
     lives: runtime.adaptiveSession.modeState?.lives ?? 3,
-    difficultyLabel: runtime.question?.memorization?.difficultyLabel ?? runtime.adaptiveSession.currentDifficulty,
+    difficultyLabel: runtime.question?.difficultyLabel
+      ?? runtime.question?.memorization?.difficultyLabel
+      ?? runtime.adaptiveSession.currentDifficulty,
     timeProfileLabel: config.modeId === "sprint" ? "Sprint" : getTimeProfile(config.timeProfileId).shortLabel,
     timed,
     targetCount: config.modeId === "sparring"
@@ -605,7 +567,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
 
   return {
     active: Boolean(runtime),
-    answer,
+    answer: runtime?.question ? displayAnswerInput(answer, runtime.question) : answer,
     begin,
     exit,
     feedback,
@@ -641,6 +603,15 @@ async function selectQuestion({ adaptiveSession, config, platformState, recentQu
       recentQuestionIds,
       difficultyMode: memory.difficultyMode ?? "adaptive",
       difficultyTier: memory.difficultyTier ?? "all",
+    });
+  }
+
+  if (config.groupId === INSANE_MIX_GROUP_ID) {
+    return selectInsaneMixQuestion({
+      adaptiveSession,
+      baselineAttempts: platformState.attempts.filter((attempt) =>
+        attempt.groupId === INSANE_MIX_GROUP_ID || attempt.sectionId === INSANE_MIX_GROUP_ID),
+      recentQuestionIds,
     });
   }
 

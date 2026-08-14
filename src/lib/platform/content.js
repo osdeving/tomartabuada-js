@@ -269,11 +269,13 @@ function normalizeFullBookAnswer(answer) {
   }
   if (answer.type === "relative-range") {
     const target = Number(answer.target ?? answer.value);
+    const acceptsDecimal = [target, Number(answer.min), Number(answer.max)]
+      .some((value) => Number.isFinite(value) && !Number.isInteger(value));
     return {
       expected: target,
       display: answer.display ?? String(target),
       inputValue: String(target),
-      acceptsDecimal: !Number.isInteger(target),
+      acceptsDecimal,
       tolerance: 0,
       choices: null,
     };

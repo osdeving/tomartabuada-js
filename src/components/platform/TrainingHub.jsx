@@ -153,7 +153,7 @@ export function TrainingHub({ config, onChange, onOpenArcade, onStart, preview }
           <button className="button button--primary button--xl" type="button" onClick={onStart}>
             Começar treino <span aria-hidden="true">→</span>
           </button>
-          <span className="keyboard-note"><kbd>0–9</kbd> começa a responder · não precisa Enter</span>
+          <span className="keyboard-note"><kbd>0–9</kbd> começa a responder · acertos entram sozinhos · <kbd>Enter</kbd> confirma</span>
         </div>
       </section>
 

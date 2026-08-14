@@ -1,17 +1,25 @@
 export function normalizeUserAnswer(value, question) {
-  if (question.answerType === "boolean") return String(value) === "true";
+  if (question.answerType === "boolean") {
+    if (String(value) === "true") return true;
+    if (String(value) === "false") return false;
+    return null;
+  }
   if (question.answerType === "enum") return String(value);
   if (question.answerType === "quotient-remainder") {
-    const [quotient, remainder] = String(value).split("|").map(Number);
+    const parts = String(value).split("|");
+    if (parts.length !== 2 || parts.some((part) => !part.trim())) return null;
+    const [quotient, remainder] = parts.map(Number);
     return Number.isFinite(quotient) && Number.isFinite(remainder) ? { quotient, remainder } : null;
   }
   if (question.answerType === "rational") {
-    const [numerator, denominator] = String(value).split("/").map(Number);
+    const parts = String(value).split("/");
+    if (parts.length !== 2 || parts.some((part) => !part.trim())) return null;
+    const [numerator, denominator] = parts.map(Number);
     return Number.isFinite(numerator) && Number.isFinite(denominator) && denominator !== 0
       ? { numerator, denominator }
       : null;
   }
-  const normalized = String(value).trim().replace(",", ".");
+  const normalized = String(value).trim().replace("−", "-").replace(",", ".");
   if (!normalized || normalized === ".") return null;
   const numeric = Number(normalized);
   return Number.isFinite(numeric) ? numeric : null;
@@ -53,17 +61,13 @@ export function answersMatch(given, question) {
   return Math.abs(Number(given) - Number(question.answer)) <= Math.max(0.000001, Number(question.tolerance) || 0);
 }
 
-export function isCompleteAnswer(value, question) {
-  if (!value) return false;
-  if (["boolean", "enum"].includes(question.answerType)) return true;
-  if (["rational", "quotient-remainder"].includes(question.answerType)) return false;
-  const expected = String(question.answerInput ?? question.answerDisplay ?? question.answer).replace(",", ".");
-  if (question.acceptsDecimal || question.answerType === "relative-range") {
-    const normalized = normalizeUserAnswer(value, question);
-    return (normalized != null && answersMatch(normalized, question)) || value.length >= expected.length;
-  }
-  return value.length >= expected.length;
+export function isCorrectAnswerInput(value, question) {
+  if (value == null || String(value).trim() === "") return false;
+  const normalized = normalizeUserAnswer(value, question);
+  return normalized != null && answersMatch(normalized, question);
 }
+
+export const isCompleteAnswer = isCorrectAnswerInput;
 
 export function displayAnswerInput(value, question) {
   if (question.answerType === "quotient-remainder") return String(value).replace("|", " R ");

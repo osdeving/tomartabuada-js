@@ -245,8 +245,12 @@ function migrateLegacyState() {
 }
 
 function normalizeSectionStats(rawStats, defaults) {
+  const sectionIds = [...new Set([
+    ...PRACTICE_SECTION_IDS,
+    ...Object.keys(isObject(rawStats) ? rawStats : {}),
+  ])];
   return Object.fromEntries(
-    PRACTICE_SECTION_IDS.map((sectionId) => {
+    sectionIds.map((sectionId) => {
       const raw = isObject(rawStats?.[sectionId]) ? rawStats[sectionId] : {};
       return [
         sectionId,
