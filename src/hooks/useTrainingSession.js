@@ -25,11 +25,25 @@ import {
   selectInsaneMixQuestion,
 } from "../lib/platform/insaneMix";
 import { reduceAnswerInput } from "../lib/platform/sessionInput";
+import { useTrainingAudio } from "./useTrainingAudio";
 
 const TIME_TICK_MS = 80;
 const UNTYPED_ANSWER_DELAY_MS = 1_350;
 
 export function useTrainingSession({ config, platformState, onAttempt, onFinish }) {
+  const {
+    finishSession: finishAudioSession,
+    pause: pauseAudio,
+    playEffect: playAudioEffect,
+    resume: resumeAudio,
+    startSession: startAudioSession,
+    stop: stopAudio,
+    unlock: unlockTrainingAudio,
+    updateSession: updateAudioSession,
+  } = useTrainingAudio({
+    effectsEnabled: config.settings?.soundEffects !== false,
+    musicEnabled: config.settings?.music !== false,
+  });
   const [runtime, setRuntime] = useState(null);
   const [answer, setAnswer] = useState("");
   const [feedback, setFeedback] = useState(null);
@@ -42,12 +56,16 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const questionStartRef = useRef(Date.now());
   const deadlineRef = useRef(null);
   const advanceTimeoutRef = useRef(null);
+  const beginTokenRef = useRef(0);
   const levelNoticeTimeoutRef = useRef(null);
   const finishedRef = useRef(false);
   const gradingRef = useRef(false);
   const pausedAtRef = useRef(null);
   const recentQuestionIdsRef = useRef([]);
   const announcedLevelNoticesRef = useRef(new Set());
+  const audioSessionPrimedRef = useRef(false);
+  const tickDeadlineRef = useRef(null);
+  const tickSecondRef = useRef(null);
 
   useEffect(() => { runtimeRef.current = runtime; }, [runtime]);
   useEffect(() => { answerRef.current = answer; }, [answer]);
@@ -67,6 +85,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   }, []);
 
   const begin = useCallback(async () => {
+    const beginToken = beginTokenRef.current + 1;
+    beginTokenRef.current = beginToken;
     if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
     finishedRef.current = false;
     gradingRef.current = false;
@@ -106,6 +126,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       }),
       config,
     );
+    if (beginToken !== beginTokenRef.current) return false;
     if (!question) throw new Error("Nenhuma conta corresponde a esta configuração.");
     const startedAt = Date.now();
 
@@ -131,7 +152,29 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       sessionDeadline: config.modeId === "sprint" ? startedAt + 60_000 : null,
       bestCombo: 0,
     });
-  }, [config, platformState, showLevelNotice]);
+    tickDeadlineRef.current = null;
+    tickSecondRef.current = null;
+    const audioState = buildTrainingAudioState(config, adaptiveSession, question);
+    if (audioSessionPrimedRef.current) {
+      audioSessionPrimedRef.current = false;
+      updateAudioSession(audioState);
+    } else {
+      startAudioSession(audioState);
+    }
+    return true;
+  }, [config, platformState, showLevelNotice, startAudioSession, updateAudioSession]);
+
+  const unlockAudio = useCallback((nextConfig = config) => {
+    audioSessionPrimedRef.current = true;
+    startAudioSession(buildTrainingAudioState(nextConfig));
+    return unlockTrainingAudio();
+  }, [config, startAudioSession, unlockTrainingAudio]);
+
+  const cancelPendingBegin = useCallback(() => {
+    beginTokenRef.current += 1;
+    audioSessionPrimedRef.current = false;
+    stopAudio();
+  }, [stopAudio]);
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
@@ -155,6 +198,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   }, [now, runtime, paused, feedback]);
 
   useEffect(() => () => {
+    beginTokenRef.current += 1;
     if (advanceTimeoutRef.current) window.clearTimeout(advanceTimeoutRef.current);
     if (levelNoticeTimeoutRef.current) window.clearTimeout(levelNoticeTimeoutRef.current);
   }, []);
@@ -253,7 +297,18 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     };
 
     onAttempt(attempt);
-    providePhysicalFeedback(correct, config.settings);
+    provideHapticFeedback(correct, config.settings);
+    const comboMilestone = correct && result.event.combo >= 5 && result.event.combo % 5 === 0;
+    playAudioEffect(comboMilestone ? "combo" : correct ? "correct" : "wrong", {
+      combo: result.event.combo,
+      voiceCue: comboMilestone
+        ? "congratulations"
+        : correct && result.event.combo === 3
+          ? "correct"
+          : !correct && current.wrong === 0
+            ? "wrong"
+            : false,
+    });
     setFeedback({
       tone: correct ? "success" : "danger",
       title: effectiveTimeout ? "Tempo esgotado" : correct ? comboMessage?.message ?? correctMessage(result.event.combo) : "Quase — ajuste o padrão",
@@ -288,7 +343,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       const shouldFinish =
         latest.adaptiveSession.status === "game-over" ||
         (config.modeId === "sparring" && latest.answered >= config.questionCount) ||
-        (config.modeId === "campanha" && latest.answered >= config.campaignStage.questionCount) ||
+        (config.modeId === "campanha"
+          && latest.answered >= (config.campaignStage?.questionCount ?? config.questionCount ?? 1)) ||
         (config.modeId === "sprint" && latest.sessionDeadline && Date.now() >= latest.sessionDeadline);
 
       if (shouldFinish) {
@@ -331,7 +387,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       showLevelNotice(nextQuestion);
       gradingRef.current = false;
     }, getFeedbackDelay(config));
-  }, [config, feedback, onAttempt, paused, platformState, showLevelNotice]);
+  }, [config, feedback, onAttempt, paused, platformState, playAudioEffect, showLevelNotice]);
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
@@ -390,12 +446,14 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     runtimeRef.current = updated;
     setRuntime(updated);
     setPaused(true);
-  }, [paused]);
+    pauseAudio({ immediate: true });
+  }, [pauseAudio, paused]);
 
   const resume = useCallback(() => {
     const current = runtimeRef.current;
     if (!current || !paused) return;
-    const pausedDuration = Date.now() - (pausedAtRef.current ?? Date.now());
+    const resumedAt = Date.now();
+    const pausedDuration = resumedAt - (pausedAtRef.current ?? resumedAt);
     questionStartRef.current += pausedDuration;
     if (deadlineRef.current != null) deadlineRef.current += pausedDuration;
     const updated = {
@@ -406,8 +464,17 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     runtimeRef.current = updated;
     setRuntime(updated);
     setPaused(false);
-    setNow(Date.now());
-  }, [paused]);
+    setNow(resumedAt);
+    const audioRemainingRatio = updated.sessionDeadline
+      ? Math.max(0, (updated.sessionDeadline - resumedAt) / 60_000)
+      : 1;
+    resumeAudio(buildTrainingAudioState(
+      config,
+      updated.adaptiveSession,
+      updated.question,
+      audioRemainingRatio,
+    ));
+  }, [config, paused, resumeAudio]);
 
   useEffect(() => {
     function pauseWhenHidden() {
@@ -482,6 +549,11 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       passed,
       stars: getCampaignStars(accuracy),
       campaignStageId: config.campaignStage?.id ?? null,
+      trainingContext: config.campaignStage
+        ? "campaign"
+        : isTheoryTraining(config)
+          ? "theory"
+          : "standard",
       isNewRecord: finished.session.score > previousBest && previousBest > 0,
       headline: passed ? headlineFor(accuracy, finished.session.bestCombo, averagePaceRatio) : "Mais uma rodada e você passa",
       message: passed
@@ -501,13 +573,20 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
             ? { kind: "progress", title: "Precisão firme", detail: "Os acertos estão bons. Agora o treino vai repetir o que ainda demora até a resposta ficar automática." }
           : null,
     };
+    finishAudioSession({
+      success: passed && accuracy >= 0.7,
+      timedOut: config.modeId === "sprint" && providedRuntime.sessionDeadline != null && endedAt >= providedRuntime.sessionDeadline,
+      gameOver: config.modeId === "sobrevivencia" && finished.session.status === "game-over",
+      isNewRecord: summary.isNewRecord,
+    });
+    audioSessionPrimedRef.current = false;
     onFinish(summary, config.campaignStage);
     runtimeRef.current = null;
     answerRef.current = "";
     setRuntime(null);
     setAnswer("");
     setFeedback(null);
-  }, [config, onFinish, platformState.records.bestScore, platformState.sessions]);
+  }, [config, finishAudioSession, onFinish, platformState.records.bestScore, platformState.sessions]);
 
   const exit = useCallback(() => {
     const current = runtimeRef.current;
@@ -521,10 +600,12 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       setRuntime(null);
       setAnswer("");
       setFeedback(null);
+      audioSessionPrimedRef.current = false;
+      stopAudio();
       return;
     }
     finalize(current);
-  }, [finalize]);
+  }, [finalize, stopAudio]);
   const mode = getSessionMode(config.modeId);
   const group = getPracticeGroup(config.groupId);
   const memorizationOperation = getMemorizationOperation(config.memorization?.operationId);
@@ -543,6 +624,34 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       ? Math.max(0, (runtime.sessionDeadline - now) / 60_000)
       : remainingMs == null ? null : Math.max(0, remainingMs / questionWindowMs)
     : 0;
+  const remainingSecond = remainingMs == null ? null : Math.ceil(remainingMs / 1_000);
+  const audioRemainingRatio = config.modeId === "sprint" && remainingRatio <= 0.25 ? 0.2 : 1;
+
+  useEffect(() => {
+    if (!runtime || paused || finishedRef.current) return;
+    updateAudioSession(buildTrainingAudioState(
+      config,
+      runtime.adaptiveSession,
+      runtime.question,
+      audioRemainingRatio,
+    ));
+  }, [audioRemainingRatio, config, paused, runtime, updateAudioSession]);
+
+  useEffect(() => {
+    if (!runtime || paused || feedback || finishedRef.current) return;
+    const activeDeadline = runtime.sessionDeadline ?? deadlineRef.current;
+    if (activeDeadline !== tickDeadlineRef.current) {
+      tickDeadlineRef.current = activeDeadline;
+      tickSecondRef.current = null;
+    }
+    if (activeDeadline == null || remainingSecond == null || remainingSecond <= 0 || remainingSecond > 5) return;
+    if (tickSecondRef.current === remainingSecond) return;
+    tickSecondRef.current = remainingSecond;
+    playAudioEffect("tick", {
+      hurry: remainingSecond === 5,
+      voiceCue: remainingSecond === 5 ? "hurry" : false,
+    });
+  }, [feedback, paused, playAudioEffect, remainingSecond, runtime]);
   const publicSession = useMemo(() => runtime ? {
     ...runtime,
     modeId: config.modeId,
@@ -561,7 +670,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     targetCount: config.modeId === "sparring"
       ? config.questionCount
       : config.modeId === "campanha"
-        ? config.campaignStage.questionCount
+        ? config.campaignStage?.questionCount ?? config.questionCount ?? null
         : null,
   } : null, [runtime, config, mode.label, group.label, memorizationOperation.label, timed]);
 
@@ -569,6 +678,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     active: Boolean(runtime),
     answer: runtime?.question ? displayAnswerInput(answer, runtime.question) : answer,
     begin,
+    cancelPendingBegin,
     exit,
     feedback,
     handleAnswerKey,
@@ -580,6 +690,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     remainingRatio,
     resume,
     session: publicSession,
+    stopAudio,
+    unlockAudio,
   };
 }
 
@@ -684,23 +796,30 @@ function memorizationScopeKey(memory = {}) {
   return `${operationId}:${presets}:${difficultyMode}:${tier}`;
 }
 
-function providePhysicalFeedback(correct, settings) {
+function provideHapticFeedback(correct, settings) {
   if (settings.haptics && navigator.vibrate) navigator.vibrate(correct ? 28 : [50, 40, 50]);
-  if (!settings.sound || typeof AudioContext === "undefined") return;
-  try {
-    const context = new AudioContext();
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    oscillator.frequency.value = correct ? 660 : 190;
-    gain.gain.setValueAtTime(0.035, context.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.12);
-    oscillator.connect(gain).connect(context.destination);
-    oscillator.start();
-    oscillator.stop(context.currentTime + 0.12);
-    oscillator.addEventListener("ended", () => context.close());
-  } catch {
-    // Áudio é melhoria progressiva; o treino continua silenciosamente.
-  }
+}
+
+function buildTrainingAudioState(config, adaptiveSession = null, question = null, remainingRatio = 1) {
+  return {
+    modeId: config.modeId,
+    groupId: config.groupId,
+    timeProfileId: config.timeProfileId,
+    difficulty: question?.difficulty ?? adaptiveSession?.currentDifficulty,
+    difficultyRating: question?.difficultyRating,
+    wave: adaptiveSession?.modeState?.wave,
+    lives: adaptiveSession?.modeState?.lives,
+    remainingRatio,
+  };
+}
+
+function isTheoryTraining(config) {
+  return Boolean(
+    config.chapterOrder
+    || config.theoryTopicIds
+    || config.sectionIds
+    || config.sourceChapterOrder,
+  );
 }
 
 function correctMessage(combo) {

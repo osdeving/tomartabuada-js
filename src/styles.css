@@ -3562,6 +3562,45 @@ kbd {
   line-height: 1.5;
 }
 
+.pause-audio-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.pause-audio-controls button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 8px;
+  align-items: center;
+  min-height: 54px;
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  color: var(--text);
+  text-align: left;
+  background: var(--surface-soft);
+}
+
+.pause-audio-controls button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  background: var(--accent-soft);
+}
+
+.pause-audio-controls button span {
+  grid-row: 1 / 3;
+  color: var(--accent-strong);
+  font-size: 1.1rem;
+}
+
+.pause-audio-controls button strong {
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
 .pause-card .button + .button {
   margin-top: 8px;
 }

@@ -1,6 +1,6 @@
 const CACHE_PREFIX = "calculo-mental";
-const SHELL_CACHE = `${CACHE_PREFIX}-shell-v2`;
-const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v2`;
+const SHELL_CACHE = `${CACHE_PREFIX}-shell-v3`;
+const RUNTIME_CACHE = `${CACHE_PREFIX}-runtime-v3`;
 const APP_SCOPE = new URL("./", self.registration.scope);
 
 const CORE_PATHS = [
@@ -18,7 +18,9 @@ const urlFromScope = (path) => new URL(path, APP_SCOPE).href;
 const canCache = (response) => response.ok || response.type === "opaque";
 
 async function putInCache(cacheName, request, response) {
-  if (!canCache(response)) return;
+  // CacheStorage rejeita respostas parciais (comuns em reprodução de áudio).
+  // O arquivo completo já entra no app shell pelo manifest de produção.
+  if (!canCache(response) || response.status === 206) return;
   const cache = await caches.open(cacheName);
   await cache.put(request, response);
 }
@@ -123,6 +125,47 @@ async function staleWhileRevalidate(request) {
   return cached || network;
 }
 
+async function audioRangeResponse(request) {
+  const rangeHeader = request.headers.get("range");
+  const match = /^bytes=(\d*)-(\d*)$/i.exec(rangeHeader ?? "");
+  if (!match || (!match[1] && !match[2])) return fetch(request);
+
+  try {
+    const cached = await caches.match(request, { ignoreSearch: false });
+    if (!cached || cached.status !== 200 || cached.type === "opaque") return fetch(request);
+
+    const bytes = await cached.arrayBuffer();
+    const total = bytes.byteLength;
+    const suffixLength = match[1] ? null : Number(match[2]);
+    const start = suffixLength == null
+      ? Number(match[1])
+      : Math.max(0, total - suffixLength);
+    const end = match[2] && suffixLength == null
+      ? Math.min(Number(match[2]), total - 1)
+      : total - 1;
+
+    if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || start > end || start >= total) {
+      return new Response(null, {
+        status: 416,
+        headers: { "Content-Range": `bytes */${total}` },
+      });
+    }
+
+    const headers = new Headers(cached.headers);
+    headers.delete("Content-Encoding");
+    headers.set("Accept-Ranges", "bytes");
+    headers.set("Content-Length", String(end - start + 1));
+    headers.set("Content-Range", `bytes ${start}-${end}/${total}`);
+    return new Response(bytes.slice(start, end + 1), {
+      status: 206,
+      statusText: "Partial Content",
+      headers,
+    });
+  } catch {
+    return fetch(request);
+  }
+}
+
 async function networkFirst(request) {
   try {
     const response = await fetch(request);
@@ -145,7 +188,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  const cacheableDestination = ["font", "image", "script", "style", "manifest"].includes(
+  if (request.destination === "audio" && request.headers.has("range")) {
+    event.respondWith(audioRangeResponse(request));
+    return;
+  }
+
+  const cacheableDestination = ["audio", "font", "image", "script", "style", "manifest"].includes(
     request.destination,
   );
 

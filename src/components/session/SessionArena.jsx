@@ -7,10 +7,12 @@ const STRUCTURED_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "separator
 
 export function SessionArena({
   answer,
+  audioSettings,
   feedback,
   levelNotice,
   nudge,
   onAnswerKey,
+  onAudioSettingsChange,
   onExit,
   onPause,
   onResume,
@@ -163,6 +165,24 @@ export function SessionArena({
             <p className="eyebrow">Respire</p>
             <h2 id="pause-title">Sessão pausada</h2>
             <p>Seu tempo está congelado. Volte quando estiver pronto para manter o foco.</p>
+            <div className="pause-audio-controls" aria-label="Áudio da sessão">
+              <button
+                type="button"
+                aria-pressed={audioSettings.music}
+                onClick={() => onAudioSettingsChange({ music: !audioSettings.music })}
+              >
+                <span aria-hidden="true">♫</span>
+                Música <strong>{audioSettings.music ? "ligada" : "desligada"}</strong>
+              </button>
+              <button
+                type="button"
+                aria-pressed={audioSettings.soundEffects}
+                onClick={() => onAudioSettingsChange({ soundEffects: !audioSettings.soundEffects })}
+              >
+                <span aria-hidden="true">✦</span>
+                Efeitos <strong>{audioSettings.soundEffects ? "ligados" : "desligados"}</strong>
+              </button>
+            </div>
             <button ref={resumeButtonRef} className="button button--primary button--large" type="button" onClick={onResume}>Continuar</button>
             <button className="button button--quiet" type="button" onClick={onExit}>Encerrar e salvar</button>
           </div>

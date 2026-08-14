@@ -25,7 +25,8 @@ export function SettingsDrawer({ installAvailable, onClose, onExport, onInstall,
           <section className="settings-section">
             <div><h3>Experiência</h3><p>Ajustes válidos também durante as sessões.</p></div>
             <div className="setting-list">
-              <SettingToggle label="Som de feedback" detail="Sinais curtos para acerto, erro e recorde." checked={settings.sound} onChange={(value) => onUpdate({ sound: value })} />
+              <SettingToggle label="Música de fundo" detail="Trilha calma no treino leve e mais urgente na Sobrevivência, Sprint e Mix Insana." checked={settings.music} onChange={(value) => onUpdate({ music: value })} />
+              <SettingToggle label="Efeitos sonoros" detail="Sinais e reações de voz para início, acerto, erro, combo e contagem regressiva." checked={settings.soundEffects} onChange={(value) => onUpdate({ soundEffects: value })} />
               <SettingToggle label="Resposta tátil" detail="Uma vibração discreta em aparelhos compatíveis." checked={settings.haptics} onChange={(value) => onUpdate({ haptics: value })} />
               <SettingToggle label="Reduzir movimento" detail="Desliga tremor, pulso e celebrações animadas." checked={settings.reducedMotion} onChange={(value) => onUpdate({ reducedMotion: value })} />
               <SettingToggle label="Coach de descanso" detail="Observa queda incomum no desempenho e sugere uma pausa." checked={settings.autoRestCoach} onChange={(value) => onUpdate({ autoRestCoach: value })} />
@@ -67,4 +68,3 @@ function SettingToggle({ checked, detail, label, onChange }) {
     </label>
   );
 }
-

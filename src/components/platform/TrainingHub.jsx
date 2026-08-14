@@ -25,7 +25,7 @@ const PRACTICE_KINDS = [
   },
 ];
 
-export function TrainingHub({ config, onChange, onOpenArcade, onStart, preview }) {
+export function TrainingHub({ config, onChange, onOpenArcade, onStart, preview, starting = false }) {
   const practiceKind = config.practiceKind ?? "adaptive";
   const activeMode = SESSION_MODES.find((mode) => mode.id === config.modeId) ?? SESSION_MODES[0];
   const memoryOperation = MEMORIZATION_OPERATIONS.find((item) => item.id === config.memorization?.operationId)
@@ -150,8 +150,8 @@ export function TrainingHub({ config, onChange, onOpenArcade, onStart, preview }
         </div>
 
         <div className="launch-card__actions">
-          <button className="button button--primary button--xl" type="button" onClick={onStart}>
-            Começar treino <span aria-hidden="true">→</span>
+          <button className="button button--primary button--xl" type="button" disabled={starting} onClick={onStart}>
+            {starting ? "Preparando treino…" : "Começar treino"} {!starting ? <span aria-hidden="true">→</span> : null}
           </button>
           <span className="keyboard-note"><kbd>0–9</kbd> começa a responder · acertos entram sozinhos · <kbd>Enter</kbd> confirma</span>
         </div>
