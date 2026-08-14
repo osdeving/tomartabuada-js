@@ -30,7 +30,7 @@ import { useTrainingAudio } from "./useTrainingAudio";
 const TIME_TICK_MS = 80;
 const UNTYPED_ANSWER_DELAY_MS = 1_350;
 
-export function useTrainingSession({ config, platformState, onAttempt, onFinish }) {
+export function useTrainingSession({ actorId = null, config, platformState, onAttempt, onFinish }) {
   const {
     finishSession: finishAudioSession,
     pause: pauseAudio,
@@ -66,6 +66,10 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
   const audioSessionPrimedRef = useRef(false);
   const tickDeadlineRef = useRef(null);
   const tickSecondRef = useRef(null);
+  const learnerPlatformState = useMemo(
+    () => selectActorTrainingState(platformState, actorId),
+    [actorId, platformState],
+  );
 
   useEffect(() => { runtimeRef.current = runtime; }, [runtime]);
   useEffect(() => { answerRef.current = answer; }, [answer]);
@@ -105,23 +109,24 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       ? Math.max(1, Math.min(10, config.campaignStage.order))
       : config.groupId === INSANE_MIX_GROUP_ID
         ? 1
-        : inferStartingDifficulty(platformState.attempts, difficultyGroupId);
+        : inferStartingDifficulty(learnerPlatformState.attempts, difficultyGroupId);
     const groupIds = config.practiceKind === "memorization"
       ? [memorizationSectionId]
       : getPracticeGroup(config.groupId).sectionIds;
     const adaptiveSession = createPracticeSession({
-      id: `session-${Date.now()}`,
+      id: createTrainingSessionId(),
       mode: adaptiveMode,
       groupIds,
       difficulty,
       lives: 3,
       inputMode: "custom-keypad",
+      userId: actorId ?? undefined,
     });
     const question = applyTimeProfile(
       await selectQuestion({
         adaptiveSession,
         config,
-        platformState,
+        platformState: learnerPlatformState,
         recentQuestionIds: [],
       }),
       config,
@@ -162,7 +167,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       startAudioSession(audioState);
     }
     return true;
-  }, [config, platformState, showLevelNotice, startAudioSession, updateAudioSession]);
+  }, [actorId, config, learnerPlatformState, showLevelNotice, startAudioSession, updateAudioSession]);
 
   const unlockAudio = useCallback((nextConfig = config) => {
     audioSessionPrimedRef.current = true;
@@ -256,8 +261,8 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         timestamp: answeredAt,
       },
       {
-        previousSessions: platformState.sessions,
-        baselineAttempts: platformState.attempts,
+        previousSessions: learnerPlatformState.sessions,
+        baselineAttempts: learnerPlatformState.attempts,
         theoryIndex: THEORY_INDEX,
         now: answeredAt,
       },
@@ -362,7 +367,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
         await selectQuestion({
           adaptiveSession: latest.adaptiveSession,
           config,
-          platformState,
+          platformState: learnerPlatformState,
           recentQuestionIds: nextRecentQuestionIds,
         }),
         config,
@@ -387,7 +392,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
       showLevelNotice(nextQuestion);
       gradingRef.current = false;
     }, getFeedbackDelay(config));
-  }, [config, feedback, onAttempt, paused, platformState, playAudioEffect, showLevelNotice]);
+  }, [config, feedback, learnerPlatformState, onAttempt, paused, playAudioEffect, showLevelNotice]);
 
   useEffect(() => {
     if (!runtime || paused || finishedRef.current) return undefined;
@@ -492,7 +497,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     const endedAt = Date.now();
     const finished = finishPracticeSession(providedRuntime.adaptiveSession, {
       endedAt,
-      previousSessions: platformState.sessions,
+      previousSessions: learnerPlatformState.sessions,
       theoryIndex: THEORY_INDEX,
     });
     const attempts = finished.session.attempts;
@@ -512,13 +517,20 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     const recordKey = config.practiceKind === "memorization"
       ? `${config.modeId}:memorization:${memoryScope}:${config.timeProfileId}`
       : `${config.modeId}:${config.groupId}:${config.timeProfileId}`;
-    const previousBest = Number(platformState.records.bestScore[recordKey])
-      || Number(platformState.records.bestScore[`${config.modeId}:${summaryGroupId}`])
-      || 0;
+    const previousBest = previousActorBest(
+      learnerPlatformState.sessions,
+      recordKey,
+      config.modeId,
+      summaryGroupId,
+    ) || (!actorId && !platformState.sessions.some((session) => session.userId)
+      ? Number(platformState.records.bestScore[recordKey])
+        || Number(platformState.records.bestScore[`${config.modeId}:${summaryGroupId}`])
+      : 0);
     const passed = config.campaignStage ? accuracy >= config.campaignStage.targetAccuracy : true;
     const theoryRecommendation = finished.report.theoryRecommendations?.[0];
     const summary = {
       id: finished.session.id,
+      userId: finished.session.userId || null,
       modeId: config.modeId,
       groupId: summaryGroupId,
       recordKey,
@@ -586,7 +598,7 @@ export function useTrainingSession({ config, platformState, onAttempt, onFinish 
     setRuntime(null);
     setAnswer("");
     setFeedback(null);
-  }, [config, finishAudioSession, onFinish, platformState.records.bestScore, platformState.sessions]);
+  }, [actorId, config, finishAudioSession, learnerPlatformState.sessions, onFinish, platformState.records.bestScore, platformState.sessions]);
 
   const exit = useCallback(() => {
     const current = runtimeRef.current;
@@ -701,6 +713,34 @@ function inferStartingDifficulty(attempts, groupId) {
   const accuracy = relevant.filter((attempt) => attempt.correct).length / relevant.length;
   const averageLevel = relevant.reduce((sum, attempt) => sum + (Number(attempt.difficulty) || 3), 0) / relevant.length;
   return Math.max(1, Math.min(10, Math.round(averageLevel + (accuracy >= 0.88 ? 1 : accuracy < 0.6 ? -1 : 0))));
+}
+
+function selectActorTrainingState(platformState, actorId) {
+  const normalizedActorId = String(actorId ?? "").trim();
+  const belongsToActor = (entry) => String(entry?.userId ?? "").trim() === normalizedActorId;
+
+  return {
+    ...platformState,
+    attempts: platformState.attempts.filter(belongsToActor),
+    sessions: platformState.sessions.filter(belongsToActor),
+  };
+}
+
+function previousActorBest(sessions, recordKey, modeId, groupId) {
+  return sessions.reduce((best, session) => {
+    const sameRecord = session.recordKey === recordKey;
+    const legacyRecord = !session.recordKey
+      && session.modeId === modeId
+      && session.groupId === groupId;
+    return sameRecord || legacyRecord
+      ? Math.max(best, Number(session.score) || 0)
+      : best;
+  }, 0);
+}
+
+function createTrainingSessionId() {
+  if (globalThis.crypto?.randomUUID) return `session-${globalThis.crypto.randomUUID()}`;
+  return `session-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
 }
 
 async function selectQuestion({ adaptiveSession, config, platformState, recentQuestionIds }) {

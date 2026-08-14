@@ -10,6 +10,9 @@ export function SessionSummary({ onClose, onRetry, onReviewTheory, summary }) {
         <p className="summary-card__copy">{summary.message}</p>
 
         {summary.isNewRecord ? <div className="record-banner">🏆 Novo recorde pessoal: {summary.score.toLocaleString("pt-BR")} pontos</div> : null}
+        {summary.communityContribution ? (
+          <CommunityReceipt contribution={summary.communityContribution} />
+        ) : null}
 
         <div className="summary-metrics">
           <SummaryMetric label="Precisão" value={`${accuracy}%`} detail={`${summary.correct} de ${summary.answered}`} />
@@ -34,6 +37,32 @@ export function SessionSummary({ onClose, onRetry, onReviewTheory, summary }) {
         </div>
       </section>
     </main>
+  );
+}
+
+function CommunityReceipt({ contribution }) {
+  const clanLabel = contribution.clanTag ? `[${contribution.clanTag}]` : contribution.clanName;
+  const pending = contribution.status === "pending";
+  const failed = contribution.status === "failed";
+
+  return (
+    <div
+      className={`community-receipt${failed ? " community-receipt--error" : ""}`}
+      role={failed ? "alert" : "status"}
+      aria-live="polite"
+    >
+      <span aria-hidden="true">{pending ? "…" : failed ? "!" : "◆"}</span>
+      <div>
+        <strong>{pending
+          ? "Somando seus pontos ao clã…"
+          : failed
+            ? "A pontuação comunitária não foi sincronizada"
+            : `+${contribution.points.toLocaleString("pt-BR")} pontos para ${clanLabel}`}</strong>
+        <p>{contribution.message ?? (contribution.disputeScored
+          ? "A rodada também entrou no placar da disputa."
+          : "A contribuição já aparece no ranking coletivo.")}</p>
+      </div>
+    </div>
   );
 }
 

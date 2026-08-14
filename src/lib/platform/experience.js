@@ -2,6 +2,7 @@ export const APP_VIEWS = [
   { id: "inicio", label: "Início", shortLabel: "Início", icon: "⌂" },
   { id: "treinar", label: "Treinar", shortLabel: "Treino", icon: "⚡" },
   { id: "campanha", label: "Campanha", shortLabel: "Jornada", icon: "◆" },
+  { id: "clas", label: "Clãs", shortLabel: "Clãs", icon: "♜" },
   { id: "teoria", label: "Teoria", shortLabel: "Teoria", icon: "◫" },
   { id: "relatorios", label: "Relatórios", shortLabel: "Dados", icon: "↗" },
 ];
