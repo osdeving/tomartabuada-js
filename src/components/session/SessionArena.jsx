@@ -1,16 +1,18 @@
 import { useEffect, useRef } from "react";
 import { MathExpression } from "../MathExpression";
 
-const INTEGER_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "clear", "0", "backspace"];
-const DECIMAL_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "backspace"];
-const STRUCTURED_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "separator", "0", "backspace"];
+const INTEGER_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "clear", "0", "backspace", "sign", "submit"];
+const DECIMAL_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", ".", "0", "backspace", "sign", "submit"];
+const STRUCTURED_KEYS = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "separator", "0", "backspace", "sign", "submit"];
 
 export function SessionArena({
   answer,
+  audioSettings,
   feedback,
   levelNotice,
   nudge,
   onAnswerKey,
+  onAudioSettingsChange,
   onExit,
   onPause,
   onResume,
@@ -23,6 +25,10 @@ export function SessionArena({
   const pauseDialogRef = useRef(null);
   const resumeButtonRef = useRef(null);
   const question = session.question;
+  const expressionLength = String(question?.promptLatex ?? question?.prompt ?? "").length;
+  const expressionDensity = expressionLength > 72
+    ? " is-dense"
+    : expressionLength > 34 ? " is-long" : "";
 
   useEffect(() => {
     if (paused) resumeButtonRef.current?.focus({ preventScroll: true });
@@ -103,13 +109,16 @@ export function SessionArena({
         <div className="session-question" key={question?.id} aria-live="polite" aria-atomic="true">
           <p>Resolva mentalmente</p>
           {question?.promptLatex ? (
-            <MathExpression expression={question.promptLatex} displayMode className="session-question__math" />
+            <MathExpression expression={question.promptLatex} displayMode className={`session-question__math${expressionDensity}`} />
           ) : (
             <strong className="session-question__text">{question?.prompt}</strong>
           )}
         </div>
 
-        <div className={`session-answer${answer ? " has-value" : ""}`} aria-label={answer ? `Resposta ${answer}` : "Aguardando resposta"}>
+        <div
+          className={`session-answer${answer ? " has-value" : ""}${String(answer).length > 14 ? " is-dense" : String(answer).length > 8 ? " is-long" : ""}`}
+          aria-label={answer ? `Resposta ${answer}` : "Aguardando resposta"}
+        >
           <span>{answer || "_"}</span>
           <i />
         </div>
@@ -126,7 +135,7 @@ export function SessionArena({
               <p><strong>{nudge.title}</strong>{nudge.detail}</p>
             </div>
           ) : (
-            <p className="typing-hint"><kbd>0–9</kbd> Digite e continue. A resposta entra sozinha.</p>
+            <p className="typing-hint"><kbd>0–9</kbd> Acertos entram sozinhos. Use <kbd>Enter</kbd> para confirmar outra resposta.</p>
           )}
         </div>
       </section>
@@ -156,6 +165,24 @@ export function SessionArena({
             <p className="eyebrow">Respire</p>
             <h2 id="pause-title">Sessão pausada</h2>
             <p>Seu tempo está congelado. Volte quando estiver pronto para manter o foco.</p>
+            <div className="pause-audio-controls" aria-label="Áudio da sessão">
+              <button
+                type="button"
+                aria-pressed={audioSettings.music}
+                onClick={() => onAudioSettingsChange({ music: !audioSettings.music })}
+              >
+                <span aria-hidden="true">♫</span>
+                Música <strong>{audioSettings.music ? "ligada" : "desligada"}</strong>
+              </button>
+              <button
+                type="button"
+                aria-pressed={audioSettings.soundEffects}
+                onClick={() => onAudioSettingsChange({ soundEffects: !audioSettings.soundEffects })}
+              >
+                <span aria-hidden="true">✦</span>
+                Efeitos <strong>{audioSettings.soundEffects ? "ligados" : "desligados"}</strong>
+              </button>
+            </div>
             <button ref={resumeButtonRef} className="button button--primary button--large" type="button" onClick={onResume}>Continuar</button>
             <button className="button button--quiet" type="button" onClick={onExit}>Encerrar e salvar</button>
           </div>
@@ -174,7 +201,7 @@ function SessionKeypad({ acceptsDecimal, answerType, disabled, onAnswerKey }) {
       {keys.map((key) => (
         <button
           key={key}
-          className={`session-key${key === "clear" || key === "backspace" ? " session-key--utility" : ""}`}
+          className={`session-key${["clear", "backspace", "sign"].includes(key) ? " session-key--utility" : ""}${key === "submit" ? " session-key--submit" : ""}`}
           type="button"
           disabled={disabled}
           aria-label={key === "clear"
@@ -185,6 +212,10 @@ function SessionKeypad({ acceptsDecimal, answerType, disabled, onAnswerKey }) {
                 ? "Vírgula decimal"
                 : key === "separator"
                   ? answerType === "rational" ? "Barra da fração" : "Separar quociente e resto"
+                  : key === "sign"
+                    ? "Alternar sinal"
+                    : key === "submit"
+                      ? "Confirmar resposta"
                   : key}
           onPointerDown={(event) => event.preventDefault()}
           onClick={() => onAnswerKey(key)}
@@ -195,7 +226,11 @@ function SessionKeypad({ acceptsDecimal, answerType, disabled, onAnswerKey }) {
               ? "⌫"
               : key === "."
                 ? ","
-                : key === "separator" ? answerType === "rational" ? "/" : "R" : key}
+                : key === "separator"
+                  ? answerType === "rational" ? "/" : "R"
+                  : key === "sign"
+                    ? "±"
+                    : key === "submit" ? "enter" : key}
         </button>
       ))}
     </div>

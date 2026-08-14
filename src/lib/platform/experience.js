@@ -16,6 +16,15 @@ export const PRACTICE_GROUPS = [
     sectionIds: ["tabuada", "adicao", "subtracao", "divisao", "quadrado", "tricks"],
   },
   {
+    id: "mix-insano",
+    label: "Mix Insana",
+    shortLabel: "Insana",
+    description: "Começa leve, lê sua precisão e seu ritmo, e libera contas compostas cada vez mais cabulosas.",
+    color: "pink",
+    sectionIds: ["mix-insano"],
+    generatorId: "insane-mix",
+  },
+  {
     id: "base",
     label: "Fundamentos",
     shortLabel: "Base",

@@ -52,8 +52,17 @@ test("aceita frações equivalentes", () => {
   };
   assert.equal(grade("12/70", question), true);
   assert.equal(grade("6/34", question), false);
-  assert.equal(isCompleteAnswer("6/35", question), false, "frações aguardam a pausa de digitação");
+  assert.equal(isCompleteAnswer("6/35", question), true, "frações corretas podem entrar automaticamente");
+  assert.equal(normalizeUserAnswer("35|", { answerType: "quotient-remainder" }), null);
+  assert.equal(normalizeUserAnswer("6/", question), null);
   assert.equal(serializeUserAnswer(normalizeUserAnswer("12/70", question)), "12/70");
+});
+
+test("só considera completa uma resposta que realmente confere", () => {
+  const question = { answerType: "exact-number", answer: 41, answerInput: "41" };
+  assert.equal(isCompleteAnswer("4", question), false);
+  assert.equal(isCompleteAnswer("42", question), false);
+  assert.equal(isCompleteAnswer("41", question), true);
 });
 
 test("respeita a forma pedida em equivalência e simplificação", () => {
@@ -68,6 +77,8 @@ test("respeita a forma pedida em equivalência e simplificação", () => {
 
 test("corrige escolhas booleanas, enumerações e estimativas por faixa", () => {
   assert.equal(grade("true", { answerType: "boolean", answer: true }), true);
+  assert.equal(grade("false", { answerType: "boolean", answer: false }), true);
+  assert.equal(normalizeUserAnswer("", { answerType: "boolean", answer: false }), null);
   assert.equal(grade("sexta-feira", { answerType: "enum", answer: "Sexta-feira" }), true);
   const range = { answerType: "relative-range", answer: 2_584, answerSpec: { min: 2_506.48, max: 2_661.52 } };
   assert.equal(grade("2580", range), true);

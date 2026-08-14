@@ -24,15 +24,25 @@ import {
   savePlatformState,
   updatePlatformSettings,
 } from "./lib/platform/store";
+import {
+  createTrainingConfigSnapshot,
+  getTrainingStartupIntent,
+  markTrainingStarted,
+  rememberTrainingSelection,
+} from "./lib/platform/trainingResume";
 
 const LazyGameSection = lazy(() => import("./game/GameSection").then((module) => ({ default: module.GameSection })));
 
 function App() {
   const initialStateRef = useRef(null);
   if (!initialStateRef.current) initialStateRef.current = loadPlatformState();
+  const startupIntentRef = useRef(undefined);
+  if (startupIntentRef.current === undefined) {
+    startupIntentRef.current = getTrainingStartupIntent(initialStateRef.current);
+  }
 
   const [platformState, setPlatformState] = useState(initialStateRef.current);
-  const [activeView, setActiveView] = useState("inicio");
+  const [activeView, setActiveView] = useState(() => startupIntentRef.current?.viewId ?? "inicio");
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [summary, setSummary] = useState(null);
   const [arcadeOpen, setArcadeOpen] = useState(false);
@@ -40,26 +50,18 @@ function App() {
   const [theoryLessonId, setTheoryLessonId] = useState(null);
   const [theoryChapters, setTheoryChapters] = useState([]);
   const [deferredInstallPrompt, setDeferredInstallPrompt] = useState(null);
-  const [trainingConfig, setTrainingConfig] = useState(() => ({
-    practiceKind: initialStateRef.current.settings.practiceKind ?? "adaptive",
-    modeId: initialStateRef.current.selectedModeId ?? "sparring",
-    groupId: initialStateRef.current.selectedGroupId ?? "misto",
-    questionCount: initialStateRef.current.settings.questionCount ?? 15,
-    timeProfileId: initialStateRef.current.settings.timeProfileId ?? "calmo",
-    memorization: {
-      operationId: initialStateRef.current.settings.memorizationOperationId ?? "multiplication",
-      presetId: initialStateRef.current.settings.memorizationPresetId ?? "all",
-      presetIds: initialStateRef.current.settings.memorizationPresetIds ?? ["all"],
-      difficultyMode: initialStateRef.current.settings.memorizationDifficultyMode ?? "adaptive",
-      difficultyTier: initialStateRef.current.settings.memorizationDifficultyTier ?? "all",
-    },
-    campaignStage: null,
-    theoryTopicIds: null,
-    sectionIds: null,
-    sourceChapterOrder: null,
-    settings: initialStateRef.current.settings,
-  }));
-  const [shouldBeginSession, setShouldBeginSession] = useState(false);
+  const [trainingConfig, setTrainingConfig] = useState(() => createInitialTrainingConfig(
+    initialStateRef.current,
+    startupIntentRef.current?.config,
+  ));
+  const trainingConfigRef = useRef(trainingConfig);
+  trainingConfigRef.current = trainingConfig;
+  const [sessionConfig, setSessionConfig] = useState(null);
+  const [sessionStartRequest, setSessionStartRequest] = useState(null);
+  const [sessionStarting, setSessionStarting] = useState(false);
+  const sessionStartSequenceRef = useRef(0);
+  const pendingSessionStartRef = useRef(null);
+  const launchedSessionStartRef = useRef(null);
 
   useEffect(() => savePlatformState(platformState), [platformState]);
 
@@ -119,20 +121,33 @@ function App() {
   }, []);
 
   const trainingSession = useTrainingSession({
-    config: trainingConfig,
+    config: sessionConfig ?? trainingConfig,
     platformState,
     onAttempt: handleAttempt,
     onFinish: handleSessionFinish,
   });
 
   useEffect(() => {
-    if (!shouldBeginSession) return;
-    void trainingSession.begin().catch((error) => {
-      console.error("Não foi possível iniciar a sessão.", error);
-    });
-    setSummary(null);
-    setShouldBeginSession(false);
-  }, [shouldBeginSession, trainingSession.begin]);
+    if (!sessionStartRequest) return;
+    const { config: requestedConfig, id, remember } = sessionStartRequest;
+    if (launchedSessionStartRef.current === id) return;
+    launchedSessionStartRef.current = id;
+
+    void trainingSession.begin()
+      .then((started) => {
+        if (!started || pendingSessionStartRef.current?.id !== id) return;
+        completePendingSessionStart(id);
+        if (remember) {
+          setPlatformState((current) => markTrainingStarted(current, requestedConfig));
+        }
+      })
+      .catch((error) => {
+        if (pendingSessionStartRef.current?.id !== id) return;
+        completePendingSessionStart(id);
+        trainingSession.cancelPendingBegin();
+        console.error("Não foi possível iniciar a sessão.", error);
+      });
+  }, [sessionStartRequest, trainingSession.begin, trainingSession.cancelPendingBegin]);
 
   const homeDashboard = useMemo(() => buildHomeDashboard(platformState), [platformState]);
   const reportsDashboard = useMemo(() => buildReportsDashboard(platformState), [platformState]);
@@ -144,63 +159,93 @@ function App() {
   }), [platformState, reportsDashboard.groups, trainingConfig.groupId]);
 
   function navigate(viewId, groupId = null) {
+    cancelPendingSessionStart();
     if (groupId) {
-      setTrainingConfig((current) => ({
-        ...current,
+      updateTrainingConfig({
         practiceKind: "adaptive",
         groupId,
-        campaignStage: null,
-        chapterOrder: null,
-        theoryTopicIds: null,
-        sectionIds: null,
-        sourceChapterOrder: null,
-      }));
+      });
     }
     setActiveView(viewId);
     window.scrollTo({ top: 0, behavior: platformState.settings.reducedMotion ? "auto" : "smooth" });
   }
 
   function updateTrainingConfig(patch) {
-    setTrainingConfig((current) => ({
-      ...current,
+    cancelPendingSessionStart();
+    const nextConfig = {
+      ...trainingConfigRef.current,
       ...patch,
       campaignStage: null,
       chapterOrder: null,
       theoryTopicIds: null,
       sectionIds: null,
       sourceChapterOrder: null,
-    }));
-    setPlatformState((current) => ({
+    };
+    trainingConfigRef.current = nextConfig;
+    setTrainingConfig(nextConfig);
+    setPlatformState((current) => rememberTrainingSelection({
       ...current,
       selectedGroupId: patch.groupId ?? current.selectedGroupId,
       selectedModeId: patch.modeId ?? current.selectedModeId,
       settings: patch.questionCount || patch.timeProfileId || patch.practiceKind || patch.memorization
-        ? {
-            ...current.settings,
-            ...(patch.questionCount ? { questionCount: patch.questionCount } : {}),
-            ...(patch.timeProfileId ? { timeProfileId: patch.timeProfileId } : {}),
-            ...(patch.practiceKind ? { practiceKind: patch.practiceKind } : {}),
-            ...(patch.memorization ? {
-              memorizationOperationId: patch.memorization.operationId,
-              memorizationPresetId: patch.memorization.presetId,
-              memorizationPresetIds: patch.memorization.operationId === "multiplication"
-                ? patch.memorization.presetIds
-                : [],
-              memorizationDifficultyMode: patch.memorization.difficultyMode,
-              memorizationDifficultyTier: patch.memorization.difficultyTier,
-            } : {}),
-          }
+        ? persistTrainingSettings(current.settings, patch)
         : current.settings,
-    }));
+    }, nextConfig));
   }
 
   function startSession(overrides = {}) {
-    setTrainingConfig((current) => ({
-      ...current,
+    if (pendingSessionStartRef.current) return;
+    const effectiveConfig = {
+      ...trainingConfigRef.current,
       ...overrides,
-      settings: platformState.settings,
-    }));
-    setShouldBeginSession(true);
+      settings: trainingConfigRef.current.settings,
+    };
+    const request = {
+      id: sessionStartSequenceRef.current + 1,
+      config: effectiveConfig,
+      remember: !isContextualTraining(effectiveConfig),
+    };
+    sessionStartSequenceRef.current = request.id;
+    pendingSessionStartRef.current = request;
+    void trainingSession.unlockAudio(effectiveConfig);
+    setSessionConfig(effectiveConfig);
+    setSessionStartRequest(request);
+    setSessionStarting(true);
+    setSummary(null);
+  }
+
+  function completePendingSessionStart(requestId) {
+    if (pendingSessionStartRef.current?.id !== requestId) return;
+    pendingSessionStartRef.current = null;
+    if (launchedSessionStartRef.current === requestId) launchedSessionStartRef.current = null;
+    setSessionStartRequest(null);
+    setSessionStarting(false);
+  }
+
+  function cancelPendingSessionStart() {
+    if (!pendingSessionStartRef.current) return false;
+    pendingSessionStartRef.current = null;
+    launchedSessionStartRef.current = null;
+    sessionStartSequenceRef.current += 1;
+    trainingSession.cancelPendingBegin();
+    setSessionConfig(null);
+    setSessionStartRequest(null);
+    setSessionStarting(false);
+    return true;
+  }
+
+  function updateSettings(patch) {
+    setPlatformState((current) => updatePlatformSettings(current, patch));
+    const nextTrainingConfig = {
+      ...trainingConfigRef.current,
+      settings: { ...trainingConfigRef.current.settings, ...patch },
+    };
+    trainingConfigRef.current = nextTrainingConfig;
+    setTrainingConfig(nextTrainingConfig);
+    setSessionConfig((current) => current ? {
+      ...current,
+      settings: { ...current.settings, ...patch },
+    } : current);
   }
 
   function startCampaignStage(stage) {
@@ -251,29 +296,23 @@ function App() {
   function resetProgress() {
     const confirmed = window.confirm("Apagar todo o progresso, recordes e histórico deste navegador?");
     if (!confirmed) return;
+    cancelPendingSessionStart();
+    trainingSession.cancelPendingBegin();
     window.localStorage.removeItem(PLATFORM_STORAGE_KEY);
     const next = createPlatformState();
     initialStateRef.current = next;
+    startupIntentRef.current = null;
     setPlatformState(next);
-    setTrainingConfig({
-      practiceKind: "adaptive",
-      modeId: "sparring",
-      groupId: "misto",
-      questionCount: 15,
-      timeProfileId: next.settings.timeProfileId,
-      memorization: {
-        operationId: "multiplication",
-        presetId: "all",
-        presetIds: ["all"],
-        difficultyMode: "adaptive",
-        difficultyTier: "all",
-      },
-      campaignStage: null,
-      theoryTopicIds: null,
-      sectionIds: null,
-      sourceChapterOrder: null,
-      settings: next.settings,
-    });
+    const nextTrainingConfig = createInitialTrainingConfig(next);
+    trainingConfigRef.current = nextTrainingConfig;
+    setTrainingConfig(nextTrainingConfig);
+    setSessionConfig(null);
+    setSessionStartRequest(null);
+    setSessionStarting(false);
+    setActiveView("inicio");
+    setSummary(null);
+    setTheoryChapterId(null);
+    setTheoryLessonId(null);
     setSettingsOpen(false);
   }
 
@@ -289,7 +328,7 @@ function App() {
     return (
       <SessionSummary
         summary={summary}
-        onRetry={() => startSession()}
+        onRetry={() => startSession(sessionConfig ?? {})}
         onReviewTheory={async (topicId) => {
           const target = await getTheoryTargetForTopic(topicId);
           setTheoryChapterId(target?.chapterId ?? null);
@@ -309,10 +348,12 @@ function App() {
     return (
       <SessionArena
         answer={trainingSession.answer}
+        audioSettings={platformState.settings}
         feedback={trainingSession.feedback}
         levelNotice={trainingSession.levelNotice}
         nudge={trainingSession.nudge}
         onAnswerKey={trainingSession.handleAnswerKey}
+        onAudioSettingsChange={updateSettings}
         onExit={trainingSession.exit}
         onPause={trainingSession.pause}
         onResume={trainingSession.resume}
@@ -350,7 +391,10 @@ function App() {
         <TrainingHub
           config={trainingConfig}
           onChange={updateTrainingConfig}
-          onOpenArcade={() => setArcadeOpen(true)}
+          onOpenArcade={() => {
+            cancelPendingSessionStart();
+            setArcadeOpen(true);
+          }}
           onStart={() => startSession({
             chapterOrder: null,
             theoryTopicIds: null,
@@ -358,6 +402,7 @@ function App() {
             sourceChapterOrder: null,
           })}
           preview={trainingPreview}
+          starting={sessionStarting}
         />
       ) : activeView === "campanha" ? (
         <CampaignJourney campaign={platformState.campaign} onStartStage={startCampaignStage} />
@@ -382,7 +427,7 @@ function App() {
           onExport={exportData}
           onInstall={installApp}
           onReset={resetProgress}
-          onUpdate={(patch) => setPlatformState((current) => updatePlatformSettings(current, patch))}
+          onUpdate={updateSettings}
           settings={platformState.settings}
         />
       ) : null}
@@ -398,6 +443,60 @@ function adaptiveSetupMessage(state, groupId) {
   if (accuracy < 0.62) return "Vou aliviar um pouco, reforçar padrões recorrentes e devolver confiança antes de subir.";
   if (accuracy > 0.88) return "Seu desempenho recente está forte; espere contas um passo mais difíceis, no perfil de tempo que você escolheu.";
   return "O nível atual está saudável. Vou alternar revisão, novidade e padrões já conhecidos.";
+}
+
+function createInitialTrainingConfig(state, resumedConfig = null) {
+  const settings = state.settings;
+  const persisted = createTrainingConfigSnapshot(resumedConfig ?? {
+    practiceKind: settings.practiceKind,
+    modeId: state.selectedModeId,
+    groupId: state.selectedGroupId,
+    questionCount: settings.questionCount,
+    timeProfileId: settings.timeProfileId,
+    memorization: {
+      operationId: settings.memorizationOperationId,
+      presetId: settings.memorizationPresetId,
+      presetIds: settings.memorizationPresetIds,
+      difficultyMode: settings.memorizationDifficultyMode,
+      difficultyTier: settings.memorizationDifficultyTier,
+    },
+  });
+  return {
+    ...persisted,
+    campaignStage: null,
+    theoryTopicIds: null,
+    sectionIds: null,
+    sourceChapterOrder: null,
+    settings,
+  };
+}
+
+function persistTrainingSettings(settings, patch) {
+  return {
+    ...settings,
+    ...(patch.questionCount ? { questionCount: patch.questionCount } : {}),
+    ...(patch.timeProfileId ? { timeProfileId: patch.timeProfileId } : {}),
+    ...(patch.practiceKind ? { practiceKind: patch.practiceKind } : {}),
+    ...(patch.memorization ? {
+      memorizationOperationId: patch.memorization.operationId,
+      memorizationPresetId: patch.memorization.presetId,
+      memorizationPresetIds: patch.memorization.operationId === "multiplication"
+        ? patch.memorization.presetIds
+        : [],
+      memorizationDifficultyMode: patch.memorization.difficultyMode,
+      memorizationDifficultyTier: patch.memorization.difficultyTier,
+    } : {}),
+  };
+}
+
+function isContextualTraining(config) {
+  return Boolean(
+    config.campaignStage
+    || config.chapterOrder
+    || config.theoryTopicIds
+    || config.sectionIds
+    || config.sourceChapterOrder,
+  );
 }
 
 export default App;

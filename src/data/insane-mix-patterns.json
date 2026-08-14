@@ -1,0 +1,1055 @@
+{
+  "schemaVersion": 1,
+  "ratingScale": {
+    "min": 1,
+    "max": 100,
+    "legacyLevelSize": 10
+  },
+  "selection": {
+    "windowBelow": 6,
+    "windowAbove": 4,
+    "candidateBatchSize": 72,
+    "recentQuestionWindow": 8,
+    "nextGroupExplorationShare": 0.1,
+    "minimumPromotionAttempts": 8,
+    "minimumPromotionAccuracy": 0.85,
+    "maximumPromotionPaceRatio": 0.78,
+    "scoreRatingStep": 250,
+    "scoreEvidenceStep": 350,
+    "waveRatingStep": 5,
+    "waveEvidenceStep": 7,
+    "experienceRatingPerSuccess": 1.15,
+    "promotionDelta": 5,
+    "fastPromotionDelta": 8,
+    "regressionWindow": 6,
+    "regressionAccuracy": 0.55,
+    "regressionPaceRatio": 1.08,
+    "regressionDelta": -8
+  },
+  "patterns": [
+    {
+      "id": "add.one-digit-no-carry",
+      "family": "addition",
+      "label": "Soma curta sem vai-um",
+      "description": "Somas pequenas cujo resultado ainda cabe em um algarismo; 1 + 1 é a referência mínima da escala.",
+      "examples": ["1 + 1", "3 + 5", "6 + 2"],
+      "difficultyRating": 1,
+      "weight": 1.35,
+      "generator": "add-integers",
+      "features": ["integer", "single-digit", "no-carry", "foundation"],
+      "operations": ["add"],
+      "targetResponseMs": 4500,
+      "params": {
+        "left": { "min": 1, "max": 8 },
+        "right": { "min": 1, "max": 8 },
+        "resultMax": 9,
+        "carryCount": 0
+      }
+    },
+    {
+      "id": "sub.large-minus-one",
+      "family": "subtraction",
+      "label": "Número grande menos 1",
+      "description": "A quantidade de dígitos é grande, mas a operação continua semanticamente trivial quando não atravessa uma cadeia de zeros.",
+      "examples": ["3203920932093 - 1", "583204 - 1"],
+      "difficultyRating": 2,
+      "weight": 0.55,
+      "generator": "subtract-integers",
+      "features": ["integer", "large-magnitude", "decrement", "magnitude-independent", "no-borrow"],
+      "operations": ["sub"],
+      "targetResponseMs": 4000,
+      "params": {
+        "minuendDigits": { "min": 4, "max": 13 },
+        "subtrahend": 1,
+        "excludeTrailingZero": true,
+        "resultNonNegative": true
+      }
+    },
+    {
+      "id": "mul.identity-and-zero",
+      "family": "multiplication",
+      "label": "Multiplicação por 0 ou 1",
+      "description": "Fatores neutros ou anuladores mantêm a conta fácil mesmo com operandos grandes.",
+      "examples": ["84291 × 1", "930284 × 0"],
+      "difficultyRating": 2,
+      "weight": 0.5,
+      "generator": "multiply-integers",
+      "features": ["integer", "anchor", "identity", "magnitude-independent"],
+      "operations": ["mul"],
+      "targetResponseMs": 3500,
+      "params": {
+        "generalFactorDigits": { "min": 1, "max": 8 },
+        "anchorFactorChoices": [0, 1],
+        "commutativeOrientation": "either"
+      }
+    },
+    {
+      "id": "mul.power-of-ten",
+      "family": "multiplication",
+      "label": "Multiplicação por potência de 10",
+      "description": "Acrescentar zeros é mais importante que a magnitude visual dos números.",
+      "examples": ["100000 × 100", "3847 × 1000"],
+      "difficultyRating": 3,
+      "weight": 0.7,
+      "generator": "multiply-integers",
+      "features": ["integer", "anchor", "power-of-ten", "magnitude-independent"],
+      "operations": ["mul"],
+      "targetResponseMs": 4500,
+      "params": {
+        "generalFactorDigits": { "min": 1, "max": 7 },
+        "powerOfTenExponent": { "min": 1, "max": 6 },
+        "commutativeOrientation": "either"
+      }
+    },
+    {
+      "id": "add.multi-digit-no-carry",
+      "family": "addition",
+      "label": "Soma de vários dígitos sem vai-um",
+      "description": "As colunas permanecem independentes, então mais dígitos acrescentam pouco custo.",
+      "examples": ["23 + 45", "1203 + 304", "42130 + 23745"],
+      "difficultyRating": 7,
+      "weight": 1.2,
+      "generator": "add-integers",
+      "features": ["integer", "multi-digit", "no-carry"],
+      "operations": ["add"],
+      "targetResponseMs": 7000,
+      "params": {
+        "operandDigits": { "min": 2, "max": 6 },
+        "carryCount": 0,
+        "leadingZero": false
+      }
+    },
+    {
+      "id": "sub.multi-digit-no-borrow",
+      "family": "subtraction",
+      "label": "Subtração sem empréstimo",
+      "description": "Cada coluna pode ser resolvida diretamente e o resultado permanece não negativo.",
+      "examples": ["87 - 42", "9864 - 3211"],
+      "difficultyRating": 10,
+      "weight": 1.15,
+      "generator": "subtract-integers",
+      "features": ["integer", "multi-digit", "no-borrow"],
+      "operations": ["sub"],
+      "targetResponseMs": 7500,
+      "params": {
+        "operandDigits": { "min": 2, "max": 6 },
+        "borrowCount": 0,
+        "resultNonNegative": true
+      }
+    },
+    {
+      "id": "add.bridge-ten",
+      "family": "addition",
+      "label": "Soma cruzando 10",
+      "description": "Uma soma curta que exige fechar 10 antes de adicionar o restante.",
+      "examples": ["7 + 8", "6 + 9"],
+      "difficultyRating": 11,
+      "weight": 1.15,
+      "generator": "add-integers",
+      "features": ["integer", "single-digit", "cross-ten", "single-carry"],
+      "operations": ["add"],
+      "targetResponseMs": 5200,
+      "params": {
+        "left": { "min": 2, "max": 9 },
+        "right": { "min": 2, "max": 9 },
+        "resultMin": 11,
+        "resultMax": 18,
+        "carryCount": 1
+      }
+    },
+    {
+      "id": "sub.cross-ten",
+      "family": "subtraction",
+      "label": "Subtração curta atravessando 10",
+      "description": "Diferenças como 15 - 7 exigem quebrar mentalmente o subtraendo na passagem por 10.",
+      "examples": ["15 - 7", "13 - 8"],
+      "difficultyRating": 12,
+      "weight": 1.15,
+      "generator": "subtract-integers",
+      "features": ["integer", "cross-ten", "single-borrow"],
+      "operations": ["sub"],
+      "targetResponseMs": 5500,
+      "params": {
+        "minuend": { "min": 11, "max": 18 },
+        "subtrahend": { "min": 2, "max": 9 },
+        "result": { "min": 1, "max": 9 },
+        "mustCrossTen": true
+      }
+    },
+    {
+      "id": "add.single-carry",
+      "family": "addition",
+      "label": "Adição com um vai-um",
+      "description": "Uma única coluna cria uma nova dezena.",
+      "examples": ["48 + 37", "268 + 145"],
+      "difficultyRating": 15,
+      "weight": 1.1,
+      "generator": "add-integers",
+      "features": ["integer", "multi-digit", "single-carry", "regrouping"],
+      "operations": ["add"],
+      "targetResponseMs": 9000,
+      "params": {
+        "operandDigits": { "min": 2, "max": 4 },
+        "carryCount": 1,
+        "resultDigits": { "min": 2, "max": 5 }
+      }
+    },
+    {
+      "id": "sub.single-borrow",
+      "family": "subtraction",
+      "label": "Subtração com um empréstimo",
+      "description": "Uma coluna precisa receber uma dezena, sem cascata por zeros.",
+      "examples": ["52 - 38", "731 - 416"],
+      "difficultyRating": 18,
+      "weight": 1.1,
+      "generator": "subtract-integers",
+      "features": ["integer", "multi-digit", "single-borrow", "regrouping"],
+      "operations": ["sub"],
+      "targetResponseMs": 9500,
+      "params": {
+        "operandDigits": { "min": 2, "max": 4 },
+        "borrowCount": 1,
+        "cascadeBorrow": false,
+        "resultNonNegative": true
+      }
+    },
+    {
+      "id": "mul.table-anchor",
+      "family": "multiplication",
+      "label": "Tabuada com âncoras",
+      "description": "Produtos por 2, 5 e quadrados conhecidos têm recuperação direta; 8 × 8 também funciona como âncora.",
+      "examples": ["8 × 2", "8 × 8", "7 × 5"],
+      "difficultyRating": 18,
+      "weight": 0.9,
+      "generator": "multiply-integers",
+      "features": ["integer", "single-digit", "retrieval-anchor", "table-fact"],
+      "operations": ["mul"],
+      "targetResponseMs": 5500,
+      "params": {
+        "factorRange": { "min": 2, "max": 9 },
+        "requireAny": ["factor-two", "factor-five", "perfect-square"],
+        "commutativeOrientation": "either"
+      }
+    },
+    {
+      "id": "power.ten",
+      "family": "powers",
+      "label": "Potências de 10",
+      "description": "O expoente apenas determina a quantidade de zeros.",
+      "examples": ["10²", "10⁶"],
+      "difficultyRating": 20,
+      "weight": 0.55,
+      "generator": "integer-power",
+      "features": ["integer", "power", "power-of-ten", "anchor"],
+      "operations": ["power"],
+      "targetResponseMs": 5000,
+      "params": {
+        "base": 10,
+        "exponent": { "min": 2, "max": 9 },
+        "exactArithmetic": true
+      }
+    },
+    {
+      "id": "add.multiple-carry",
+      "family": "addition",
+      "label": "Adição com vários vai-uns",
+      "description": "Duas ou mais colunas exigem reagrupamento e manutenção do carry anterior.",
+      "examples": ["687 + 596", "7896 + 6787"],
+      "difficultyRating": 22,
+      "weight": 1,
+      "generator": "add-integers",
+      "features": ["integer", "multi-digit", "multiple-carry", "regrouping"],
+      "operations": ["add"],
+      "targetResponseMs": 12000,
+      "params": {
+        "operandDigits": { "min": 3, "max": 6 },
+        "carryCount": { "min": 2, "max": 6 }
+      }
+    },
+    {
+      "id": "mul.by-eleven",
+      "family": "multiplication",
+      "label": "Multiplicação por 11",
+      "description": "Usa soma de algarismos vizinhos, incluindo casos com carry no miolo.",
+      "examples": ["37 × 11", "85 × 11"],
+      "difficultyRating": 23,
+      "weight": 0.8,
+      "generator": "multiply-integers",
+      "features": ["integer", "multiplication-trick", "times-eleven"],
+      "operations": ["mul"],
+      "targetResponseMs": 8000,
+      "params": {
+        "generalFactorDigits": { "min": 2, "max": 4 },
+        "anchorFactor": 11,
+        "commutativeOrientation": "either"
+      }
+    },
+    {
+      "id": "chain.add-sub-clean",
+      "family": "composition",
+      "label": "Cadeia limpa de soma e subtração",
+      "description": "Primeira composição: três ou quatro termos sem carry, empréstimo ou resultado intermediário negativo.",
+      "examples": ["23 + 45 - 12", "41 - 20 + 38 - 16"],
+      "difficultyRating": 25,
+      "weight": 1.1,
+      "generator": "linear-chain",
+      "features": ["integer", "compound", "easy-atoms", "no-regrouping", "same-precedence"],
+      "operations": ["add", "sub"],
+      "targetResponseMs": 13000,
+      "params": {
+        "termCount": { "min": 3, "max": 4 },
+        "termDigits": { "min": 1, "max": 2 },
+        "allIntermediateResultsNonNegative": true,
+        "standardPrecedence": true
+      }
+    },
+    {
+      "id": "sub.cascade-borrow",
+      "family": "subtraction",
+      "label": "Empréstimo em cascata",
+      "description": "O empréstimo atravessa um ou mais zeros e exige manter vários estados intermediários.",
+      "examples": ["100 - 37", "2004 - 786"],
+      "difficultyRating": 27,
+      "weight": 0.9,
+      "generator": "subtract-integers",
+      "features": ["integer", "multi-digit", "cascade-borrow", "regrouping"],
+      "operations": ["sub"],
+      "targetResponseMs": 13000,
+      "params": {
+        "operandDigits": { "min": 3, "max": 6 },
+        "minimumBorrowChainLength": 2,
+        "resultNonNegative": true
+      }
+    },
+    {
+      "id": "mul.same-tens-complement",
+      "family": "multiplication",
+      "label": "Mesma dezena e unidades complementares",
+      "description": "Dois fatores compartilham a dezena e as unidades somam 10, permitindo montar frente e final separadamente.",
+      "examples": ["83 × 87", "34 × 36"],
+      "difficultyRating": 29,
+      "weight": 0.7,
+      "generator": "multiply-integers",
+      "features": ["integer", "multiplication-trick", "same-tens", "complement-ten"],
+      "operations": ["mul"],
+      "targetResponseMs": 11000,
+      "params": {
+        "sharedTens": { "min": 2, "max": 9 },
+        "unitsSum": 10,
+        "factorDigits": 2
+      }
+    },
+    {
+      "id": "mul.roundable-factor",
+      "family": "multiplication",
+      "label": "Multiplicação por arredondamento",
+      "description": "Um fator fica a uma ou duas unidades de uma dezena ou centena limpa, seguido de ajuste curto.",
+      "examples": ["48 × 19", "203 × 98", "67 × 101"],
+      "difficultyRating": 31,
+      "weight": 0.85,
+      "generator": "multiply-integers",
+      "features": ["integer", "rounding", "near-power-of-ten", "adjustment"],
+      "operations": ["mul", "add", "sub"],
+      "targetResponseMs": 12500,
+      "params": {
+        "generalFactorDigits": { "min": 2, "max": 4 },
+        "roundableFactorDigits": { "min": 2, "max": 3 },
+        "distanceFromPowerOfTen": { "min": 1, "max": 2 },
+        "commutativeOrientation": "either"
+      }
+    },
+    {
+      "id": "div.fact-family",
+      "family": "division",
+      "label": "Divisão por família conhecida",
+      "description": "A divisão é a inversa de um fato curto da tabuada e sempre tem quociente inteiro.",
+      "examples": ["56 ÷ 8", "81 ÷ 9"],
+      "difficultyRating": 32,
+      "weight": 0.9,
+      "generator": "exact-division",
+      "features": ["integer", "exact-division", "inverse-fact", "table-anchor"],
+      "operations": ["div"],
+      "targetResponseMs": 8000,
+      "params": {
+        "divisor": { "min": 2, "max": 9 },
+        "quotient": { "min": 2, "max": 10 },
+        "buildDividendFromFactors": true,
+        "remainder": 0
+      }
+    },
+    {
+      "id": "power.square-anchor",
+      "family": "powers",
+      "label": "Quadrados com padrão",
+      "description": "Quadrados pequenos, terminados em 5 ou próximos de uma base conhecida.",
+      "examples": ["14²", "35²", "54²"],
+      "difficultyRating": 33,
+      "weight": 0.75,
+      "generator": "integer-power",
+      "features": ["integer", "power", "square", "anchor"],
+      "operations": ["power", "mul"],
+      "targetResponseMs": 11000,
+      "params": {
+        "baseChoices": [11, 12, 13, 14, 15, 16, 17, 18, 19, 25, 35, 45, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 65, 75, 85, 95],
+        "exponent": 2,
+        "exactArithmetic": true
+      }
+    },
+    {
+      "id": "chain.add-sub-regroup",
+      "family": "composition",
+      "label": "Cadeia de soma e subtração com reagrupamento",
+      "description": "Combina carry e empréstimo em três ou quatro termos mantendo a precedência linear.",
+      "examples": ["68 + 29 - 47", "152 - 78 + 69 - 36"],
+      "difficultyRating": 35,
+      "weight": 1,
+      "generator": "linear-chain",
+      "features": ["integer", "compound", "carry", "borrow", "same-precedence"],
+      "operations": ["add", "sub"],
+      "targetResponseMs": 16000,
+      "params": {
+        "termCount": { "min": 3, "max": 4 },
+        "termDigits": { "min": 2, "max": 3 },
+        "requiredAtomFeatures": ["regrouping"],
+        "allIntermediateResultsNonNegative": true,
+        "standardPrecedence": true
+      }
+    },
+    {
+      "id": "mixed.easy-multipliers",
+      "family": "composition",
+      "label": "Mix com multiplicações fáceis",
+      "description": "Introduz precedência usando apenas multiplicação por 0, 1, potência de 10, 11 ou fato-âncora.",
+      "examples": ["27 + 14 - 11 × 8", "93 - 7 × 5 + 20"],
+      "difficultyRating": 39,
+      "weight": 1,
+      "generator": "compound-expression",
+      "features": ["integer", "compound", "mixed-precedence", "easy-atoms", "multiplication-trick"],
+      "operations": ["add", "sub", "mul"],
+      "targetResponseMs": 18000,
+      "params": {
+        "termCount": { "min": 3, "max": 5 },
+        "termDigits": { "min": 1, "max": 3 },
+        "allowedMultiplicationFeatures": ["identity", "power-of-ten", "times-eleven", "retrieval-anchor"],
+        "minimumPrecedenceDepth": 1,
+        "standardPrecedence": true,
+        "allIntermediateResultsNonNegative": true
+      }
+    },
+    {
+      "id": "root.perfect-square",
+      "family": "roots",
+      "label": "Raiz quadrada perfeita",
+      "description": "O radicando é construído a partir de uma raiz inteira conhecida.",
+      "examples": ["√144", "√2025", "√8100"],
+      "difficultyRating": 40,
+      "weight": 0.75,
+      "generator": "perfect-root",
+      "features": ["integer", "root", "square-root", "perfect-root"],
+      "operations": ["root"],
+      "targetResponseMs": 12000,
+      "params": {
+        "degree": 2,
+        "root": { "min": 2, "max": 99 },
+        "buildRadicandFromRoot": true,
+        "exactArithmetic": true
+      }
+    },
+    {
+      "id": "decimal.canceling-chain",
+      "family": "decimals",
+      "label": "Decimais com cancelamento visível",
+      "description": "Parcelas decimais compartilham a parte final, permitindo cancelar antes de calcular.",
+      "examples": ["13,7 + 5,8 - 4,8", "28,35 - 7,25 + 2,25"],
+      "difficultyRating": 42,
+      "weight": 0.9,
+      "generator": "decimal-chain",
+      "features": ["decimal", "compound", "cancellation", "same-scale", "easy-atoms"],
+      "operations": ["add", "sub"],
+      "targetResponseMs": 15000,
+      "params": {
+        "termCount": 3,
+        "decimalPlaces": { "min": 1, "max": 2 },
+        "requireSharedFractionalPart": true,
+        "requireCancellation": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "percent.anchor",
+      "family": "percentages",
+      "label": "Porcentagens-âncora",
+      "description": "Porcentagens ligadas a metade, quarto, décimo, quinto ou centésimo.",
+      "examples": ["10% de 370", "25% de 80", "50% de 946"],
+      "difficultyRating": 44,
+      "weight": 0.95,
+      "generator": "percent-of",
+      "features": ["percentage", "anchor", "exact-result"],
+      "operations": ["percent"],
+      "targetResponseMs": 11000,
+      "params": {
+        "percentChoices": [1, 5, 10, 20, 25, 50, 75],
+        "value": { "min": 10, "max": 10000 },
+        "preferIntegerResult": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "decimal.add-sub-aligned",
+      "family": "decimals",
+      "label": "Soma e subtração de decimais alinhados",
+      "description": "Todos os termos têm a mesma escala e não exigem reagrupamento decimal.",
+      "examples": ["12,3 + 4,5", "87,65 - 32,14"],
+      "difficultyRating": 47,
+      "weight": 0.95,
+      "generator": "decimal-chain",
+      "features": ["decimal", "same-scale", "no-regrouping"],
+      "operations": ["add", "sub"],
+      "targetResponseMs": 15000,
+      "params": {
+        "termCount": { "min": 2, "max": 3 },
+        "integerDigits": { "min": 1, "max": 3 },
+        "decimalPlaces": { "min": 1, "max": 2 },
+        "carryCount": 0,
+        "borrowCount": 0,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "mul.general-two-digit",
+      "family": "multiplication",
+      "label": "Multiplicação geral de dois dígitos",
+      "description": "Dois fatores densos, sem potência de 10, x11, mesmo prefixo complementar ou arredondamento curto.",
+      "examples": ["37 × 68", "54 × 73"],
+      "difficultyRating": 49,
+      "weight": 0.9,
+      "generator": "multiply-integers",
+      "features": ["integer", "dense", "two-digit", "no-shortcut"],
+      "operations": ["mul"],
+      "targetResponseMs": 18000,
+      "params": {
+        "left": { "min": 12, "max": 98 },
+        "right": { "min": 12, "max": 98 },
+        "excludeFeatures": ["power-of-ten", "times-eleven", "same-tens", "near-power-of-ten", "factor-two", "factor-five", "perfect-square"]
+      }
+    },
+    {
+      "id": "mixed.general-multiplication",
+      "family": "composition",
+      "label": "Mix com multiplicação geral",
+      "description": "A soma e a subtração cercam um produto sem atalho, exigindo precedência e memória intermediária.",
+      "examples": ["82 - 17 + 24 × 37", "31 × 46 - 287 + 95"],
+      "difficultyRating": 52,
+      "weight": 0.95,
+      "generator": "compound-expression",
+      "features": ["integer", "compound", "mixed-precedence", "dense-multiplication"],
+      "operations": ["add", "sub", "mul"],
+      "targetResponseMs": 22000,
+      "params": {
+        "termCount": { "min": 4, "max": 5 },
+        "termDigits": { "min": 2, "max": 3 },
+        "requireDenseMultiplication": true,
+        "minimumPrecedenceDepth": 1,
+        "standardPrecedence": true,
+        "allowNegativeAnswer": false
+      }
+    },
+    {
+      "id": "div.exact-large",
+      "family": "division",
+      "label": "Divisão exata com dividendo grande",
+      "description": "O dividendo é criado pelo produto de divisor e quociente, mas a família não é uma tabuada imediata.",
+      "examples": ["936 ÷ 24", "4752 ÷ 36"],
+      "difficultyRating": 54,
+      "weight": 0.9,
+      "generator": "exact-division",
+      "features": ["integer", "exact-division", "multi-digit", "inverse-multiplication"],
+      "operations": ["div"],
+      "targetResponseMs": 19000,
+      "params": {
+        "divisor": { "min": 12, "max": 99 },
+        "quotient": { "min": 11, "max": 199 },
+        "buildDividendFromFactors": true,
+        "remainder": 0,
+        "excludePowerOfTenDivisors": true
+      }
+    },
+    {
+      "id": "percent.complement",
+      "family": "percentages",
+      "label": "Porcentagem por complemento",
+      "description": "Percentuais como 90%, 95% e 99% são resolvidos por 100% menos uma parte-âncora.",
+      "examples": ["90% de 470", "95% de 260", "99% de 800"],
+      "difficultyRating": 55,
+      "weight": 0.75,
+      "generator": "percent-of",
+      "features": ["percentage", "complement-hundred", "anchor-adjustment"],
+      "operations": ["percent", "sub"],
+      "targetResponseMs": 15000,
+      "params": {
+        "percentChoices": [90, 95, 99],
+        "value": { "min": 20, "max": 10000 },
+        "preferIntegerResult": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "decimal.add-sub-regroup",
+      "family": "decimals",
+      "label": "Decimais com carry e empréstimo",
+      "description": "As escalas continuam limitadas, mas pelo menos uma coluna decimal exige reagrupamento.",
+      "examples": ["13,7 + 5,8", "42,03 - 18,76"],
+      "difficultyRating": 58,
+      "weight": 0.9,
+      "generator": "decimal-chain",
+      "features": ["decimal", "carry", "borrow", "regrouping"],
+      "operations": ["add", "sub"],
+      "targetResponseMs": 19000,
+      "params": {
+        "termCount": { "min": 2, "max": 4 },
+        "integerDigits": { "min": 1, "max": 3 },
+        "decimalPlaces": { "min": 1, "max": 3 },
+        "minimumRegroupingCount": 1,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "root.perfect-cube",
+      "family": "roots",
+      "label": "Raiz cúbica perfeita",
+      "description": "O radicando é um cubo exato e a resposta permanece inteira.",
+      "examples": ["∛1728", "∛15625"],
+      "difficultyRating": 59,
+      "weight": 0.6,
+      "generator": "perfect-root",
+      "features": ["integer", "root", "cube-root", "perfect-root"],
+      "operations": ["root"],
+      "targetResponseMs": 17000,
+      "params": {
+        "degree": 3,
+        "root": { "min": 2, "max": 35 },
+        "buildRadicandFromRoot": true,
+        "exactArithmetic": true
+      }
+    },
+    {
+      "id": "percent.general",
+      "family": "percentages",
+      "label": "Porcentagem geral",
+      "description": "Percentuais não-âncora exigem decomposição ou produto e divisão por 100.",
+      "examples": ["17% de 340", "38% de 725"],
+      "difficultyRating": 61,
+      "weight": 0.85,
+      "generator": "percent-of",
+      "features": ["percentage", "non-anchor", "multi-step"],
+      "operations": ["percent", "mul", "div"],
+      "targetResponseMs": 20000,
+      "params": {
+        "percent": { "min": 3, "max": 97 },
+        "value": { "min": 20, "max": 10000 },
+        "excludePercentages": [5, 10, 20, 25, 50, 75, 90, 95],
+        "maximumAnswerScale": 2,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "power.small-general",
+      "family": "powers",
+      "label": "Potência inteira sem atalho",
+      "description": "Base e expoente pequenos, mas fora de quadrados e potências de 10 imediatamente reconhecíveis.",
+      "examples": ["7³", "13³", "6⁵"],
+      "difficultyRating": 63,
+      "weight": 0.65,
+      "generator": "integer-power",
+      "features": ["integer", "power", "repeated-multiplication", "no-shortcut"],
+      "operations": ["power", "mul"],
+      "targetResponseMs": 21000,
+      "params": {
+        "base": { "min": 3, "max": 15 },
+        "exponent": { "min": 3, "max": 6 },
+        "excludeBase": [10],
+        "maximumAnswerDigits": 8,
+        "exactArithmetic": true
+      }
+    },
+    {
+      "id": "decimal.multiply-integer",
+      "family": "decimals",
+      "label": "Decimal por inteiro",
+      "description": "Exige multiplicar como inteiro e recolocar a escala decimal corretamente.",
+      "examples": ["4,8 × 37", "13,75 × 24"],
+      "difficultyRating": 65,
+      "weight": 0.85,
+      "generator": "multiply-decimal",
+      "features": ["decimal", "multiplication", "scale-tracking"],
+      "operations": ["mul"],
+      "targetResponseMs": 21000,
+      "params": {
+        "decimalIntegerDigits": { "min": 1, "max": 3 },
+        "decimalPlaces": { "min": 1, "max": 3 },
+        "integerFactor": { "min": 12, "max": 99 },
+        "excludeEasyFactors": [20, 25, 50],
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "div.exact-dense",
+      "family": "division",
+      "label": "Divisão exata densa",
+      "description": "Divisor e quociente têm vários dígitos e não oferecem potência de 10 ou família curta.",
+      "examples": ["15129 ÷ 123", "408408 ÷ 312"],
+      "difficultyRating": 67,
+      "weight": 0.75,
+      "generator": "exact-division",
+      "features": ["integer", "exact-division", "dense", "multi-digit"],
+      "operations": ["div"],
+      "targetResponseMs": 25000,
+      "params": {
+        "divisor": { "min": 101, "max": 999 },
+        "quotient": { "min": 21, "max": 999 },
+        "buildDividendFromFactors": true,
+        "remainder": 0,
+        "excludeRoundDivisors": true
+      }
+    },
+    {
+      "id": "compound.percent-arithmetic",
+      "family": "composition",
+      "label": "Porcentagem dentro de soma e subtração",
+      "description": "A porcentagem produz um intermediário que precisa ser mantido durante outras operações.",
+      "examples": ["480 - 25% de 320 + 37", "15% de 840 + 93 - 48"],
+      "difficultyRating": 70,
+      "weight": 0.85,
+      "generator": "compound-expression",
+      "features": ["compound", "percentage", "mixed-precedence", "working-memory"],
+      "operations": ["add", "sub", "percent"],
+      "targetResponseMs": 25000,
+      "params": {
+        "termCount": { "min": 4, "max": 6 },
+        "requiredNode": "percent-of",
+        "percentPatternChoices": ["percent.anchor", "percent.complement", "percent.general"],
+        "standardPrecedence": true,
+        "maximumAnswerScale": 2,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "mixed.decimal-multiplication",
+      "family": "composition",
+      "label": "Mix decimal com multiplicação",
+      "description": "Combina soma e subtração decimal com produto prioritário e admite resultado negativo.",
+      "examples": ["13,7 + 5,8 - 4,8 × 37", "42,5 - 3,75 × 18 + 9,2"],
+      "difficultyRating": 73,
+      "weight": 0.85,
+      "generator": "compound-expression",
+      "features": ["decimal", "compound", "mixed-precedence", "multiplication", "negative-capable"],
+      "operations": ["add", "sub", "mul"],
+      "targetResponseMs": 28000,
+      "params": {
+        "termCount": { "min": 4, "max": 6 },
+        "decimalPlaces": { "min": 1, "max": 3 },
+        "requireDecimalMultiplication": true,
+        "minimumPrecedenceDepth": 1,
+        "allowNegativeAnswer": true,
+        "maximumAnswerScale": 3,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.power-root",
+      "family": "composition",
+      "label": "Composição com potência e raiz",
+      "description": "Potências e raízes exatas entram como blocos dentro de soma, subtração ou multiplicação.",
+      "examples": ["18² - √144 × 7 + 35", "∛1728 + 13² - 48"],
+      "difficultyRating": 76,
+      "weight": 0.75,
+      "generator": "compound-expression",
+      "features": ["integer", "compound", "power", "root", "mixed-precedence"],
+      "operations": ["add", "sub", "mul", "power", "root"],
+      "targetResponseMs": 28000,
+      "params": {
+        "termCount": { "min": 4, "max": 6 },
+        "requiredNodes": ["integer-power", "perfect-root"],
+        "standardPrecedence": true,
+        "exactArithmetic": true,
+        "maximumAnswerDigits": 8
+      }
+    },
+    {
+      "id": "chain.long-easy-atoms",
+      "family": "composition",
+      "label": "Cadeia longa de átomos fáceis",
+      "description": "Muitos passos fáceis isoladamente se tornam difíceis pela memória de trabalho e pelas trocas de operador.",
+      "examples": ["1200 ÷ 100 + 45 - 1 + 8 × 11 - 25% de 80"],
+      "difficultyRating": 78,
+      "weight": 0.8,
+      "generator": "compound-expression",
+      "features": ["compound", "long-chain", "easy-atoms", "mixed-precedence", "working-memory"],
+      "operations": ["add", "sub", "mul", "div", "percent"],
+      "targetResponseMs": 30000,
+      "params": {
+        "termCount": { "min": 6, "max": 9 },
+        "preferredAtomFeatures": ["anchor", "power-of-ten", "times-eleven", "exact-division"],
+        "minimumDistinctOperations": 4,
+        "standardPrecedence": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.hard-atoms",
+      "family": "composition",
+      "label": "Cadeia com átomos difíceis",
+      "description": "A mesma estrutura composta passa a usar carry, borrow, produto denso e divisão multi-dígito.",
+      "examples": ["6847 - 2958 + 47 × 83 - 15129 ÷ 123"],
+      "difficultyRating": 82,
+      "weight": 0.7,
+      "generator": "compound-expression",
+      "features": ["integer", "compound", "hard-atoms", "dense", "mixed-precedence"],
+      "operations": ["add", "sub", "mul", "div"],
+      "targetResponseMs": 34000,
+      "params": {
+        "termCount": { "min": 5, "max": 8 },
+        "requiredAtomFeatures": ["regrouping", "dense"],
+        "minimumDistinctOperations": 4,
+        "minimumPrecedenceDepth": 1,
+        "allowNegativeAnswer": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.decimal-percent",
+      "family": "composition",
+      "label": "Decimais e porcentagens compostas",
+      "description": "Escala decimal, porcentagem e precedência precisam ser mantidas simultaneamente.",
+      "examples": ["18,75 × 24 - 17% de 340 + 92,6 ÷ 4"],
+      "difficultyRating": 86,
+      "weight": 0.65,
+      "generator": "compound-expression",
+      "features": ["decimal", "percentage", "compound", "hard-atoms", "mixed-precedence"],
+      "operations": ["add", "sub", "mul", "div", "percent"],
+      "targetResponseMs": 36000,
+      "params": {
+        "termCount": { "min": 6, "max": 9 },
+        "requiredNodes": ["decimal", "percent-of"],
+        "minimumDistinctOperations": 4,
+        "maximumAnswerScale": 4,
+        "allowNegativeAnswer": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.dense-long",
+      "family": "composition",
+      "label": "Cadeia longa e densa",
+      "description": "Grandes operandos, produtos sem atalhos e divisões exatas aparecem numa expressão longa.",
+      "examples": ["12293 - 23209 + 1247 × 856 - 408408 ÷ 312 + 5837"],
+      "difficultyRating": 90,
+      "weight": 0.55,
+      "generator": "compound-expression",
+      "features": ["integer", "compound", "long-chain", "dense", "hard-atoms", "mixed-precedence"],
+      "operations": ["add", "sub", "mul", "div"],
+      "targetResponseMs": 40000,
+      "params": {
+        "termCount": { "min": 7, "max": 10 },
+        "integerDigits": { "min": 3, "max": 7 },
+        "minimumDenseMultiplications": 2,
+        "minimumExactDivisions": 1,
+        "minimumDistinctOperations": 4,
+        "allowNegativeAnswer": true,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.brutal",
+      "family": "composition",
+      "label": "Mix brutal",
+      "description": "Expressão muito longa com produtos densos, divisão, porcentagem e nenhum compromisso com cálculo mental confortável.",
+      "examples": ["12293 - 23209 + 1039203 × 25456 × 293203 ÷ 1232 + 40% de 875"],
+      "difficultyRating": 96,
+      "weight": 0.4,
+      "generator": "compound-expression",
+      "features": ["compound", "brutal", "long-chain", "dense", "percentage", "mixed-precedence"],
+      "operations": ["add", "sub", "mul", "div", "percent"],
+      "targetResponseMs": 45000,
+      "params": {
+        "termCount": { "min": 8, "max": 12 },
+        "integerDigits": { "min": 4, "max": 7 },
+        "minimumDenseMultiplications": 2,
+        "minimumExactDivisions": 1,
+        "requiredNode": "percent-of",
+        "minimumDistinctOperations": 5,
+        "allowNegativeAnswer": true,
+        "maximumAnswerDigits": 40,
+        "exactRationalArithmetic": true
+      }
+    },
+    {
+      "id": "compound.brutal-all-operations",
+      "family": "composition",
+      "label": "Mix brutal completo",
+      "description": "O topo da escala reúne todos os domínios, vários níveis de precedência e aritmética exata de alta magnitude.",
+      "examples": ["√8100 + 13,75 × 248 - 37% de 8600 + 17³ × 293 - 408408 ÷ 312"],
+      "difficultyRating": 100,
+      "weight": 0.3,
+      "generator": "compound-expression",
+      "features": ["compound", "brutal", "all-operations", "decimal", "percentage", "power", "root", "dense"],
+      "operations": ["add", "sub", "mul", "div", "percent", "power", "root"],
+      "targetResponseMs": 45000,
+      "params": {
+        "termCount": { "min": 9, "max": 14 },
+        "requiredNodes": ["decimal", "percent-of", "integer-power", "perfect-root", "exact-division"],
+        "minimumDistinctOperations": 6,
+        "minimumPrecedenceDepth": 2,
+        "allowNegativeAnswer": true,
+        "maximumAnswerScale": 5,
+        "maximumAnswerDigits": 60,
+        "exactRationalArithmetic": true
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "foundation",
+      "label": "Fundação e atalhos evidentes",
+      "operator": "OR",
+      "patternIds": [
+        "add.one-digit-no-carry",
+        "sub.large-minus-one",
+        "mul.identity-and-zero",
+        "mul.power-of-ten",
+        "add.multi-digit-no-carry",
+        "sub.multi-digit-no-borrow",
+        "add.bridge-ten",
+        "sub.cross-ten"
+      ]
+    },
+    {
+      "id": "regrouping",
+      "label": "Carry e empréstimo",
+      "operator": "OR",
+      "patternIds": [
+        "add.single-carry",
+        "sub.single-borrow",
+        "add.multiple-carry",
+        "sub.cascade-borrow"
+      ]
+    },
+    {
+      "id": "multiplication-strategies",
+      "label": "Multiplicações graduais",
+      "operator": "OR",
+      "patternIds": [
+        "mul.table-anchor",
+        "mul.by-eleven",
+        "mul.same-tens-complement",
+        "mul.roundable-factor",
+        "mul.general-two-digit"
+      ]
+    },
+    {
+      "id": "powers-and-roots",
+      "label": "Potências e raízes",
+      "operator": "OR",
+      "patternIds": [
+        "power.ten",
+        "power.square-anchor",
+        "root.perfect-square",
+        "root.perfect-cube",
+        "power.small-general"
+      ]
+    },
+    {
+      "id": "clean-compositions",
+      "label": "Composições de soma e subtração",
+      "operator": "OR",
+      "patternIds": [
+        "chain.add-sub-clean",
+        "chain.add-sub-regroup"
+      ]
+    },
+    {
+      "id": "division",
+      "label": "Divisões exatas",
+      "operator": "OR",
+      "patternIds": [
+        "div.fact-family",
+        "div.exact-large",
+        "div.exact-dense"
+      ]
+    },
+    {
+      "id": "mixed-precedence",
+      "label": "Soma, subtração e multiplicação",
+      "operator": "OR",
+      "patternIds": [
+        "mixed.easy-multipliers",
+        "mixed.general-multiplication"
+      ]
+    },
+    {
+      "id": "decimals",
+      "label": "Decimais graduais",
+      "operator": "OR",
+      "patternIds": [
+        "decimal.canceling-chain",
+        "decimal.add-sub-aligned",
+        "decimal.add-sub-regroup",
+        "decimal.multiply-integer"
+      ]
+    },
+    {
+      "id": "percentages",
+      "label": "Porcentagens graduais",
+      "operator": "OR",
+      "patternIds": [
+        "percent.anchor",
+        "percent.complement",
+        "percent.general"
+      ]
+    },
+    {
+      "id": "advanced-compositions",
+      "label": "Composições avançadas",
+      "operator": "OR",
+      "patternIds": [
+        "compound.percent-arithmetic",
+        "mixed.decimal-multiplication",
+        "compound.power-root",
+        "chain.long-easy-atoms"
+      ]
+    },
+    {
+      "id": "extreme-compositions",
+      "label": "Composições com átomos difíceis",
+      "operator": "OR",
+      "patternIds": [
+        "compound.hard-atoms",
+        "compound.decimal-percent"
+      ]
+    },
+    {
+      "id": "brutal-compositions",
+      "label": "Mix brutal",
+      "operator": "OR",
+      "patternIds": [
+        "compound.dense-long",
+        "compound.brutal",
+        "compound.brutal-all-operations"
+      ]
+    }
+  ],
+  "progression": [
+    { "minRating": 1, "groupIds": ["foundation"] },
+    { "minRating": 15, "groupIds": ["regrouping"] },
+    { "minRating": 18, "groupIds": ["multiplication-strategies"] },
+    { "minRating": 20, "groupIds": ["powers-and-roots"] },
+    { "minRating": 25, "groupIds": ["clean-compositions"] },
+    { "minRating": 32, "groupIds": ["division"] },
+    { "minRating": 39, "groupIds": ["mixed-precedence"] },
+    { "minRating": 42, "groupIds": ["decimals"] },
+    { "minRating": 44, "groupIds": ["percentages"] },
+    { "minRating": 70, "groupIds": ["advanced-compositions"] },
+    { "minRating": 82, "groupIds": ["extreme-compositions"] },
+    { "minRating": 90, "groupIds": ["brutal-compositions"] }
+  ]
+}

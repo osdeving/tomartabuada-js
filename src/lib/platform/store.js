@@ -1,8 +1,10 @@
 import { createDefaultAppState as createLegacyState } from "../academy/storage";
 import { PRACTICE_SECTION_IDS } from "../academy/content";
+import { DEFAULT_AUDIO_SETTINGS, normalizePlatformSettings } from "./platformSettings.js";
+import { normalizeTrainingResume } from "./trainingResume.js";
 
 export const PLATFORM_STORAGE_KEY = "tomar-tabuada.platform.v2";
-export const PLATFORM_SCHEMA_VERSION = 2;
+export const PLATFORM_SCHEMA_VERSION = 3;
 const LEGACY_STORAGE_KEY = "tomar-tabuada.mental-math.v1";
 const MAX_ATTEMPTS = 2_000;
 const MAX_SESSIONS = 120;
@@ -16,7 +18,7 @@ export function createPlatformState(now = Date.now()) {
     updatedAt: now,
     settings: {
       theme: "neon",
-      sound: true,
+      ...DEFAULT_AUDIO_SETTINGS,
       haptics: true,
       reducedMotion: false,
       questionCount: 15,
@@ -37,6 +39,7 @@ export function createPlatformState(now = Date.now()) {
     },
     selectedGroupId: "misto",
     selectedModeId: "sparring",
+    trainingResume: null,
     sectionStats: legacy.stats,
     factProfiles: {},
     attempts: [],
@@ -75,6 +78,7 @@ export function savePlatformState(state) {
 
 export function normalizePlatformState(raw) {
   const defaults = createPlatformState(Number(raw?.createdAt) || Date.now());
+  const rawSettings = isObject(raw?.settings) ? raw.settings : {};
   const attempts = Array.isArray(raw?.attempts)
     ? raw.attempts.filter(isObject).slice(0, MAX_ATTEMPTS)
     : [];
@@ -86,13 +90,14 @@ export function normalizePlatformState(raw) {
     ...defaults,
     ...raw,
     schemaVersion: PLATFORM_SCHEMA_VERSION,
-    settings: { ...defaults.settings, ...(isObject(raw?.settings) ? raw.settings : {}) },
+    settings: normalizePlatformSettings(rawSettings, defaults.settings),
     profile: { ...defaults.profile, ...(isObject(raw?.profile) ? raw.profile : {}) },
     sectionStats: normalizeSectionStats(raw?.sectionStats, defaults.sectionStats),
     factProfiles: isObject(raw?.factProfiles) ? raw.factProfiles : {},
     attempts,
     sessions,
     campaign: isObject(raw?.campaign) ? raw.campaign : {},
+    trainingResume: normalizeTrainingResume(raw?.trainingResume),
     records: {
       ...defaults.records,
       ...(isObject(raw?.records) ? raw.records : {}),
@@ -245,8 +250,12 @@ function migrateLegacyState() {
 }
 
 function normalizeSectionStats(rawStats, defaults) {
+  const sectionIds = [...new Set([
+    ...PRACTICE_SECTION_IDS,
+    ...Object.keys(isObject(rawStats) ? rawStats : {}),
+  ])];
   return Object.fromEntries(
-    PRACTICE_SECTION_IDS.map((sectionId) => {
+    sectionIds.map((sectionId) => {
       const raw = isObject(rawStats?.[sectionId]) ? rawStats[sectionId] : {};
       return [
         sectionId,

@@ -3267,6 +3267,14 @@ kbd {
   line-height: 1;
 }
 
+.session-question__math.is-long {
+  font-size: clamp(1.65rem, 7.5vw, 4.4rem);
+}
+
+.session-question__math.is-dense {
+  font-size: clamp(1.1rem, 4.8vw, 2.8rem);
+}
+
 .session-question__math .katex-display {
   overflow-x: auto;
   overflow-y: hidden;
@@ -3296,6 +3304,14 @@ kbd {
   font: 700 clamp(2.15rem, 9vw, 4.8rem)/1 "Space Grotesk", sans-serif;
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.04em;
+}
+
+.session-answer.is-long > span {
+  font-size: clamp(1.55rem, 6.5vw, 3.5rem);
+}
+
+.session-answer.is-dense > span {
+  font-size: clamp(1.05rem, 4.5vw, 2.4rem);
 }
 
 .session-answer.has-value {
@@ -3490,6 +3506,16 @@ kbd {
   font-size: 0.76rem;
 }
 
+.session-key--submit {
+  grid-column: span 2;
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
+  color: white;
+  background: var(--accent-strong);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .pause-overlay {
   position: fixed;
   inset: 0;
@@ -3534,6 +3560,45 @@ kbd {
   margin: 12px 0 23px;
   color: var(--muted);
   line-height: 1.5;
+}
+
+.pause-audio-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+  margin: 0 0 20px;
+}
+
+.pause-audio-controls button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1px 8px;
+  align-items: center;
+  min-height: 54px;
+  padding: 9px 12px;
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  color: var(--text);
+  text-align: left;
+  background: var(--surface-soft);
+}
+
+.pause-audio-controls button[aria-pressed="true"] {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  background: var(--accent-soft);
+}
+
+.pause-audio-controls button span {
+  grid-row: 1 / 3;
+  color: var(--accent-strong);
+  font-size: 1.1rem;
+}
+
+.pause-audio-controls button strong {
+  color: var(--muted);
+  font-size: 0.68rem;
+  text-transform: uppercase;
 }
 
 .pause-card .button + .button {
